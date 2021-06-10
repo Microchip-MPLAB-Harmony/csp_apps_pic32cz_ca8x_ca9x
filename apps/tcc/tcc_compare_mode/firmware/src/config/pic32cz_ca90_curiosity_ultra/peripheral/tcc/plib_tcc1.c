@@ -1,0 +1,161 @@
+/*******************************************************************************
+  Timer/Counter(TCC1) PLIB
+
+  Company
+    Microchip Technology Inc.
+
+  File Name
+    plib_tcc1.c
+
+  Summary
+    TCC1 PLIB Implementation File.
+
+  Description
+    This file defines the interface to the TCC peripheral library. This
+    library provides access to and control of the associated peripheral
+    instance.
+
+  Remarks:
+    None.
+
+*******************************************************************************/
+
+// DOM-IGNORE-BEGIN
+/*******************************************************************************
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+*******************************************************************************/
+// DOM-IGNORE-END
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Included Files
+// *****************************************************************************
+// *****************************************************************************
+/* This section lists the other files that are included in this file.
+*/
+
+#include "interrupts.h"
+#include "plib_tcc1.h"
+
+
+
+
+
+
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Global Data
+// *****************************************************************************
+// *****************************************************************************
+
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: TCC1 Implementation
+// *****************************************************************************
+// *****************************************************************************
+
+/* Initialize TCC module in Compare Mode */
+void TCC1_CompareInitialize( void )
+{
+    /* Reset TCC */
+    TCC1_REGS->TCC_CTRLA = TCC_CTRLA_SWRST_Msk;
+
+    while((TCC1_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_SWRST_Msk) == TCC_SYNCBUSY_SWRST_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+
+    /* Configure counter mode & prescaler */
+    TCC1_REGS->TCC_CTRLA = TCC_CTRLA_PRESCALER_DIV1024 | TCC_CTRLA_PRESCSYNC_PRESC ;
+    /* Configure waveform generation mode */
+    TCC1_REGS->TCC_WAVE = TCC_WAVE_WAVEGEN_MFRQ;
+
+    TCC1_REGS->TCC_WEXCTRL = TCC_WEXCTRL_OTMX(0UL);
+
+
+    
+    TCC1_REGS->TCC_PER = 12500U;
+    
+    TCC1_REGS->TCC_CC[0] = 2500U;
+    TCC1_REGS->TCC_CC[1] = 24U;
+    TCC1_REGS->TCC_CC[2] = 24U;
+    TCC1_REGS->TCC_CC[3] = 24U;
+    TCC1_REGS->TCC_CC[4] = 24U;
+    TCC1_REGS->TCC_CC[5] = 24U;
+    TCC1_REGS->TCC_CC[6] = 24U;
+    TCC1_REGS->TCC_CC[7] = 24U;
+
+    /* Clear all interrupt flags */
+    TCC1_REGS->TCC_INTFLAG = TCC_INTFLAG_Msk;
+
+
+    while((TCC1_REGS->TCC_SYNCBUSY) != 0U)
+    {
+        /* Wait for Write Synchronization */
+    }
+}
+
+/* Enable the counter */
+void TCC1_CompareStart( void )
+{
+    TCC1_REGS->TCC_CTRLA |= TCC_CTRLA_ENABLE_Msk;
+    while((TCC1_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_ENABLE_Msk) == TCC_SYNCBUSY_ENABLE_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+}
+
+/* Disable the counter */
+void TCC1_CompareStop( void )
+{
+    TCC1_REGS->TCC_CTRLA &= ~TCC_CTRLA_ENABLE_Msk;
+    while((TCC1_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_ENABLE_Msk) == TCC_SYNCBUSY_ENABLE_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+}
+
+uint32_t TCC1_CompareFrequencyGet( void )
+{
+    return (uint32_t)146484;
+}
+
+void TCC1_CompareCommandSet(TCC_COMMAND command)
+{
+    TCC1_REGS->TCC_CTRLBSET = (uint8_t)((uint32_t)command << TCC_CTRLBSET_CMD_Pos);
+    while((TCC1_REGS->TCC_SYNCBUSY) != 0U)
+    {
+        /* Wait for Write Synchronization */
+    }    
+}
+
+
+
+uint32_t TCC1_CompareStatusGet( void )
+{
+    uint32_t compare_status;
+    compare_status = ((TCC1_REGS->TCC_INTFLAG));
+    TCC1_REGS->TCC_INTFLAG = compare_status;
+    return compare_status;
+}
