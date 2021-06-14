@@ -6,20 +6,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 9D5EE038B893127B787BC03DFA6B467F
-- generatedChecksum: 0C3FA69D1A66F938D7D195DADB4FED16
+- generatedChecksum: D6AB724F0108CAF9BD82AE3CAA496B34
   logicalPath: config/pic32cz_ca90_curiosity_ultra
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 0C3FA69D1A66F938D7D195DADB4FED16
-- generatedChecksum: 4C2833B24DF13CDA9B9E121BB661444A
+  userChecksum: D6AB724F0108CAF9BD82AE3CAA496B34
+- generatedChecksum: C9E5DAA2104F1FE81D7ACACEE4A5D773
   logicalPath: config/pic32cz_ca90_curiosity_ultra
   name: interrupts.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 4C2833B24DF13CDA9B9E121BB661444A
+  userChecksum: C9E5DAA2104F1FE81D7ACACEE4A5D773
 - generatedChecksum: 6513F2461B8F476B68CA73906086047F
   logicalPath: config/pic32cz_ca90_curiosity_ultra
   name: libc_syscalls.c
@@ -41,6 +41,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1E6187854C13597FA89E8148A5CD14F3
+- generatedChecksum: 28665F3FC0B611BC57FB17F3205EC503
+  logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/fcr
+  name: plib_fcr.c
+  physicalPath: peripheral/fcr
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 28665F3FC0B611BC57FB17F3205EC503
 - generatedChecksum: A6685073CABE26831D4EFC17A1782584
   logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/freqm
   name: plib_freqm.c
@@ -48,13 +55,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: A6685073CABE26831D4EFC17A1782584
-- generatedChecksum: BE0902BCE0FF3C3B8690BAD9F248F03F
+- generatedChecksum: 1861174E818EA432894649A0479AE833
   logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/nvic
   name: plib_nvic.c
   physicalPath: peripheral/nvic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: BE0902BCE0FF3C3B8690BAD9F248F03F
+  userChecksum: 1861174E818EA432894649A0479AE833
 - generatedChecksum: 778AAF6C414BA0B8F97512E7305AEC26
   logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/port
   name: plib_port.c
@@ -62,6 +69,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 778AAF6C414BA0B8F97512E7305AEC26
+- generatedChecksum: E503093C327E93FBD26DBE48B516CA86
+  logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/rtc
+  name: plib_rtc_timer.c
+  physicalPath: peripheral/rtc
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: E503093C327E93FBD26DBE48B516CA86
 - generatedChecksum: 12EF88FAEAA9A360F880A34AF41E758C
   logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/sercom/usart
   name: plib_sercom5_usart.c
@@ -223,13 +237,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 8DA90CDFAED934C14DB1E81B104CEE2F
-- generatedChecksum: FC509A115C87FEEA797B49677940D691
+- generatedChecksum: 060B30A048D12B850A94653F19E0F0B5
   logicalPath: config/pic32cz_ca90_curiosity_ultra
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: FC509A115C87FEEA797B49677940D691
+  userChecksum: 060B30A048D12B850A94653F19E0F0B5
 - generatedChecksum: CC83557FDD76432B77EC9F2DAD57410F
   logicalPath: config/pic32cz_ca90_curiosity_ultra
   name: device.h
@@ -419,13 +433,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: E8C46706B4912FD96CD8FDD562AA180A
-- generatedChecksum: 3B7F8D182A18646476A06D561966F35F
+- generatedChecksum: 6C1DE8A7B6CB4616F86BF4565D2446CB
   logicalPath: config/pic32cz_ca90_curiosity_ultra
   name: interrupts.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 3B7F8D182A18646476A06D561966F35F
+  userChecksum: 6C1DE8A7B6CB4616F86BF4565D2446CB
 - generatedChecksum: E0368A08C76F66E479125BAC13AB55E7
   logicalPath: packs/PIC32CZ8110CA90208_DFP/component
   name: mclk.h
@@ -538,6 +552,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 71BE314B4BBDB3EC01BB54BC6BD6BF23
+- generatedChecksum: 3F11C1B424AEA3A7EA9373CE034596CE
+  logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/fcr
+  name: plib_fcr.h
+  physicalPath: peripheral/fcr
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 3F11C1B424AEA3A7EA9373CE034596CE
 - generatedChecksum: AB616AF7C2BF211294C52E71832700C4
   logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/freqm
   name: plib_freqm.h
@@ -559,6 +580,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: DE304B0C4B3B24F7B646C24F97F33928
+- generatedChecksum: 6D51E14AA394D52F554D59D24B3136E4
+  logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/rtc
+  name: plib_rtc.h
+  physicalPath: peripheral/rtc
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 6D51E14AA394D52F554D59D24B3136E4
 - generatedChecksum: 50E4F02F3767097B441D2DD6A0CADBEE
   logicalPath: config/pic32cz_ca90_curiosity_ultra/peripheral/sercom/usart
   name: plib_sercom5_usart.h

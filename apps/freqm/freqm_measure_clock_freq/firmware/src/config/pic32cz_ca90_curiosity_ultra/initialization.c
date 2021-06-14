@@ -139,7 +139,11 @@ void SYS_Initialize ( void* data )
 
     SERCOM5_USART_Initialize();
 
+    RTC_Initialize();
+
     FREQM_Initialize();
+
+    FCR_Initialize();
 
 
 
