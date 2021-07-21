@@ -139,6 +139,8 @@ void SYS_Initialize ( void* data )
 
     CAN3_Initialize();
 
+    EVSYS_Initialize();
+
     SERCOM5_USART_Initialize();
 
 

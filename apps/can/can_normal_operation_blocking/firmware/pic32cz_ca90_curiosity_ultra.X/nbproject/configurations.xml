@@ -16,6 +16,9 @@
             <logicalFolder name="f3" displayName="clock" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/clock/plib_clock.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f7" displayName="evsys" projectFiles="true">
+              <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/evsys/plib_evsys.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f5" displayName="mpu" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/mpu/plib_mpu.h</itemPath>
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/mpu/plib_mpu_local.h</itemPath>
@@ -194,6 +197,9 @@
             <logicalFolder name="f3" displayName="clock" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/clock/plib_clock.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="f7" displayName="evsys" projectFiles="true">
+              <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/evsys/plib_evsys.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="f5" displayName="mpu" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/mpu/plib_mpu.c</itemPath>
             </logicalFolder>
@@ -231,6 +237,7 @@
         <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/cmsis.yml</itemPath>
         <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/core.yml</itemPath>
         <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/dfp.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/evsys.yml</itemPath>
         <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/GraphSettings.yml</itemPath>
         <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/project.yml</itemPath>
         <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/sercom5.yml</itemPath>
