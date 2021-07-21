@@ -21,7 +21,7 @@
 *******************************************************************************/
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2021 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -95,16 +95,15 @@
 // Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
-void CAN3_Initialize (void);
-bool CAN3_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MODE mode, CAN_MSG_TX_ATTRIBUTE msgAttr);
-bool CAN3_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t *timestamp,
-                                         CAN_MSG_RX_ATTRIBUTE msgAttr, CAN_MSG_RX_FRAME_ATTRIBUTE *msgFrameAttr);
-bool CAN3_TransmitEventFIFOElementGet(uint32_t *id, uint8_t *messageMarker, uint16_t *timestamp);
+void CAN3_Initialize(void);
+bool CAN3_MessageTransmitFifo(uint8_t numberOfMessage, CAN_TX_BUFFER *txBuffer);
+uint8_t CAN3_TxFifoFreeLevelGet(void);
+bool CAN3_TxBufferIsBusy(uint8_t bufferNumber);
+bool CAN3_TxEventFifoRead(uint8_t numberOfTxEvent, CAN_TX_EVENT_FIFO *txEventFifo);
+bool CAN3_MessageReceive(uint8_t bufferNumber, CAN_RX_BUFFER *rxBuffer);
+bool CAN3_MessageReceiveFifo(CAN_RX_FIFO_NUM rxFifoNum, uint8_t numberOfMessage, CAN_RX_BUFFER *rxBuffer);
 CAN_ERROR CAN3_ErrorGet(void);
 void CAN3_ErrorCountGet(uint8_t *txErrorCount, uint8_t *rxErrorCount);
-bool CAN3_InterruptGet(CAN_INTERRUPT_MASK interruptMask);
-void CAN3_InterruptClear(CAN_INTERRUPT_MASK interruptMask);
-bool CAN3_TxFIFOIsFull(void);
 void CAN3_MessageRAMConfigSet(uint8_t *msgRAMConfigBaseAddress);
 bool CAN3_StandardFilterElementSet(uint8_t filterNumber, can_sidfe_registers_t *stdMsgIDFilterElement);
 bool CAN3_StandardFilterElementGet(uint8_t filterNumber, can_sidfe_registers_t *stdMsgIDFilterElement);
@@ -112,8 +111,10 @@ bool CAN3_ExtendedFilterElementSet(uint8_t filterNumber, can_xidfe_registers_t *
 bool CAN3_ExtendedFilterElementGet(uint8_t filterNumber, can_xidfe_registers_t *extMsgIDFilterElement);
 void CAN3_SleepModeEnter(void);
 void CAN3_SleepModeExit(void);
-void CAN3_TxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle);
-void CAN3_RxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, CAN_MSG_RX_ATTRIBUTE msgAttr);
+void CAN3_TxFifoCallbackRegister(CAN_TX_FIFO_CALLBACK callback, uintptr_t contextHandle);
+void CAN3_TxEventFifoCallbackRegister(CAN_TX_EVENT_FIFO_CALLBACK callback, uintptr_t contextHandle);
+void CAN3_RxBuffersCallbackRegister(CAN_TXRX_BUFFERS_CALLBACK callback, uintptr_t contextHandle);
+void CAN3_RxFifoCallbackRegister(CAN_RX_FIFO_NUM rxFifoNum, CAN_RX_FIFO_CALLBACK callback, uintptr_t contextHandle);
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
     }
