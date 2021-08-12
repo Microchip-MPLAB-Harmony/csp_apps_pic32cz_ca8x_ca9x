@@ -1,5 +1,5 @@
-/**
- * \brief Component description for OSCCTRL
+/*
+ * Component description for OSCCTRL
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_OSCCTRL_COMPONENT_H_
 #define _PIC32CZCA90_OSCCTRL_COMPONENT_H_
 
@@ -645,15 +645,15 @@
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_KICKEREN_Msk (_U_(0x1) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_KICKEREN_Pos) /**< (OSCCTRL_XOSCCAL) Kicker enable Mask */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_KICKEREN(value) (OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_KICKEREN_Msk & ((value) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_KICKEREN_Pos))
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_ENVAMP_Pos _U_(3)                                               /**< (OSCCTRL_XOSCCAL) envelope amplitude at osci Position */
-#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_ENVAMP_Msk (_U_(0x1) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_ENVAMP_Pos) /**< (OSCCTRL_XOSCCAL) envelope amplitude at osci Mask */
+#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_ENVAMP_Msk (_U_(0x3) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_ENVAMP_Pos) /**< (OSCCTRL_XOSCCAL) envelope amplitude at osci Mask */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_ENVAMP(value) (OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_ENVAMP_Msk & ((value) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_ENVAMP_Pos))
-#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_HYST_Pos _U_(4)                                               /**< (OSCCTRL_XOSCCAL) loop hysteresis control Position */
+#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_HYST_Pos _U_(5)                                               /**< (OSCCTRL_XOSCCAL) loop hysteresis control Position */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_HYST_Msk (_U_(0x1) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_HYST_Pos) /**< (OSCCTRL_XOSCCAL) loop hysteresis control Mask */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_HYST(value) (OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_HYST_Msk & ((value) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_HYST_Pos))
-#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_CMSEL_Pos _U_(5)                                               /**< (OSCCTRL_XOSCCAL) clock buffer common mode selection Position */
+#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_CMSEL_Pos _U_(6)                                               /**< (OSCCTRL_XOSCCAL) clock buffer common mode selection Position */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_CMSEL_Msk (_U_(0x1) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_CMSEL_Pos) /**< (OSCCTRL_XOSCCAL) clock buffer common mode selection Mask */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_CMSEL(value) (OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_CMSEL_Msk & ((value) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_CMSEL_Pos))
-#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_FLIPPOL_Pos _U_(6)                                               /**< (OSCCTRL_XOSCCAL) flip output clock polarity Position */
+#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_FLIPPOL_Pos _U_(7)                                               /**< (OSCCTRL_XOSCCAL) flip output clock polarity Position */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_FLIPPOL_Msk (_U_(0x1) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_FLIPPOL_Pos) /**< (OSCCTRL_XOSCCAL) flip output clock polarity Mask */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_FLIPPOL(value) (OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_FLIPPOL_Msk & ((value) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_FLIPPOL_Pos))
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_REDGAIN_Pos _U_(8)                                               /**< (OSCCTRL_XOSCCAL) reduce gain control timer Position */
@@ -665,7 +665,7 @@
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_SPARES_Pos _U_(10)                                              /**< (OSCCTRL_XOSCCAL) Spare bits Position */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_SPARES_Msk (_U_(0x3F) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_SPARES_Pos) /**< (OSCCTRL_XOSCCAL) Spare bits Mask */
 #define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_SPARES(value) (OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_SPARES_Msk & ((value) << OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_SPARES_Pos))
-#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_Msk _U_(0x0000FF7F)                                       /**< (OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2) Register Mask  */
+#define OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2_Msk _U_(0x0000FFFF)                                       /**< (OSCCTRL_XOSCCAL_FUSES_OSC_XTAL_HF_AGC_V2) Register Mask  */
 
 
 /* -------- OSCCTRL_RC48MCAL0 : (OSCCTRL Offset: 0x88) (R/W 32) RC48M Calibration 0 -------- */
