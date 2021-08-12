@@ -1,5 +1,5 @@
-/**
- * \brief Component description for DRMTCM
+/*
+ * Component description for DRMTCM
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_DRMTCM_COMPONENT_H_
 #define _PIC32CZCA90_DRMTCM_COMPONENT_H_
 
@@ -206,33 +206,33 @@
 #define DRMTCM_IFLTPTR_RESETVALUE             _U_(0x00)                                            /**<  (DRMTCM_IFLTPTR) ITCM FAULT INJECTION POINTER REGISTER  Reset Value */
 
 #define DRMTCM_IFLTPTR_FLT1PTR_Pos            _U_(0)                                               /**< (DRMTCM_IFLTPTR) ECC Fault injection Bit position pointer (for single bit error). Position */
-#define DRMTCM_IFLTPTR_FLT1PTR_Msk            (_U_(0x3F) << DRMTCM_IFLTPTR_FLT1PTR_Pos)            /**< (DRMTCM_IFLTPTR) ECC Fault injection Bit position pointer (for single bit error). Mask */
+#define DRMTCM_IFLTPTR_FLT1PTR_Msk            (_U_(0x7F) << DRMTCM_IFLTPTR_FLT1PTR_Pos)            /**< (DRMTCM_IFLTPTR) ECC Fault injection Bit position pointer (for single bit error). Mask */
 #define DRMTCM_IFLTPTR_FLT1PTR(value)         (DRMTCM_IFLTPTR_FLT1PTR_Msk & ((value) << DRMTCM_IFLTPTR_FLT1PTR_Pos))
 #define DRMTCM_IFLTPTR_FLT2PTR_Pos            _U_(16)                                              /**< (DRMTCM_IFLTPTR) ECC Fault injection Bit position pointer (for double bit error). Position */
-#define DRMTCM_IFLTPTR_FLT2PTR_Msk            (_U_(0x3F) << DRMTCM_IFLTPTR_FLT2PTR_Pos)            /**< (DRMTCM_IFLTPTR) ECC Fault injection Bit position pointer (for double bit error). Mask */
+#define DRMTCM_IFLTPTR_FLT2PTR_Msk            (_U_(0x7F) << DRMTCM_IFLTPTR_FLT2PTR_Pos)            /**< (DRMTCM_IFLTPTR) ECC Fault injection Bit position pointer (for double bit error). Mask */
 #define DRMTCM_IFLTPTR_FLT2PTR(value)         (DRMTCM_IFLTPTR_FLT2PTR_Msk & ((value) << DRMTCM_IFLTPTR_FLT2PTR_Pos))
-#define DRMTCM_IFLTPTR_Msk                    _U_(0x003F003F)                                      /**< (DRMTCM_IFLTPTR) Register Mask  */
+#define DRMTCM_IFLTPTR_Msk                    _U_(0x007F007F)                                      /**< (DRMTCM_IFLTPTR) Register Mask  */
 
 
 /* -------- DRMTCM_IFLTADR : (DRMTCM Offset: 0x20) (R/W 32) ITCM FAULT INJECTION ADDRESS REGISTER -------- */
 #define DRMTCM_IFLTADR_RESETVALUE             _U_(0x00)                                            /**<  (DRMTCM_IFLTADR) ITCM FAULT INJECTION ADDRESS REGISTER  Reset Value */
 
 #define DRMTCM_IFLTADR_IFLTADR_Pos            _U_(0)                                               /**< (DRMTCM_IFLTADR) Instruction ITCM ECC Fault Injection, Address Match Com-pare bits. Position */
-#define DRMTCM_IFLTADR_IFLTADR_Msk            (_U_(0xFFFF) << DRMTCM_IFLTADR_IFLTADR_Pos)          /**< (DRMTCM_IFLTADR) Instruction ITCM ECC Fault Injection, Address Match Com-pare bits. Mask */
+#define DRMTCM_IFLTADR_IFLTADR_Msk            (_U_(0x1FFFF) << DRMTCM_IFLTADR_IFLTADR_Pos)         /**< (DRMTCM_IFLTADR) Instruction ITCM ECC Fault Injection, Address Match Com-pare bits. Mask */
 #define DRMTCM_IFLTADR_IFLTADR(value)         (DRMTCM_IFLTADR_IFLTADR_Msk & ((value) << DRMTCM_IFLTADR_IFLTADR_Pos))
-#define DRMTCM_IFLTADR_Msk                    _U_(0x0000FFFF)                                      /**< (DRMTCM_IFLTADR) Register Mask  */
+#define DRMTCM_IFLTADR_Msk                    _U_(0x0001FFFF)                                      /**< (DRMTCM_IFLTADR) Register Mask  */
 
 
 /* -------- DRMTCM_IFLTCAP : (DRMTCM Offset: 0x24) ( R/ 32) ITCM FAULT ERROR CAPTURE ADDRESS REGISTER -------- */
 #define DRMTCM_IFLTCAP_RESETVALUE             _U_(0x00)                                            /**<  (DRMTCM_IFLTCAP) ITCM FAULT ERROR CAPTURE ADDRESS REGISTER  Reset Value */
 
 #define DRMTCM_IFLTCAP_FLTADR_Pos             _U_(0)                                               /**< (DRMTCM_IFLTCAP) Instruction TCM ECC Fault Address bits which caused the ECC Error. Position */
-#define DRMTCM_IFLTCAP_FLTADR_Msk             (_U_(0xFFFF) << DRMTCM_IFLTCAP_FLTADR_Pos)           /**< (DRMTCM_IFLTCAP) Instruction TCM ECC Fault Address bits which caused the ECC Error. Mask */
+#define DRMTCM_IFLTCAP_FLTADR_Msk             (_U_(0x1FFFF) << DRMTCM_IFLTCAP_FLTADR_Pos)          /**< (DRMTCM_IFLTCAP) Instruction TCM ECC Fault Address bits which caused the ECC Error. Mask */
 #define DRMTCM_IFLTCAP_FLTADR(value)          (DRMTCM_IFLTCAP_FLTADR_Msk & ((value) << DRMTCM_IFLTCAP_FLTADR_Pos))
 #define DRMTCM_IFLTCAP_ITCMMASTER_Pos         _U_(28)                                              /**< (DRMTCM_IFLTCAP) Master ID of the requester of the current Error access. Position */
 #define DRMTCM_IFLTCAP_ITCMMASTER_Msk         (_U_(0xF) << DRMTCM_IFLTCAP_ITCMMASTER_Pos)          /**< (DRMTCM_IFLTCAP) Master ID of the requester of the current Error access. Mask */
 #define DRMTCM_IFLTCAP_ITCMMASTER(value)      (DRMTCM_IFLTCAP_ITCMMASTER_Msk & ((value) << DRMTCM_IFLTCAP_ITCMMASTER_Pos))
-#define DRMTCM_IFLTCAP_Msk                    _U_(0xF000FFFF)                                      /**< (DRMTCM_IFLTCAP) Register Mask  */
+#define DRMTCM_IFLTCAP_Msk                    _U_(0xF001FFFF)                                      /**< (DRMTCM_IFLTCAP) Register Mask  */
 
 
 /* -------- DRMTCM_IFLTPAR : (DRMTCM Offset: 0x28) ( R/ 32) ITCM FAULT PARITY REGISTER -------- */
@@ -266,36 +266,36 @@
 #define DRMTCM_DFLTPTR_RESETVALUE             _U_(0x00)                                            /**<  (DRMTCM_DFLTPTR) DTCM FAULT INJECTION POINTER REGISTER  Reset Value */
 
 #define DRMTCM_DFLTPTR_FLT1PTR_Pos            _U_(0)                                               /**< (DRMTCM_DFLTPTR) ECC Fault injection Bit position pointer (for single bit error). Position */
-#define DRMTCM_DFLTPTR_FLT1PTR_Msk            (_U_(0x1F) << DRMTCM_DFLTPTR_FLT1PTR_Pos)            /**< (DRMTCM_DFLTPTR) ECC Fault injection Bit position pointer (for single bit error). Mask */
+#define DRMTCM_DFLTPTR_FLT1PTR_Msk            (_U_(0x3F) << DRMTCM_DFLTPTR_FLT1PTR_Pos)            /**< (DRMTCM_DFLTPTR) ECC Fault injection Bit position pointer (for single bit error). Mask */
 #define DRMTCM_DFLTPTR_FLT1PTR(value)         (DRMTCM_DFLTPTR_FLT1PTR_Msk & ((value) << DRMTCM_DFLTPTR_FLT1PTR_Pos))
 #define DRMTCM_DFLTPTR_FLT2PTR_Pos            _U_(16)                                              /**< (DRMTCM_DFLTPTR) ECC Fault injection Bit position pointer (for double bit error). Position */
-#define DRMTCM_DFLTPTR_FLT2PTR_Msk            (_U_(0x1F) << DRMTCM_DFLTPTR_FLT2PTR_Pos)            /**< (DRMTCM_DFLTPTR) ECC Fault injection Bit position pointer (for double bit error). Mask */
+#define DRMTCM_DFLTPTR_FLT2PTR_Msk            (_U_(0x3F) << DRMTCM_DFLTPTR_FLT2PTR_Pos)            /**< (DRMTCM_DFLTPTR) ECC Fault injection Bit position pointer (for double bit error). Mask */
 #define DRMTCM_DFLTPTR_FLT2PTR(value)         (DRMTCM_DFLTPTR_FLT2PTR_Msk & ((value) << DRMTCM_DFLTPTR_FLT2PTR_Pos))
-#define DRMTCM_DFLTPTR_Msk                    _U_(0x001F001F)                                      /**< (DRMTCM_DFLTPTR) Register Mask  */
+#define DRMTCM_DFLTPTR_Msk                    _U_(0x003F003F)                                      /**< (DRMTCM_DFLTPTR) Register Mask  */
 
 
 /* -------- DRMTCM_DFLTADR : (DRMTCM Offset: 0x34) (R/W 32) DTCM FAULT INJECTION ADDRESS REGISTER -------- */
 #define DRMTCM_DFLTADR_RESETVALUE             _U_(0x00)                                            /**<  (DRMTCM_DFLTADR) DTCM FAULT INJECTION ADDRESS REGISTER  Reset Value */
 
 #define DRMTCM_DFLTADR_FLTADR_Pos             _U_(0)                                               /**< (DRMTCM_DFLTADR) Data TCM ECC Fault Injection, Address Match Compare bits. Position */
-#define DRMTCM_DFLTADR_FLTADR_Msk             (_U_(0xFFFF) << DRMTCM_DFLTADR_FLTADR_Pos)           /**< (DRMTCM_DFLTADR) Data TCM ECC Fault Injection, Address Match Compare bits. Mask */
+#define DRMTCM_DFLTADR_FLTADR_Msk             (_U_(0x1FFFF) << DRMTCM_DFLTADR_FLTADR_Pos)          /**< (DRMTCM_DFLTADR) Data TCM ECC Fault Injection, Address Match Compare bits. Mask */
 #define DRMTCM_DFLTADR_FLTADR(value)          (DRMTCM_DFLTADR_FLTADR_Msk & ((value) << DRMTCM_DFLTADR_FLTADR_Pos))
 #define DRMTCM_DFLTADR_D1D0EN_Pos             _U_(31)                                              /**< (DRMTCM_DFLTADR) Fault Injection D1 or D0 Address Enable. Position */
 #define DRMTCM_DFLTADR_D1D0EN_Msk             (_U_(0x1) << DRMTCM_DFLTADR_D1D0EN_Pos)              /**< (DRMTCM_DFLTADR) Fault Injection D1 or D0 Address Enable. Mask */
 #define DRMTCM_DFLTADR_D1D0EN(value)          (DRMTCM_DFLTADR_D1D0EN_Msk & ((value) << DRMTCM_DFLTADR_D1D0EN_Pos))
-#define DRMTCM_DFLTADR_Msk                    _U_(0x8000FFFF)                                      /**< (DRMTCM_DFLTADR) Register Mask  */
+#define DRMTCM_DFLTADR_Msk                    _U_(0x8001FFFF)                                      /**< (DRMTCM_DFLTADR) Register Mask  */
 
 
 /* -------- DRMTCM_D0FLTCAP : (DRMTCM Offset: 0x38) ( R/ 32) D0TCM FAULT ERROR CAPTURE ADDRESS REGISTER -------- */
 #define DRMTCM_D0FLTCAP_RESETVALUE            _U_(0x00)                                            /**<  (DRMTCM_D0FLTCAP) D0TCM FAULT ERROR CAPTURE ADDRESS REGISTER  Reset Value */
 
 #define DRMTCM_D0FLTCAP_FLTADR_Pos            _U_(0)                                               /**< (DRMTCM_D0FLTCAP) Data 0 TCM ECC Fault Address bits which caused the ECC Error. Position */
-#define DRMTCM_D0FLTCAP_FLTADR_Msk            (_U_(0xFFFF) << DRMTCM_D0FLTCAP_FLTADR_Pos)          /**< (DRMTCM_D0FLTCAP) Data 0 TCM ECC Fault Address bits which caused the ECC Error. Mask */
+#define DRMTCM_D0FLTCAP_FLTADR_Msk            (_U_(0x1FFFF) << DRMTCM_D0FLTCAP_FLTADR_Pos)         /**< (DRMTCM_D0FLTCAP) Data 0 TCM ECC Fault Address bits which caused the ECC Error. Mask */
 #define DRMTCM_D0FLTCAP_FLTADR(value)         (DRMTCM_D0FLTCAP_FLTADR_Msk & ((value) << DRMTCM_D0FLTCAP_FLTADR_Pos))
 #define DRMTCM_D0FLTCAP_TCMMASTER_Pos         _U_(28)                                              /**< (DRMTCM_D0FLTCAP) Master ID of the requester of the current Error access. Position */
 #define DRMTCM_D0FLTCAP_TCMMASTER_Msk         (_U_(0xF) << DRMTCM_D0FLTCAP_TCMMASTER_Pos)          /**< (DRMTCM_D0FLTCAP) Master ID of the requester of the current Error access. Mask */
 #define DRMTCM_D0FLTCAP_TCMMASTER(value)      (DRMTCM_D0FLTCAP_TCMMASTER_Msk & ((value) << DRMTCM_D0FLTCAP_TCMMASTER_Pos))
-#define DRMTCM_D0FLTCAP_Msk                   _U_(0xF000FFFF)                                      /**< (DRMTCM_D0FLTCAP) Register Mask  */
+#define DRMTCM_D0FLTCAP_Msk                   _U_(0xF001FFFF)                                      /**< (DRMTCM_D0FLTCAP) Register Mask  */
 
 
 /* -------- DRMTCM_D0FLTPAR : (DRMTCM Offset: 0x3C) ( R/ 32) D0TCM FAULT PARITY REGISTER -------- */
@@ -329,12 +329,12 @@
 #define DRMTCM_D1FLTCAP_RESETVALUE            _U_(0x00)                                            /**<  (DRMTCM_D1FLTCAP) D1TCM FAULT ERROR CAPTURE ADDRESS REGISTER  Reset Value */
 
 #define DRMTCM_D1FLTCAP_FLTADR_Pos            _U_(0)                                               /**< (DRMTCM_D1FLTCAP) Data 1 TCM ECC Fault Address bits which caused the ECC Error. Position */
-#define DRMTCM_D1FLTCAP_FLTADR_Msk            (_U_(0xFFFF) << DRMTCM_D1FLTCAP_FLTADR_Pos)          /**< (DRMTCM_D1FLTCAP) Data 1 TCM ECC Fault Address bits which caused the ECC Error. Mask */
+#define DRMTCM_D1FLTCAP_FLTADR_Msk            (_U_(0x1FFFF) << DRMTCM_D1FLTCAP_FLTADR_Pos)         /**< (DRMTCM_D1FLTCAP) Data 1 TCM ECC Fault Address bits which caused the ECC Error. Mask */
 #define DRMTCM_D1FLTCAP_FLTADR(value)         (DRMTCM_D1FLTCAP_FLTADR_Msk & ((value) << DRMTCM_D1FLTCAP_FLTADR_Pos))
 #define DRMTCM_D1FLTCAP_D1TCMMASTER_Pos       _U_(28)                                              /**< (DRMTCM_D1FLTCAP) Master ID of the requester of the current Error access. Position */
 #define DRMTCM_D1FLTCAP_D1TCMMASTER_Msk       (_U_(0xF) << DRMTCM_D1FLTCAP_D1TCMMASTER_Pos)        /**< (DRMTCM_D1FLTCAP) Master ID of the requester of the current Error access. Mask */
 #define DRMTCM_D1FLTCAP_D1TCMMASTER(value)    (DRMTCM_D1FLTCAP_D1TCMMASTER_Msk & ((value) << DRMTCM_D1FLTCAP_D1TCMMASTER_Pos))
-#define DRMTCM_D1FLTCAP_Msk                   _U_(0xF000FFFF)                                      /**< (DRMTCM_D1FLTCAP) Register Mask  */
+#define DRMTCM_D1FLTCAP_Msk                   _U_(0xF001FFFF)                                      /**< (DRMTCM_D1FLTCAP) Register Mask  */
 
 
 /* -------- DRMTCM_D1FLTPAR : (DRMTCM Offset: 0x48) ( R/ 32) D1TCM FAULT PARITY REGISTER -------- */
