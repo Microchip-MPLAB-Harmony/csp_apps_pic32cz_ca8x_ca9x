@@ -1,5 +1,5 @@
-/**
- * \brief Instance header file for PIC32CZ8110CA90208
+/*
+ * Instance header file for PIC32CZ8110CA90208
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_AC_INSTANCE_
 #define _PIC32CZCA90_AC_INSTANCE_
 
@@ -36,5 +36,6 @@
 #define AC_MCLK_ID_APB                           _UL_(52)   /* Index for AC APB clock */
 #define AC_PAC_ID                                _UL_(44)   /* Index for AC registers write protection */
 #define AC_NUM_CMP                               _UL_(2)    /* Number of comparators */
+#define AC_LOAD_CALIB                            _UL_(0)    /* Defines if calibration is required */
 
 #endif /* _PIC32CZCA90_AC_INSTANCE_ */

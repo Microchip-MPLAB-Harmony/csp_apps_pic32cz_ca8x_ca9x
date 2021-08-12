@@ -442,7 +442,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: RTC_Handler}
+        attributes: {id: core, value: RTC_TAMPER_Handler}
   - type: Boolean
     attributes: {id: NVIC_15_0_HANDLER_LOCK}
     children:
@@ -463,7 +463,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: RTC_Handler}
+        attributes: {id: core, value: RTC_OVF_Handler}
   - type: Boolean
     attributes: {id: NVIC_16_0_HANDLER_LOCK}
     children:
@@ -484,7 +484,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: RTC_Handler}
+        attributes: {id: core, value: RTC_PERIOD_Handler}
   - type: Boolean
     attributes: {id: NVIC_17_0_HANDLER_LOCK}
     children:
@@ -505,7 +505,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: RTC_Handler}
+        attributes: {id: core, value: RTC_COMPARE_Handler}
   - type: Boolean
     attributes: {id: NVIC_18_0_HANDLER_LOCK}
     children:
@@ -793,6 +793,27 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '300000000'}
+  - type: Integer
+    attributes: {id: PLL0_CLOCK_FREQ1}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0'}
+  - type: Integer
+    attributes: {id: PLL0_CLOCK_FREQ2}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0'}
+  - type: Integer
+    attributes: {id: PLL0_CLOCK_FREQ3}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0'}
   - type: Boolean
     attributes: {id: PORT_GROUP_0}
     children:
@@ -842,6 +863,20 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '0x1'}
+  - type: Boolean
+    attributes: {id: PORT_GROUP_2_PIN_25_USED}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'true'}
+  - type: Boolean
+    attributes: {id: PORT_GROUP_2_PIN_26_USED}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'true'}
   - type: String
     attributes: {id: PORT_GROUP_2_PMUX12}
     children:
@@ -899,40 +934,12 @@ children:
       - type: Dynamic
         attributes: {id: core, value: '1024'}
   - type: Boolean
-    attributes: {id: RTC_COMPARE_INTERRUPT_ENABLE}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: 'false'}
-  - type: Boolean
     attributes: {id: RTC_COMPARE_INTERRUPT_ENABLE_UPDATE}
     children:
     - type: Values
       children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
-  - type: String
-    attributes: {id: RTC_COMPARE_INTERRUPT_HANDLER}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: RTC_Handler}
-  - type: Boolean
-    attributes: {id: RTC_COMPARE_INTERRUPT_HANDLER_LOCK}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: 'false'}
-  - type: Boolean
-    attributes: {id: RTC_OVF_INTERRUPT_ENABLE}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: 'false'}
   - type: Boolean
     attributes: {id: RTC_OVF_INTERRUPT_ENABLE_UPDATE}
     children:
@@ -940,27 +947,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
-  - type: String
-    attributes: {id: RTC_OVF_INTERRUPT_HANDLER}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: RTC_Handler}
-  - type: Boolean
-    attributes: {id: RTC_OVF_INTERRUPT_HANDLER_LOCK}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: 'false'}
-  - type: Boolean
-    attributes: {id: RTC_PERIOD_INTERRUPT_ENABLE}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: 'false'}
   - type: Boolean
     attributes: {id: RTC_PERIOD_INTERRUPT_ENABLE_UPDATE}
     children:
@@ -968,27 +954,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
-  - type: String
-    attributes: {id: RTC_PERIOD_INTERRUPT_HANDLER}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: RTC_Handler}
-  - type: Boolean
-    attributes: {id: RTC_PERIOD_INTERRUPT_HANDLER_LOCK}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: 'false'}
-  - type: Boolean
-    attributes: {id: RTC_TAMPER_INTERRUPT_ENABLE}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: 'false'}
   - type: Boolean
     attributes: {id: RTC_TAMPER_INTERRUPT_ENABLE_UPDATE}
     children:
@@ -996,20 +961,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
-  - type: String
-    attributes: {id: RTC_TAMPER_INTERRUPT_HANDLER}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: RTC_Handler}
-  - type: Boolean
-    attributes: {id: RTC_TAMPER_INTERRUPT_HANDLER_LOCK}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: rtc, value: 'false'}
   - type: Boolean
     attributes: {id: SERCOM5_0_INTERRUPT_ENABLE}
     children:

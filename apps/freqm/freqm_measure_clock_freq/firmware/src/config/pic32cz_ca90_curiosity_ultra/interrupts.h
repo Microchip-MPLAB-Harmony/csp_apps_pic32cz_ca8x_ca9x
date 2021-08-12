@@ -50,6 +50,7 @@
 #include <stdint.h>
 
 
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Handler Routines
@@ -60,7 +61,6 @@ void Reset_Handler (void);
 void NonMaskableInt_Handler (void);
 void HardFault_Handler (void);
 void FREQM_InterruptHandler (void);
-void RTC_InterruptHandler (void);
 
 
 

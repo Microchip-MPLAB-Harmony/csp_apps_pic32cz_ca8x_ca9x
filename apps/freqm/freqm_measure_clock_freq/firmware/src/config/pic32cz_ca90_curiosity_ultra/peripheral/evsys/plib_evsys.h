@@ -1,18 +1,18 @@
 /*******************************************************************************
-  NVIC PLIB Implementation
+  Interface definition of EVSYS PLIB.
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_nvic.c
+    plib_evsys.h
 
   Summary:
-    NVIC PLIB Source File
+    Interface definition of the Event System Plib (EVSYS).
 
   Description:
-    None
-
+    This file defines the interface for the EVSYS Plib.
+    It allows user to setup event generators and users.
 *******************************************************************************/
 
 /*******************************************************************************
@@ -38,62 +38,31 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
+#ifndef EVSYS_H    // Guards against multiple inclusion
+#define EVSYS_H
+
 #include "device.h"
-#include "plib_nvic.h"
+#include <stdint.h>
+#include <stddef.h>
+
+#ifdef __cplusplus // Provide C++ Compatibility
+ extern "C" {
+#endif
 
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: NVIC Implementation
+// Section: Interface
 // *****************************************************************************
 // *****************************************************************************
 
-void NVIC_Initialize( void )
-{
-    /* Priority 0 to 7 and no sub-priority. 0 is the highest priority */
-    NVIC_SetPriorityGrouping( 0x00 );
-
-    /* Enable NVIC Controller */
-    __DMB();
-    __enable_irq();
-
-    /* Enable the interrupt sources and configure the priorities as configured
-     * from within the "Interrupt Manager" of MHC. */
-    NVIC_SetPriority(FREQM_IRQn, 7);
-    NVIC_EnableIRQ(FREQM_IRQn);
 
 
+/***************************** EVSYS API *******************************/
+void EVSYS_Initialize( void );
 
-}
+#ifdef __cplusplus // Provide C++ Compatibility
+ }
+#endif
 
-void NVIC_INT_Enable( void )
-{
-    __DMB();
-    __enable_irq();
-}
-
-bool NVIC_INT_Disable( void )
-{
-    bool processorStatus;
-
-    processorStatus = (bool) (__get_PRIMASK() == 0);
-
-    __disable_irq();
-    __DMB();
-
-    return processorStatus;
-}
-
-void NVIC_INT_Restore( bool state )
-{
-    if( state == true )
-    {
-        __DMB();
-        __enable_irq();
-    }
-    else
-    {
-        __disable_irq();
-        __DMB();
-    }
-}
+#endif
