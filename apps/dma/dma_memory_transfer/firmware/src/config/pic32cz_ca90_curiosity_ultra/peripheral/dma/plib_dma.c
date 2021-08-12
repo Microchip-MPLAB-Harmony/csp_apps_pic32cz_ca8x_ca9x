@@ -196,12 +196,12 @@ uint32_t DMA_ChannelGetTransferredCount( DMA_CHANNEL channel )
 
 void DMA_ChannelInterruptEnable ( DMA_CHANNEL channel, DMA_INT intSources )
 {
-    DMA_REGS->CHANNEL[channel].DMA_CHINTENSET |= intSources;
+    DMA_REGS->CHANNEL[channel].DMA_CHINTENSET = intSources;
 }
 
 void DMA_ChannelInterruptDisable ( DMA_CHANNEL channel, DMA_INT intSources )
 {
-    DMA_REGS->CHANNEL[channel].DMA_CHINTENCLR |= intSources;
+    DMA_REGS->CHANNEL[channel].DMA_CHINTENCLR = intSources;
 }
 
 DMA_INT DMA_ChannelInterruptFlagsGet ( DMA_CHANNEL channel )
@@ -319,8 +319,8 @@ static void _DMA_interruptHandler(uint32_t channel)
     /* Get the DMA channel interrupt flag status */
     chIntFlagStatus = DMA_REGS->CHANNEL[channel].DMA_CHINTF;
 
-    /* Only service the interrupts that have been enabled */
-    chIntFlagsEnabled = chIntFlagStatus & DMA_REGS->CHANNEL[channel].DMA_CHINTENSET;
+    /* Update the event flag for the interrupts that have been enabled. Always update for Read and Write error interrupts */
+    chIntFlagsEnabled = chIntFlagStatus & (DMA_REGS->CHANNEL[channel].DMA_CHINTENSET | (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk));
 
     /* An start trigger event has been detected and the block transfer has started */
     if (chIntFlagsEnabled & DMA_CHINTF_SD_Msk)
@@ -331,7 +331,6 @@ static void _DMA_interruptHandler(uint32_t channel)
     /* An abort trigger event has been detected and the DMA transfer has been aborted */
     if (chIntFlagsEnabled & DMA_CHINTF_TA_Msk)
     {
-        dmacChObj->busyStatus = false;
         event |= DMA_TRANSFER_EVENT_TRANSFER_ABORTED;
     }
 
@@ -344,7 +343,6 @@ static void _DMA_interruptHandler(uint32_t channel)
     /* A block transfer has been completed */
     if (chIntFlagsEnabled & DMA_CHINTF_BC_Msk)
     {
-        dmacChObj->busyStatus = false;
         event |= DMA_TRANSFER_EVENT_BLOCK_TRANSFER_COMPLETE;
     }
 
@@ -357,18 +355,21 @@ static void _DMA_interruptHandler(uint32_t channel)
     /* A link list done event has been completed */
     if (chIntFlagsEnabled & DMA_CHINTF_LL_Msk)
     {
-        dmacChObj->busyStatus = false;
         event |= DMA_TRANSFER_EVENT_LINKED_LIST_TRANSFER_COMPLETE;
     }
-
-    /* A write error or read error event has been detected */
+	
+	/* A write error or read error event has been detected */
     if (chIntFlagsEnabled & (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk))
     {
-        dmacChObj->busyStatus = false;
         event |= DMA_TRANSFER_EVENT_ERROR;
     }
 
-    /* Clear the serviced interrupt flags */
+    if (chIntFlagStatus & (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk | DMA_CHINTF_LL_Msk | DMA_CHINTF_BC_Msk | DMA_CHINTF_TA_Msk))
+    {
+        dmacChObj->busyStatus = false;
+    }
+
+    /* Clear all the interrupt flags */
     DMA_REGS->CHANNEL[channel].DMA_CHINTF = chIntFlagStatus;
 
     /* Execute the callback function */

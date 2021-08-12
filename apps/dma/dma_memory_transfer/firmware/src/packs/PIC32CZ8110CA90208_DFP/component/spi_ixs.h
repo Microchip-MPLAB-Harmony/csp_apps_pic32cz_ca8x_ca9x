@@ -1,5 +1,5 @@
-/**
- * \brief Component description for SPI_IXS
+/*
+ * Component description for SPI_IXS
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_SPI_IXS_COMPONENT_H_
 #define _PIC32CZCA90_SPI_IXS_COMPONENT_H_
 
