@@ -33,7 +33,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: '49'}
+        attributes: {value: '51'}
   - type: Boolean
     attributes: {id: EVSYS_CHANNEL_0_GENERATOR_ACTIVE}
     children:
@@ -498,6 +498,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: evsys, value: 'false'}
+  - type: Boolean
+    attributes: {id: EVSYS_INTERRUPT_MODE0}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: evsys, value: 'false'}
   - type: Menu
     attributes: {id: EVSYS_MENU_0}
     children:
@@ -514,6 +521,13 @@ children:
       children:
       - type: User
         attributes: {value: '1'}
+  - type: Boolean
+    attributes: {id: GENERATOR_ADC_CHRDYC_1_ACTIVE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: adc, value: 'false'}
   - type: Boolean
     attributes: {id: GENERATOR_ADC_CMP_1_ACTIVE}
     children:
@@ -535,6 +549,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: rtc, value: 'false'}
+  - type: Boolean
+    attributes: {id: INTERRUPT_ACTIVE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: evsys, value: 'false'}
   - type: Boolean
     attributes: {id: USER_ADC_TRIGGERS_0_READY}
     children:

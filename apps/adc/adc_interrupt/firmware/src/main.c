@@ -74,6 +74,9 @@ int main ( void )
     {
         if (SWITCH_Get() == 0)
         {
+            // Wait for switch release
+            while (SWITCH_Get() == 0);
+            
             ADC_GlobalEdgeConversionStart();
         }
         

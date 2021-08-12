@@ -48,10 +48,17 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/* Load ADC calibration constant */
+#define ADC_CALIB_FCCFG65           *((uint32_t*)0x0A007184)
+
+
 ADC_CORE_CALLBACK_OBJECT ADC_CoreCallbackObj[4];
 
 void ADC_Initialize(void)
 {
+    /* Copy calibration value for all the enabled ADC cores */
+    //ADC_REGS->CONFIG[1].ADC_CALCTRL = ADC_CALIB_FCCFG65;
+
     /*
     ONDEMAND = false
     RUNSTDBY = false
@@ -82,11 +89,11 @@ void ADC_Initialize(void)
        STRGLVL = Edge
        STRGSRC = EVENT_USER0
        EIRQOVR = false
-       EIS = 7
+       EIS = 0
        SELRES = 12_BITS
        SAMC = 1
     */
-    ADC_REGS->CONFIG[1].ADC_CORCTRL = 0x2057C01;
+    ADC_REGS->CONFIG[1].ADC_CORCTRL = 0x2050C01;
 
 
     /* Configure ADC Core 1 Channel Configuration Register 2 */
@@ -329,6 +336,11 @@ void ADC_ChannelConversionStart(void)
     {
         /* Wait for Synchronization */
     }
+}
+
+bool ADC_ChannelResultIsReady(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
+{
+    return (bool)((ADC_REGS->INT[core].ADC_INTFLAG & (1 << (ADC_INTFLAG_CHRDY_Pos + channel))));
 }
 
 bool ADC_EOSStatusGet(ADC_CORE_NUM core)

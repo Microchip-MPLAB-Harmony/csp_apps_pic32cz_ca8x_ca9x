@@ -114,6 +114,7 @@ void ADC_ChannelSamplingStart(void);
 void ADC_ChannelSamplingStop(void);
 void ADC_ChannelConversionStart(void);
 
+bool ADC_ChannelResultIsReady(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
 bool ADC_EOSStatusGet(ADC_CORE_NUM core);
 uint32_t ADC_ResultGet( ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
 
