@@ -1,22 +1,18 @@
 /*******************************************************************************
-  SERCOM Universal Synchronous/Asynchrnous Receiver/Transmitter PLIB
+  Interface definition of EVSYS PLIB.
 
-  Company
+  Company:
     Microchip Technology Inc.
 
-  File Name
-    plib_sercom4_usart.h
+  File Name:
+    plib_evsys.h
 
-  Summary
-    USART peripheral library interface.
+  Summary:
+    Interface definition of the Event System Plib (EVSYS).
 
-  Description
-    This file defines the interface to the USART peripheral library. This
-    library provides access to and control of the associated peripheral
-    instance.
-
-  Remarks:
-    None.
+  Description:
+    This file defines the interface for the EVSYS Plib.
+    It allows user to setup event generators and users.
 *******************************************************************************/
 
 /*******************************************************************************
@@ -42,69 +38,31 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_SERCOM4_USART_H // Guards against multiple inclusion
-#define PLIB_SERCOM4_USART_H
+#ifndef EVSYS_H    // Guards against multiple inclusion
+#define EVSYS_H
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
+#include "device.h"
+#include <stdint.h>
+#include <stddef.h>
 
-#include "plib_sercom_usart_common.h"
-
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus // Provide C++ Compatibility
+ extern "C" {
+#endif
 
-    extern "C" {
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Interface
+// *****************************************************************************
+// *****************************************************************************
+
+
+
+/***************************** EVSYS API *******************************/
+void EVSYS_Initialize( void );
+
+#ifdef __cplusplus // Provide C++ Compatibility
+ }
+#endif
 
 #endif
-// DOM-IGNORE-END
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Interface Routines
-// *****************************************************************************
-// *****************************************************************************
-
-void SERCOM4_USART_Initialize( void );
-
-bool SERCOM4_USART_SerialSetup( USART_SERIAL_SETUP * serialSetup, uint32_t clkFrequency );
-
-void SERCOM4_USART_TransmitterEnable( void );
-
-void SERCOM4_USART_TransmitterDisable( void );
-
-bool SERCOM4_USART_Write( void *buffer, const size_t size );
-
-
-bool SERCOM4_USART_TransmitterIsReady( void );
-
-bool SERCOM4_USART_TransmitComplete( void );
-
-void SERCOM4_USART_WriteByte( int data );
-
-
-void SERCOM4_USART_ReceiverEnable( void );
-
-void SERCOM4_USART_ReceiverDisable( void );
-
-bool SERCOM4_USART_Read( void *buffer, const size_t size );
-
-bool SERCOM4_USART_ReceiverIsReady( void );
-
-int SERCOM4_USART_ReadByte( void );
-
-USART_ERROR SERCOM4_USART_ErrorGet( void );
-
-uint32_t SERCOM4_USART_FrequencyGet( void );
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus  // Provide C++ Compatibility
-
-    }
-
-#endif
-// DOM-IGNORE-END
-
-#endif //PLIB_SERCOM4_USART_H
