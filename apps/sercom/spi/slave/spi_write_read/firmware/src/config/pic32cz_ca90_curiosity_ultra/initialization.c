@@ -116,6 +116,8 @@ void SYS_Initialize ( void* data )
 
     SERCOM3_SPI_Initialize();
 
+    EVSYS_Initialize();
+
 
 
 
