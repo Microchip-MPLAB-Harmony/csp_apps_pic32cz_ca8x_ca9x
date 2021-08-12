@@ -334,8 +334,8 @@ static void _DMA_interruptHandler(uint32_t channel)
     /* Get the DMA channel interrupt flag status */
     chIntFlagStatus = DMA_REGS->CHANNEL[channel].DMA_CHINTF;
 
-    /* Only service the interrupts that have been enabled */
-    chIntFlagsEnabled = chIntFlagStatus & DMA_REGS->CHANNEL[channel].DMA_CHINTENSET;
+    /* Update the event flag for the interrupts that have been enabled. Always update for Read and Write error interrupts */
+    chIntFlagsEnabled = chIntFlagStatus & (DMA_REGS->CHANNEL[channel].DMA_CHINTENSET | (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk));
 
     /* An start trigger event has been detected and the block transfer has started */
     if (chIntFlagsEnabled & DMA_CHINTF_SD_Msk)
