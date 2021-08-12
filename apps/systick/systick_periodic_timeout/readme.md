@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cz_ca90_curiosity_ultra.X    | MPLABX Project for PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca90_curiosity_ultra.X    | MPLABX Project for [PIC32CZ CA90 Curiosity Ultra board]()|
 |||
 
 ## Setting up the hardware
@@ -35,7 +35,7 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cz_ca90_curiosity_ultra.X    | PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca90_curiosity_ultra.X    | [PIC32CZ CA90 Curiosity Ultra board]()|
 |||
 
 ### Setting up PIC32CZ CA90 Curiosity Ultra board]()
@@ -51,5 +51,5 @@ Following table provides the LED name:
 
 | Board      | LED Name |
 | ---------- | ---------------- |
-| PIC32CZ CA90 Curiosity Ultra board]()    | LED0 |
+| [PIC32CZ CA90 Curiosity Ultra board]()    | LED0 |
 |||
