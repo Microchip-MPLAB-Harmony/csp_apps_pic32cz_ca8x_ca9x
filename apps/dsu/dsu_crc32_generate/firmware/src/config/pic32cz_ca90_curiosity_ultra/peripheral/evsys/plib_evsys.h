@@ -1,26 +1,20 @@
 /*******************************************************************************
-  Peripheral Access Controller (PAC) PLIB
+  Interface definition of EVSYS PLIB.
 
-  Company
+  Company:
     Microchip Technology Inc.
 
-  File Name
-    plib_pac.c
+  File Name:
+    plib_evsys.h
 
-  Summary
-    Source for PAC peripheral library interface Implementation.
+  Summary:
+    Interface definition of the Event System Plib (EVSYS).
 
-  Description
-    This file defines the interface to the PAC peripheral library. This
-    library provides access to and control of the associated peripheral
-    instance.
-
-  Remarks:
-    None.
-
+  Description:
+    This file defines the interface for the EVSYS Plib.
+    It allows user to setup event generators and users.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -43,50 +37,32 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
+#ifndef EVSYS_H    // Guards against multiple inclusion
+#define EVSYS_H
 
-#include "interrupts.h"
-#include "plib_pac.h"
+#include "device.h"
+#include <stdint.h>
+#include <stddef.h>
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Global Data
-// *****************************************************************************
-// *****************************************************************************
-
-
+#ifdef __cplusplus // Provide C++ Compatibility
+ extern "C" {
+#endif
 
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: PAC Interface Implementations
+// Section: Interface
 // *****************************************************************************
 // *****************************************************************************
 
-void PAC_Initialize( void )
-{
-}
 
-bool PAC_PeripheralIsProtected( PAC_PERIPHERAL peripheral )
-{
-    bool status = false;
-    const volatile uint32_t *statusRegBaseAddr = (const volatile uint32_t*) &(PAC_REGS->PAC_STATUSA);
 
-    /* Verify if the peripheral is protected or not */
-    status = (((*(statusRegBaseAddr + ((uint32_t)peripheral / 32U))) & (1UL << ((uint32_t)peripheral % 32U))) != 0U);
+/***************************** EVSYS API *******************************/
+void EVSYS_Initialize( void );
 
-    return status;
-}
+#ifdef __cplusplus // Provide C++ Compatibility
+ }
+#endif
 
-void PAC_PeripheralProtectSetup( PAC_PERIPHERAL peripheral, PAC_PROTECTION operation )
-{
-    /* Set Peripheral Access Control */
-    PAC_REGS->PAC_WRCTRL = PAC_WRCTRL_PERID((uint32_t)peripheral) | PAC_WRCTRL_KEY((uint32_t)operation);
-}
-
+#endif
