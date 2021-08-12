@@ -128,8 +128,6 @@ typedef uint32_t RSTC_RESET_CAUSE;
 
 typedef uint32_t RSTC_BKUPEXIT_CAUSE;
 
-void RSTC_Initialize(void);
-
 RSTC_BKUPEXIT_CAUSE RSTC_BackupExitCauseGet(void);
 
 RSTC_RESET_CAUSE RSTC_ResetCauseGet(void);
