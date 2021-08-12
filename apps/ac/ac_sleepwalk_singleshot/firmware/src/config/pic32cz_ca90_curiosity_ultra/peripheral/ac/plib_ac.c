@@ -78,11 +78,11 @@ void AC_Initialize(void)
 
 
     /**************** Comparator 0 Configurations ************************/
-    AC_REGS->AC_COMPCTRL[0] = AC_COMPCTRL_MUXPOS_INTDAC | AC_COMPCTRL_MUXNEG_BANDGAP | AC_COMPCTRL_INTSEL_EOC | AC_COMPCTRL_OUT_OFF | AC_COMPCTRL_SPEED(0x03) | AC_COMPCTRL_FLEN_OFF | AC_COMPCTRL_SINGLE_Msk | AC_COMPCTRL_RUNSTDBY_Msk | AC_COMPCTRL_SUT(31) ;
+    AC_REGS->AC_COMPCTRL[0] = AC_COMPCTRL_MUXPOS_INTDAC | AC_COMPCTRL_MUXNEG_BANDGAP | AC_COMPCTRL_INTSEL_TOGGLE | AC_COMPCTRL_OUT_OFF | AC_COMPCTRL_SPEED(0x03) | AC_COMPCTRL_FLEN_OFF | AC_COMPCTRL_SINGLE_Msk | AC_COMPCTRL_RUNSTDBY_Msk | AC_COMPCTRL_SUT(31) ;
 
-    AC_REGS->AC_DACCTRL =  AC_DACCTRL_VALUE0(40) ;
+    AC_REGS->AC_DACCTRL |=  AC_DACCTRL_VALUE0(40) ;
 
-    AC_REGS->AC_COMPCTRL[0] |= AC_COMPCTRL_ENABLE_Msk;
+    AC_REGS->AC_COMPCTRL[0] |= AC_COMPCTRL_ENABLE_Msk;	
 
 
 
@@ -90,11 +90,11 @@ void AC_Initialize(void)
 
     AC_REGS->AC_EVCTRL =  AC_EVCTRL_COMPEI0_Msk;
     AC_REGS->AC_INTENSET =  AC_INTENSET_COMP0_Msk;
-    while((AC_REGS->AC_SYNCBUSY & AC_SYNCBUSY_ENABLE_Msk) == AC_SYNCBUSY_ENABLE_Msk)
+    AC_REGS->AC_CTRLA = AC_CTRLA_ENABLE_Msk;
+	while((AC_REGS->AC_SYNCBUSY & AC_SYNCBUSY_ENABLE_Msk) == AC_SYNCBUSY_ENABLE_Msk)
     {
         /* Wait for Synchronization */
     }
-    AC_REGS->AC_CTRLA = AC_CTRLA_ENABLE_Msk;
 }
 
 void AC_Start( AC_CHANNEL channel_id )
@@ -107,6 +107,10 @@ void AC_Start( AC_CHANNEL channel_id )
 void AC_SetDACOutput( AC_CHANNEL channel_id , uint8_t value)
 {
     AC_REGS->AC_CTRLA &= ~AC_CTRLA_ENABLE_Msk;
+	while((AC_REGS->AC_SYNCBUSY & AC_SYNCBUSY_ENABLE_Msk) == AC_SYNCBUSY_ENABLE_Msk)
+    {
+        /* Wait for Synchronization */
+    }
 
     AC_REGS->AC_COMPCTRL[channel_id] &= ~AC_COMPCTRL_ENABLE_Msk;
 
@@ -131,7 +135,11 @@ void AC_SetDACOutput( AC_CHANNEL channel_id , uint8_t value)
         /* Wait for Synchronization */
     }
 
-    AC_REGS->AC_CTRLA = AC_CTRLA_ENABLE_Msk;
+    AC_REGS->AC_CTRLA |= AC_CTRLA_ENABLE_Msk;
+	while((AC_REGS->AC_SYNCBUSY & AC_SYNCBUSY_ENABLE_Msk) == AC_SYNCBUSY_ENABLE_Msk)
+    {
+        /* Wait for Synchronization */
+    }
 }
 
 

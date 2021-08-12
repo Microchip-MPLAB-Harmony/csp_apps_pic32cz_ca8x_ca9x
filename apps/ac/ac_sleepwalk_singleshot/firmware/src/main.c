@@ -104,11 +104,16 @@ int main ( void )
     
     SERCOM5_USART_ReadCallbackRegister(usart_read_callback, 0);
 
-    SERCOM5_USART_Write("Press U to increment D to decrement DAC output connected to Comparator0 Positive Input\r\n", 
-            strlen("Press U to increment D to decrement DAC output connected to Comparator0 Positive Input\r\n"));
+    SERCOM5_USART_Write("Press U to increment and D to decrement the DAC output connected to Comparator0 Positive Input\r\n", 
+            strlen("Press U to increment and D to decrement the DAC output connected to Comparator0 Positive Input\r\n"));
+    
+    while (SERCOM5_USART_WriteIsBusy());
     
     n = sprintf(printbuffer, "DAC Output = %.2fV\r\n", DAC_OutputVol(dac_out));                
     SERCOM5_USART_Write(printbuffer, n);
+    
+    while (SERCOM5_USART_WriteIsBusy());
+    
     SERCOM5_USART_Read(&console_input, 1);
     
     while ( true )
@@ -147,6 +152,8 @@ int main ( void )
 
             SERCOM5_USART_Write(printbuffer, n);
             
+            while (SERCOM5_USART_WriteIsBusy());
+            
             SERCOM5_USART_Read(&console_input, 1);
         }
         if(ac_comparison_done == true)
@@ -161,6 +168,7 @@ int main ( void )
             {
                 SERCOM5_USART_Write("Voltage is below detect level\r\n", strlen("Voltage is below detect level\r\n"));
             }
+            while (SERCOM5_USART_WriteIsBusy());
         }
     }
 

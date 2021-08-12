@@ -98,7 +98,10 @@ extern void OSC32KCTRL_RDY_Handler     ( void ) __attribute__((weak, alias("Dumm
 extern void MCLK_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void FREQM_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void WDT_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void RTC_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void RTC_TAMPER_Handler         ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void RTC_OVF_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void RTC_PERIOD_Handler         ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void RTC_COMPARE_Handler        ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void EIC_EXTINT_0_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void EIC_EXTINT_1_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void EIC_EXTINT_2_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -330,10 +333,10 @@ const H3DeviceVectors exception_table=
     .pfnMCLK_Handler               = MCLK_Handler,
     .pfnFREQM_Handler              = FREQM_Handler,
     .pfnWDT_Handler                = WDT_Handler,
-    .pfnRTC_TAMPER_Handler         = RTC_Handler,
-    .pfnRTC_OVF_Handler            = RTC_Handler,
-    .pfnRTC_PERIOD_Handler         = RTC_Handler,
-    .pfnRTC_COMPARE_Handler        = RTC_Handler,
+    .pfnRTC_TAMPER_Handler         = RTC_TAMPER_Handler,
+    .pfnRTC_OVF_Handler            = RTC_OVF_Handler,
+    .pfnRTC_PERIOD_Handler         = RTC_PERIOD_Handler,
+    .pfnRTC_COMPARE_Handler        = RTC_COMPARE_Handler,
     .pfnEIC_EXTINT_0_Handler       = EIC_EXTINT_0_Handler,
     .pfnEIC_EXTINT_1_Handler       = EIC_EXTINT_1_Handler,
     .pfnEIC_EXTINT_2_Handler       = EIC_EXTINT_2_Handler,
