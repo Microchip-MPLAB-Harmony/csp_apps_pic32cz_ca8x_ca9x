@@ -116,6 +116,8 @@ void SYS_Initialize ( void* data )
 
     FCW_Initialize();
 
+    EVSYS_Initialize();
+
 
 
 
