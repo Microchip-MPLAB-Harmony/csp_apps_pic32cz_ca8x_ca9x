@@ -1,5 +1,5 @@
-/**
- * \brief Peripheral I/O description for PIC32CZ8110CA90208
+/*
+ * Peripheral I/O description for PIC32CZ8110CA90208
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZ8110CA90208_GPIO_H_
 #define _PIC32CZ8110CA90208_GPIO_H_
 
