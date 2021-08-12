@@ -1,5 +1,5 @@
-/**
- * \brief Component description for ADC
+/*
+ * Component description for ADC
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_ADC_COMPONENT_H_
 #define _PIC32CZCA90_ADC_COMPONENT_H_
 
@@ -37,6 +37,14 @@
 #define ADC_CORCTRL_SELRES_Pos                _U_(10)                                              /**< (ADC_CORCTRL) Selects Resolution Position */
 #define ADC_CORCTRL_SELRES_Msk                (_U_(0x3) << ADC_CORCTRL_SELRES_Pos)                 /**< (ADC_CORCTRL) Selects Resolution Mask */
 #define ADC_CORCTRL_SELRES(value)             (ADC_CORCTRL_SELRES_Msk & ((value) << ADC_CORCTRL_SELRES_Pos))
+#define   ADC_CORCTRL_SELRES_6_BITS_Val       _U_(0x0)                                             /**< (ADC_CORCTRL) 6 bits  */
+#define   ADC_CORCTRL_SELRES_8_BITS_Val       _U_(0x1)                                             /**< (ADC_CORCTRL) 8 bits  */
+#define   ADC_CORCTRL_SELRES_10_BITS_Val      _U_(0x2)                                             /**< (ADC_CORCTRL) 10 bits  */
+#define   ADC_CORCTRL_SELRES_12_BITS_Val      _U_(0x3)                                             /**< (ADC_CORCTRL) 12 bits (default)  */
+#define ADC_CORCTRL_SELRES_6_BITS             (ADC_CORCTRL_SELRES_6_BITS_Val << ADC_CORCTRL_SELRES_Pos) /**< (ADC_CORCTRL) 6 bits Position  */
+#define ADC_CORCTRL_SELRES_8_BITS             (ADC_CORCTRL_SELRES_8_BITS_Val << ADC_CORCTRL_SELRES_Pos) /**< (ADC_CORCTRL) 8 bits Position  */
+#define ADC_CORCTRL_SELRES_10_BITS            (ADC_CORCTRL_SELRES_10_BITS_Val << ADC_CORCTRL_SELRES_Pos) /**< (ADC_CORCTRL) 10 bits Position  */
+#define ADC_CORCTRL_SELRES_12_BITS            (ADC_CORCTRL_SELRES_12_BITS_Val << ADC_CORCTRL_SELRES_Pos) /**< (ADC_CORCTRL) 12 bits (default) Position  */
 #define ADC_CORCTRL_EIS_Pos                   _U_(12)                                              /**< (ADC_CORCTRL) Early Interrupt Select Position */
 #define ADC_CORCTRL_EIS_Msk                   (_U_(0x7) << ADC_CORCTRL_EIS_Pos)                    /**< (ADC_CORCTRL) Early Interrupt Select Mask */
 #define ADC_CORCTRL_EIS(value)                (ADC_CORCTRL_EIS_Msk & ((value) << ADC_CORCTRL_EIS_Pos))
@@ -46,6 +54,36 @@
 #define ADC_CORCTRL_STRGSRC_Pos               _U_(16)                                              /**< (ADC_CORCTRL) SCAN trigger source selection Position */
 #define ADC_CORCTRL_STRGSRC_Msk               (_U_(0xF) << ADC_CORCTRL_STRGSRC_Pos)                /**< (ADC_CORCTRL) SCAN trigger source selection Mask */
 #define ADC_CORCTRL_STRGSRC(value)            (ADC_CORCTRL_STRGSRC_Msk & ((value) << ADC_CORCTRL_STRGSRC_Pos))
+#define   ADC_CORCTRL_STRGSRC_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CORCTRL) No Trigger (NOP)  */
+#define   ADC_CORCTRL_STRGSRC_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CORCTRL) Global Software Trigger  */
+#define   ADC_CORCTRL_STRGSRC_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CORCTRL) Global Level Software Trigger  */
+#define   ADC_CORCTRL_STRGSRC_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CORCTRL) STRIG Synchronous Trigger  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 0  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 1  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 2  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 3  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 4  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 5  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 6  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 7  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 8  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 9  */
+#define   ADC_CORCTRL_STRGSRC_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CORCTRL) ADC Trigger Event User 10  */
+#define ADC_CORCTRL_STRGSRC_NO_TRIGGER        (ADC_CORCTRL_STRGSRC_NO_TRIGGER_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) No Trigger (NOP) Position  */
+#define ADC_CORCTRL_STRGSRC_GLOBAL_SOFTWARE_TRIGGER (ADC_CORCTRL_STRGSRC_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) Global Software Trigger Position  */
+#define ADC_CORCTRL_STRGSRC_GLOBAL_LEVEL_TRIGGER (ADC_CORCTRL_STRGSRC_GLOBAL_LEVEL_TRIGGER_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) Global Level Software Trigger Position  */
+#define ADC_CORCTRL_STRGSRC_SYNC_TRIGGER      (ADC_CORCTRL_STRGSRC_SYNC_TRIGGER_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) STRIG Synchronous Trigger Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER0       (ADC_CORCTRL_STRGSRC_EVENT_USER0_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 0 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER1       (ADC_CORCTRL_STRGSRC_EVENT_USER1_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 1 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER2       (ADC_CORCTRL_STRGSRC_EVENT_USER2_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 2 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER3       (ADC_CORCTRL_STRGSRC_EVENT_USER3_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 3 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER4       (ADC_CORCTRL_STRGSRC_EVENT_USER4_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 4 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER5       (ADC_CORCTRL_STRGSRC_EVENT_USER5_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 5 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER6       (ADC_CORCTRL_STRGSRC_EVENT_USER6_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 6 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER7       (ADC_CORCTRL_STRGSRC_EVENT_USER7_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 7 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER8       (ADC_CORCTRL_STRGSRC_EVENT_USER8_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 8 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER9       (ADC_CORCTRL_STRGSRC_EVENT_USER9_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 9 Position  */
+#define ADC_CORCTRL_STRGSRC_EVENT_USER10      (ADC_CORCTRL_STRGSRC_EVENT_USER10_Val << ADC_CORCTRL_STRGSRC_Pos) /**< (ADC_CORCTRL) ADC Trigger Event User 10 Position  */
 #define ADC_CORCTRL_STRGLVL_Pos               _U_(21)                                              /**< (ADC_CORCTRL) Scan Trigger Level Sensitivity Position */
 #define ADC_CORCTRL_STRGLVL_Msk               (_U_(0x1) << ADC_CORCTRL_STRGLVL_Pos)                /**< (ADC_CORCTRL) Scan Trigger Level Sensitivity Mask */
 #define ADC_CORCTRL_STRGLVL(value)            (ADC_CORCTRL_STRGLVL_Msk & ((value) << ADC_CORCTRL_STRGLVL_Pos))
@@ -100,27 +138,283 @@
 #define ADC_CHNCFG4_TRGSRC0_Pos               _U_(0)                                               /**< (ADC_CHNCFG4) Channel 0 Trigger Source Position */
 #define ADC_CHNCFG4_TRGSRC0_Msk               (_U_(0xF) << ADC_CHNCFG4_TRGSRC0_Pos)                /**< (ADC_CHNCFG4) Channel 0 Trigger Source Mask */
 #define ADC_CHNCFG4_TRGSRC0(value)            (ADC_CHNCFG4_TRGSRC0_Msk & ((value) << ADC_CHNCFG4_TRGSRC0_Pos))
+#define   ADC_CHNCFG4_TRGSRC0_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG4) No Trigger (NOP)  */
+#define   ADC_CHNCFG4_TRGSRC0_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG4) Global Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC0_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG4) Global Level Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC0_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG4_TRGSRC0_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG4) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG4_TRGSRC0_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 10  */
+#define ADC_CHNCFG4_TRGSRC0_NO_TRIGGER        (ADC_CHNCFG4_TRGSRC0_NO_TRIGGER_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) No Trigger (NOP) Position  */
+#define ADC_CHNCFG4_TRGSRC0_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG4_TRGSRC0_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) Global Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC0_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG4_TRGSRC0_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) Global Level Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC0_SCAN_TRIGGER      (ADC_CHNCFG4_TRGSRC0_SCAN_TRIGGER_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC0_SYNC_TRIGGER      (ADC_CHNCFG4_TRGSRC0_SYNC_TRIGGER_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER0       (ADC_CHNCFG4_TRGSRC0_EVENT_USER0_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER1       (ADC_CHNCFG4_TRGSRC0_EVENT_USER1_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER2       (ADC_CHNCFG4_TRGSRC0_EVENT_USER2_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER3       (ADC_CHNCFG4_TRGSRC0_EVENT_USER3_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER4       (ADC_CHNCFG4_TRGSRC0_EVENT_USER4_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER5       (ADC_CHNCFG4_TRGSRC0_EVENT_USER5_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER6       (ADC_CHNCFG4_TRGSRC0_EVENT_USER6_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER7       (ADC_CHNCFG4_TRGSRC0_EVENT_USER7_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER8       (ADC_CHNCFG4_TRGSRC0_EVENT_USER8_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER9       (ADC_CHNCFG4_TRGSRC0_EVENT_USER9_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG4_TRGSRC0_EVENT_USER10      (ADC_CHNCFG4_TRGSRC0_EVENT_USER10_Val << ADC_CHNCFG4_TRGSRC0_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG4_TRGSRC1_Pos               _U_(4)                                               /**< (ADC_CHNCFG4) Channel 1 Trigger Source Position */
 #define ADC_CHNCFG4_TRGSRC1_Msk               (_U_(0xF) << ADC_CHNCFG4_TRGSRC1_Pos)                /**< (ADC_CHNCFG4) Channel 1 Trigger Source Mask */
 #define ADC_CHNCFG4_TRGSRC1(value)            (ADC_CHNCFG4_TRGSRC1_Msk & ((value) << ADC_CHNCFG4_TRGSRC1_Pos))
+#define   ADC_CHNCFG4_TRGSRC1_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG4) No Trigger (NOP)  */
+#define   ADC_CHNCFG4_TRGSRC1_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG4) Global Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC1_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG4) Global Level Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC1_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG4_TRGSRC1_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG4) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG4_TRGSRC1_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 10  */
+#define ADC_CHNCFG4_TRGSRC1_NO_TRIGGER        (ADC_CHNCFG4_TRGSRC1_NO_TRIGGER_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) No Trigger (NOP) Position  */
+#define ADC_CHNCFG4_TRGSRC1_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG4_TRGSRC1_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) Global Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC1_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG4_TRGSRC1_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) Global Level Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC1_SCAN_TRIGGER      (ADC_CHNCFG4_TRGSRC1_SCAN_TRIGGER_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC1_SYNC_TRIGGER      (ADC_CHNCFG4_TRGSRC1_SYNC_TRIGGER_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER0       (ADC_CHNCFG4_TRGSRC1_EVENT_USER0_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER1       (ADC_CHNCFG4_TRGSRC1_EVENT_USER1_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER2       (ADC_CHNCFG4_TRGSRC1_EVENT_USER2_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER3       (ADC_CHNCFG4_TRGSRC1_EVENT_USER3_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER4       (ADC_CHNCFG4_TRGSRC1_EVENT_USER4_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER5       (ADC_CHNCFG4_TRGSRC1_EVENT_USER5_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER6       (ADC_CHNCFG4_TRGSRC1_EVENT_USER6_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER7       (ADC_CHNCFG4_TRGSRC1_EVENT_USER7_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER8       (ADC_CHNCFG4_TRGSRC1_EVENT_USER8_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER9       (ADC_CHNCFG4_TRGSRC1_EVENT_USER9_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG4_TRGSRC1_EVENT_USER10      (ADC_CHNCFG4_TRGSRC1_EVENT_USER10_Val << ADC_CHNCFG4_TRGSRC1_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG4_TRGSRC2_Pos               _U_(8)                                               /**< (ADC_CHNCFG4) Channel 2 Trigger Source Position */
 #define ADC_CHNCFG4_TRGSRC2_Msk               (_U_(0xF) << ADC_CHNCFG4_TRGSRC2_Pos)                /**< (ADC_CHNCFG4) Channel 2 Trigger Source Mask */
 #define ADC_CHNCFG4_TRGSRC2(value)            (ADC_CHNCFG4_TRGSRC2_Msk & ((value) << ADC_CHNCFG4_TRGSRC2_Pos))
+#define   ADC_CHNCFG4_TRGSRC2_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG4) No Trigger (NOP)  */
+#define   ADC_CHNCFG4_TRGSRC2_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG4) Global Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC2_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG4) Global Level Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC2_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG4_TRGSRC2_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG4) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG4_TRGSRC2_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 10  */
+#define ADC_CHNCFG4_TRGSRC2_NO_TRIGGER        (ADC_CHNCFG4_TRGSRC2_NO_TRIGGER_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) No Trigger (NOP) Position  */
+#define ADC_CHNCFG4_TRGSRC2_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG4_TRGSRC2_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) Global Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC2_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG4_TRGSRC2_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) Global Level Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC2_SCAN_TRIGGER      (ADC_CHNCFG4_TRGSRC2_SCAN_TRIGGER_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC2_SYNC_TRIGGER      (ADC_CHNCFG4_TRGSRC2_SYNC_TRIGGER_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER0       (ADC_CHNCFG4_TRGSRC2_EVENT_USER0_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER1       (ADC_CHNCFG4_TRGSRC2_EVENT_USER1_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER2       (ADC_CHNCFG4_TRGSRC2_EVENT_USER2_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER3       (ADC_CHNCFG4_TRGSRC2_EVENT_USER3_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER4       (ADC_CHNCFG4_TRGSRC2_EVENT_USER4_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER5       (ADC_CHNCFG4_TRGSRC2_EVENT_USER5_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER6       (ADC_CHNCFG4_TRGSRC2_EVENT_USER6_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER7       (ADC_CHNCFG4_TRGSRC2_EVENT_USER7_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER8       (ADC_CHNCFG4_TRGSRC2_EVENT_USER8_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER9       (ADC_CHNCFG4_TRGSRC2_EVENT_USER9_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG4_TRGSRC2_EVENT_USER10      (ADC_CHNCFG4_TRGSRC2_EVENT_USER10_Val << ADC_CHNCFG4_TRGSRC2_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG4_TRGSRC3_Pos               _U_(12)                                              /**< (ADC_CHNCFG4) Channel 3 Trigger Source Position */
 #define ADC_CHNCFG4_TRGSRC3_Msk               (_U_(0xF) << ADC_CHNCFG4_TRGSRC3_Pos)                /**< (ADC_CHNCFG4) Channel 3 Trigger Source Mask */
 #define ADC_CHNCFG4_TRGSRC3(value)            (ADC_CHNCFG4_TRGSRC3_Msk & ((value) << ADC_CHNCFG4_TRGSRC3_Pos))
+#define   ADC_CHNCFG4_TRGSRC3_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG4) No Trigger (NOP)  */
+#define   ADC_CHNCFG4_TRGSRC3_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG4) Global Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC3_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG4) Global Level Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC3_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG4_TRGSRC3_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG4) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG4_TRGSRC3_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 10  */
+#define ADC_CHNCFG4_TRGSRC3_NO_TRIGGER        (ADC_CHNCFG4_TRGSRC3_NO_TRIGGER_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) No Trigger (NOP) Position  */
+#define ADC_CHNCFG4_TRGSRC3_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG4_TRGSRC3_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) Global Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC3_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG4_TRGSRC3_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) Global Level Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC3_SCAN_TRIGGER      (ADC_CHNCFG4_TRGSRC3_SCAN_TRIGGER_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC3_SYNC_TRIGGER      (ADC_CHNCFG4_TRGSRC3_SYNC_TRIGGER_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER0       (ADC_CHNCFG4_TRGSRC3_EVENT_USER0_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER1       (ADC_CHNCFG4_TRGSRC3_EVENT_USER1_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER2       (ADC_CHNCFG4_TRGSRC3_EVENT_USER2_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER3       (ADC_CHNCFG4_TRGSRC3_EVENT_USER3_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER4       (ADC_CHNCFG4_TRGSRC3_EVENT_USER4_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER5       (ADC_CHNCFG4_TRGSRC3_EVENT_USER5_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER6       (ADC_CHNCFG4_TRGSRC3_EVENT_USER6_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER7       (ADC_CHNCFG4_TRGSRC3_EVENT_USER7_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER8       (ADC_CHNCFG4_TRGSRC3_EVENT_USER8_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER9       (ADC_CHNCFG4_TRGSRC3_EVENT_USER9_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG4_TRGSRC3_EVENT_USER10      (ADC_CHNCFG4_TRGSRC3_EVENT_USER10_Val << ADC_CHNCFG4_TRGSRC3_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG4_TRGSRC4_Pos               _U_(16)                                              /**< (ADC_CHNCFG4) Channel 4 Trigger Source Position */
 #define ADC_CHNCFG4_TRGSRC4_Msk               (_U_(0xF) << ADC_CHNCFG4_TRGSRC4_Pos)                /**< (ADC_CHNCFG4) Channel 4 Trigger Source Mask */
 #define ADC_CHNCFG4_TRGSRC4(value)            (ADC_CHNCFG4_TRGSRC4_Msk & ((value) << ADC_CHNCFG4_TRGSRC4_Pos))
+#define   ADC_CHNCFG4_TRGSRC4_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG4) No Trigger (NOP)  */
+#define   ADC_CHNCFG4_TRGSRC4_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG4) Global Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC4_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG4) Global Level Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC4_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG4_TRGSRC4_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG4) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG4_TRGSRC4_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 10  */
+#define ADC_CHNCFG4_TRGSRC4_NO_TRIGGER        (ADC_CHNCFG4_TRGSRC4_NO_TRIGGER_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) No Trigger (NOP) Position  */
+#define ADC_CHNCFG4_TRGSRC4_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG4_TRGSRC4_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) Global Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC4_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG4_TRGSRC4_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) Global Level Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC4_SCAN_TRIGGER      (ADC_CHNCFG4_TRGSRC4_SCAN_TRIGGER_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC4_SYNC_TRIGGER      (ADC_CHNCFG4_TRGSRC4_SYNC_TRIGGER_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER0       (ADC_CHNCFG4_TRGSRC4_EVENT_USER0_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER1       (ADC_CHNCFG4_TRGSRC4_EVENT_USER1_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER2       (ADC_CHNCFG4_TRGSRC4_EVENT_USER2_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER3       (ADC_CHNCFG4_TRGSRC4_EVENT_USER3_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER4       (ADC_CHNCFG4_TRGSRC4_EVENT_USER4_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER5       (ADC_CHNCFG4_TRGSRC4_EVENT_USER5_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER6       (ADC_CHNCFG4_TRGSRC4_EVENT_USER6_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER7       (ADC_CHNCFG4_TRGSRC4_EVENT_USER7_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER8       (ADC_CHNCFG4_TRGSRC4_EVENT_USER8_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER9       (ADC_CHNCFG4_TRGSRC4_EVENT_USER9_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG4_TRGSRC4_EVENT_USER10      (ADC_CHNCFG4_TRGSRC4_EVENT_USER10_Val << ADC_CHNCFG4_TRGSRC4_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG4_TRGSRC5_Pos               _U_(20)                                              /**< (ADC_CHNCFG4) Channel 5 Trigger Source Position */
 #define ADC_CHNCFG4_TRGSRC5_Msk               (_U_(0xF) << ADC_CHNCFG4_TRGSRC5_Pos)                /**< (ADC_CHNCFG4) Channel 5 Trigger Source Mask */
 #define ADC_CHNCFG4_TRGSRC5(value)            (ADC_CHNCFG4_TRGSRC5_Msk & ((value) << ADC_CHNCFG4_TRGSRC5_Pos))
+#define   ADC_CHNCFG4_TRGSRC5_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG4) No Trigger (NOP)  */
+#define   ADC_CHNCFG4_TRGSRC5_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG4) Global Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC5_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG4) Global Level Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC5_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG4_TRGSRC5_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG4) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG4_TRGSRC5_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 10  */
+#define ADC_CHNCFG4_TRGSRC5_NO_TRIGGER        (ADC_CHNCFG4_TRGSRC5_NO_TRIGGER_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) No Trigger (NOP) Position  */
+#define ADC_CHNCFG4_TRGSRC5_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG4_TRGSRC5_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) Global Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC5_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG4_TRGSRC5_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) Global Level Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC5_SCAN_TRIGGER      (ADC_CHNCFG4_TRGSRC5_SCAN_TRIGGER_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC5_SYNC_TRIGGER      (ADC_CHNCFG4_TRGSRC5_SYNC_TRIGGER_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER0       (ADC_CHNCFG4_TRGSRC5_EVENT_USER0_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER1       (ADC_CHNCFG4_TRGSRC5_EVENT_USER1_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER2       (ADC_CHNCFG4_TRGSRC5_EVENT_USER2_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER3       (ADC_CHNCFG4_TRGSRC5_EVENT_USER3_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER4       (ADC_CHNCFG4_TRGSRC5_EVENT_USER4_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER5       (ADC_CHNCFG4_TRGSRC5_EVENT_USER5_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER6       (ADC_CHNCFG4_TRGSRC5_EVENT_USER6_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER7       (ADC_CHNCFG4_TRGSRC5_EVENT_USER7_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER8       (ADC_CHNCFG4_TRGSRC5_EVENT_USER8_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER9       (ADC_CHNCFG4_TRGSRC5_EVENT_USER9_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG4_TRGSRC5_EVENT_USER10      (ADC_CHNCFG4_TRGSRC5_EVENT_USER10_Val << ADC_CHNCFG4_TRGSRC5_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG4_TRGSRC6_Pos               _U_(24)                                              /**< (ADC_CHNCFG4) Channel 6 Trigger Source Position */
 #define ADC_CHNCFG4_TRGSRC6_Msk               (_U_(0xF) << ADC_CHNCFG4_TRGSRC6_Pos)                /**< (ADC_CHNCFG4) Channel 6 Trigger Source Mask */
 #define ADC_CHNCFG4_TRGSRC6(value)            (ADC_CHNCFG4_TRGSRC6_Msk & ((value) << ADC_CHNCFG4_TRGSRC6_Pos))
+#define   ADC_CHNCFG4_TRGSRC6_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG4) No Trigger (NOP)  */
+#define   ADC_CHNCFG4_TRGSRC6_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG4) Global Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC6_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG4) Global Level Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC6_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG4_TRGSRC6_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG4) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG4_TRGSRC6_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 10  */
+#define ADC_CHNCFG4_TRGSRC6_NO_TRIGGER        (ADC_CHNCFG4_TRGSRC6_NO_TRIGGER_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) No Trigger (NOP) Position  */
+#define ADC_CHNCFG4_TRGSRC6_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG4_TRGSRC6_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) Global Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC6_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG4_TRGSRC6_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) Global Level Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC6_SCAN_TRIGGER      (ADC_CHNCFG4_TRGSRC6_SCAN_TRIGGER_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC6_SYNC_TRIGGER      (ADC_CHNCFG4_TRGSRC6_SYNC_TRIGGER_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER0       (ADC_CHNCFG4_TRGSRC6_EVENT_USER0_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER1       (ADC_CHNCFG4_TRGSRC6_EVENT_USER1_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER2       (ADC_CHNCFG4_TRGSRC6_EVENT_USER2_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER3       (ADC_CHNCFG4_TRGSRC6_EVENT_USER3_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER4       (ADC_CHNCFG4_TRGSRC6_EVENT_USER4_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER5       (ADC_CHNCFG4_TRGSRC6_EVENT_USER5_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER6       (ADC_CHNCFG4_TRGSRC6_EVENT_USER6_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER7       (ADC_CHNCFG4_TRGSRC6_EVENT_USER7_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER8       (ADC_CHNCFG4_TRGSRC6_EVENT_USER8_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER9       (ADC_CHNCFG4_TRGSRC6_EVENT_USER9_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG4_TRGSRC6_EVENT_USER10      (ADC_CHNCFG4_TRGSRC6_EVENT_USER10_Val << ADC_CHNCFG4_TRGSRC6_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG4_TRGSRC7_Pos               _U_(28)                                              /**< (ADC_CHNCFG4) Channel 7 Trigger Source Position */
 #define ADC_CHNCFG4_TRGSRC7_Msk               (_U_(0xF) << ADC_CHNCFG4_TRGSRC7_Pos)                /**< (ADC_CHNCFG4) Channel 7 Trigger Source Mask */
 #define ADC_CHNCFG4_TRGSRC7(value)            (ADC_CHNCFG4_TRGSRC7_Msk & ((value) << ADC_CHNCFG4_TRGSRC7_Pos))
+#define   ADC_CHNCFG4_TRGSRC7_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG4) No Trigger (NOP)  */
+#define   ADC_CHNCFG4_TRGSRC7_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG4) Global Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC7_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG4) Global Level Software Trigger  */
+#define   ADC_CHNCFG4_TRGSRC7_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG4_TRGSRC7_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG4) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG4_TRGSRC7_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG4) ADC Trigger Event User 10  */
+#define ADC_CHNCFG4_TRGSRC7_NO_TRIGGER        (ADC_CHNCFG4_TRGSRC7_NO_TRIGGER_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) No Trigger (NOP) Position  */
+#define ADC_CHNCFG4_TRGSRC7_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG4_TRGSRC7_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) Global Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC7_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG4_TRGSRC7_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) Global Level Software Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC7_SCAN_TRIGGER      (ADC_CHNCFG4_TRGSRC7_SCAN_TRIGGER_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC7_SYNC_TRIGGER      (ADC_CHNCFG4_TRGSRC7_SYNC_TRIGGER_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER0       (ADC_CHNCFG4_TRGSRC7_EVENT_USER0_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER1       (ADC_CHNCFG4_TRGSRC7_EVENT_USER1_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER2       (ADC_CHNCFG4_TRGSRC7_EVENT_USER2_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER3       (ADC_CHNCFG4_TRGSRC7_EVENT_USER3_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER4       (ADC_CHNCFG4_TRGSRC7_EVENT_USER4_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER5       (ADC_CHNCFG4_TRGSRC7_EVENT_USER5_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER6       (ADC_CHNCFG4_TRGSRC7_EVENT_USER6_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER7       (ADC_CHNCFG4_TRGSRC7_EVENT_USER7_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER8       (ADC_CHNCFG4_TRGSRC7_EVENT_USER8_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER9       (ADC_CHNCFG4_TRGSRC7_EVENT_USER9_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG4_TRGSRC7_EVENT_USER10      (ADC_CHNCFG4_TRGSRC7_EVENT_USER10_Val << ADC_CHNCFG4_TRGSRC7_Pos) /**< (ADC_CHNCFG4) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG4_Msk                       _U_(0xFFFFFFFF)                                      /**< (ADC_CHNCFG4) Register Mask  */
 
 
@@ -130,27 +424,283 @@
 #define ADC_CHNCFG5_TRGSRC8_Pos               _U_(0)                                               /**< (ADC_CHNCFG5) Channel 8 Trigger Source Position */
 #define ADC_CHNCFG5_TRGSRC8_Msk               (_U_(0xF) << ADC_CHNCFG5_TRGSRC8_Pos)                /**< (ADC_CHNCFG5) Channel 8 Trigger Source Mask */
 #define ADC_CHNCFG5_TRGSRC8(value)            (ADC_CHNCFG5_TRGSRC8_Msk & ((value) << ADC_CHNCFG5_TRGSRC8_Pos))
+#define   ADC_CHNCFG5_TRGSRC8_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG5) No Trigger (NOP)  */
+#define   ADC_CHNCFG5_TRGSRC8_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG5) Global Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC8_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG5) Global Level Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC8_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG5_TRGSRC8_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG5) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG5_TRGSRC8_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 10  */
+#define ADC_CHNCFG5_TRGSRC8_NO_TRIGGER        (ADC_CHNCFG5_TRGSRC8_NO_TRIGGER_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) No Trigger (NOP) Position  */
+#define ADC_CHNCFG5_TRGSRC8_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG5_TRGSRC8_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) Global Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC8_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG5_TRGSRC8_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) Global Level Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC8_SCAN_TRIGGER      (ADC_CHNCFG5_TRGSRC8_SCAN_TRIGGER_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC8_SYNC_TRIGGER      (ADC_CHNCFG5_TRGSRC8_SYNC_TRIGGER_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER0       (ADC_CHNCFG5_TRGSRC8_EVENT_USER0_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER1       (ADC_CHNCFG5_TRGSRC8_EVENT_USER1_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER2       (ADC_CHNCFG5_TRGSRC8_EVENT_USER2_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER3       (ADC_CHNCFG5_TRGSRC8_EVENT_USER3_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER4       (ADC_CHNCFG5_TRGSRC8_EVENT_USER4_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER5       (ADC_CHNCFG5_TRGSRC8_EVENT_USER5_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER6       (ADC_CHNCFG5_TRGSRC8_EVENT_USER6_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER7       (ADC_CHNCFG5_TRGSRC8_EVENT_USER7_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER8       (ADC_CHNCFG5_TRGSRC8_EVENT_USER8_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER9       (ADC_CHNCFG5_TRGSRC8_EVENT_USER9_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG5_TRGSRC8_EVENT_USER10      (ADC_CHNCFG5_TRGSRC8_EVENT_USER10_Val << ADC_CHNCFG5_TRGSRC8_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG5_TRGSRC9_Pos               _U_(4)                                               /**< (ADC_CHNCFG5) Channel 9 Trigger Source Position */
 #define ADC_CHNCFG5_TRGSRC9_Msk               (_U_(0xF) << ADC_CHNCFG5_TRGSRC9_Pos)                /**< (ADC_CHNCFG5) Channel 9 Trigger Source Mask */
 #define ADC_CHNCFG5_TRGSRC9(value)            (ADC_CHNCFG5_TRGSRC9_Msk & ((value) << ADC_CHNCFG5_TRGSRC9_Pos))
+#define   ADC_CHNCFG5_TRGSRC9_NO_TRIGGER_Val  _U_(0x0)                                             /**< (ADC_CHNCFG5) No Trigger (NOP)  */
+#define   ADC_CHNCFG5_TRGSRC9_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG5) Global Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC9_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG5) Global Level Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC9_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG5_TRGSRC9_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG5) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG5_TRGSRC9_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 10  */
+#define ADC_CHNCFG5_TRGSRC9_NO_TRIGGER        (ADC_CHNCFG5_TRGSRC9_NO_TRIGGER_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) No Trigger (NOP) Position  */
+#define ADC_CHNCFG5_TRGSRC9_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG5_TRGSRC9_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) Global Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC9_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG5_TRGSRC9_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) Global Level Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC9_SCAN_TRIGGER      (ADC_CHNCFG5_TRGSRC9_SCAN_TRIGGER_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC9_SYNC_TRIGGER      (ADC_CHNCFG5_TRGSRC9_SYNC_TRIGGER_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER0       (ADC_CHNCFG5_TRGSRC9_EVENT_USER0_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER1       (ADC_CHNCFG5_TRGSRC9_EVENT_USER1_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER2       (ADC_CHNCFG5_TRGSRC9_EVENT_USER2_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER3       (ADC_CHNCFG5_TRGSRC9_EVENT_USER3_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER4       (ADC_CHNCFG5_TRGSRC9_EVENT_USER4_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER5       (ADC_CHNCFG5_TRGSRC9_EVENT_USER5_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER6       (ADC_CHNCFG5_TRGSRC9_EVENT_USER6_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER7       (ADC_CHNCFG5_TRGSRC9_EVENT_USER7_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER8       (ADC_CHNCFG5_TRGSRC9_EVENT_USER8_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER9       (ADC_CHNCFG5_TRGSRC9_EVENT_USER9_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG5_TRGSRC9_EVENT_USER10      (ADC_CHNCFG5_TRGSRC9_EVENT_USER10_Val << ADC_CHNCFG5_TRGSRC9_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG5_TRGSRC10_Pos              _U_(8)                                               /**< (ADC_CHNCFG5) Channel 10 Trigger Source Position */
 #define ADC_CHNCFG5_TRGSRC10_Msk              (_U_(0xF) << ADC_CHNCFG5_TRGSRC10_Pos)               /**< (ADC_CHNCFG5) Channel 10 Trigger Source Mask */
 #define ADC_CHNCFG5_TRGSRC10(value)           (ADC_CHNCFG5_TRGSRC10_Msk & ((value) << ADC_CHNCFG5_TRGSRC10_Pos))
+#define   ADC_CHNCFG5_TRGSRC10_NO_TRIGGER_Val _U_(0x0)                                             /**< (ADC_CHNCFG5) No Trigger (NOP)  */
+#define   ADC_CHNCFG5_TRGSRC10_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG5) Global Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC10_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG5) Global Level Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC10_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG5_TRGSRC10_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG5) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG5_TRGSRC10_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 10  */
+#define ADC_CHNCFG5_TRGSRC10_NO_TRIGGER       (ADC_CHNCFG5_TRGSRC10_NO_TRIGGER_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) No Trigger (NOP) Position  */
+#define ADC_CHNCFG5_TRGSRC10_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG5_TRGSRC10_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) Global Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC10_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG5_TRGSRC10_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) Global Level Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC10_SCAN_TRIGGER     (ADC_CHNCFG5_TRGSRC10_SCAN_TRIGGER_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC10_SYNC_TRIGGER     (ADC_CHNCFG5_TRGSRC10_SYNC_TRIGGER_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER0      (ADC_CHNCFG5_TRGSRC10_EVENT_USER0_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER1      (ADC_CHNCFG5_TRGSRC10_EVENT_USER1_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER2      (ADC_CHNCFG5_TRGSRC10_EVENT_USER2_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER3      (ADC_CHNCFG5_TRGSRC10_EVENT_USER3_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER4      (ADC_CHNCFG5_TRGSRC10_EVENT_USER4_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER5      (ADC_CHNCFG5_TRGSRC10_EVENT_USER5_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER6      (ADC_CHNCFG5_TRGSRC10_EVENT_USER6_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER7      (ADC_CHNCFG5_TRGSRC10_EVENT_USER7_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER8      (ADC_CHNCFG5_TRGSRC10_EVENT_USER8_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER9      (ADC_CHNCFG5_TRGSRC10_EVENT_USER9_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG5_TRGSRC10_EVENT_USER10     (ADC_CHNCFG5_TRGSRC10_EVENT_USER10_Val << ADC_CHNCFG5_TRGSRC10_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG5_TRGSRC11_Pos              _U_(12)                                              /**< (ADC_CHNCFG5) Channel 11 Trigger Source Position */
 #define ADC_CHNCFG5_TRGSRC11_Msk              (_U_(0xF) << ADC_CHNCFG5_TRGSRC11_Pos)               /**< (ADC_CHNCFG5) Channel 11 Trigger Source Mask */
 #define ADC_CHNCFG5_TRGSRC11(value)           (ADC_CHNCFG5_TRGSRC11_Msk & ((value) << ADC_CHNCFG5_TRGSRC11_Pos))
+#define   ADC_CHNCFG5_TRGSRC11_NO_TRIGGER_Val _U_(0x0)                                             /**< (ADC_CHNCFG5) No Trigger (NOP)  */
+#define   ADC_CHNCFG5_TRGSRC11_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG5) Global Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC11_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG5) Global Level Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC11_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG5_TRGSRC11_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG5) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG5_TRGSRC11_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 10  */
+#define ADC_CHNCFG5_TRGSRC11_NO_TRIGGER       (ADC_CHNCFG5_TRGSRC11_NO_TRIGGER_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) No Trigger (NOP) Position  */
+#define ADC_CHNCFG5_TRGSRC11_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG5_TRGSRC11_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) Global Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC11_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG5_TRGSRC11_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) Global Level Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC11_SCAN_TRIGGER     (ADC_CHNCFG5_TRGSRC11_SCAN_TRIGGER_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC11_SYNC_TRIGGER     (ADC_CHNCFG5_TRGSRC11_SYNC_TRIGGER_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER0      (ADC_CHNCFG5_TRGSRC11_EVENT_USER0_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER1      (ADC_CHNCFG5_TRGSRC11_EVENT_USER1_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER2      (ADC_CHNCFG5_TRGSRC11_EVENT_USER2_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER3      (ADC_CHNCFG5_TRGSRC11_EVENT_USER3_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER4      (ADC_CHNCFG5_TRGSRC11_EVENT_USER4_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER5      (ADC_CHNCFG5_TRGSRC11_EVENT_USER5_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER6      (ADC_CHNCFG5_TRGSRC11_EVENT_USER6_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER7      (ADC_CHNCFG5_TRGSRC11_EVENT_USER7_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER8      (ADC_CHNCFG5_TRGSRC11_EVENT_USER8_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER9      (ADC_CHNCFG5_TRGSRC11_EVENT_USER9_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG5_TRGSRC11_EVENT_USER10     (ADC_CHNCFG5_TRGSRC11_EVENT_USER10_Val << ADC_CHNCFG5_TRGSRC11_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG5_TRGSRC12_Pos              _U_(16)                                              /**< (ADC_CHNCFG5) Channel 12 Trigger Source Position */
 #define ADC_CHNCFG5_TRGSRC12_Msk              (_U_(0xF) << ADC_CHNCFG5_TRGSRC12_Pos)               /**< (ADC_CHNCFG5) Channel 12 Trigger Source Mask */
 #define ADC_CHNCFG5_TRGSRC12(value)           (ADC_CHNCFG5_TRGSRC12_Msk & ((value) << ADC_CHNCFG5_TRGSRC12_Pos))
+#define   ADC_CHNCFG5_TRGSRC12_NO_TRIGGER_Val _U_(0x0)                                             /**< (ADC_CHNCFG5) No Trigger (NOP)  */
+#define   ADC_CHNCFG5_TRGSRC12_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG5) Global Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC12_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG5) Global Level Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC12_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG5_TRGSRC12_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG5) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG5_TRGSRC12_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 10  */
+#define ADC_CHNCFG5_TRGSRC12_NO_TRIGGER       (ADC_CHNCFG5_TRGSRC12_NO_TRIGGER_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) No Trigger (NOP) Position  */
+#define ADC_CHNCFG5_TRGSRC12_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG5_TRGSRC12_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) Global Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC12_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG5_TRGSRC12_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) Global Level Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC12_SCAN_TRIGGER     (ADC_CHNCFG5_TRGSRC12_SCAN_TRIGGER_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC12_SYNC_TRIGGER     (ADC_CHNCFG5_TRGSRC12_SYNC_TRIGGER_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER0      (ADC_CHNCFG5_TRGSRC12_EVENT_USER0_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER1      (ADC_CHNCFG5_TRGSRC12_EVENT_USER1_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER2      (ADC_CHNCFG5_TRGSRC12_EVENT_USER2_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER3      (ADC_CHNCFG5_TRGSRC12_EVENT_USER3_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER4      (ADC_CHNCFG5_TRGSRC12_EVENT_USER4_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER5      (ADC_CHNCFG5_TRGSRC12_EVENT_USER5_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER6      (ADC_CHNCFG5_TRGSRC12_EVENT_USER6_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER7      (ADC_CHNCFG5_TRGSRC12_EVENT_USER7_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER8      (ADC_CHNCFG5_TRGSRC12_EVENT_USER8_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER9      (ADC_CHNCFG5_TRGSRC12_EVENT_USER9_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG5_TRGSRC12_EVENT_USER10     (ADC_CHNCFG5_TRGSRC12_EVENT_USER10_Val << ADC_CHNCFG5_TRGSRC12_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG5_TRGSRC13_Pos              _U_(20)                                              /**< (ADC_CHNCFG5) Channel 13 Trigger Source Position */
 #define ADC_CHNCFG5_TRGSRC13_Msk              (_U_(0xF) << ADC_CHNCFG5_TRGSRC13_Pos)               /**< (ADC_CHNCFG5) Channel 13 Trigger Source Mask */
 #define ADC_CHNCFG5_TRGSRC13(value)           (ADC_CHNCFG5_TRGSRC13_Msk & ((value) << ADC_CHNCFG5_TRGSRC13_Pos))
+#define   ADC_CHNCFG5_TRGSRC13_NO_TRIGGER_Val _U_(0x0)                                             /**< (ADC_CHNCFG5) No Trigger (NOP)  */
+#define   ADC_CHNCFG5_TRGSRC13_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG5) Global Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC13_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG5) Global Level Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC13_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG5_TRGSRC13_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG5) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG5_TRGSRC13_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 10  */
+#define ADC_CHNCFG5_TRGSRC13_NO_TRIGGER       (ADC_CHNCFG5_TRGSRC13_NO_TRIGGER_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) No Trigger (NOP) Position  */
+#define ADC_CHNCFG5_TRGSRC13_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG5_TRGSRC13_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) Global Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC13_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG5_TRGSRC13_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) Global Level Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC13_SCAN_TRIGGER     (ADC_CHNCFG5_TRGSRC13_SCAN_TRIGGER_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC13_SYNC_TRIGGER     (ADC_CHNCFG5_TRGSRC13_SYNC_TRIGGER_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER0      (ADC_CHNCFG5_TRGSRC13_EVENT_USER0_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER1      (ADC_CHNCFG5_TRGSRC13_EVENT_USER1_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER2      (ADC_CHNCFG5_TRGSRC13_EVENT_USER2_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER3      (ADC_CHNCFG5_TRGSRC13_EVENT_USER3_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER4      (ADC_CHNCFG5_TRGSRC13_EVENT_USER4_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER5      (ADC_CHNCFG5_TRGSRC13_EVENT_USER5_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER6      (ADC_CHNCFG5_TRGSRC13_EVENT_USER6_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER7      (ADC_CHNCFG5_TRGSRC13_EVENT_USER7_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER8      (ADC_CHNCFG5_TRGSRC13_EVENT_USER8_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER9      (ADC_CHNCFG5_TRGSRC13_EVENT_USER9_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG5_TRGSRC13_EVENT_USER10     (ADC_CHNCFG5_TRGSRC13_EVENT_USER10_Val << ADC_CHNCFG5_TRGSRC13_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG5_TRGSRC14_Pos              _U_(24)                                              /**< (ADC_CHNCFG5) Channel 14 Trigger Source Position */
 #define ADC_CHNCFG5_TRGSRC14_Msk              (_U_(0xF) << ADC_CHNCFG5_TRGSRC14_Pos)               /**< (ADC_CHNCFG5) Channel 14 Trigger Source Mask */
 #define ADC_CHNCFG5_TRGSRC14(value)           (ADC_CHNCFG5_TRGSRC14_Msk & ((value) << ADC_CHNCFG5_TRGSRC14_Pos))
+#define   ADC_CHNCFG5_TRGSRC14_NO_TRIGGER_Val _U_(0x0)                                             /**< (ADC_CHNCFG5) No Trigger (NOP)  */
+#define   ADC_CHNCFG5_TRGSRC14_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG5) Global Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC14_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG5) Global Level Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC14_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG5_TRGSRC14_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG5) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG5_TRGSRC14_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 10  */
+#define ADC_CHNCFG5_TRGSRC14_NO_TRIGGER       (ADC_CHNCFG5_TRGSRC14_NO_TRIGGER_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) No Trigger (NOP) Position  */
+#define ADC_CHNCFG5_TRGSRC14_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG5_TRGSRC14_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) Global Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC14_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG5_TRGSRC14_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) Global Level Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC14_SCAN_TRIGGER     (ADC_CHNCFG5_TRGSRC14_SCAN_TRIGGER_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC14_SYNC_TRIGGER     (ADC_CHNCFG5_TRGSRC14_SYNC_TRIGGER_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER0      (ADC_CHNCFG5_TRGSRC14_EVENT_USER0_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER1      (ADC_CHNCFG5_TRGSRC14_EVENT_USER1_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER2      (ADC_CHNCFG5_TRGSRC14_EVENT_USER2_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER3      (ADC_CHNCFG5_TRGSRC14_EVENT_USER3_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER4      (ADC_CHNCFG5_TRGSRC14_EVENT_USER4_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER5      (ADC_CHNCFG5_TRGSRC14_EVENT_USER5_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER6      (ADC_CHNCFG5_TRGSRC14_EVENT_USER6_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER7      (ADC_CHNCFG5_TRGSRC14_EVENT_USER7_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER8      (ADC_CHNCFG5_TRGSRC14_EVENT_USER8_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER9      (ADC_CHNCFG5_TRGSRC14_EVENT_USER9_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG5_TRGSRC14_EVENT_USER10     (ADC_CHNCFG5_TRGSRC14_EVENT_USER10_Val << ADC_CHNCFG5_TRGSRC14_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG5_TRGSRC15_Pos              _U_(28)                                              /**< (ADC_CHNCFG5) Channel 15 Trigger Source Position */
 #define ADC_CHNCFG5_TRGSRC15_Msk              (_U_(0xF) << ADC_CHNCFG5_TRGSRC15_Pos)               /**< (ADC_CHNCFG5) Channel 15 Trigger Source Mask */
 #define ADC_CHNCFG5_TRGSRC15(value)           (ADC_CHNCFG5_TRGSRC15_Msk & ((value) << ADC_CHNCFG5_TRGSRC15_Pos))
+#define   ADC_CHNCFG5_TRGSRC15_NO_TRIGGER_Val _U_(0x0)                                             /**< (ADC_CHNCFG5) No Trigger (NOP)  */
+#define   ADC_CHNCFG5_TRGSRC15_GLOBAL_SOFTWARE_TRIGGER_Val _U_(0x1)                                             /**< (ADC_CHNCFG5) Global Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC15_GLOBAL_LEVEL_TRIGGER_Val _U_(0x2)                                             /**< (ADC_CHNCFG5) Global Level Software Trigger  */
+#define   ADC_CHNCFG5_TRGSRC15_SCAN_TRIGGER_Val _U_(0x3)                                             /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger  */
+#define   ADC_CHNCFG5_TRGSRC15_SYNC_TRIGGER_Val _U_(0x4)                                             /**< (ADC_CHNCFG5) STRIG Synchronous Trigger  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER0_Val _U_(0x5)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 0  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER1_Val _U_(0x6)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 1  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER2_Val _U_(0x7)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 2  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER3_Val _U_(0x8)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 3  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER4_Val _U_(0x9)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 4  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER5_Val _U_(0xA)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 5  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER6_Val _U_(0xB)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 6  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER7_Val _U_(0xC)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 7  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER8_Val _U_(0xD)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 8  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER9_Val _U_(0xE)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 9  */
+#define   ADC_CHNCFG5_TRGSRC15_EVENT_USER10_Val _U_(0xF)                                             /**< (ADC_CHNCFG5) ADC Trigger Event User 10  */
+#define ADC_CHNCFG5_TRGSRC15_NO_TRIGGER       (ADC_CHNCFG5_TRGSRC15_NO_TRIGGER_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) No Trigger (NOP) Position  */
+#define ADC_CHNCFG5_TRGSRC15_GLOBAL_SOFTWARE_TRIGGER (ADC_CHNCFG5_TRGSRC15_GLOBAL_SOFTWARE_TRIGGER_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) Global Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC15_GLOBAL_LEVEL_TRIGGER (ADC_CHNCFG5_TRGSRC15_GLOBAL_LEVEL_TRIGGER_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) Global Level Software Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC15_SCAN_TRIGGER     (ADC_CHNCFG5_TRGSRC15_SCAN_TRIGGER_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) SCANTRG - Scan Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC15_SYNC_TRIGGER     (ADC_CHNCFG5_TRGSRC15_SYNC_TRIGGER_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) STRIG Synchronous Trigger Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER0      (ADC_CHNCFG5_TRGSRC15_EVENT_USER0_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 0 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER1      (ADC_CHNCFG5_TRGSRC15_EVENT_USER1_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 1 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER2      (ADC_CHNCFG5_TRGSRC15_EVENT_USER2_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 2 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER3      (ADC_CHNCFG5_TRGSRC15_EVENT_USER3_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 3 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER4      (ADC_CHNCFG5_TRGSRC15_EVENT_USER4_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 4 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER5      (ADC_CHNCFG5_TRGSRC15_EVENT_USER5_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 5 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER6      (ADC_CHNCFG5_TRGSRC15_EVENT_USER6_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 6 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER7      (ADC_CHNCFG5_TRGSRC15_EVENT_USER7_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 7 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER8      (ADC_CHNCFG5_TRGSRC15_EVENT_USER8_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 8 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER9      (ADC_CHNCFG5_TRGSRC15_EVENT_USER9_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 9 Position  */
+#define ADC_CHNCFG5_TRGSRC15_EVENT_USER10     (ADC_CHNCFG5_TRGSRC15_EVENT_USER10_Val << ADC_CHNCFG5_TRGSRC15_Pos) /**< (ADC_CHNCFG5) ADC Trigger Event User 10 Position  */
 #define ADC_CHNCFG5_Msk                       _U_(0xFFFFFFFF)                                      /**< (ADC_CHNCFG5) Register Mask  */
 
 
@@ -430,6 +980,18 @@
 #define ADC_CTRLC_COREINTERLEAVED_Pos         _U_(28)                                              /**< (ADC_CTRLC) Number of Core to Interleave Triggers Position */
 #define ADC_CTRLC_COREINTERLEAVED_Msk         (_U_(0x3) << ADC_CTRLC_COREINTERLEAVED_Pos)          /**< (ADC_CTRLC) Number of Core to Interleave Triggers Mask */
 #define ADC_CTRLC_COREINTERLEAVED(value)      (ADC_CTRLC_COREINTERLEAVED_Msk & ((value) << ADC_CTRLC_COREINTERLEAVED_Pos))
+#define   ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_OFF_Val _U_(0x0)                                             /**< (ADC_CTRLC) Interleaving Off  */
+#define   ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1_Val _U_(0x4)                                             /**< (ADC_CTRLC) Interleaving Cores 0 and 1  */
+#define   ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_1_2_Val _U_(0x1)                                             /**< (ADC_CTRLC) Interleaving Cores 1 and 2  */
+#define   ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1_2_Val _U_(0x5)                                             /**< (ADC_CTRLC) Interleaving Cores 0, 1 and 2  */
+#define   ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_1_2_3_Val _U_(0x2)                                             /**< (ADC_CTRLC) Interleaving Cores 1, 2 and 3  */
+#define   ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1_2_3_Val _U_(0x3)                                             /**< (ADC_CTRLC) Interleaving Cores 0, 1, 2 and 3  */
+#define ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_OFF (ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_OFF_Val << ADC_CTRLC_COREINTERLEAVED_Pos) /**< (ADC_CTRLC) Interleaving Off Position  */
+#define ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1 (ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1_Val << ADC_CTRLC_COREINTERLEAVED_Pos) /**< (ADC_CTRLC) Interleaving Cores 0 and 1 Position  */
+#define ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_1_2 (ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_1_2_Val << ADC_CTRLC_COREINTERLEAVED_Pos) /**< (ADC_CTRLC) Interleaving Cores 1 and 2 Position  */
+#define ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1_2 (ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1_2_Val << ADC_CTRLC_COREINTERLEAVED_Pos) /**< (ADC_CTRLC) Interleaving Cores 0, 1 and 2 Position  */
+#define ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_1_2_3 (ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_1_2_3_Val << ADC_CTRLC_COREINTERLEAVED_Pos) /**< (ADC_CTRLC) Interleaving Cores 1, 2 and 3 Position  */
+#define ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1_2_3 (ADC_CTRLC_COREINTERLEAVED_INTERLEAVING_CORES_0_1_2_3_Val << ADC_CTRLC_COREINTERLEAVED_Pos) /**< (ADC_CTRLC) Interleaving Cores 0, 1, 2 and 3 Position  */
 #define ADC_CTRLC_Msk                         _U_(0x3000FFFF)                                      /**< (ADC_CTRLC) Register Mask  */
 
 
@@ -451,6 +1013,10 @@
 #define ADC_CTRLD_VREFSEL_Pos                 _U_(28)                                              /**< (ADC_CTRLD) Voltage Reference Select Position */
 #define ADC_CTRLD_VREFSEL_Msk                 (_U_(0x7) << ADC_CTRLD_VREFSEL_Pos)                  /**< (ADC_CTRLD) Voltage Reference Select Mask */
 #define ADC_CTRLD_VREFSEL(value)              (ADC_CTRLD_VREFSEL_Msk & ((value) << ADC_CTRLD_VREFSEL_Pos))
+#define   ADC_CTRLD_VREFSEL_AVDD_AVSS_Val     _U_(0x0)                                             /**< (ADC_CTRLD) AVDD and AVSS  */
+#define   ADC_CTRLD_VREFSEL_EXTERNAL_VREFH_AVSS_Val _U_(0x1)                                             /**< (ADC_CTRLD) External VREFH and AVSS  */
+#define ADC_CTRLD_VREFSEL_AVDD_AVSS           (ADC_CTRLD_VREFSEL_AVDD_AVSS_Val << ADC_CTRLD_VREFSEL_Pos) /**< (ADC_CTRLD) AVDD and AVSS Position  */
+#define ADC_CTRLD_VREFSEL_EXTERNAL_VREFH_AVSS (ADC_CTRLD_VREFSEL_EXTERNAL_VREFH_AVSS_Val << ADC_CTRLD_VREFSEL_Pos) /**< (ADC_CTRLD) External VREFH and AVSS Position  */
 #define ADC_CTRLD_Msk                         _U_(0x7FFF3F00)                                      /**< (ADC_CTRLD) Register Mask  */
 
 
@@ -490,6 +1056,22 @@
 #define ADC_FLTCTRL_OVRSAM_Pos                _U_(0)                                               /**< (ADC_FLTCTRL) Oversampling Ratio Position */
 #define ADC_FLTCTRL_OVRSAM_Msk                (_U_(0x7) << ADC_FLTCTRL_OVRSAM_Pos)                 /**< (ADC_FLTCTRL) Oversampling Ratio Mask */
 #define ADC_FLTCTRL_OVRSAM(value)             (ADC_FLTCTRL_OVRSAM_Msk & ((value) << ADC_FLTCTRL_OVRSAM_Pos))
+#define   ADC_FLTCTRL_OVRSAM_4_SAMPLES_Val    _U_(0x0)                                             /**< (ADC_FLTCTRL) (If FMODE is 0) 4 samples (shift sum 1 bit to right, output data is 13-bits) / (If FMODE is 1) 2 samples to be averaged  */
+#define   ADC_FLTCTRL_OVRSAM_16_SAMPLES_Val   _U_(0x1)                                             /**< (ADC_FLTCTRL) (If FMODE is 0) 16 samples (shift sum 2 bits to right, output data is 14-bits) / (If FMODE is 1) 4 samples to be averaged  */
+#define   ADC_FLTCTRL_OVRSAM_64_SAMPLES_Val   _U_(0x2)                                             /**< (ADC_FLTCTRL) (If FMODE is 0) 64 samples (shift sum 3 bits to right, output data is 15-bits) / (If FMODE is 1) 8 samples to be averaged  */
+#define   ADC_FLTCTRL_OVRSAM_256_SAMPLES_Val  _U_(0x3)                                             /**< (ADC_FLTCTRL) (If FMODE is 0) 256 samples (shift sum 4 bits to right, output data is 16-bits) / (If FMODE is 1) 16 samples to be averaged  */
+#define   ADC_FLTCTRL_OVRSAM_2_SAMPLES_Val    _U_(0x4)                                             /**< (ADC_FLTCTRL) (If FMODE is 0) 2 samples (shift sum 0 bits to right, output data is 12.1 format) / (If FMODE is 1) 32 samples to be averaged  */
+#define   ADC_FLTCTRL_OVRSAM_8_SAMPLES_Val    _U_(0x5)                                             /**< (ADC_FLTCTRL) (If FMODE is 0) 8 samples (shift sum 1 bit to right, output data is 13.1 format) / (If FMODE is 1) 64 samples to be averaged  */
+#define   ADC_FLTCTRL_OVRSAM_32_SAMPLES_Val   _U_(0x6)                                             /**< (ADC_FLTCTRL) (If FMODE is 0) 32 samples (shift sum 2 bits to right, output data is 14.1 format) / (If FMODE is 1) 128 samples to be averaged  */
+#define   ADC_FLTCTRL_OVRSAM_128_SAMPLES_Val  _U_(0x7)                                             /**< (ADC_FLTCTRL) (If FMODE is 0) 128 samples (shift sum 3 bits to right, output data is 15.1 format) / (If FMODE is 1) 256 samples to be averaged  */
+#define ADC_FLTCTRL_OVRSAM_4_SAMPLES          (ADC_FLTCTRL_OVRSAM_4_SAMPLES_Val << ADC_FLTCTRL_OVRSAM_Pos) /**< (ADC_FLTCTRL) (If FMODE is 0) 4 samples (shift sum 1 bit to right, output data is 13-bits) / (If FMODE is 1) 2 samples to be averaged Position  */
+#define ADC_FLTCTRL_OVRSAM_16_SAMPLES         (ADC_FLTCTRL_OVRSAM_16_SAMPLES_Val << ADC_FLTCTRL_OVRSAM_Pos) /**< (ADC_FLTCTRL) (If FMODE is 0) 16 samples (shift sum 2 bits to right, output data is 14-bits) / (If FMODE is 1) 4 samples to be averaged Position  */
+#define ADC_FLTCTRL_OVRSAM_64_SAMPLES         (ADC_FLTCTRL_OVRSAM_64_SAMPLES_Val << ADC_FLTCTRL_OVRSAM_Pos) /**< (ADC_FLTCTRL) (If FMODE is 0) 64 samples (shift sum 3 bits to right, output data is 15-bits) / (If FMODE is 1) 8 samples to be averaged Position  */
+#define ADC_FLTCTRL_OVRSAM_256_SAMPLES        (ADC_FLTCTRL_OVRSAM_256_SAMPLES_Val << ADC_FLTCTRL_OVRSAM_Pos) /**< (ADC_FLTCTRL) (If FMODE is 0) 256 samples (shift sum 4 bits to right, output data is 16-bits) / (If FMODE is 1) 16 samples to be averaged Position  */
+#define ADC_FLTCTRL_OVRSAM_2_SAMPLES          (ADC_FLTCTRL_OVRSAM_2_SAMPLES_Val << ADC_FLTCTRL_OVRSAM_Pos) /**< (ADC_FLTCTRL) (If FMODE is 0) 2 samples (shift sum 0 bits to right, output data is 12.1 format) / (If FMODE is 1) 32 samples to be averaged Position  */
+#define ADC_FLTCTRL_OVRSAM_8_SAMPLES          (ADC_FLTCTRL_OVRSAM_8_SAMPLES_Val << ADC_FLTCTRL_OVRSAM_Pos) /**< (ADC_FLTCTRL) (If FMODE is 0) 8 samples (shift sum 1 bit to right, output data is 13.1 format) / (If FMODE is 1) 64 samples to be averaged Position  */
+#define ADC_FLTCTRL_OVRSAM_32_SAMPLES         (ADC_FLTCTRL_OVRSAM_32_SAMPLES_Val << ADC_FLTCTRL_OVRSAM_Pos) /**< (ADC_FLTCTRL) (If FMODE is 0) 32 samples (shift sum 2 bits to right, output data is 14.1 format) / (If FMODE is 1) 128 samples to be averaged Position  */
+#define ADC_FLTCTRL_OVRSAM_128_SAMPLES        (ADC_FLTCTRL_OVRSAM_128_SAMPLES_Val << ADC_FLTCTRL_OVRSAM_Pos) /**< (ADC_FLTCTRL) (If FMODE is 0) 128 samples (shift sum 3 bits to right, output data is 15.1 format) / (If FMODE is 1) 256 samples to be averaged Position  */
 #define ADC_FLTCTRL_FMODE_Pos                 _U_(3)                                               /**< (ADC_FLTCTRL) Filter Mode Position */
 #define ADC_FLTCTRL_FMODE_Msk                 (_U_(0x1) << ADC_FLTCTRL_FMODE_Pos)                  /**< (ADC_FLTCTRL) Filter Mode Mask */
 #define ADC_FLTCTRL_FMODE(value)              (ADC_FLTCTRL_FMODE_Msk & ((value) << ADC_FLTCTRL_FMODE_Pos))
@@ -598,6 +1180,10 @@
 #define ADC_PFFCTRL_PFFRDYDM_Pos              _U_(16)                                              /**< (ADC_PFFCTRL) DMA APB FIFO Data Ready Position */
 #define ADC_PFFCTRL_PFFRDYDM_Msk              (_U_(0x1) << ADC_PFFCTRL_PFFRDYDM_Pos)               /**< (ADC_PFFCTRL) DMA APB FIFO Data Ready Mask */
 #define ADC_PFFCTRL_PFFRDYDM(value)           (ADC_PFFCTRL_PFFRDYDM_Msk & ((value) << ADC_PFFCTRL_PFFRDYDM_Pos))
+#define   ADC_PFFCTRL_PFFRDYDM_CTLINTFLAG_PFFHFUL_Val _U_(0x0)                                             /**< (ADC_PFFCTRL) Selects CTLINTFLAG.PFFHFUL for the ADC DMA PFFRDY trigger signal to the DMAC  */
+#define   ADC_PFFCTRL_PFFRDYDM_CTLINTFLAG_PFFRDY_Val _U_(0x1)                                             /**< (ADC_PFFCTRL) Selects CTLINTFLAG.PFFRDY for the ADC DMA PFFRDY trigger signal to the DMAC  */
+#define ADC_PFFCTRL_PFFRDYDM_CTLINTFLAG_PFFHFUL (ADC_PFFCTRL_PFFRDYDM_CTLINTFLAG_PFFHFUL_Val << ADC_PFFCTRL_PFFRDYDM_Pos) /**< (ADC_PFFCTRL) Selects CTLINTFLAG.PFFHFUL for the ADC DMA PFFRDY trigger signal to the DMAC Position  */
+#define ADC_PFFCTRL_PFFRDYDM_CTLINTFLAG_PFFRDY (ADC_PFFCTRL_PFFRDYDM_CTLINTFLAG_PFFRDY_Val << ADC_PFFCTRL_PFFRDYDM_Pos) /**< (ADC_PFFCTRL) Selects CTLINTFLAG.PFFRDY for the ADC DMA PFFRDY trigger signal to the DMAC Position  */
 #define ADC_PFFCTRL_Msk                       _U_(0x000100F2)                                      /**< (ADC_PFFCTRL) Register Mask  */
 
 
