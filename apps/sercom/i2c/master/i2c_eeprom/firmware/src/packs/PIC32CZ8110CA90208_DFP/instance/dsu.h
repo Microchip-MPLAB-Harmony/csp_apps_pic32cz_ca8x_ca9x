@@ -1,5 +1,5 @@
-/**
- * \brief Instance header file for PIC32CZ8110CA90208
+/*
+ * Instance header file for PIC32CZ8110CA90208
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,12 +20,13 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_DSU_INSTANCE_
 #define _PIC32CZCA90_DSU_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for DSU peripheral ========== */
+#define DSU_BMX_ERROR_SUPPORT                    _UL_(1)    /* Defines whether DSU APB errors are reported as 2-cycles bus errors to the AHB AP0 master */
 #define DSU_DAL1_IMPLEMENTED                     _UL_(0)    /* Debug Access Level 1 (Non-Secure) Implemented? for TZ devices only */
 #define DSU_DMAC_ID_DCC0                         _UL_(2)    /* DMAC ID for DCC0 register */
 #define DSU_DMAC_ID_DCC1                         _UL_(3)    /* DMAC ID for DCC1 register */
