@@ -48,9 +48,16 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/* Load ADC calibration constant */
+#define ADC_CALIB_FCCFG65           *((uint32_t*)0x0A007184)
+
+
 
 void ADC_Initialize(void)
 {
+    /* Copy calibration value for all the enabled ADC cores */
+    //ADC_REGS->CONFIG[1].ADC_CALCTRL = ADC_CALIB_FCCFG65;
+
     /*
     ONDEMAND = false
     RUNSTDBY = false
@@ -74,11 +81,11 @@ void ADC_Initialize(void)
        STRGLVL = Edge
        STRGSRC = NO_TRIGGER
        EIRQOVR = false
-       EIS = 7
+       EIS = 0
        SELRES = 12_BITS
        SAMC = 100
     */
-    ADC_REGS->CONFIG[1].ADC_CORCTRL = 0x2007C64;
+    ADC_REGS->CONFIG[1].ADC_CORCTRL = 0x2000C64;
 
 
 
