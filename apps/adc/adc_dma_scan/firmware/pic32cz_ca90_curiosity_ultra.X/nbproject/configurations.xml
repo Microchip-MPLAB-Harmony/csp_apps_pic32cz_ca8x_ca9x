@@ -9,26 +9,26 @@
                        displayName="pic32cz_ca90_curiosity_ultra"
                        projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f5" displayName="adc" projectFiles="true">
+            <logicalFolder name="f1" displayName="adc" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/adc/plib_adc.h</itemPath>
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/adc/plib_adc_common.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="clock" projectFiles="true">
+            <logicalFolder name="f2" displayName="clock" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/clock/plib_clock.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="dma" projectFiles="true">
+            <logicalFolder name="f3" displayName="dma" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/dma/plib_dma.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="evsys" projectFiles="true">
+            <logicalFolder name="f4" displayName="evsys" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/evsys/plib_evsys.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f5" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/nvic/plib_nvic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="port" projectFiles="true">
+            <logicalFolder name="f6" displayName="port" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/port/plib_port.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="rtc" projectFiles="true">
+            <logicalFolder name="f7" displayName="rtc" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/rtc/plib_rtc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f8" displayName="sercom" projectFiles="true">
@@ -47,7 +47,7 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
-        <logicalFolder name="f2" displayName="CMSIS" projectFiles="true">
+        <logicalFolder name="f1" displayName="CMSIS" projectFiles="true">
           <logicalFolder name="f1" displayName="CMSIS" projectFiles="true">
             <logicalFolder name="f1" displayName="Core" projectFiles="true">
               <logicalFolder name="f1" displayName="Include" projectFiles="true">
@@ -65,7 +65,7 @@
             </logicalFolder>
           </logicalFolder>
         </logicalFolder>
-        <logicalFolder name="f1"
+        <logicalFolder name="f2"
                        displayName="PIC32CZ8110CA90208_DFP"
                        projectFiles="true">
           <logicalFolder name="f1" displayName="component" projectFiles="true">
@@ -180,6 +180,28 @@
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <logicalFolder name="f1"
+                     displayName="pic32cz_ca90_curiosity_ultra.mhc"
+                     projectFiles="true">
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/adc.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/cmsis.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/core.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/dfp.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/evsys.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/GraphSettings.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/project.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/rtc.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/sercom5.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/settings.yml</itemPath>
+        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/stdio.yml</itemPath>
+      </logicalFolder>
+      <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/harmony-manifest-success.yml</itemPath>
+      <itemPath>adc_dma_scan_pic32cz_ca90_curiosity_ultra.mc3</itemPath>
+    </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
@@ -199,25 +221,25 @@
                        displayName="pic32cz_ca90_curiosity_ultra"
                        projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f5" displayName="adc" projectFiles="true">
+            <logicalFolder name="f1" displayName="adc" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/adc/plib_adc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="clock" projectFiles="true">
+            <logicalFolder name="f2" displayName="clock" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/clock/plib_clock.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="dma" projectFiles="true">
+            <logicalFolder name="f3" displayName="dma" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/dma/plib_dma.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="evsys" projectFiles="true">
+            <logicalFolder name="f4" displayName="evsys" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/evsys/plib_evsys.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f5" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/nvic/plib_nvic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="port" projectFiles="true">
+            <logicalFolder name="f6" displayName="port" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/port/plib_port.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="rtc" projectFiles="true">
+            <logicalFolder name="f7" displayName="rtc" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/peripheral/rtc/plib_rtc_timer.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f8" displayName="sercom" projectFiles="true">
@@ -238,27 +260,6 @@
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
     </logicalFolder>
-    <logicalFolder name="ExternalFiles"
-                   displayName="Important Files"
-                   projectFiles="false">
-      <logicalFolder name="f1"
-                     displayName="pic32cz_ca90_curiosity_ultra.mhc"
-                     projectFiles="true">
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/adc.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/cmsis.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/core.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/dfp.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/evsys.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/GraphSettings.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/project.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/rtc.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/sercom5.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/settings.yml</itemPath>
-        <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/pic32cz_ca90_curiosity_ultra.mhc/stdio.yml</itemPath>
-      </logicalFolder>
-      <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/harmony-manifest-success.yml</itemPath>
-    </logicalFolder>
   </logicalFolder>
   <sourceRootList>
     <Elem>../src</Elem>
@@ -273,7 +274,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.50</languageToolchainVersion>
+        <languageToolchainVersion>3.01</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -334,6 +335,7 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -390,6 +392,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -429,6 +432,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -457,6 +461,7 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
+        <property key="appendMe" value=""/>
         <property key="common-include-directories" value=""/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>
