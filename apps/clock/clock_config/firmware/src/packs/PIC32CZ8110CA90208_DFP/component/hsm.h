@@ -1,5 +1,5 @@
-/**
- * \brief Component description for HSM
+/*
+ * Component description for HSM
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_HSM_COMPONENT_H_
 #define _PIC32CZCA90_HSM_COMPONENT_H_
 
@@ -94,6 +94,9 @@
 #define HSM_STATUS_BUSY_Pos                   _U_(0)                                               /**< (HSM_STATUS) HSM CPU BUSY Position */
 #define HSM_STATUS_BUSY_Msk                   (_U_(0x1) << HSM_STATUS_BUSY_Pos)                    /**< (HSM_STATUS) HSM CPU BUSY Mask */
 #define HSM_STATUS_BUSY(value)                (HSM_STATUS_BUSY_Msk & ((value) << HSM_STATUS_BUSY_Pos))
+#define HSM_STATUS_LKUP_Pos                   _U_(1)                                               /**< (HSM_STATUS) HSM CPU LOCKUP Position */
+#define HSM_STATUS_LKUP_Msk                   (_U_(0x1) << HSM_STATUS_LKUP_Pos)                    /**< (HSM_STATUS) HSM CPU LOCKUP Mask */
+#define HSM_STATUS_LKUP(value)                (HSM_STATUS_LKUP_Msk & ((value) << HSM_STATUS_LKUP_Pos))
 #define HSM_STATUS_PS_Pos                     _U_(4)                                               /**< (HSM_STATUS) PROCESSING STATE Position */
 #define HSM_STATUS_PS_Msk                     (_U_(0x7) << HSM_STATUS_PS_Pos)                      /**< (HSM_STATUS) PROCESSING STATE Mask */
 #define HSM_STATUS_PS(value)                  (HSM_STATUS_PS_Msk & ((value) << HSM_STATUS_PS_Pos))
@@ -106,7 +109,7 @@
 #define HSM_STATUS_ECODE_Pos                  _U_(16)                                              /**< (HSM_STATUS) ERROR CODE Position */
 #define HSM_STATUS_ECODE_Msk                  (_U_(0xF) << HSM_STATUS_ECODE_Pos)                   /**< (HSM_STATUS) ERROR CODE Mask */
 #define HSM_STATUS_ECODE(value)               (HSM_STATUS_ECODE_Msk & ((value) << HSM_STATUS_ECODE_Pos))
-#define HSM_STATUS_Msk                        _U_(0x000F7771)                                      /**< (HSM_STATUS) Register Mask  */
+#define HSM_STATUS_Msk                        _U_(0x000F7773)                                      /**< (HSM_STATUS) Register Mask  */
 
 
 /* -------- HSM_MBFIFO : (HSM Offset: 0x100) (R/W 32) MAILBOX FIFO -------- */
