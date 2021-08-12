@@ -1,20 +1,20 @@
 /*******************************************************************************
- System Interrupts File
+  Interface definition of EVSYS PLIB.
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    interrupt.h
+    plib_evsys.h
 
   Summary:
-    Interrupt vectors mapping
+    Interface definition of the Event System Plib (EVSYS).
 
   Description:
-    This file contains declarations of device vectors used by Harmony 3
- *******************************************************************************/
+    This file defines the interface for the EVSYS Plib.
+    It allows user to setup event generators and users.
+*******************************************************************************/
 
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -36,32 +36,33 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *******************************************************************************/
-// DOM-IGNORE-END
+*******************************************************************************/
 
-#ifndef INTERRUPTS_H
-#define INTERRUPTS_H
+#ifndef EVSYS_H    // Guards against multiple inclusion
+#define EVSYS_H
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
+#include "device.h"
 #include <stdint.h>
+#include <stddef.h>
 
+#ifdef __cplusplus // Provide C++ Compatibility
+ extern "C" {
+#endif
 
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Handler Routines
+// Section: Interface
 // *****************************************************************************
 // *****************************************************************************
 
-void Reset_Handler (void);
-void NonMaskableInt_Handler (void);
-void HardFault_Handler (void);
-void SERCOM2_SPI_InterruptHandler (void);
 
 
+/***************************** EVSYS API *******************************/
+void EVSYS_Initialize( void );
 
-#endif // INTERRUPTS_H
+#ifdef __cplusplus // Provide C++ Compatibility
+ }
+#endif
+
+#endif

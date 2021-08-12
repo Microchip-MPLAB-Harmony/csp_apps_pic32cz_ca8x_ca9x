@@ -1,20 +1,20 @@
 /*******************************************************************************
- System Interrupts File
+  EVSYS Peripheral Library
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    interrupt.h
+    plib_evsys.c
 
   Summary:
-    Interrupt vectors mapping
+    EVSYS Source File
 
   Description:
-    This file contains declarations of device vectors used by Harmony 3
- *******************************************************************************/
+    None
 
-// DOM-IGNORE-BEGIN
+*******************************************************************************/
+
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -36,32 +36,17 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *******************************************************************************/
-// DOM-IGNORE-END
+*******************************************************************************/
 
-#ifndef INTERRUPTS_H
-#define INTERRUPTS_H
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
-#include <stdint.h>
+#include "plib_evsys.h"
+#include "interrupts.h"
 
 
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Handler Routines
-// *****************************************************************************
-// *****************************************************************************
+void EVSYS_Initialize( void )
+{
+    /*Event Channel User Configuration*/
 
-void Reset_Handler (void);
-void NonMaskableInt_Handler (void);
-void HardFault_Handler (void);
-void SERCOM2_SPI_InterruptHandler (void);
+}
 
 
-
-#endif // INTERRUPTS_H
