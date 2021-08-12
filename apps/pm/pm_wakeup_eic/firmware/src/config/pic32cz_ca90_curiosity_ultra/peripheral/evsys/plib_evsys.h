@@ -1,28 +1,22 @@
 /*******************************************************************************
-  Reset Controller(RSTC) PLIB
+  Interface definition of EVSYS PLIB.
 
-  Company
+  Company:
     Microchip Technology Inc.
 
-  File Name
-    plib_rstc.c
+  File Name:
+    plib_evsys.h
 
-  Summary
-    RSTC PLIB Implementation File.
+  Summary:
+    Interface definition of the Event System Plib (EVSYS).
 
-  Description
-    This file defines the interface to the RSTC peripheral library.
-    This library provides access to and control of the associated
-    Reset Controller.
-
-  Remarks:
-    None.
-
+  Description:
+    This file defines the interface for the EVSYS Plib.
+    It allows user to setup event generators and users.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2021 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -43,30 +37,32 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
+
+#ifndef EVSYS_H    // Guards against multiple inclusion
+#define EVSYS_H
+
+#include "device.h"
+#include <stdint.h>
+#include <stddef.h>
+
+#ifdef __cplusplus // Provide C++ Compatibility
+ extern "C" {
+#endif
+
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
-/* This section lists the other files that are included in this file.
-*/
-
-#include "plib_rstc.h"
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: RSTC Implementation
+// Section: Interface
 // *****************************************************************************
 // *****************************************************************************
 
-RSTC_RESET_CAUSE RSTC_ResetCauseGet( void )
-{
-    return ( RSTC_RESET_CAUSE ) RSTC_REGS->RSTC_RCAUSE;
-}
 
-RSTC_BKUPEXIT_CAUSE RSTC_BackupExitCauseGet (void)
-{
-    return ( RSTC_BKUPEXIT_CAUSE ) RSTC_REGS->RSTC_BKUPEXIT;
-}
+
+/***************************** EVSYS API *******************************/
+void EVSYS_Initialize( void );
+
+#ifdef __cplusplus // Provide C++ Compatibility
+ }
+#endif
+
+#endif

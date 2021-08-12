@@ -41,8 +41,6 @@ The following table shows the target hardware for the application projects.
 ### Setting up [PIC32CZ CA90 Curiosity Ultra board]()
 
 - Connect the Debug USB port on the board to the computer using a micro USB cable
-- Connect a wire from Pin 11 on EXT2 to Pin 14 on Mikrobus Xplained board
-- Connect a wire from Pin 12 on EXT2 to Pin 15 on Mikrobus Xplained board
 - Connect VCC and GND between EXT2 and Mikrobus Xplained board
 
 ## Running the Application

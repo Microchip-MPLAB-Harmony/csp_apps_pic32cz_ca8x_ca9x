@@ -1,28 +1,22 @@
 /*******************************************************************************
-  Reset Controller(RSTC) PLIB
+  EVSYS Peripheral Library
 
-  Company
+  Company:
     Microchip Technology Inc.
 
-  File Name
-    plib_rstc.c
+  File Name:
+    plib_evsys.c
 
-  Summary
-    RSTC PLIB Implementation File.
+  Summary:
+    EVSYS Source File
 
-  Description
-    This file defines the interface to the RSTC peripheral library.
-    This library provides access to and control of the associated
-    Reset Controller.
-
-  Remarks:
-    None.
+  Description:
+    None
 
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2021 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -43,30 +37,16 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
-/* This section lists the other files that are included in this file.
-*/
+#include "plib_evsys.h"
+#include "interrupts.h"
 
-#include "plib_rstc.h"
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: RSTC Implementation
-// *****************************************************************************
-// *****************************************************************************
 
-RSTC_RESET_CAUSE RSTC_ResetCauseGet( void )
+void EVSYS_Initialize( void )
 {
-    return ( RSTC_RESET_CAUSE ) RSTC_REGS->RSTC_RCAUSE;
+    /*Event Channel User Configuration*/
+
 }
 
-RSTC_BKUPEXIT_CAUSE RSTC_BackupExitCauseGet (void)
-{
-    return ( RSTC_BKUPEXIT_CAUSE ) RSTC_REGS->RSTC_BKUPEXIT;
-}
+

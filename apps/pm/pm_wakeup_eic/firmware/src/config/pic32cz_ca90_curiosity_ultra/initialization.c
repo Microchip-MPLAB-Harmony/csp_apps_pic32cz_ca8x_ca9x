@@ -137,6 +137,8 @@ void SYS_Initialize ( void* data )
 
 
 
+    EVSYS_Initialize();
+
 	SYSTICK_TimerInitialize();
     PM_Initialize();
 
@@ -145,7 +147,6 @@ void SYS_Initialize ( void* data )
     SUPC_Initialize();
     EIC_Initialize();
 
-    RSTC_Initialize();
 
 
 
