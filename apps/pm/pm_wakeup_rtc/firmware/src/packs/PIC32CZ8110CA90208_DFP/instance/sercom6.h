@@ -1,5 +1,5 @@
-/**
- * \brief Instance header file for PIC32CZ8110CA90208
+/*
+ * Instance header file for PIC32CZ8110CA90208
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_SERCOM6_INSTANCE_
 #define _PIC32CZCA90_SERCOM6_INSTANCE_
 
@@ -49,5 +49,16 @@
 #define SERCOM6_INSTANCE_ID                      _UL_(29)   /* Instance index for SERCOM6 */
 #define SERCOM6_MCLK_ID_APB                      _UL_(37)   /* Index for SERCOM6 APB clock */
 #define SERCOM6_PAC_ID                           _UL_(29)   /* Index for SERCOM6 registers write protection */
+#define SERCOM6_USART_ERROR_INT_SRC              _UL_(97)   /* USART/SPI/I2C Error */
+#define SERCOM6_USART_TX_READY_INT_SRC           _UL_(99)   /* USART-SPI Data Register Empty/ I2C Stop Received */
+#define SERCOM6_USART_TX_COMPLETE_INT_SRC        _UL_(100)  /* USART-SPI Transmit Complete/ I2C Address Match */
+#define SERCOM6_USART_RX_INT_SRC                 _UL_(101)  /* USART-SPI Receive Complete/ I2C Data Ready */
+#define SERCOM6_SPI_TX_READY_INT_SRC             _UL_(99)   /* USART-SPI Data Register Empty/ I2C Stop Received */
+#define SERCOM6_SPI_TX_COMPLETE_INT_SRC          _UL_(100)  /* USART-SPI Transmit Complete/ I2C Address Match */
+#define SERCOM6_SPI_RX_INT_SRC                   _UL_(101)  /* USART-SPI Receive Complete/ I2C Data Ready */
+#define SERCOM6_I2C_0_INT_SRC                    _UL_(97)   /* USART/SPI/I2C Error */
+#define SERCOM6_I2C_1_INT_SRC                    _UL_(101)  /* USART-SPI Receive Complete/ I2C Data Ready */
+#define SERCOM6_I2C_2_INT_SRC                    _UL_(102)  /* USART Receive Start/ SPI Slave Select Low/ I2C TX FIFO Empty */
+#define SERCOM6_I2C_3_INT_SRC                    _UL_(103)  /* USART Clear To Send Input Change/ I2C RX FIFO Full */
 
 #endif /* _PIC32CZCA90_SERCOM6_INSTANCE_ */

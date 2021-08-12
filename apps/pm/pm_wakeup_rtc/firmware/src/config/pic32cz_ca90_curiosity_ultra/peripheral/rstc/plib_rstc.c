@@ -60,9 +60,6 @@
 // Section: RSTC Implementation
 // *****************************************************************************
 // *****************************************************************************
-void RSTC_Initialize(void)
-{
-}
 
 RSTC_RESET_CAUSE RSTC_ResetCauseGet( void )
 {
