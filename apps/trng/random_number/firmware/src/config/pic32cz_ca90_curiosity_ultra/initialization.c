@@ -137,9 +137,11 @@ void SYS_Initialize ( void* data )
 
 
 
-	TRNG_Initialize();
+    EVSYS_Initialize();
 
     SERCOM5_USART_Initialize();
+
+	TRNG_Initialize();
 
     EIC_Initialize();
 
