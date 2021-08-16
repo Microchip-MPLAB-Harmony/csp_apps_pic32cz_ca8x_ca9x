@@ -1,17 +1,18 @@
 /*******************************************************************************
-  Interface definition of SYSTICK PLIB.
+  Interface definition of EVSYS PLIB.
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_systick.h
+    plib_evsys.h
 
   Summary:
-    Interface definition of the System Timer Plib (SYSTICK).
+    Interface definition of the Event System Plib (EVSYS).
 
   Description:
-    This file defines the interface for the SYSTICK Plib.
+    This file defines the interface for the EVSYS Plib.
+    It allows user to setup event generators and users.
 *******************************************************************************/
 
 /*******************************************************************************
@@ -37,15 +38,15 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_SYSTICK_H    // Guards against multiple inclusion
-#define PLIB_SYSTICK_H
+#ifndef EVSYS_H    // Guards against multiple inclusion
+#define EVSYS_H
 
+#include "device.h"
 #include <stdint.h>
-#include <stdbool.h>
 #include <stddef.h>
 
 #ifdef __cplusplus // Provide C++ Compatibility
-    extern "C" {
+ extern "C" {
 #endif
 
 
@@ -55,22 +56,11 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define SYSTICK_FREQ   300000000U
 
 
-/***************************** SYSTICK API *******************************/
-void SYSTICK_TimerInitialize ( void );
-void SYSTICK_TimerRestart ( void );
-void SYSTICK_TimerStart ( void );
-void SYSTICK_TimerStop ( void );
-void SYSTICK_TimerPeriodSet ( uint32_t period );
-uint32_t SYSTICK_TimerPeriodGet ( void );
-uint32_t SYSTICK_TimerCounterGet ( void );
-uint32_t SYSTICK_TimerFrequencyGet ( void );
-void SYSTICK_DelayMs ( uint32_t delay_ms );
-void SYSTICK_DelayUs ( uint32_t delay_us );
+/***************************** EVSYS API *******************************/
+void EVSYS_Initialize( void );
 
-bool SYSTICK_TimerPeriodHasExpired(void);
 #ifdef __cplusplus // Provide C++ Compatibility
  }
 #endif

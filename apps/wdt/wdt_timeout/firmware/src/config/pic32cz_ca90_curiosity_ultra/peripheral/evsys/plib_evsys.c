@@ -1,17 +1,18 @@
 /*******************************************************************************
-  Interface definition of SYSTICK PLIB.
+  EVSYS Peripheral Library
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_systick.h
+    plib_evsys.c
 
   Summary:
-    Interface definition of the System Timer Plib (SYSTICK).
+    EVSYS Source File
 
   Description:
-    This file defines the interface for the SYSTICK Plib.
+    None
+
 *******************************************************************************/
 
 /*******************************************************************************
@@ -37,42 +38,15 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_SYSTICK_H    // Guards against multiple inclusion
-#define PLIB_SYSTICK_H
-
-#include <stdint.h>
-#include <stdbool.h>
-#include <stddef.h>
-
-#ifdef __cplusplus // Provide C++ Compatibility
-    extern "C" {
-#endif
+#include "plib_evsys.h"
+#include "interrupts.h"
 
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Interface
-// *****************************************************************************
-// *****************************************************************************
 
-#define SYSTICK_FREQ   300000000U
+void EVSYS_Initialize( void )
+{
+    /*Event Channel User Configuration*/
+
+}
 
 
-/***************************** SYSTICK API *******************************/
-void SYSTICK_TimerInitialize ( void );
-void SYSTICK_TimerRestart ( void );
-void SYSTICK_TimerStart ( void );
-void SYSTICK_TimerStop ( void );
-void SYSTICK_TimerPeriodSet ( uint32_t period );
-uint32_t SYSTICK_TimerPeriodGet ( void );
-uint32_t SYSTICK_TimerCounterGet ( void );
-uint32_t SYSTICK_TimerFrequencyGet ( void );
-void SYSTICK_DelayMs ( uint32_t delay_ms );
-void SYSTICK_DelayUs ( uint32_t delay_us );
-
-bool SYSTICK_TimerPeriodHasExpired(void);
-#ifdef __cplusplus // Provide C++ Compatibility
- }
-#endif
-
-#endif
