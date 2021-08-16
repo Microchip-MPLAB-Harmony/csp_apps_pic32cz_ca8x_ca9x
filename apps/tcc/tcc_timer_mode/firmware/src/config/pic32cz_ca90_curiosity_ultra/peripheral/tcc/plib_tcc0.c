@@ -153,7 +153,6 @@ void TCC0_OTHER_InterruptHandler( void )
     status = (uint32_t) (TCC0_REGS->TCC_INTFLAG & 0xFFFFU);
     /* Clear interrupt flags */
     TCC0_REGS->TCC_INTFLAG = 0xFFFFU;
-    __DSB();
     if( TCC0_CallbackObject.callback_fn != NULL)
     {
         TCC0_CallbackObject.callback_fn(status, TCC0_CallbackObject.context);

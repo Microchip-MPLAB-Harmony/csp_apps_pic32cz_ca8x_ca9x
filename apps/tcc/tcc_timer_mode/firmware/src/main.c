@@ -62,6 +62,7 @@
 void TCC0_Callback_InterruptHandler(uint32_t status, uintptr_t context)
 {
     LED0_Toggle();
+    __DMB();
 }
 
 // *****************************************************************************

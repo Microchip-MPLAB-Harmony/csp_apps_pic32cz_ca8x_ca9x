@@ -1,24 +1,22 @@
 /*******************************************************************************
-  Non-Volatile Memory Controller(FCR) PLIB.
+  Interface definition of EVSYS PLIB.
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_fcr.h
+    plib_evsys.h
 
   Summary:
-    Interface definition of FCR Plib.
+    Interface definition of the Event System Plib (EVSYS).
 
   Description:
-    This file defines the interface for the FCR Plib.
-    It allows user to Program, Erase and lock the on-chip Non Volatile Flash
-    Memory.
-
+    This file defines the interface for the EVSYS Plib.
+    It allows user to setup event generators and users.
 *******************************************************************************/
-// DOM-IGNORE-BEGIN
+
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -39,39 +37,32 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef PLIB_FCR_H
-#define PLIB_FCR_H
+#ifndef EVSYS_H    // Guards against multiple inclusion
+#define EVSYS_H
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
+#include "device.h"
+#include <stdint.h>
+#include <stddef.h>
 
-#include "device.h"     // For device registers and uint32_t
-#include <stdbool.h>    // For bool
-
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus // Provide C++ Compatibility
-
-    extern "C" {
-
+ extern "C" {
 #endif
 
-// DOM-IGNORE-END
 
-void FCR_Initialize( void );
+// *****************************************************************************
+// *****************************************************************************
+// Section: Interface
+// *****************************************************************************
+// *****************************************************************************
 
-bool FCR_Read( uint32_t *data, uint32_t length, const uint32_t address );
 
-// DOM-IGNORE-BEGIN
+
+/***************************** EVSYS API *******************************/
+void EVSYS_Initialize( void );
+
 #ifdef __cplusplus // Provide C++ Compatibility
-
-    }
-
+ }
 #endif
 
-// DOM-IGNORE-END
-#endif // PLIB_FCR_H
+#endif
