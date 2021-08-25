@@ -150,6 +150,69 @@ void TCC1_CompareCommandSet(TCC_COMMAND command)
     }    
 }
 
+/* Get the current counter value */
+uint32_t TCC1_Compare32bitCounterGet( void )
+{
+    /* Write command to force COUNT register read synchronization */
+    TCC1_REGS->TCC_CTRLBSET |= (uint8_t)TCC_CTRLBSET_CMD_READSYNC;
+
+    while((TCC1_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_CTRLB_Msk) == TCC_SYNCBUSY_CTRLB_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+
+    while((TCC1_REGS->TCC_CTRLBSET & TCC_CTRLBSET_CMD_Msk) != 0U)
+    {
+        /* Wait for CMD to become zero */
+    }
+
+    /* Read current count value */
+    return TCC1_REGS->TCC_COUNT;
+}
+
+/* Configure counter value */
+void TCC1_Compare32bitCounterSet( uint32_t count )
+{
+    TCC1_REGS->TCC_COUNT = count;
+
+    while((TCC1_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_COUNT_Msk) == TCC_SYNCBUSY_COUNT_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+}
+
+/* Configure period value */
+bool TCC1_Compare32bitPeriodSet( uint32_t period )
+{
+    bool status = false;
+    if((TCC1_REGS->TCC_STATUS & TCC_STATUS_PERBUFV_Msk) == 0U)
+    {
+        /* Configure period value */
+        TCC1_REGS->TCC_PERBUF = period;
+        status = true;
+    }
+    return status;
+}
+
+/* Read period value */
+uint32_t TCC1_Compare32bitPeriodGet( void )
+{
+    /* Get period value */
+    return TCC1_REGS->TCC_PER;
+}
+
+/* Configure duty cycle value */
+bool TCC1_Compare32bitMatchSet(TCC1_CHANNEL_NUM channel, uint32_t compareValue )
+{
+    bool status = false;
+    if ((TCC1_REGS->TCC_STATUS & (1UL << (TCC_STATUS_CCBUFV0_Pos + (uint32_t)channel))) == 0U)
+    {
+        /* Set new compare value for compare channel */
+        TCC1_REGS->TCC_CCBUF[channel] = compareValue;
+        status = true;
+    }
+    return status;
+}
 
 
 uint32_t TCC1_CompareStatusGet( void )

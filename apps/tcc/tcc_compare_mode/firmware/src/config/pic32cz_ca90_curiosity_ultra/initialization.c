@@ -116,6 +116,8 @@ void SYS_Initialize ( void* data )
 
     TCC1_CompareInitialize();
 
+    EVSYS_Initialize();
+
     TCC0_CompareInitialize();
 
 

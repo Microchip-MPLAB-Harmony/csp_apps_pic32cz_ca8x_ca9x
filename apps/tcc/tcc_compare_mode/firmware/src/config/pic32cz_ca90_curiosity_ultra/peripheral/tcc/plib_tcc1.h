@@ -134,6 +134,15 @@ void TCC1_CompareStop( void );
 
 uint32_t TCC1_CompareFrequencyGet( void );
 
+bool TCC1_Compare32bitPeriodSet( uint32_t period );
+
+uint32_t TCC1_Compare32bitPeriodGet( void );
+
+uint32_t TCC1_Compare32bitCounterGet( void );
+
+void TCC1_Compare32bitCounterSet( uint32_t count );
+
+bool TCC1_Compare32bitMatchSet(TCC1_CHANNEL_NUM channel, uint32_t compareValue );
 
 
 uint32_t TCC1_CompareStatusGet( void );

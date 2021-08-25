@@ -177,10 +177,6 @@ children:
         attributes: {id: text}
         children:
         - {type: Value, value: '**** Waveform Period is 21333.3333333 us ****'}
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
   - type: File
     attributes: {id: TCC_COMPARE_SOURCE}
     children:
