@@ -261,6 +261,7 @@
       </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/pic32cz_ca90_curiosity_ultra/harmony-manifest-success.yml</itemPath>
+      <itemPath>tcc_capture_mode_pic32cz_ca90_curiosity_ultra.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

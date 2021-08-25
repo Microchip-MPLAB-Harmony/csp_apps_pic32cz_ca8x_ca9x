@@ -5,10 +5,10 @@ frameworkPath: ..\..\..\..\..
 processor: PIC32CZ8110CA90208
 projectName: tcc_capture_mode_pic32cz_ca90_curiosity_ultra
 settings:
-  PackageFilter: bsp;core;csp;quick_docs
+  PackageFilter: bootloader;bootloader_apps_i2c;bootloader_apps_usb;bsp;core;crypto;crypto_apps_encrypt_decrypt;csp;quick_docs;usb
   FORCE_OPTIMIZATION: 'false'
   GENERATE_BACKUP: 'true'
   TRUSTZONE: 'false'
-  CMSISPath: .\dev_packs\arm\CMSIS\5.7.0
+  CMSISPath: .\dev_packs\arm\CMSIS\5.8.0
   MERGE_STRATEGY: USER_ALL
-  DFPPath: .\dev_packs\Microchip\PIC32CZ-CA_DFP\0.0.46\CA90\atdf\PIC32CZ8110CA90208.atdf
+  DFPPath: .\dev_packs\Microchip\PIC32CZ-CA_DFP\0.0.62\CA90\atdf\PIC32CZ8110CA90208.atdf
