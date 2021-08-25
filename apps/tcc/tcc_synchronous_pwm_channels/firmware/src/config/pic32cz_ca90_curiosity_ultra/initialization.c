@@ -1,18 +1,19 @@
 /*******************************************************************************
-  System Definitions
+  System Initialization File
 
   File Name:
-    definitions.h
+    initialization.c
 
   Summary:
-    project system definitions.
+    This file contains source code necessary to initialize the system.
 
   Description:
-    This file contains the system-wide prototypes and definitions for a project.
-
+    This file contains source code necessary to initialize the system.  It
+    implements the "SYS_Initialize" function, defines the configuration bits,
+    and allocates any necessary global system resources,
  *******************************************************************************/
 
-//DOM-IGNORE-BEGIN
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -35,102 +36,97 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
  *******************************************************************************/
-//DOM-IGNORE-END
-
-#ifndef DEFINITIONS_H
-#define DEFINITIONS_H
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-#include <stdint.h>
-#include <stddef.h>
-#include <stdbool.h>
-#include "peripheral/port/plib_port.h"
-#include "peripheral/clock/plib_clock.h"
-#include "peripheral/nvic/plib_nvic.h"
-#include "peripheral/tcc/plib_tcc7.h"
+#include "definitions.h"
+#include "device.h"
 
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus  // Provide C++ Compatibility
 
-extern "C" {
 
-#endif
-// DOM-IGNORE-END
+// ****************************************************************************
+// ****************************************************************************
+// Section: Configuration Bits
+// ****************************************************************************
+// ****************************************************************************
 
-/* CPU clock frequency */
-#define CPU_CLOCK_FREQUENCY 300000000
+
+
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: System Functions
+// Section: Driver Initialization Data
+// *****************************************************************************
+// *****************************************************************************
+
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: System Data
 // *****************************************************************************
 // *****************************************************************************
 
 // *****************************************************************************
-/* System Initialization Function
+// *****************************************************************************
+// Section: Library/Stack Initialization Data
+// *****************************************************************************
+// *****************************************************************************
 
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: System Initialization
+// *****************************************************************************
+// *****************************************************************************
+
+
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Local initialization functions
+// *****************************************************************************
+// *****************************************************************************
+
+
+
+/*******************************************************************************
   Function:
-    void SYS_Initialize( void *data )
+    void SYS_Initialize ( void *data )
 
   Summary:
-    Function that initializes all modules in the system.
-
-  Description:
-    This function initializes all modules in the system, including any drivers,
-    services, middleware, and applications.
-
-  Precondition:
-    None.
-
-  Parameters:
-    data            - Pointer to the data structure containing any data
-                      necessary to initialize the module. This pointer may
-                      be null if no data is required and default initialization
-                      is to be used.
-
-  Returns:
-    None.
-
-  Example:
-    <code>
-    SYS_Initialize ( NULL );
-
-    while ( true )
-    {
-        SYS_Tasks ( );
-    }
-    </code>
+    Initializes the board, services, drivers, application and other modules.
 
   Remarks:
-    This function will only be called once, after system reset.
-*/
+ */
 
-void SYS_Initialize( void *data );
+void SYS_Initialize ( void* data )
+{
 
-/* Nullify SYS_Tasks() if only PLIBs are used. */
-#define     SYS_Tasks()
+  
+    PORT_Initialize();
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: extern declarations
-// *****************************************************************************
-// *****************************************************************************
+    CLOCK_Initialize();
 
 
 
 
-//DOM-IGNORE-BEGIN
-#ifdef __cplusplus
+    EVSYS_Initialize();
+
+    TCC7_PWMInitialize();
+
+
+
+
+
+    NVIC_Initialize();
+
 }
-#endif
-//DOM-IGNORE-END
 
-#endif /* DEFINITIONS_H */
+
 /*******************************************************************************
  End of File
 */
-
