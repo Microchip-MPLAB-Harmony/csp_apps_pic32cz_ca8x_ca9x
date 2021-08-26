@@ -1,18 +1,18 @@
 /*******************************************************************************
-  TRAM Peripheral Library
+  Interface definition of EVSYS PLIB.
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_tram.c
+    plib_evsys.h
 
   Summary:
-    TRAM Source File
+    Interface definition of the Event System Plib (EVSYS).
 
   Description:
-    None
-
+    This file defines the interface for the EVSYS Plib.
+    It allows user to setup event generators and users.
 *******************************************************************************/
 
 /*******************************************************************************
@@ -38,64 +38,31 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
+#ifndef EVSYS_H    // Guards against multiple inclusion
+#define EVSYS_H
+
 #include "device.h"
-#include "plib_tram.h"
+#include <stdint.h>
+#include <stddef.h>
 
-void TRAM_Initialize( void )
-{
-    TRAM_REGS->TRAM_CTRLA = TRAM_CTRLA_SWRST_Msk;
-    while((TRAM_REGS->TRAM_SYNCBUSY & TRAM_SYNCBUSY_SWRST_Msk) == TRAM_SYNCBUSY_SWRST_Msk)
-    {
-        //wait for synchronization
-    }
+#ifdef __cplusplus // Provide C++ Compatibility
+ extern "C" {
+#endif
 
-    TRAM_REGS->TRAM_CTRLA = TRAM_CTRLA_ENABLE_Msk | TRAM_CTRLA_TAMPERS_Msk;
-    
-    while((TRAM_REGS->TRAM_SYNCBUSY & TRAM_SYNCBUSY_ENABLE_Msk) == TRAM_SYNCBUSY_ENABLE_Msk)
-    {
-        //wait for synchronization
-    }
 
-}
+// *****************************************************************************
+// *****************************************************************************
+// Section: Interface
+// *****************************************************************************
+// *****************************************************************************
 
-bool TRAM_RAMSet(uint32_t ramIndex, uint32_t data)
-{
-    if (ramIndex > 2047)
-    {
-        return false;
-    }
 
-    TRAM_REGS->TRAM_RAM[ramIndex] = TRAM_RAM_DATA(data);
 
-    return true;
-}
+/***************************** EVSYS API *******************************/
+void EVSYS_Initialize( void );
 
-bool TRAM_RAMGet(uint32_t ramIndex, uint32_t *data)
-{
-    if (ramIndex > 2047)
-    {
-        return false;
-    }
+#ifdef __cplusplus // Provide C++ Compatibility
+ }
+#endif
 
-    *data = TRAM_REGS->TRAM_RAM[ramIndex];
-
-    return true;
-}
-
-void TRAM_DataScrambleKeySet(uint32_t dsckey)
-{
-    TRAM_REGS->TRAM_DSCC = TRAM_DSCC_DSCKEY(dsckey);
-}
-
-void TRAM_DataScrambleEnable(bool enable)
-{
-    if (enable == true)
-    {
-        TRAM_REGS->TRAM_DSCC |= TRAM_DSCC_DSCEN_Msk;
-    }
-    else
-    {
-        /* Clear DSCEN bit and retain the DSCKEY bits (Existing values of DSCKEY bits will be XOR'ed with 0)*/
-        TRAM_REGS->TRAM_DSCC = TRAM_DSCC_RESETVALUE;
-    }
-}
+#endif

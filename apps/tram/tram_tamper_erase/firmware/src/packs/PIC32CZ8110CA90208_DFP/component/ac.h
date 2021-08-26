@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_AC_COMPONENT_H_
 #define _PIC32CZCA90_AC_COMPONENT_H_
 
@@ -424,8 +424,6 @@
 #define AC_DBGCTRL_REG_OFST            (0x24)              /**< (AC_DBGCTRL) Debug Control Offset */
 #define AC_SYNCBUSY_REG_OFST           (0x28)              /**< (AC_SYNCBUSY) Synchronization Busy Offset */
 #define AC_COMPCTRL_REG_OFST           (0x30)              /**< (AC_COMPCTRL) Pair n Comparator Control 0 Offset */
-#define AC_COMPCTRL0_REG_OFST          (0x30)              /**< (AC_COMPCTRL0) Pair n Comparator Control 0 Offset */
-#define AC_COMPCTRL1_REG_OFST          (0x34)              /**< (AC_COMPCTRL1) Pair n Comparator Control 0 Offset */
 #define AC_DACCTRL_REG_OFST            (0x38)              /**< (AC_DACCTRL) Dac Control Offset */
 #define AC_WINCTRL_REG_OFST            (0x3C)              /**< (AC_WINCTRL) Window Monitor Control Offset */
 

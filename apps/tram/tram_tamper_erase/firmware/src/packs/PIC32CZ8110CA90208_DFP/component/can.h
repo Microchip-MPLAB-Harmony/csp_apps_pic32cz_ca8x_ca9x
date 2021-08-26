@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_CAN_COMPONENT_H_
 #define _PIC32CZCA90_CAN_COMPONENT_H_
 
@@ -2322,22 +2322,6 @@
 #define CAN_RXBE_0_REG_OFST            (0x00)              /**< (CAN_RXBE_0) Rx Buffer and FIFO Element 0 Offset */
 #define CAN_RXBE_1_REG_OFST            (0x04)              /**< (CAN_RXBE_1) Rx Buffer and FIFO Element 1 Offset */
 #define CAN_RXBE_DATA_REG_OFST         (0x08)              /**< (CAN_RXBE_DATA) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA0_REG_OFST        (0x08)              /**< (CAN_RXBE_DATA0) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA1_REG_OFST        (0x0C)              /**< (CAN_RXBE_DATA1) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA2_REG_OFST        (0x10)              /**< (CAN_RXBE_DATA2) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA3_REG_OFST        (0x14)              /**< (CAN_RXBE_DATA3) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA4_REG_OFST        (0x18)              /**< (CAN_RXBE_DATA4) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA5_REG_OFST        (0x1C)              /**< (CAN_RXBE_DATA5) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA6_REG_OFST        (0x20)              /**< (CAN_RXBE_DATA6) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA7_REG_OFST        (0x24)              /**< (CAN_RXBE_DATA7) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA8_REG_OFST        (0x28)              /**< (CAN_RXBE_DATA8) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA9_REG_OFST        (0x2C)              /**< (CAN_RXBE_DATA9) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA10_REG_OFST       (0x30)              /**< (CAN_RXBE_DATA10) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA11_REG_OFST       (0x34)              /**< (CAN_RXBE_DATA11) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA12_REG_OFST       (0x38)              /**< (CAN_RXBE_DATA12) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA13_REG_OFST       (0x3C)              /**< (CAN_RXBE_DATA13) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA14_REG_OFST       (0x40)              /**< (CAN_RXBE_DATA14) Rx Buffer and FIFO Element Data Offset */
-#define CAN_RXBE_DATA15_REG_OFST       (0x44)              /**< (CAN_RXBE_DATA15) Rx Buffer and FIFO Element Data Offset */
 #define CAN_RXF0E_0_REG_OFST           (0x00)              /**< (CAN_RXF0E_0) Rx FIFO 0 Element 0 Offset */
 #define CAN_RXF0E_1_REG_OFST           (0x04)              /**< (CAN_RXF0E_1) Rx FIFO 0 Element 1 Offset */
 #define CAN_RXF0E_DATA_REG_OFST        (0x08)              /**< (CAN_RXF0E_DATA) Rx FIFO 0 Element Data Offset */
@@ -2348,22 +2332,6 @@
 #define CAN_TXBE_0_REG_OFST            (0x00)              /**< (CAN_TXBE_0) Tx Buffer Element 0 Offset */
 #define CAN_TXBE_1_REG_OFST            (0x04)              /**< (CAN_TXBE_1) Tx Buffer Element 1 Offset */
 #define CAN_TXBE_DATA_REG_OFST         (0x08)              /**< (CAN_TXBE_DATA) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA0_REG_OFST        (0x08)              /**< (CAN_TXBE_DATA0) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA1_REG_OFST        (0x0C)              /**< (CAN_TXBE_DATA1) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA2_REG_OFST        (0x10)              /**< (CAN_TXBE_DATA2) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA3_REG_OFST        (0x14)              /**< (CAN_TXBE_DATA3) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA4_REG_OFST        (0x18)              /**< (CAN_TXBE_DATA4) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA5_REG_OFST        (0x1C)              /**< (CAN_TXBE_DATA5) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA6_REG_OFST        (0x20)              /**< (CAN_TXBE_DATA6) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA7_REG_OFST        (0x24)              /**< (CAN_TXBE_DATA7) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA8_REG_OFST        (0x28)              /**< (CAN_TXBE_DATA8) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA9_REG_OFST        (0x2C)              /**< (CAN_TXBE_DATA9) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA10_REG_OFST       (0x30)              /**< (CAN_TXBE_DATA10) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA11_REG_OFST       (0x34)              /**< (CAN_TXBE_DATA11) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA12_REG_OFST       (0x38)              /**< (CAN_TXBE_DATA12) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA13_REG_OFST       (0x3C)              /**< (CAN_TXBE_DATA13) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA14_REG_OFST       (0x40)              /**< (CAN_TXBE_DATA14) Tx Buffer Element Data Offset */
-#define CAN_TXBE_DATA15_REG_OFST       (0x44)              /**< (CAN_TXBE_DATA15) Tx Buffer Element Data Offset */
 #define CAN_TXEFE_0_REG_OFST           (0x00)              /**< (CAN_TXEFE_0) Tx Event FIFO Element 0 Offset */
 #define CAN_TXEFE_1_REG_OFST           (0x04)              /**< (CAN_TXEFE_1) Tx Event FIFO Element 1 Offset */
 #define CAN_XIDFE_0_REG_OFST           (0x00)              /**< (CAN_XIDFE_0) Extended Message ID Filter Element 0 Offset */

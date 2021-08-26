@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_TCC_COMPONENT_H_
 #define _PIC32CZCA90_TCC_COMPONENT_H_
 
@@ -1416,25 +1416,9 @@
 #define TCC_WAVE_REG_OFST              (0x3C)              /**< (TCC_WAVE) Waveform Control Offset */
 #define TCC_PER_REG_OFST               (0x40)              /**< (TCC_PER) Period Offset */
 #define TCC_CC_REG_OFST                (0x44)              /**< (TCC_CC) Compare and Capture Offset */
-#define TCC_CC0_REG_OFST               (0x44)              /**< (TCC_CC0) Compare and Capture Offset */
-#define TCC_CC1_REG_OFST               (0x48)              /**< (TCC_CC1) Compare and Capture Offset */
-#define TCC_CC2_REG_OFST               (0x4C)              /**< (TCC_CC2) Compare and Capture Offset */
-#define TCC_CC3_REG_OFST               (0x50)              /**< (TCC_CC3) Compare and Capture Offset */
-#define TCC_CC4_REG_OFST               (0x54)              /**< (TCC_CC4) Compare and Capture Offset */
-#define TCC_CC5_REG_OFST               (0x58)              /**< (TCC_CC5) Compare and Capture Offset */
-#define TCC_CC6_REG_OFST               (0x5C)              /**< (TCC_CC6) Compare and Capture Offset */
-#define TCC_CC7_REG_OFST               (0x60)              /**< (TCC_CC7) Compare and Capture Offset */
 #define TCC_PATTBUF_REG_OFST           (0x64)              /**< (TCC_PATTBUF) Pattern Buffer Offset */
 #define TCC_PERBUF_REG_OFST            (0x6C)              /**< (TCC_PERBUF) Period Buffer Offset */
 #define TCC_CCBUF_REG_OFST             (0x70)              /**< (TCC_CCBUF) Compare and Capture Buffer Offset */
-#define TCC_CCBUF0_REG_OFST            (0x70)              /**< (TCC_CCBUF0) Compare and Capture Buffer Offset */
-#define TCC_CCBUF1_REG_OFST            (0x74)              /**< (TCC_CCBUF1) Compare and Capture Buffer Offset */
-#define TCC_CCBUF2_REG_OFST            (0x78)              /**< (TCC_CCBUF2) Compare and Capture Buffer Offset */
-#define TCC_CCBUF3_REG_OFST            (0x7C)              /**< (TCC_CCBUF3) Compare and Capture Buffer Offset */
-#define TCC_CCBUF4_REG_OFST            (0x80)              /**< (TCC_CCBUF4) Compare and Capture Buffer Offset */
-#define TCC_CCBUF5_REG_OFST            (0x84)              /**< (TCC_CCBUF5) Compare and Capture Buffer Offset */
-#define TCC_CCBUF6_REG_OFST            (0x88)              /**< (TCC_CCBUF6) Compare and Capture Buffer Offset */
-#define TCC_CCBUF7_REG_OFST            (0x8C)              /**< (TCC_CCBUF7) Compare and Capture Buffer Offset */
 
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
 /** \brief TCC register API structure */

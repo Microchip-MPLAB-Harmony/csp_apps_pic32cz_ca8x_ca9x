@@ -1,14 +1,14 @@
 /*******************************************************************************
-  TRAM Peripheral Library
+  EVSYS Peripheral Library
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_tram.c
+    plib_evsys.c
 
   Summary:
-    TRAM Source File
+    EVSYS Source File
 
   Description:
     None
@@ -38,64 +38,15 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#include "device.h"
-#include "plib_tram.h"
+#include "plib_evsys.h"
+#include "interrupts.h"
 
-void TRAM_Initialize( void )
+
+
+void EVSYS_Initialize( void )
 {
-    TRAM_REGS->TRAM_CTRLA = TRAM_CTRLA_SWRST_Msk;
-    while((TRAM_REGS->TRAM_SYNCBUSY & TRAM_SYNCBUSY_SWRST_Msk) == TRAM_SYNCBUSY_SWRST_Msk)
-    {
-        //wait for synchronization
-    }
-
-    TRAM_REGS->TRAM_CTRLA = TRAM_CTRLA_ENABLE_Msk | TRAM_CTRLA_TAMPERS_Msk;
-    
-    while((TRAM_REGS->TRAM_SYNCBUSY & TRAM_SYNCBUSY_ENABLE_Msk) == TRAM_SYNCBUSY_ENABLE_Msk)
-    {
-        //wait for synchronization
-    }
+    /*Event Channel User Configuration*/
 
 }
 
-bool TRAM_RAMSet(uint32_t ramIndex, uint32_t data)
-{
-    if (ramIndex > 2047)
-    {
-        return false;
-    }
 
-    TRAM_REGS->TRAM_RAM[ramIndex] = TRAM_RAM_DATA(data);
-
-    return true;
-}
-
-bool TRAM_RAMGet(uint32_t ramIndex, uint32_t *data)
-{
-    if (ramIndex > 2047)
-    {
-        return false;
-    }
-
-    *data = TRAM_REGS->TRAM_RAM[ramIndex];
-
-    return true;
-}
-
-void TRAM_DataScrambleKeySet(uint32_t dsckey)
-{
-    TRAM_REGS->TRAM_DSCC = TRAM_DSCC_DSCKEY(dsckey);
-}
-
-void TRAM_DataScrambleEnable(bool enable)
-{
-    if (enable == true)
-    {
-        TRAM_REGS->TRAM_DSCC |= TRAM_DSCC_DSCEN_Msk;
-    }
-    else
-    {
-        /* Clear DSCEN bit and retain the DSCKEY bits (Existing values of DSCKEY bits will be XOR'ed with 0)*/
-        TRAM_REGS->TRAM_DSCC = TRAM_DSCC_RESETVALUE;
-    }
-}

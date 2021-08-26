@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_MCLK_COMPONENT_H_
 #define _PIC32CZCA90_MCLK_COMPONENT_H_
 
@@ -94,18 +94,7 @@
 #define MCLK_INTENSET_REG_OFST         (0x04)              /**< (MCLK_INTENSET) Interrupt Enable Set Offset */
 #define MCLK_INTFLAG_REG_OFST          (0x08)              /**< (MCLK_INTFLAG) Interrupt Flag Status and Clear Offset */
 #define MCLK_CLKDIV_REG_OFST           (0x0C)              /**< (MCLK_CLKDIV) Clock Divider Control Offset */
-#define MCLK_CLKDIV0_REG_OFST          (0x0C)              /**< (MCLK_CLKDIV0) Clock Divider Control Offset */
-#define MCLK_CLKDIV1_REG_OFST          (0x10)              /**< (MCLK_CLKDIV1) Clock Divider Control Offset */
 #define MCLK_CLKMSK_REG_OFST           (0x3C)              /**< (MCLK_CLKMSK) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK0_REG_OFST          (0x3C)              /**< (MCLK_CLKMSK0) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK1_REG_OFST          (0x40)              /**< (MCLK_CLKMSK1) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK2_REG_OFST          (0x44)              /**< (MCLK_CLKMSK2) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK3_REG_OFST          (0x48)              /**< (MCLK_CLKMSK3) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK4_REG_OFST          (0x4C)              /**< (MCLK_CLKMSK4) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK5_REG_OFST          (0x50)              /**< (MCLK_CLKMSK5) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK6_REG_OFST          (0x54)              /**< (MCLK_CLKMSK6) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK7_REG_OFST          (0x58)              /**< (MCLK_CLKMSK7) Peripheral Clock Enable Mask Offset */
-#define MCLK_CLKMSK8_REG_OFST          (0x5C)              /**< (MCLK_CLKMSK8) Peripheral Clock Enable Mask Offset */
 
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
 /** \brief MCLK register API structure */

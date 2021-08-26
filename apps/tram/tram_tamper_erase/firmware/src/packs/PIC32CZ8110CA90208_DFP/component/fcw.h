@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_FCW_COMPONENT_H_
 #define _PIC32CZCA90_FCW_COMPONENT_H_
 
@@ -502,24 +502,8 @@
 #define FCW_ADDR_REG_OFST              (0x20)              /**< (FCW_ADDR) Flash Address Register Offset */
 #define FCW_SRCADDR_REG_OFST           (0x24)              /**< (FCW_SRCADDR) Source Data Address Register Offset */
 #define FCW_DATA_REG_OFST              (0x28)              /**< (FCW_DATA) Flash Write Data Register Offset */
-#define FCW_DATA0_REG_OFST             (0x28)              /**< (FCW_DATA0) Flash Write Data Register Offset */
-#define FCW_DATA1_REG_OFST             (0x2C)              /**< (FCW_DATA1) Flash Write Data Register Offset */
-#define FCW_DATA2_REG_OFST             (0x30)              /**< (FCW_DATA2) Flash Write Data Register Offset */
-#define FCW_DATA3_REG_OFST             (0x34)              /**< (FCW_DATA3) Flash Write Data Register Offset */
-#define FCW_DATA4_REG_OFST             (0x38)              /**< (FCW_DATA4) Flash Write Data Register Offset */
-#define FCW_DATA5_REG_OFST             (0x3C)              /**< (FCW_DATA5) Flash Write Data Register Offset */
-#define FCW_DATA6_REG_OFST             (0x40)              /**< (FCW_DATA6) Flash Write Data Register Offset */
-#define FCW_DATA7_REG_OFST             (0x44)              /**< (FCW_DATA7) Flash Write Data Register Offset */
 #define FCW_SWAP_REG_OFST              (0x48)              /**< (FCW_SWAP) NVM Panel Swap Register Offset */
 #define FCW_PWP_REG_OFST               (0x4C)              /**< (FCW_PWP) PFM Write Protect Region 0 Offset */
-#define FCW_PWP0_REG_OFST              (0x4C)              /**< (FCW_PWP0) PFM Write Protect Region 0 Offset */
-#define FCW_PWP1_REG_OFST              (0x50)              /**< (FCW_PWP1) PFM Write Protect Region 0 Offset */
-#define FCW_PWP2_REG_OFST              (0x54)              /**< (FCW_PWP2) PFM Write Protect Region 0 Offset */
-#define FCW_PWP3_REG_OFST              (0x58)              /**< (FCW_PWP3) PFM Write Protect Region 0 Offset */
-#define FCW_PWP4_REG_OFST              (0x5C)              /**< (FCW_PWP4) PFM Write Protect Region 0 Offset */
-#define FCW_PWP5_REG_OFST              (0x60)              /**< (FCW_PWP5) PFM Write Protect Region 0 Offset */
-#define FCW_PWP6_REG_OFST              (0x64)              /**< (FCW_PWP6) PFM Write Protect Region 0 Offset */
-#define FCW_PWP7_REG_OFST              (0x68)              /**< (FCW_PWP7) PFM Write Protect Region 0 Offset */
 #define FCW_LBWP_REG_OFST              (0x6C)              /**< (FCW_LBWP) Lower BFM Write Protect Register Offset */
 #define FCW_UBWP_REG_OFST              (0x70)              /**< (FCW_UBWP) Upper BFM Write Protect Register Offset */
 #define FCW_UOWP_REG_OFST              (0x74)              /**< (FCW_UOWP) User OTP Write Protect Register Offset */
@@ -529,23 +513,7 @@
 #define FCW_HSMINTFLAG_REG_OFST        (0x88)              /**< (FCW_HSMINTFLAG) HSM NVM Interrupt Flag Register Offset */
 #define FCW_HSMCWP_REG_OFST            (0x8C)              /**< (FCW_HSMCWP) HSM CFG Write Protect Register Offset */
 #define FCW_HSMLDAT_REG_OFST           (0x90)              /**< (FCW_HSMLDAT) HSM Tamper Lower Overwrite Data Register Offset */
-#define FCW_HSMLDAT0_REG_OFST          (0x90)              /**< (FCW_HSMLDAT0) HSM Tamper Lower Overwrite Data Register Offset */
-#define FCW_HSMLDAT1_REG_OFST          (0x94)              /**< (FCW_HSMLDAT1) HSM Tamper Lower Overwrite Data Register Offset */
-#define FCW_HSMLDAT2_REG_OFST          (0x98)              /**< (FCW_HSMLDAT2) HSM Tamper Lower Overwrite Data Register Offset */
-#define FCW_HSMLDAT3_REG_OFST          (0x9C)              /**< (FCW_HSMLDAT3) HSM Tamper Lower Overwrite Data Register Offset */
-#define FCW_HSMLDAT4_REG_OFST          (0xA0)              /**< (FCW_HSMLDAT4) HSM Tamper Lower Overwrite Data Register Offset */
-#define FCW_HSMLDAT5_REG_OFST          (0xA4)              /**< (FCW_HSMLDAT5) HSM Tamper Lower Overwrite Data Register Offset */
-#define FCW_HSMLDAT6_REG_OFST          (0xA8)              /**< (FCW_HSMLDAT6) HSM Tamper Lower Overwrite Data Register Offset */
-#define FCW_HSMLDAT7_REG_OFST          (0xAC)              /**< (FCW_HSMLDAT7) HSM Tamper Lower Overwrite Data Register Offset */
 #define FCW_HSMUDAT_REG_OFST           (0xB0)              /**< (FCW_HSMUDAT) HSM Tamper Upper Overwrite Data Register Offset */
-#define FCW_HSMUDAT0_REG_OFST          (0xB0)              /**< (FCW_HSMUDAT0) HSM Tamper Upper Overwrite Data Register Offset */
-#define FCW_HSMUDAT1_REG_OFST          (0xB4)              /**< (FCW_HSMUDAT1) HSM Tamper Upper Overwrite Data Register Offset */
-#define FCW_HSMUDAT2_REG_OFST          (0xB8)              /**< (FCW_HSMUDAT2) HSM Tamper Upper Overwrite Data Register Offset */
-#define FCW_HSMUDAT3_REG_OFST          (0xBC)              /**< (FCW_HSMUDAT3) HSM Tamper Upper Overwrite Data Register Offset */
-#define FCW_HSMUDAT4_REG_OFST          (0xC0)              /**< (FCW_HSMUDAT4) HSM Tamper Upper Overwrite Data Register Offset */
-#define FCW_HSMUDAT5_REG_OFST          (0xC4)              /**< (FCW_HSMUDAT5) HSM Tamper Upper Overwrite Data Register Offset */
-#define FCW_HSMUDAT6_REG_OFST          (0xC8)              /**< (FCW_HSMUDAT6) HSM Tamper Upper Overwrite Data Register Offset */
-#define FCW_HSMUDAT7_REG_OFST          (0xCC)              /**< (FCW_HSMUDAT7) HSM Tamper Upper Overwrite Data Register Offset */
 
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
 /** \brief FCW register API structure */

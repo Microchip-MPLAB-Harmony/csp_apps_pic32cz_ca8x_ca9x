@@ -49,6 +49,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include "peripheral/evsys/plib_evsys.h"
 #include "peripheral/tram/plib_tram.h"
 #include "peripheral/port/plib_port.h"
 #include "peripheral/clock/plib_clock.h"

@@ -58,12 +58,8 @@ void RTC_Initialize(void)
     }
 
     RTC_REGS->MODE0.RTC_CTRLB = (uint16_t)(RTC_MODE0_CTRLB_DEBF(0x6UL)| RTC_MODE0_CTRLB_ACTF(0x0UL) );
+    RTC_REGS->MODE0.RTC_TAMPCTRL = 0x80008000;
 
-    RTC_REGS->MODE0.RTC_TAMPCTRL = (uint16_t)(RTC_TAMPCTRL_IN0ACT(0x0UL)   | \
-                                   RTC_TAMPCTRL_IN1ACT(0x0UL)   | \
-                                   RTC_TAMPCTRL_IN7ACT(0x2UL) | RTC_TAMPCTRL_DEBNC7_Msk | \
-                                   RTC_TAMPCTRL_IN3ACT(0x0UL)  | \
-                                   RTC_TAMPCTRL_IN4ACT(0x0UL) );
 
     RTC_REGS->MODE0.RTC_CTRLA = (uint16_t)(RTC_MODE0_CTRLA_MODE(0UL) | RTC_MODE0_CTRLA_PRESCALER(0x1UL) | RTC_MODE0_CTRLA_COUNTSYNC_Msk );
 
@@ -188,7 +184,6 @@ void RTC_InterruptHandler( void )
 {
     rtcObj.timer32intCause = (RTC_TIMER32_INT_MASK) RTC_REGS->MODE0.RTC_INTFLAG;
     RTC_REGS->MODE0.RTC_INTFLAG = (uint16_t)RTC_MODE0_INTFLAG_Msk;
-    
 
     /* Invoke registered Callback function */
     if(rtcObj.timer32BitCallback != NULL)

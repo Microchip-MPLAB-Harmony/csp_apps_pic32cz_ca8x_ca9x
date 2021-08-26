@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_ETH_COMPONENT_H_
 #define _PIC32CZCA90_ETH_COMPONENT_H_
 
@@ -1760,10 +1760,6 @@
 #define ETH_HRB_REG_OFST               (0x1080)            /**< (ETH_HRB) Hash Register Bottom [31:0] Offset */
 #define ETH_HRT_REG_OFST               (0x1084)            /**< (ETH_HRT) Hash Register Top [63:32] Offset */
 #define ETH_TIDM_REG_OFST              (0x10A8)            /**< (ETH_TIDM) Type ID Match Register Offset */
-#define ETH_TIDM0_REG_OFST             (0x10A8)            /**< (ETH_TIDM0) Type ID Match Register Offset */
-#define ETH_TIDM1_REG_OFST             (0x10AC)            /**< (ETH_TIDM1) Type ID Match Register Offset */
-#define ETH_TIDM2_REG_OFST             (0x10B0)            /**< (ETH_TIDM2) Type ID Match Register Offset */
-#define ETH_TIDM3_REG_OFST             (0x10B4)            /**< (ETH_TIDM3) Type ID Match Register Offset */
 #define ETH_WOL_REG_OFST               (0x10B8)            /**< (ETH_WOL) Wake on LAN Offset */
 #define ETH_IPGS_REG_OFST              (0x10BC)            /**< (ETH_IPGS) IPG Stretch Register Offset */
 #define ETH_SVLAN_REG_OFST             (0x10C0)            /**< (ETH_SVLAN) Stacked VLAN Register Offset */
@@ -1843,66 +1839,15 @@
 #define ETH_TLPITR_REG_OFST            (0x1278)            /**< (ETH_TLPITR) Receive LPI transition Register Offset */
 #define ETH_TLPITI_REG_OFST            (0x127C)            /**< (ETH_TLPITI) Receive LPI Time Register Offset */
 #define ETH_ISRQ_REG_OFST              (0x1400)            /**< (ETH_ISRQ) Interrupt Status Register Queues Offset */
-#define ETH_ISRQ0_REG_OFST             (0x1400)            /**< (ETH_ISRQ0) Interrupt Status Register Queues Offset */
-#define ETH_ISRQ1_REG_OFST             (0x1404)            /**< (ETH_ISRQ1) Interrupt Status Register Queues Offset */
-#define ETH_ISRQ2_REG_OFST             (0x1408)            /**< (ETH_ISRQ2) Interrupt Status Register Queues Offset */
-#define ETH_ISRQ3_REG_OFST             (0x140C)            /**< (ETH_ISRQ3) Interrupt Status Register Queues Offset */
-#define ETH_ISRQ4_REG_OFST             (0x1410)            /**< (ETH_ISRQ4) Interrupt Status Register Queues Offset */
 #define ETH_TBPQB_REG_OFST             (0x1440)            /**< (ETH_TBPQB) Transmit Priority Queue Buffer Base Address Offset */
-#define ETH_TBPQB0_REG_OFST            (0x1440)            /**< (ETH_TBPQB0) Transmit Priority Queue Buffer Base Address Offset */
-#define ETH_TBPQB1_REG_OFST            (0x1444)            /**< (ETH_TBPQB1) Transmit Priority Queue Buffer Base Address Offset */
-#define ETH_TBPQB2_REG_OFST            (0x1448)            /**< (ETH_TBPQB2) Transmit Priority Queue Buffer Base Address Offset */
-#define ETH_TBPQB3_REG_OFST            (0x144C)            /**< (ETH_TBPQB3) Transmit Priority Queue Buffer Base Address Offset */
-#define ETH_TBPQB4_REG_OFST            (0x1450)            /**< (ETH_TBPQB4) Transmit Priority Queue Buffer Base Address Offset */
 #define ETH_RBPQB_REG_OFST             (0x1480)            /**< (ETH_RBPQB) Receive Priority Queue Buffer Base Address Offset */
-#define ETH_RBPQB0_REG_OFST            (0x1480)            /**< (ETH_RBPQB0) Receive Priority Queue Buffer Base Address Offset */
-#define ETH_RBPQB1_REG_OFST            (0x1484)            /**< (ETH_RBPQB1) Receive Priority Queue Buffer Base Address Offset */
-#define ETH_RBPQB2_REG_OFST            (0x1488)            /**< (ETH_RBPQB2) Receive Priority Queue Buffer Base Address Offset */
-#define ETH_RBPQB3_REG_OFST            (0x148C)            /**< (ETH_RBPQB3) Receive Priority Queue Buffer Base Address Offset */
-#define ETH_RBPQB4_REG_OFST            (0x1490)            /**< (ETH_RBPQB4) Receive Priority Queue Buffer Base Address Offset */
 #define ETH_RBQSZ_REG_OFST             (0x14A0)            /**< (ETH_RBQSZ) Receive Priority Queue Buffer Size Offset */
-#define ETH_RBQSZ0_REG_OFST            (0x14A0)            /**< (ETH_RBQSZ0) Receive Priority Queue Buffer Size Offset */
-#define ETH_RBQSZ1_REG_OFST            (0x14A4)            /**< (ETH_RBQSZ1) Receive Priority Queue Buffer Size Offset */
-#define ETH_RBQSZ2_REG_OFST            (0x14A8)            /**< (ETH_RBQSZ2) Receive Priority Queue Buffer Size Offset */
-#define ETH_RBQSZ3_REG_OFST            (0x14AC)            /**< (ETH_RBQSZ3) Receive Priority Queue Buffer Size Offset */
-#define ETH_RBQSZ4_REG_OFST            (0x14B0)            /**< (ETH_RBQSZ4) Receive Priority Queue Buffer Size Offset */
 #define ETH_SCRT1_REG_OFST             (0x1500)            /**< (ETH_SCRT1) Screening Type 1 Register 0 Offset */
-#define ETH_SCRT10_REG_OFST            (0x1500)            /**< (ETH_SCRT10) Screening Type 1 Register 0 Offset */
-#define ETH_SCRT11_REG_OFST            (0x1504)            /**< (ETH_SCRT11) Screening Type 1 Register 0 Offset */
-#define ETH_SCRT12_REG_OFST            (0x1508)            /**< (ETH_SCRT12) Screening Type 1 Register 0 Offset */
-#define ETH_SCRT13_REG_OFST            (0x150C)            /**< (ETH_SCRT13) Screening Type 1 Register 0 Offset */
 #define ETH_SCRT2_REG_OFST             (0x1540)            /**< (ETH_SCRT2) Screening Type 2 Register Offset */
-#define ETH_SCRT20_REG_OFST            (0x1540)            /**< (ETH_SCRT20) Screening Type 2 Register Offset */
-#define ETH_SCRT21_REG_OFST            (0x1544)            /**< (ETH_SCRT21) Screening Type 2 Register Offset */
-#define ETH_SCRT22_REG_OFST            (0x1548)            /**< (ETH_SCRT22) Screening Type 2 Register Offset */
-#define ETH_SCRT23_REG_OFST            (0x154C)            /**< (ETH_SCRT23) Screening Type 2 Register Offset */
-#define ETH_SCRT24_REG_OFST            (0x1550)            /**< (ETH_SCRT24) Screening Type 2 Register Offset */
-#define ETH_SCRT25_REG_OFST            (0x1554)            /**< (ETH_SCRT25) Screening Type 2 Register Offset */
-#define ETH_SCRT26_REG_OFST            (0x1558)            /**< (ETH_SCRT26) Screening Type 2 Register Offset */
-#define ETH_SCRT27_REG_OFST            (0x155C)            /**< (ETH_SCRT27) Screening Type 2 Register Offset */
 #define ETH_IERQ_REG_OFST              (0x1600)            /**< (ETH_IERQ) Interrupt Enable Queue 1 Offset */
-#define ETH_IERQ0_REG_OFST             (0x1600)            /**< (ETH_IERQ0) Interrupt Enable Queue 1 Offset */
-#define ETH_IERQ1_REG_OFST             (0x1604)            /**< (ETH_IERQ1) Interrupt Enable Queue 1 Offset */
-#define ETH_IERQ2_REG_OFST             (0x1608)            /**< (ETH_IERQ2) Interrupt Enable Queue 1 Offset */
-#define ETH_IERQ3_REG_OFST             (0x160C)            /**< (ETH_IERQ3) Interrupt Enable Queue 1 Offset */
-#define ETH_IERQ4_REG_OFST             (0x1610)            /**< (ETH_IERQ4) Interrupt Enable Queue 1 Offset */
 #define ETH_IDRQ_REG_OFST              (0x1620)            /**< (ETH_IDRQ) Interrupt Disable Queue 1 Offset */
-#define ETH_IDRQ0_REG_OFST             (0x1620)            /**< (ETH_IDRQ0) Interrupt Disable Queue 1 Offset */
-#define ETH_IDRQ1_REG_OFST             (0x1624)            /**< (ETH_IDRQ1) Interrupt Disable Queue 1 Offset */
-#define ETH_IDRQ2_REG_OFST             (0x1628)            /**< (ETH_IDRQ2) Interrupt Disable Queue 1 Offset */
-#define ETH_IDRQ3_REG_OFST             (0x162C)            /**< (ETH_IDRQ3) Interrupt Disable Queue 1 Offset */
-#define ETH_IDRQ4_REG_OFST             (0x1630)            /**< (ETH_IDRQ4) Interrupt Disable Queue 1 Offset */
 #define ETH_IMRQ_REG_OFST              (0x1640)            /**< (ETH_IMRQ) Interrupt Mask Register Queue 1 Offset */
-#define ETH_IMRQ0_REG_OFST             (0x1640)            /**< (ETH_IMRQ0) Interrupt Mask Register Queue 1 Offset */
-#define ETH_IMRQ1_REG_OFST             (0x1644)            /**< (ETH_IMRQ1) Interrupt Mask Register Queue 1 Offset */
-#define ETH_IMRQ2_REG_OFST             (0x1648)            /**< (ETH_IMRQ2) Interrupt Mask Register Queue 1 Offset */
-#define ETH_IMRQ3_REG_OFST             (0x164C)            /**< (ETH_IMRQ3) Interrupt Mask Register Queue 1 Offset */
-#define ETH_IMRQ4_REG_OFST             (0x1650)            /**< (ETH_IMRQ4) Interrupt Mask Register Queue 1 Offset */
 #define ETH_SCRT2ET_REG_OFST           (0x16E0)            /**< (ETH_SCRT2ET) Screening Type 2 EtherType Register 0 Offset */
-#define ETH_SCRT2ET0_REG_OFST          (0x16E0)            /**< (ETH_SCRT2ET0) Screening Type 2 EtherType Register 0 Offset */
-#define ETH_SCRT2ET1_REG_OFST          (0x16E4)            /**< (ETH_SCRT2ET1) Screening Type 2 EtherType Register 0 Offset */
-#define ETH_SCRT2ET2_REG_OFST          (0x16E8)            /**< (ETH_SCRT2ET2) Screening Type 2 EtherType Register 0 Offset */
-#define ETH_SCRT2ET3_REG_OFST          (0x16EC)            /**< (ETH_SCRT2ET3) Screening Type 2 EtherType Register 0 Offset */
 
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
 /** \brief SA register API structure */

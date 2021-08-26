@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZ8110CA90208_H_
 #define _PIC32CZ8110CA90208_H_
 
@@ -316,7 +316,7 @@ typedef struct _DeviceVectors
 {
   /* Stack pointer */
   void* pvStack;
-  /* CORTEX-M7 handlers */
+  /* Cortex-M handlers */
   void* pfnReset_Handler;                        /* -15 Reset Vector, invoked on Power up and warm reset */
   void* pfnNonMaskableInt_Handler;               /* -14 Non maskable Interrupt, cannot be stopped or preempted */
   void* pfnHardFault_Handler;                    /* -13 Hard Fault, all classes of Fault */
@@ -558,6 +558,12 @@ typedef struct _DeviceVectors
   void* pvReserved221;
 } DeviceVectors;
 
+/* Defines for Deprecated Interrupt and Exceptions handler names */
+#define pfnMemManage_Handler      pfnMemoryManagement_Handler     /**< \deprecated  Backward compatibility for ASF*/
+#define pfnDebugMon_Handler       pfnDebugMonitor_Handler         /**< \deprecated  Backward compatibility for ASF*/
+#define pfnNMI_Handler            pfnNonMaskableInt_Handler       /**< \deprecated  Backward compatibility for ASF*/
+#define pfnSVC_Handler            pfnSVCall_Handler               /**< \deprecated  Backward compatibility for ASF*/
+
 #endif /* !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__)) */
 
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
@@ -796,24 +802,32 @@ void HSM_RXINT_Handler             ( void );
 void MLB_GENERAL_Handler           ( void );
 void MLB_BUSREQ_Handler            ( void );
 #endif /* DONT_USE_PREDEFINED_PERIPHERALS_HANDLERS */
+/* Defines for Deprecated Interrupt and Exceptions handler names */
+#define MemManage_Handler         MemoryManagement_Handler        /**< \deprecated  Backward compatibility*/
+#define DebugMon_Handler          DebugMonitor_Handler            /**< \deprecated  Backward compatibility*/
+#define NMI_Handler               NonMaskableInt_Handler          /**< \deprecated  Backward compatibility*/
+#define SVC_Handler               SVCall_Handler                  /**< \deprecated  Backward compatibility*/
+
 #endif /* !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__)) */
 
-/** \brief Configuration of the CORTEX-M7 Processor and Core Peripherals */
-#define __CM7_REV                     0x0101 /**< Cortex-M7 Revision                                                        */
-#define __DCACHE_PRESENT                   1 /**< DCACHE present or not                                                     */
-#define __DEBUG_LVL                        1 /**< Debug Level                                                               */
-#define __DTCM_PRESENT                     1 /**< DTCM present or not                                                       */
-#define __FPU_DP                           1 /**< FPU double-precision or not                                               */
-#define __FPU_PRESENT                      1 /**< FPU present or not                                                        */
-#define __ICACHE_PRESENT                   1 /**< ICACHE present or not                                                     */
-#define __ITCM_PRESENT                     1 /**< ITCM present or not                                                       */
-#define __MPU_PRESENT                      1 /**< MPU present or not                                                        */
-#define __NVIC_PRIO_BITS                   3 /**< Number of NVIC Priority bits                                              */
-#define __TRACE_LVL                        1 /**< Trace Level                                                               */
-#define __VTOR_PRESENT                     1 /**< VTOR present or not                                                       */
-#define __Vendor_SysTickConfig             0 /**< Set to 1 if different SysTick Config is used                              */
-#define __ARCH_ARM                         1
-#define __ARCH_ARM_CORTEX_M                1
+/*
+ * \brief Configuration of the CORTEX-M7 Processor and Core Peripherals
+ */
+#define __CM7_REV                 0x0101 /**< Cortex-M7 Revision                                                        */
+#define __DCACHE_PRESENT               1 /**< DCACHE present or not                                                     */
+#define __DEBUG_LVL                    1 /**< Debug Level                                                               */
+#define __DTCM_PRESENT                 1 /**< DTCM present or not                                                       */
+#define __FPU_DP                       1 /**< FPU double-precision or not                                               */
+#define __FPU_PRESENT                  1 /**< FPU present or not                                                        */
+#define __ICACHE_PRESENT               1 /**< ICACHE present or not                                                     */
+#define __ITCM_PRESENT                 1 /**< ITCM present or not                                                       */
+#define __MPU_PRESENT                  1 /**< MPU present or not                                                        */
+#define __NVIC_PRIO_BITS               3 /**< Number of NVIC Priority bits                                              */
+#define __TRACE_LVL                    1 /**< Trace Level                                                               */
+#define __VTOR_PRESENT                 1 /**< VTOR present or not                                                       */
+#define __Vendor_SysTickConfig         0 /**< Set to 1 if different SysTick Config is used                              */
+#define __ARCH_ARM                     1
+#define __ARCH_ARM_CORTEX_M            1
 
 /*
  * \brief CMSIS includes
@@ -842,7 +856,6 @@ void MLB_BUSREQ_Handler            ( void );
 #include "component/fcr.h"
 #include "component/fcw.h"
 #include "component/freqm.h"
-#include "component/fuses.h"
 #include "component/gclk.h"
 #include "component/hsm.h"
 #include "component/mclk.h"
@@ -868,74 +881,6 @@ void MLB_BUSREQ_Handler            ( void );
 #include "component/usbhs.h"
 #include "component/wdt.h"
 /** @}  end of Peripheral Software API */
-
-/* ************************************************************************** */
-/*   INSTANCE DEFINITIONS FOR PIC32CZ8110CA90208 */
-/* ************************************************************************** */
-#include "instance/ac.h"
-#include "instance/adc.h"
-#include "instance/can0.h"
-#include "instance/can1.h"
-#include "instance/can2.h"
-#include "instance/can3.h"
-#include "instance/can4.h"
-#include "instance/can5.h"
-#include "instance/dma.h"
-#include "instance/drmtcm.h"
-#include "instance/dsu.h"
-#include "instance/eic.h"
-#include "instance/eth.h"
-#include "instance/evsys.h"
-#include "instance/fcr.h"
-#include "instance/fcw.h"
-#include "instance/freqm.h"
-#include "instance/fuses.h"
-#include "instance/gclk.h"
-#include "instance/hsm.h"
-#include "instance/mclk.h"
-#include "instance/mcramc.h"
-#include "instance/mlb.h"
-#include "instance/osc32kctrl.h"
-#include "instance/oscctrl.h"
-#include "instance/pac.h"
-#include "instance/pm.h"
-#include "instance/port.h"
-#include "instance/prm.h"
-#include "instance/ptc.h"
-#include "instance/rstc.h"
-#include "instance/rtc.h"
-#include "instance/sdmmc0.h"
-#include "instance/sdmmc1.h"
-#include "instance/sercom0.h"
-#include "instance/sercom1.h"
-#include "instance/sercom2.h"
-#include "instance/sercom3.h"
-#include "instance/sercom4.h"
-#include "instance/sercom5.h"
-#include "instance/sercom6.h"
-#include "instance/sercom7.h"
-#include "instance/sercom8.h"
-#include "instance/sercom9.h"
-#include "instance/spi_ixs0.h"
-#include "instance/spi_ixs1.h"
-#include "instance/sqi0.h"
-#include "instance/sqi1.h"
-#include "instance/supc.h"
-#include "instance/tcc0.h"
-#include "instance/tcc1.h"
-#include "instance/tcc2.h"
-#include "instance/tcc3.h"
-#include "instance/tcc4.h"
-#include "instance/tcc5.h"
-#include "instance/tcc6.h"
-#include "instance/tcc7.h"
-#include "instance/tcc8.h"
-#include "instance/tcc9.h"
-#include "instance/tram.h"
-#include "instance/trng.h"
-#include "instance/usbhs0.h"
-#include "instance/usbhs1.h"
-#include "instance/wdt.h"
 
 /** \addtogroup PIC32CZ8110CA90208_id Peripheral Ids Definitions
  *  @{
@@ -1033,14 +978,6 @@ void MLB_BUSREQ_Handler            ( void );
 #define FCR_REGS                         ((fcr_registers_t*)0x44004000)                /**< \brief FCR Registers Address        */
 #define FCW_REGS                         ((fcw_registers_t*)0x44002000)                /**< \brief FCW Registers Address        */
 #define FREQM_REGS                       ((freqm_registers_t*)0x44060000)              /**< \brief FREQM Registers Address      */
-#define FUSES_BOOTCFG1_REGS              ((fuses_bootcfg1_registers_t*)0x0a002000)     /**< \brief FUSES Registers Address      */
-#define FUSES_BOOTCFG2_REGS              ((fuses_bootcfg1_registers_t*)0x0a00a000)     /**< \brief FUSES Registers Address      */
-#define FUSES_CALOTP_REGS                ((fuses_calotp_registers_t*)0x0a007000)       /**< \brief FUSES Registers Address      */
-#define FUSES_DALCFG_REGS                ((fuses_dalcfg_registers_t*)0x0a004000)       /**< \brief FUSES Registers Address      */
-#define FUSES_USERCFG1_REGS              ((fuses_usercfg1_registers_t*)0x0a000000)     /**< \brief FUSES Registers Address      */
-#define FUSES_USERCFG2_REGS              ((fuses_usercfg1_registers_t*)0x0a008000)     /**< \brief FUSES Registers Address      */
-#define FUSES_USEROTP1_REGS              ((fuses_userotp1_registers_t*)0x0a001000)     /**< \brief FUSES Registers Address      */
-#define FUSES_USEROTP2_REGS              ((fuses_userotp1_registers_t*)0x0a009000)     /**< \brief FUSES Registers Address      */
 #define GCLK_REGS                        ((gclk_registers_t*)0x44050000)               /**< \brief GCLK Registers Address       */
 #define HSM_REGS                         ((hsm_registers_t*)0x4f018000)                /**< \brief HSM Registers Address        */
 #define MCLK_REGS                        ((mclk_registers_t*)0x44052000)               /**< \brief MCLK Registers Address       */
@@ -1098,78 +1035,70 @@ void MLB_BUSREQ_Handler            ( void );
 /* ************************************************************************** */
 /*   BASE ADDRESS DEFINITIONS FOR PIC32CZ8110CA90208                          */
 /* ************************************************************************** */
-#define AC_BASE_ADDRESS                  _UL_(0x46822000)                              /* AC Base Address */
-#define ADC_BASE_ADDRESS                 _UL_(0x46820000)                              /* ADC Base Address */
-#define CAN0_BASE_ADDRESS                _UL_(0x45060000)                              /* CAN0 Base Address */
-#define CAN1_BASE_ADDRESS                _UL_(0x46060000)                              /* CAN1 Base Address */
-#define CAN2_BASE_ADDRESS                _UL_(0x46062000)                              /* CAN2 Base Address */
-#define CAN3_BASE_ADDRESS                _UL_(0x45860000)                              /* CAN3 Base Address */
-#define CAN4_BASE_ADDRESS                _UL_(0x45062000)                              /* CAN4 Base Address */
-#define CAN5_BASE_ADDRESS                _UL_(0x46860000)                              /* CAN5 Base Address */
-#define DMA_BASE_ADDRESS                 _UL_(0x44850000)                              /* DMA Base Address */
-#define DRMTCM_BASE_ADDRESS              _UL_(0x44820000)                              /* DRMTCM Base Address */
-#define DSU_BASE_ADDRESS                 _UL_(0x44000000)                              /* DSU Base Address */
-#define EIC_BASE_ADDRESS                 _UL_(0x44800000)                              /* EIC Base Address */
-#define ETH_BASE_ADDRESS                 _UL_(0x45070000)                              /* ETH Base Address */
-#define EVSYS_BASE_ADDRESS               _UL_(0x44860000)                              /* EVSYS Base Address */
-#define FCR_BASE_ADDRESS                 _UL_(0x44004000)                              /* FCR Base Address */
-#define FCW_BASE_ADDRESS                 _UL_(0x44002000)                              /* FCW Base Address */
-#define FREQM_BASE_ADDRESS               _UL_(0x44060000)                              /* FREQM Base Address */
-#define FUSES_BOOTCFG1_BASE_ADDRESS      _UL_(0x0a002000)                              /* FUSES Base Address */
-#define FUSES_BOOTCFG2_BASE_ADDRESS      _UL_(0x0a00a000)                              /* FUSES Base Address */
-#define FUSES_CALOTP_BASE_ADDRESS        _UL_(0x0a007000)                              /* FUSES Base Address */
-#define FUSES_DALCFG_BASE_ADDRESS        _UL_(0x0a004000)                              /* FUSES Base Address */
-#define FUSES_USERCFG1_BASE_ADDRESS      _UL_(0x0a000000)                              /* FUSES Base Address */
-#define FUSES_USERCFG2_BASE_ADDRESS      _UL_(0x0a008000)                              /* FUSES Base Address */
-#define FUSES_USEROTP1_BASE_ADDRESS      _UL_(0x0a001000)                              /* FUSES Base Address */
-#define FUSES_USEROTP2_BASE_ADDRESS      _UL_(0x0a009000)                              /* FUSES Base Address */
-#define GCLK_BASE_ADDRESS                _UL_(0x44050000)                              /* GCLK Base Address */
-#define HSM_BASE_ADDRESS                 _UL_(0x4f018000)                              /* HSM Base Address */
-#define MCLK_BASE_ADDRESS                _UL_(0x44052000)                              /* MCLK Base Address */
-#define MCRAMC_BASE_ADDRESS              _UL_(0x44822000)                              /* MCRAMC Base Address */
-#define MLB_BASE_ADDRESS                 _UL_(0x458c0000)                              /* MLB Base Address */
-#define OSC32KCTRL_BASE_ADDRESS          _UL_(0x44042000)                              /* OSC32KCTRL Base Address */
-#define OSCCTRL_BASE_ADDRESS             _UL_(0x44040000)                              /* OSCCTRL Base Address */
-#define PAC_BASE_ADDRESS                 _UL_(0x44810000)                              /* PAC Base Address */
-#define PM_BASE_ADDRESS                  _UL_(0x44010000)                              /* PM Base Address */
-#define PORT_AHB_BASE_ADDRESS            _UL_(0x40000000)                              /* PORT Base Address */
-#define PORT_BASE_ADDRESS                _UL_(0x44840000)                              /* PORT Base Address */
-#define PRM_BASE_ADDRESS                 _UL_(0x44080000)                              /* PRM Base Address */
-#define PTC_BASE_ADDRESS                 _UL_(0x46828000)                              /* PTC Base Address */
-#define RSTC_BASE_ADDRESS                _UL_(0x44030000)                              /* RSTC Base Address */
-#define RTC_BASE_ADDRESS                 _UL_(0x44072000)                              /* RTC Base Address */
-#define SDMMC0_BASE_ADDRESS              _UL_(0x458a0000)                              /* SDMMC0 Base Address */
-#define SDMMC1_BASE_ADDRESS              _UL_(0x460a0000)                              /* SDMMC1 Base Address */
-#define SERCOM0_BASE_ADDRESS             _UL_(0x46000000)                              /* SERCOM0 Base Address */
-#define SERCOM1_BASE_ADDRESS             _UL_(0x46002000)                              /* SERCOM1 Base Address */
-#define SERCOM2_BASE_ADDRESS             _UL_(0x45800000)                              /* SERCOM2 Base Address */
-#define SERCOM3_BASE_ADDRESS             _UL_(0x45802000)                              /* SERCOM3 Base Address */
-#define SERCOM4_BASE_ADDRESS             _UL_(0x46004000)                              /* SERCOM4 Base Address */
-#define SERCOM5_BASE_ADDRESS             _UL_(0x45804000)                              /* SERCOM5 Base Address */
-#define SERCOM6_BASE_ADDRESS             _UL_(0x45806000)                              /* SERCOM6 Base Address */
-#define SERCOM7_BASE_ADDRESS             _UL_(0x45000000)                              /* SERCOM7 Base Address */
-#define SERCOM8_BASE_ADDRESS             _UL_(0x45002000)                              /* SERCOM8 Base Address */
-#define SERCOM9_BASE_ADDRESS             _UL_(0x45004000)                              /* SERCOM9 Base Address */
-#define SPI_IXS0_BASE_ADDRESS            _UL_(0x46030000)                              /* SPI_IXS0 Base Address */
-#define SPI_IXS1_BASE_ADDRESS            _UL_(0x45030000)                              /* SPI_IXS1 Base Address */
-#define SQI0_BASE_ADDRESS                _UL_(0x4f008000)                              /* SQI0 Base Address */
-#define SQI1_BASE_ADDRESS                _UL_(0x4f009000)                              /* SQI1 Base Address */
-#define SUPC_BASE_ADDRESS                _UL_(0x44020000)                              /* SUPC Base Address */
-#define TCC0_BASE_ADDRESS                _UL_(0x45010000)                              /* TCC0 Base Address */
-#define TCC1_BASE_ADDRESS                _UL_(0x45012000)                              /* TCC1 Base Address */
-#define TCC2_BASE_ADDRESS                _UL_(0x45014000)                              /* TCC2 Base Address */
-#define TCC3_BASE_ADDRESS                _UL_(0x45810000)                              /* TCC3 Base Address */
-#define TCC4_BASE_ADDRESS                _UL_(0x45812000)                              /* TCC4 Base Address */
-#define TCC5_BASE_ADDRESS                _UL_(0x46010000)                              /* TCC5 Base Address */
-#define TCC6_BASE_ADDRESS                _UL_(0x46012000)                              /* TCC6 Base Address */
-#define TCC7_BASE_ADDRESS                _UL_(0x46810000)                              /* TCC7 Base Address */
-#define TCC8_BASE_ADDRESS                _UL_(0x46812000)                              /* TCC8 Base Address */
-#define TCC9_BASE_ADDRESS                _UL_(0x46814000)                              /* TCC9 Base Address */
-#define TRAM_BASE_ADDRESS                _UL_(0x44824000)                              /* TRAM Base Address */
-#define TRNG_BASE_ADDRESS                _UL_(0x44870000)                              /* TRNG Base Address */
-#define USBHS0_BASE_ADDRESS              _UL_(0x4f010000)                              /* USBHS0 Base Address */
-#define USBHS1_BASE_ADDRESS              _UL_(0x4f012000)                              /* USBHS1 Base Address */
-#define WDT_BASE_ADDRESS                 _UL_(0x44070000)                              /* WDT Base Address */
+#define AC_BASE_ADDRESS                  _UL_(0x46822000)                              /**< \brief AC Base Address */
+#define ADC_BASE_ADDRESS                 _UL_(0x46820000)                              /**< \brief ADC Base Address */
+#define CAN0_BASE_ADDRESS                _UL_(0x45060000)                              /**< \brief CAN0 Base Address */
+#define CAN1_BASE_ADDRESS                _UL_(0x46060000)                              /**< \brief CAN1 Base Address */
+#define CAN2_BASE_ADDRESS                _UL_(0x46062000)                              /**< \brief CAN2 Base Address */
+#define CAN3_BASE_ADDRESS                _UL_(0x45860000)                              /**< \brief CAN3 Base Address */
+#define CAN4_BASE_ADDRESS                _UL_(0x45062000)                              /**< \brief CAN4 Base Address */
+#define CAN5_BASE_ADDRESS                _UL_(0x46860000)                              /**< \brief CAN5 Base Address */
+#define DMA_BASE_ADDRESS                 _UL_(0x44850000)                              /**< \brief DMA Base Address */
+#define DRMTCM_BASE_ADDRESS              _UL_(0x44820000)                              /**< \brief DRMTCM Base Address */
+#define DSU_BASE_ADDRESS                 _UL_(0x44000000)                              /**< \brief DSU Base Address */
+#define EIC_BASE_ADDRESS                 _UL_(0x44800000)                              /**< \brief EIC Base Address */
+#define ETH_BASE_ADDRESS                 _UL_(0x45070000)                              /**< \brief ETH Base Address */
+#define EVSYS_BASE_ADDRESS               _UL_(0x44860000)                              /**< \brief EVSYS Base Address */
+#define FCR_BASE_ADDRESS                 _UL_(0x44004000)                              /**< \brief FCR Base Address */
+#define FCW_BASE_ADDRESS                 _UL_(0x44002000)                              /**< \brief FCW Base Address */
+#define FREQM_BASE_ADDRESS               _UL_(0x44060000)                              /**< \brief FREQM Base Address */
+#define GCLK_BASE_ADDRESS                _UL_(0x44050000)                              /**< \brief GCLK Base Address */
+#define HSM_BASE_ADDRESS                 _UL_(0x4f018000)                              /**< \brief HSM Base Address */
+#define MCLK_BASE_ADDRESS                _UL_(0x44052000)                              /**< \brief MCLK Base Address */
+#define MCRAMC_BASE_ADDRESS              _UL_(0x44822000)                              /**< \brief MCRAMC Base Address */
+#define MLB_BASE_ADDRESS                 _UL_(0x458c0000)                              /**< \brief MLB Base Address */
+#define OSC32KCTRL_BASE_ADDRESS          _UL_(0x44042000)                              /**< \brief OSC32KCTRL Base Address */
+#define OSCCTRL_BASE_ADDRESS             _UL_(0x44040000)                              /**< \brief OSCCTRL Base Address */
+#define PAC_BASE_ADDRESS                 _UL_(0x44810000)                              /**< \brief PAC Base Address */
+#define PM_BASE_ADDRESS                  _UL_(0x44010000)                              /**< \brief PM Base Address */
+#define PORT_AHB_BASE_ADDRESS            _UL_(0x40000000)                              /**< \brief PORT Base Address */
+#define PORT_BASE_ADDRESS                _UL_(0x44840000)                              /**< \brief PORT Base Address */
+#define PRM_BASE_ADDRESS                 _UL_(0x44080000)                              /**< \brief PRM Base Address */
+#define PTC_BASE_ADDRESS                 _UL_(0x46828000)                              /**< \brief PTC Base Address */
+#define RSTC_BASE_ADDRESS                _UL_(0x44030000)                              /**< \brief RSTC Base Address */
+#define RTC_BASE_ADDRESS                 _UL_(0x44072000)                              /**< \brief RTC Base Address */
+#define SDMMC0_BASE_ADDRESS              _UL_(0x458a0000)                              /**< \brief SDMMC0 Base Address */
+#define SDMMC1_BASE_ADDRESS              _UL_(0x460a0000)                              /**< \brief SDMMC1 Base Address */
+#define SERCOM0_BASE_ADDRESS             _UL_(0x46000000)                              /**< \brief SERCOM0 Base Address */
+#define SERCOM1_BASE_ADDRESS             _UL_(0x46002000)                              /**< \brief SERCOM1 Base Address */
+#define SERCOM2_BASE_ADDRESS             _UL_(0x45800000)                              /**< \brief SERCOM2 Base Address */
+#define SERCOM3_BASE_ADDRESS             _UL_(0x45802000)                              /**< \brief SERCOM3 Base Address */
+#define SERCOM4_BASE_ADDRESS             _UL_(0x46004000)                              /**< \brief SERCOM4 Base Address */
+#define SERCOM5_BASE_ADDRESS             _UL_(0x45804000)                              /**< \brief SERCOM5 Base Address */
+#define SERCOM6_BASE_ADDRESS             _UL_(0x45806000)                              /**< \brief SERCOM6 Base Address */
+#define SERCOM7_BASE_ADDRESS             _UL_(0x45000000)                              /**< \brief SERCOM7 Base Address */
+#define SERCOM8_BASE_ADDRESS             _UL_(0x45002000)                              /**< \brief SERCOM8 Base Address */
+#define SERCOM9_BASE_ADDRESS             _UL_(0x45004000)                              /**< \brief SERCOM9 Base Address */
+#define SPI_IXS0_BASE_ADDRESS            _UL_(0x46030000)                              /**< \brief SPI_IXS0 Base Address */
+#define SPI_IXS1_BASE_ADDRESS            _UL_(0x45030000)                              /**< \brief SPI_IXS1 Base Address */
+#define SQI0_BASE_ADDRESS                _UL_(0x4f008000)                              /**< \brief SQI0 Base Address */
+#define SQI1_BASE_ADDRESS                _UL_(0x4f009000)                              /**< \brief SQI1 Base Address */
+#define SUPC_BASE_ADDRESS                _UL_(0x44020000)                              /**< \brief SUPC Base Address */
+#define TCC0_BASE_ADDRESS                _UL_(0x45010000)                              /**< \brief TCC0 Base Address */
+#define TCC1_BASE_ADDRESS                _UL_(0x45012000)                              /**< \brief TCC1 Base Address */
+#define TCC2_BASE_ADDRESS                _UL_(0x45014000)                              /**< \brief TCC2 Base Address */
+#define TCC3_BASE_ADDRESS                _UL_(0x45810000)                              /**< \brief TCC3 Base Address */
+#define TCC4_BASE_ADDRESS                _UL_(0x45812000)                              /**< \brief TCC4 Base Address */
+#define TCC5_BASE_ADDRESS                _UL_(0x46010000)                              /**< \brief TCC5 Base Address */
+#define TCC6_BASE_ADDRESS                _UL_(0x46012000)                              /**< \brief TCC6 Base Address */
+#define TCC7_BASE_ADDRESS                _UL_(0x46810000)                              /**< \brief TCC7 Base Address */
+#define TCC8_BASE_ADDRESS                _UL_(0x46812000)                              /**< \brief TCC8 Base Address */
+#define TCC9_BASE_ADDRESS                _UL_(0x46814000)                              /**< \brief TCC9 Base Address */
+#define TRAM_BASE_ADDRESS                _UL_(0x44824000)                              /**< \brief TRAM Base Address */
+#define TRNG_BASE_ADDRESS                _UL_(0x44870000)                              /**< \brief TRNG Base Address */
+#define USBHS0_BASE_ADDRESS              _UL_(0x4f010000)                              /**< \brief USBHS0 Base Address */
+#define USBHS1_BASE_ADDRESS              _UL_(0x4f012000)                              /**< \brief USBHS1 Base Address */
+#define WDT_BASE_ADDRESS                 _UL_(0x44070000)                              /**< \brief WDT Base Address */
 /** @}  end of Peripheral Base Address Definitions */
 
 /** \addtogroup PIC32CZ8110CA90208_pio Peripheral Pio Definitions
@@ -1192,9 +1121,33 @@ void MLB_BUSREQ_Handler            ( void );
 #define FCR_BFM_PAGE_SIZE              _UL_(      4096)
 #define FCR_BFM_NB_OF_PAGES            _UL_(        32)
 
-#define FCR_CFM_SIZE                   _UL_(0x00010000)    /*   64kB Memory segment type: fuses */
-#define FCR_CFM_PAGE_SIZE              _UL_(      4096)
-#define FCR_CFM_NB_OF_PAGES            _UL_(        16)
+#define FCR_CFM_USERCFG1_SIZE          _UL_(0x00001000)    /*    4kB Memory segment type: flash */
+#define FCR_CFM_USERCFG1_PAGE_SIZE     _UL_(      4096)
+#define FCR_CFM_USERCFG1_NB_OF_PAGES   _UL_(         1)
+
+#define FCR_CFM_USEROTP1_SIZE          _UL_(0x00001000)    /*    4kB Memory segment type: user_signatures */
+#define FCR_CFM_USEROTP1_PAGE_SIZE     _UL_(      4096)
+#define FCR_CFM_USEROTP1_NB_OF_PAGES   _UL_(         1)
+
+#define FCR_CFM_BOOTCFG1_SIZE          _UL_(0x00001000)    /*    4kB Memory segment type: flash */
+#define FCR_CFM_BOOTCFG1_PAGE_SIZE     _UL_(      4096)
+#define FCR_CFM_BOOTCFG1_NB_OF_PAGES   _UL_(         1)
+
+#define FCR_CFM_DALCFG_SIZE            _UL_(0x00001000)    /*    4kB Memory segment type: flash */
+#define FCR_CFM_DALCFG_PAGE_SIZE       _UL_(      4096)
+#define FCR_CFM_DALCFG_NB_OF_PAGES     _UL_(         1)
+
+#define FCR_CFM_USERCFG2_SIZE          _UL_(0x00001000)    /*    4kB Memory segment type: flash */
+#define FCR_CFM_USERCFG2_PAGE_SIZE     _UL_(      4096)
+#define FCR_CFM_USERCFG2_NB_OF_PAGES   _UL_(         1)
+
+#define FCR_CFM_USEROTP2_SIZE          _UL_(0x00001000)    /*    4kB Memory segment type: user_signatures */
+#define FCR_CFM_USEROTP2_PAGE_SIZE     _UL_(      4096)
+#define FCR_CFM_USEROTP2_NB_OF_PAGES   _UL_(         1)
+
+#define FCR_CFM_BOOTCFG2_SIZE          _UL_(0x00001000)    /*    4kB Memory segment type: flash */
+#define FCR_CFM_BOOTCFG2_PAGE_SIZE     _UL_(      4096)
+#define FCR_CFM_BOOTCFG2_NB_OF_PAGES   _UL_(         1)
 
 #define FCR_PFM_SIZE                   _UL_(0x00800000)    /* 8192kB Memory segment type: flash */
 #define FCR_PFM_PAGE_SIZE              _UL_(      4096)
@@ -1225,7 +1178,13 @@ void MLB_BUSREQ_Handler            ( void );
 #define ITCM_ADDR                      _UL_(0x00000000)    /**< ITCM base address (type: ram)*/
 #define PRM_ROM_ADDR                   _UL_(0x04000000)    /**< PRM_ROM base address (type: rom)*/
 #define FCR_BFM_ADDR                   _UL_(0x08000000)    /**< FCR_BFM base address (type: flash)*/
-#define FCR_CFM_ADDR                   _UL_(0x0a000000)    /**< FCR_CFM base address (type: fuses)*/
+#define FCR_CFM_USERCFG1_ADDR          _UL_(0x0a000000)    /**< FCR_CFM_USERCFG1 base address (type: flash)*/
+#define FCR_CFM_USEROTP1_ADDR          _UL_(0x0a001000)    /**< FCR_CFM_USEROTP1 base address (type: user_signatures)*/
+#define FCR_CFM_BOOTCFG1_ADDR          _UL_(0x0a002000)    /**< FCR_CFM_BOOTCFG1 base address (type: flash)*/
+#define FCR_CFM_DALCFG_ADDR            _UL_(0x0a004000)    /**< FCR_CFM_DALCFG base address (type: flash)*/
+#define FCR_CFM_USERCFG2_ADDR          _UL_(0x0a008000)    /**< FCR_CFM_USERCFG2 base address (type: flash)*/
+#define FCR_CFM_USEROTP2_ADDR          _UL_(0x0a009000)    /**< FCR_CFM_USEROTP2 base address (type: user_signatures)*/
+#define FCR_CFM_BOOTCFG2_ADDR          _UL_(0x0a00a000)    /**< FCR_CFM_BOOTCFG2 base address (type: flash)*/
 #define FCR_PFM_ADDR                   _UL_(0x0c000000)    /**< FCR_PFM base address (type: flash)*/
 #define DTCM_ADDR                      _UL_(0x20000000)    /**< DTCM base address (type: ram)*/
 #define FLEXRAM_ADDR                   _UL_(0x20020000)    /**< FLEXRAM base address (type: ram)*/
@@ -1317,73 +1276,73 @@ void MLB_BUSREQ_Handler            ( void );
 #define EVENT_ID_GEN_TCC0_OVF                            54 /**< ID for TCC0 event generator OVF */
 #define EVENT_ID_GEN_TCC0_TRG                            55 /**< ID for TCC0 event generator TRG */
 #define EVENT_ID_GEN_TCC0_CNT                            56 /**< ID for TCC0 event generator CNT */
-#define EVENT_ID_GEN_TCC0_MCX_0                          57 /**< ID for TCC0 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC0_MCX_1                          58 /**< ID for TCC0 event generator MCX_1 */
-#define EVENT_ID_GEN_TCC0_MCX_2                          59 /**< ID for TCC0 event generator MCX_2 */
-#define EVENT_ID_GEN_TCC0_MCX_3                          60 /**< ID for TCC0 event generator MCX_3 */
-#define EVENT_ID_GEN_TCC0_MCX_4                          61 /**< ID for TCC0 event generator MCX_4 */
-#define EVENT_ID_GEN_TCC0_MCX_5                          62 /**< ID for TCC0 event generator MCX_5 */
-#define EVENT_ID_GEN_TCC0_MCX_6                          63 /**< ID for TCC0 event generator MCX_6 */
-#define EVENT_ID_GEN_TCC0_MCX_7                          64 /**< ID for TCC0 event generator MCX_7 */
+#define EVENT_ID_GEN_TCC0_MC_0                           57 /**< ID for TCC0 event generator MC_0 */
+#define EVENT_ID_GEN_TCC0_MC_1                           58 /**< ID for TCC0 event generator MC_1 */
+#define EVENT_ID_GEN_TCC0_MC_2                           59 /**< ID for TCC0 event generator MC_2 */
+#define EVENT_ID_GEN_TCC0_MC_3                           60 /**< ID for TCC0 event generator MC_3 */
+#define EVENT_ID_GEN_TCC0_MC_4                           61 /**< ID for TCC0 event generator MC_4 */
+#define EVENT_ID_GEN_TCC0_MC_5                           62 /**< ID for TCC0 event generator MC_5 */
+#define EVENT_ID_GEN_TCC0_MC_6                           63 /**< ID for TCC0 event generator MC_6 */
+#define EVENT_ID_GEN_TCC0_MC_7                           64 /**< ID for TCC0 event generator MC_7 */
 #define EVENT_ID_GEN_TCC1_OVF                            65 /**< ID for TCC1 event generator OVF */
 #define EVENT_ID_GEN_TCC1_TRG                            66 /**< ID for TCC1 event generator TRG */
 #define EVENT_ID_GEN_TCC1_CNT                            67 /**< ID for TCC1 event generator CNT */
-#define EVENT_ID_GEN_TCC1_MCX_0                          68 /**< ID for TCC1 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC1_MCX_1                          69 /**< ID for TCC1 event generator MCX_1 */
-#define EVENT_ID_GEN_TCC1_MCX_2                          70 /**< ID for TCC1 event generator MCX_2 */
-#define EVENT_ID_GEN_TCC1_MCX_3                          71 /**< ID for TCC1 event generator MCX_3 */
-#define EVENT_ID_GEN_TCC1_MCX_4                          72 /**< ID for TCC1 event generator MCX_4 */
-#define EVENT_ID_GEN_TCC1_MCX_5                          73 /**< ID for TCC1 event generator MCX_5 */
-#define EVENT_ID_GEN_TCC1_MCX_6                          74 /**< ID for TCC1 event generator MCX_6 */
-#define EVENT_ID_GEN_TCC1_MCX_7                          75 /**< ID for TCC1 event generator MCX_7 */
+#define EVENT_ID_GEN_TCC1_MC_0                           68 /**< ID for TCC1 event generator MC_0 */
+#define EVENT_ID_GEN_TCC1_MC_1                           69 /**< ID for TCC1 event generator MC_1 */
+#define EVENT_ID_GEN_TCC1_MC_2                           70 /**< ID for TCC1 event generator MC_2 */
+#define EVENT_ID_GEN_TCC1_MC_3                           71 /**< ID for TCC1 event generator MC_3 */
+#define EVENT_ID_GEN_TCC1_MC_4                           72 /**< ID for TCC1 event generator MC_4 */
+#define EVENT_ID_GEN_TCC1_MC_5                           73 /**< ID for TCC1 event generator MC_5 */
+#define EVENT_ID_GEN_TCC1_MC_6                           74 /**< ID for TCC1 event generator MC_6 */
+#define EVENT_ID_GEN_TCC1_MC_7                           75 /**< ID for TCC1 event generator MC_7 */
 #define EVENT_ID_GEN_TCC2_OVF                            76 /**< ID for TCC2 event generator OVF */
 #define EVENT_ID_GEN_TCC2_TRG                            77 /**< ID for TCC2 event generator TRG */
 #define EVENT_ID_GEN_TCC2_CNT                            78 /**< ID for TCC2 event generator CNT */
-#define EVENT_ID_GEN_TCC2_MCX_0                          79 /**< ID for TCC2 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC2_MCX_1                          80 /**< ID for TCC2 event generator MCX_1 */
-#define EVENT_ID_GEN_TCC2_MCX_2                          81 /**< ID for TCC2 event generator MCX_2 */
-#define EVENT_ID_GEN_TCC2_MCX_3                          82 /**< ID for TCC2 event generator MCX_3 */
-#define EVENT_ID_GEN_TCC2_MCX_4                          83 /**< ID for TCC2 event generator MCX_4 */
-#define EVENT_ID_GEN_TCC2_MCX_5                          84 /**< ID for TCC2 event generator MCX_5 */
+#define EVENT_ID_GEN_TCC2_MC_0                           79 /**< ID for TCC2 event generator MC_0 */
+#define EVENT_ID_GEN_TCC2_MC_1                           80 /**< ID for TCC2 event generator MC_1 */
+#define EVENT_ID_GEN_TCC2_MC_2                           81 /**< ID for TCC2 event generator MC_2 */
+#define EVENT_ID_GEN_TCC2_MC_3                           82 /**< ID for TCC2 event generator MC_3 */
+#define EVENT_ID_GEN_TCC2_MC_4                           83 /**< ID for TCC2 event generator MC_4 */
+#define EVENT_ID_GEN_TCC2_MC_5                           84 /**< ID for TCC2 event generator MC_5 */
 #define EVENT_ID_GEN_TCC3_OVF                            85 /**< ID for TCC3 event generator OVF */
 #define EVENT_ID_GEN_TCC3_TRG                            86 /**< ID for TCC3 event generator TRG */
 #define EVENT_ID_GEN_TCC3_CNT                            87 /**< ID for TCC3 event generator CNT */
-#define EVENT_ID_GEN_TCC3_MCX_0                          88 /**< ID for TCC3 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC3_MCX_1                          89 /**< ID for TCC3 event generator MCX_1 */
+#define EVENT_ID_GEN_TCC3_MC_0                           88 /**< ID for TCC3 event generator MC_0 */
+#define EVENT_ID_GEN_TCC3_MC_1                           89 /**< ID for TCC3 event generator MC_1 */
 #define EVENT_ID_GEN_TCC4_OVF                            90 /**< ID for TCC4 event generator OVF */
 #define EVENT_ID_GEN_TCC4_TRG                            91 /**< ID for TCC4 event generator TRG */
 #define EVENT_ID_GEN_TCC4_CNT                            92 /**< ID for TCC4 event generator CNT */
-#define EVENT_ID_GEN_TCC4_MCX_0                          93 /**< ID for TCC4 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC4_MCX_1                          94 /**< ID for TCC4 event generator MCX_1 */
+#define EVENT_ID_GEN_TCC4_MC_0                           93 /**< ID for TCC4 event generator MC_0 */
+#define EVENT_ID_GEN_TCC4_MC_1                           94 /**< ID for TCC4 event generator MC_1 */
 #define EVENT_ID_GEN_TCC5_OVF                            95 /**< ID for TCC5 event generator OVF */
 #define EVENT_ID_GEN_TCC5_TRG                            96 /**< ID for TCC5 event generator TRG */
 #define EVENT_ID_GEN_TCC5_CNT                            97 /**< ID for TCC5 event generator CNT */
-#define EVENT_ID_GEN_TCC5_MCX_0                          98 /**< ID for TCC5 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC5_MCX_1                          99 /**< ID for TCC5 event generator MCX_1 */
+#define EVENT_ID_GEN_TCC5_MC_0                           98 /**< ID for TCC5 event generator MC_0 */
+#define EVENT_ID_GEN_TCC5_MC_1                           99 /**< ID for TCC5 event generator MC_1 */
 #define EVENT_ID_GEN_TCC6_OVF                           100 /**< ID for TCC6 event generator OVF */
 #define EVENT_ID_GEN_TCC6_TRG                           101 /**< ID for TCC6 event generator TRG */
 #define EVENT_ID_GEN_TCC6_CNT                           102 /**< ID for TCC6 event generator CNT */
-#define EVENT_ID_GEN_TCC6_MCX_0                         103 /**< ID for TCC6 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC6_MCX_1                         104 /**< ID for TCC6 event generator MCX_1 */
+#define EVENT_ID_GEN_TCC6_MC_0                          103 /**< ID for TCC6 event generator MC_0 */
+#define EVENT_ID_GEN_TCC6_MC_1                          104 /**< ID for TCC6 event generator MC_1 */
 #define EVENT_ID_GEN_TCC7_OVF                           105 /**< ID for TCC7 event generator OVF */
 #define EVENT_ID_GEN_TCC7_TRG                           106 /**< ID for TCC7 event generator TRG */
 #define EVENT_ID_GEN_TCC7_CNT                           107 /**< ID for TCC7 event generator CNT */
-#define EVENT_ID_GEN_TCC7_MCX_0                         108 /**< ID for TCC7 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC7_MCX_1                         109 /**< ID for TCC7 event generator MCX_1 */
+#define EVENT_ID_GEN_TCC7_MC_0                          108 /**< ID for TCC7 event generator MC_0 */
+#define EVENT_ID_GEN_TCC7_MC_1                          109 /**< ID for TCC7 event generator MC_1 */
 #define EVENT_ID_GEN_TCC8_OVF                           110 /**< ID for TCC8 event generator OVF */
 #define EVENT_ID_GEN_TCC8_TRG                           111 /**< ID for TCC8 event generator TRG */
 #define EVENT_ID_GEN_TCC8_CNT                           112 /**< ID for TCC8 event generator CNT */
-#define EVENT_ID_GEN_TCC8_MCX_0                         113 /**< ID for TCC8 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC8_MCX_1                         114 /**< ID for TCC8 event generator MCX_1 */
+#define EVENT_ID_GEN_TCC8_MC_0                          113 /**< ID for TCC8 event generator MC_0 */
+#define EVENT_ID_GEN_TCC8_MC_1                          114 /**< ID for TCC8 event generator MC_1 */
 #define EVENT_ID_GEN_TCC9_OVF                           115 /**< ID for TCC9 event generator OVF */
 #define EVENT_ID_GEN_TCC9_TRG                           116 /**< ID for TCC9 event generator TRG */
 #define EVENT_ID_GEN_TCC9_CNT                           117 /**< ID for TCC9 event generator CNT */
-#define EVENT_ID_GEN_TCC9_MCX_0                         118 /**< ID for TCC9 event generator MCX_0 */
-#define EVENT_ID_GEN_TCC9_MCX_1                         119 /**< ID for TCC9 event generator MCX_1 */
-#define EVENT_ID_GEN_TCC9_MCX_2                         120 /**< ID for TCC9 event generator MCX_2 */
-#define EVENT_ID_GEN_TCC9_MCX_3                         121 /**< ID for TCC9 event generator MCX_3 */
-#define EVENT_ID_GEN_TCC9_MCX_4                         122 /**< ID for TCC9 event generator MCX_4 */
-#define EVENT_ID_GEN_TCC9_MCX_5                         123 /**< ID for TCC9 event generator MCX_5 */
+#define EVENT_ID_GEN_TCC9_MC_0                          118 /**< ID for TCC9 event generator MC_0 */
+#define EVENT_ID_GEN_TCC9_MC_1                          119 /**< ID for TCC9 event generator MC_1 */
+#define EVENT_ID_GEN_TCC9_MC_2                          120 /**< ID for TCC9 event generator MC_2 */
+#define EVENT_ID_GEN_TCC9_MC_3                          121 /**< ID for TCC9 event generator MC_3 */
+#define EVENT_ID_GEN_TCC9_MC_4                          122 /**< ID for TCC9 event generator MC_4 */
+#define EVENT_ID_GEN_TCC9_MC_5                          123 /**< ID for TCC9 event generator MC_5 */
 #define EVENT_ID_GEN_ADC_CHRDYC_0                       124 /**< ID for ADC event generator CHRDYC_0 */
 #define EVENT_ID_GEN_ADC_CHRDYC_1                       125 /**< ID for ADC event generator CHRDYC_1 */
 #define EVENT_ID_GEN_ADC_CHRDYC_2                       126 /**< ID for ADC event generator CHRDYC_2 */
@@ -1395,6 +1354,8 @@ void MLB_BUSREQ_Handler            ( void );
 #define EVENT_ID_GEN_AC_COMP_0                          132 /**< ID for AC event generator COMP_0 */
 #define EVENT_ID_GEN_AC_COMP_1                          133 /**< ID for AC event generator COMP_1 */
 #define EVENT_ID_GEN_AC_WIN_0                           134 /**< ID for AC event generator WIN_0 */
+#define EVENT_ID_GEN_PTC_EOC                            135 /**< ID for PTC event generator EOC */
+#define EVENT_ID_GEN_PTC_WCOMP                          136 /**< ID for PTC event generator WCOMP */
 #define EVENT_ID_GEN_ETH_TSU_CMP                        137 /**< ID for ETH event generator TSU_CMP */
 #define EVENT_ID_GEN_TRNG_READY                         138 /**< ID for TRNG event generator READY */
 
@@ -1512,6 +1473,8 @@ void MLB_BUSREQ_Handler            ( void );
 #define EVENT_ID_USER_ADC_TRIGGERS_10                   108 /**< ID for ADC event user TRIGGERS_10 */
 #define EVENT_ID_USER_AC_SOC_0                          109 /**< ID for AC event user SOC_0 */
 #define EVENT_ID_USER_AC_SOC_1                          110 /**< ID for AC event user SOC_1 */
+#define EVENT_ID_USER_PTC_DSEQR                         111 /**< ID for PTC event user DSEQR */
+#define EVENT_ID_USER_PTC_STCONV                        112 /**< ID for PTC event user STCONV */
 #define EVENT_ID_USER_HSM_TAMPER_0                      113 /**< ID for HSM event user TAMPER_0 */
 #define EVENT_ID_USER_HSM_TAMPER_1                      114 /**< ID for HSM event user TAMPER_1 */
 #define EVENT_ID_USER_HSM_TAMPER_2                      115 /**< ID for HSM event user TAMPER_2 */

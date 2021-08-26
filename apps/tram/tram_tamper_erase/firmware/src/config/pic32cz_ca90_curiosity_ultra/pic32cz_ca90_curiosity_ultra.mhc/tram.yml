@@ -12,4 +12,4 @@ children:
       - type: User
         attributes: {value: 'true'}
 - type: ElementPosition
-  attributes: {x: '439', y: '21', id: tram}
+  attributes: {x: '310', y: '60', id: tram}

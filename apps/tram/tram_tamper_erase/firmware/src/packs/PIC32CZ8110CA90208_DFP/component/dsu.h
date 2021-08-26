@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_DSU_COMPONENT_H_
 #define _PIC32CZCA90_DSU_COMPONENT_H_
 
@@ -523,22 +523,10 @@
 #define DSU_STATUSB_REG_OFST           (0x104)             /**< (DSU_STATUSB) Status B Offset */
 #define DSU_STATUSC_REG_OFST           (0x108)             /**< (DSU_STATUSC) Status C Offset */
 #define DSU_BCC_REG_OFST               (0x110)             /**< (DSU_BCC) Boot ROM Communication Channel x Offset */
-#define DSU_BCC0_REG_OFST              (0x110)             /**< (DSU_BCC0) Boot ROM Communication Channel x Offset */
-#define DSU_BCC1_REG_OFST              (0x114)             /**< (DSU_BCC1) Boot ROM Communication Channel x Offset */
 #define DSU_DCC_REG_OFST               (0x118)             /**< (DSU_DCC) Debug Communication Channel x Offset */
-#define DSU_DCC0_REG_OFST              (0x118)             /**< (DSU_DCC0) Debug Communication Channel x Offset */
-#define DSU_DCC1_REG_OFST              (0x11C)             /**< (DSU_DCC1) Debug Communication Channel x Offset */
 #define DSU_DID_REG_OFST               (0x120)             /**< (DSU_DID) Device Identification Offset */
 #define DSU_DAL_REG_OFST               (0x124)             /**< (DSU_DAL) Debugger Access Level Offset */
 #define DSU_ENTRY_REG_OFST             (0x1000)            /**< (DSU_ENTRY) Coresight ROM Table Entry x Offset */
-#define DSU_ENTRY0_REG_OFST            (0x1000)            /**< (DSU_ENTRY0) Coresight ROM Table Entry x Offset */
-#define DSU_ENTRY1_REG_OFST            (0x1004)            /**< (DSU_ENTRY1) Coresight ROM Table Entry x Offset */
-#define DSU_ENTRY2_REG_OFST            (0x1008)            /**< (DSU_ENTRY2) Coresight ROM Table Entry x Offset */
-#define DSU_ENTRY3_REG_OFST            (0x100C)            /**< (DSU_ENTRY3) Coresight ROM Table Entry x Offset */
-#define DSU_ENTRY4_REG_OFST            (0x1010)            /**< (DSU_ENTRY4) Coresight ROM Table Entry x Offset */
-#define DSU_ENTRY5_REG_OFST            (0x1014)            /**< (DSU_ENTRY5) Coresight ROM Table Entry x Offset */
-#define DSU_ENTRY6_REG_OFST            (0x1018)            /**< (DSU_ENTRY6) Coresight ROM Table Entry x Offset */
-#define DSU_ENTRY7_REG_OFST            (0x101C)            /**< (DSU_ENTRY7) Coresight ROM Table Entry x Offset */
 #define DSU_MEMTYPE_REG_OFST           (0x1FCC)            /**< (DSU_MEMTYPE) Coresight ROM Table Memory Type Offset */
 #define DSU_PID4_REG_OFST              (0x1FD0)            /**< (DSU_PID4) Coresight ROM Table Peripheral Identification 4 Offset */
 #define DSU_PID5_REG_OFST              (0x1FD4)            /**< (DSU_PID5) Coresight ROM Table Peripheral Identification 5 Offset */

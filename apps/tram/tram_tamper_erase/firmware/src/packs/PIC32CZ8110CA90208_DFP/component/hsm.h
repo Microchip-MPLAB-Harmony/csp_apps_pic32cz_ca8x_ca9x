@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_HSM_COMPONENT_H_
 #define _PIC32CZCA90_HSM_COMPONENT_H_
 
@@ -94,6 +94,9 @@
 #define HSM_STATUS_BUSY_Pos                   _U_(0)                                               /**< (HSM_STATUS) HSM CPU BUSY Position */
 #define HSM_STATUS_BUSY_Msk                   (_U_(0x1) << HSM_STATUS_BUSY_Pos)                    /**< (HSM_STATUS) HSM CPU BUSY Mask */
 #define HSM_STATUS_BUSY(value)                (HSM_STATUS_BUSY_Msk & ((value) << HSM_STATUS_BUSY_Pos))
+#define HSM_STATUS_LKUP_Pos                   _U_(1)                                               /**< (HSM_STATUS) HSM CPU LOCKUP Position */
+#define HSM_STATUS_LKUP_Msk                   (_U_(0x1) << HSM_STATUS_LKUP_Pos)                    /**< (HSM_STATUS) HSM CPU LOCKUP Mask */
+#define HSM_STATUS_LKUP(value)                (HSM_STATUS_LKUP_Msk & ((value) << HSM_STATUS_LKUP_Pos))
 #define HSM_STATUS_PS_Pos                     _U_(4)                                               /**< (HSM_STATUS) PROCESSING STATE Position */
 #define HSM_STATUS_PS_Msk                     (_U_(0x7) << HSM_STATUS_PS_Pos)                      /**< (HSM_STATUS) PROCESSING STATE Mask */
 #define HSM_STATUS_PS(value)                  (HSM_STATUS_PS_Msk & ((value) << HSM_STATUS_PS_Pos))
@@ -106,7 +109,7 @@
 #define HSM_STATUS_ECODE_Pos                  _U_(16)                                              /**< (HSM_STATUS) ERROR CODE Position */
 #define HSM_STATUS_ECODE_Msk                  (_U_(0xF) << HSM_STATUS_ECODE_Pos)                   /**< (HSM_STATUS) ERROR CODE Mask */
 #define HSM_STATUS_ECODE(value)               (HSM_STATUS_ECODE_Msk & ((value) << HSM_STATUS_ECODE_Pos))
-#define HSM_STATUS_Msk                        _U_(0x000F7771)                                      /**< (HSM_STATUS) Register Mask  */
+#define HSM_STATUS_Msk                        _U_(0x000F7773)                                      /**< (HSM_STATUS) Register Mask  */
 
 
 /* -------- HSM_MBFIFO : (HSM Offset: 0x100) (R/W 32) MAILBOX FIFO -------- */
@@ -237,22 +240,6 @@
 #define HSM_INTFLAG_REG_OFST           (0x10)              /**< (HSM_INTFLAG) INTERRUPT FLAG Offset */
 #define HSM_STATUS_REG_OFST            (0x14)              /**< (HSM_STATUS) STATUS Offset */
 #define HSM_MBFIFO_REG_OFST            (0x100)             /**< (HSM_MBFIFO) MAILBOX FIFO Offset */
-#define HSM_MBFIFO0_REG_OFST           (0x100)             /**< (HSM_MBFIFO0) MAILBOX FIFO Offset */
-#define HSM_MBFIFO1_REG_OFST           (0x104)             /**< (HSM_MBFIFO1) MAILBOX FIFO Offset */
-#define HSM_MBFIFO2_REG_OFST           (0x108)             /**< (HSM_MBFIFO2) MAILBOX FIFO Offset */
-#define HSM_MBFIFO3_REG_OFST           (0x10C)             /**< (HSM_MBFIFO3) MAILBOX FIFO Offset */
-#define HSM_MBFIFO4_REG_OFST           (0x110)             /**< (HSM_MBFIFO4) MAILBOX FIFO Offset */
-#define HSM_MBFIFO5_REG_OFST           (0x114)             /**< (HSM_MBFIFO5) MAILBOX FIFO Offset */
-#define HSM_MBFIFO6_REG_OFST           (0x118)             /**< (HSM_MBFIFO6) MAILBOX FIFO Offset */
-#define HSM_MBFIFO7_REG_OFST           (0x11C)             /**< (HSM_MBFIFO7) MAILBOX FIFO Offset */
-#define HSM_MBFIFO8_REG_OFST           (0x120)             /**< (HSM_MBFIFO8) MAILBOX FIFO Offset */
-#define HSM_MBFIFO9_REG_OFST           (0x124)             /**< (HSM_MBFIFO9) MAILBOX FIFO Offset */
-#define HSM_MBFIFO10_REG_OFST          (0x128)             /**< (HSM_MBFIFO10) MAILBOX FIFO Offset */
-#define HSM_MBFIFO11_REG_OFST          (0x12C)             /**< (HSM_MBFIFO11) MAILBOX FIFO Offset */
-#define HSM_MBFIFO12_REG_OFST          (0x130)             /**< (HSM_MBFIFO12) MAILBOX FIFO Offset */
-#define HSM_MBFIFO13_REG_OFST          (0x134)             /**< (HSM_MBFIFO13) MAILBOX FIFO Offset */
-#define HSM_MBFIFO14_REG_OFST          (0x138)             /**< (HSM_MBFIFO14) MAILBOX FIFO Offset */
-#define HSM_MBFIFO15_REG_OFST          (0x13C)             /**< (HSM_MBFIFO15) MAILBOX FIFO Offset */
 #define HSM_MBTXSTATUS_REG_OFST        (0x140)             /**< (HSM_MBTXSTATUS) MAILBOX TRANSMIT STATUS Offset */
 #define HSM_MBRXSTATUS_REG_OFST        (0x144)             /**< (HSM_MBRXSTATUS) MAILBOX RECEIVE STATUS Offset */
 #define HSM_MBTXPROT_REG_OFST          (0x148)             /**< (HSM_MBTXPROT) MAILBOX TX PROTECTION Offset */

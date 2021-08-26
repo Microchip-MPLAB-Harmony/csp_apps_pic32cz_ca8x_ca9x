@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_USBHS_COMPONENT_H_
 #define _PIC32CZCA90_USBHS_COMPONENT_H_
 
@@ -1769,14 +1769,6 @@
 #define USBHS_ENDPOINTX_FIFOSIZE_REG_OFST (0x101F)            /**< (USBHS_ENDPOINTX_FIFOSIZE) ENDPOINTX Read Only Register That Returns The Sizes Of The FIFO's Associated With The Selected Additional TX/RX Endpoints. INDEX Regsiter should be set 1-15 Offset */
 #define USBHS_ENDPOINT0_CONFIGDATA_REG_OFST (0x101F)            /**< (USBHS_ENDPOINT0_CONFIGDATA) ENDPOINT0 Returns Information About The Selected Core Configuration. Only Applicable when INDEX Regsiter Is 0. That Is Endpoint0 Is Selected. Offset */
 #define USBHS_FIFOX_REG_OFST           (0x1020)            /**< (USBHS_FIFOX) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
-#define USBHS_FIFOX0_REG_OFST          (0x1020)            /**< (USBHS_FIFOX0) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
-#define USBHS_FIFOX1_REG_OFST          (0x1024)            /**< (USBHS_FIFOX1) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
-#define USBHS_FIFOX2_REG_OFST          (0x1028)            /**< (USBHS_FIFOX2) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
-#define USBHS_FIFOX3_REG_OFST          (0x102C)            /**< (USBHS_FIFOX3) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
-#define USBHS_FIFOX4_REG_OFST          (0x1030)            /**< (USBHS_FIFOX4) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
-#define USBHS_FIFOX5_REG_OFST          (0x1034)            /**< (USBHS_FIFOX5) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
-#define USBHS_FIFOX6_REG_OFST          (0x1038)            /**< (USBHS_FIFOX6) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
-#define USBHS_FIFOX7_REG_OFST          (0x103C)            /**< (USBHS_FIFOX7) Address Range Provides 16 Addresses For CPU Access To The FIFO's For Each Endpoint Offset */
 #define USBHS_DEVCTL_REG_OFST          (0x1060)            /**< (USBHS_DEVCTL) Selects Whether The Core Is Operating In Peripheral Or Host Mode Offset */
 #define USBHS_MISC_REG_OFST            (0x1061)            /**< (USBHS_MISC) RX/TX Early DMA Enable Bits Offset */
 #define USBHS_TXFIFOSZ_REG_OFST        (0x1062)            /**< (USBHS_TXFIFOSZ) Controls The Size Of The Selected TX Endpoint FIFO Offset */
@@ -1793,13 +1785,6 @@
 #define USBHS_SOFTRST_REG_OFST         (0x107F)            /**< (USBHS_SOFTRST) Assert Low The Output Reset Signals NRSTO and NRSTXO Offset */
 #define USBHS_DMAINTR_REG_OFST         (0x1200)            /**< (USBHS_DMAINTR) DMA Interrupt Status for Each Channel Offset */
 #define USBHS_RQPKTCOUNT_REG_OFST      (0x1304)            /**< (USBHS_RQPKTCOUNT) Host Mode Only: Used To Specify Number Of Packets That Are To Be Transaferred In A Block Transfer Offset */
-#define USBHS_RQPKTCOUNT0_REG_OFST     (0x1304)            /**< (USBHS_RQPKTCOUNT0) Host Mode Only: Used To Specify Number Of Packets That Are To Be Transaferred In A Block Transfer Offset */
-#define USBHS_RQPKTCOUNT1_REG_OFST     (0x1308)            /**< (USBHS_RQPKTCOUNT1) Host Mode Only: Used To Specify Number Of Packets That Are To Be Transaferred In A Block Transfer Offset */
-#define USBHS_RQPKTCOUNT2_REG_OFST     (0x130C)            /**< (USBHS_RQPKTCOUNT2) Host Mode Only: Used To Specify Number Of Packets That Are To Be Transaferred In A Block Transfer Offset */
-#define USBHS_RQPKTCOUNT3_REG_OFST     (0x1310)            /**< (USBHS_RQPKTCOUNT3) Host Mode Only: Used To Specify Number Of Packets That Are To Be Transaferred In A Block Transfer Offset */
-#define USBHS_RQPKTCOUNT4_REG_OFST     (0x1314)            /**< (USBHS_RQPKTCOUNT4) Host Mode Only: Used To Specify Number Of Packets That Are To Be Transaferred In A Block Transfer Offset */
-#define USBHS_RQPKTCOUNT5_REG_OFST     (0x1318)            /**< (USBHS_RQPKTCOUNT5) Host Mode Only: Used To Specify Number Of Packets That Are To Be Transaferred In A Block Transfer Offset */
-#define USBHS_RQPKTCOUNT6_REG_OFST     (0x131C)            /**< (USBHS_RQPKTCOUNT6) Host Mode Only: Used To Specify Number Of Packets That Are To Be Transaferred In A Block Transfer Offset */
 #define USBHS_RXDPKTBUFDIS_REG_OFST    (0x1340)            /**< (USBHS_RXDPKTBUFDIS) Indicates Which Of The RX Endpoints Have Disabled Double Packet Buffer Functionality Offset */
 #define USBHS_TXDPKTBUFDIS_REG_OFST    (0x1342)            /**< (USBHS_TXDPKTBUFDIS) Indicates Which Of The TX Endpoints Have Disabled Double Packet Buffer Functionality Offset */
 #define USBHS_CTUCH_REG_OFST           (0x1344)            /**< (USBHS_CTUCH) Chirp Timeout. Number Of XCLK Cycles Before The Timeout Offset */

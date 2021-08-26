@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_SDMMC_COMPONENT_H_
 #define _PIC32CZCA90_SDMMC_COMPONENT_H_
 
@@ -1696,10 +1696,6 @@
 #define SDMMC_TMR_REG_OFST             (0x0C)              /**< (SDMMC_TMR) Transfer Mode Offset */
 #define SDMMC_CR_REG_OFST              (0x0E)              /**< (SDMMC_CR) Command Offset */
 #define SDMMC_RR_REG_OFST              (0x10)              /**< (SDMMC_RR) Response Offset */
-#define SDMMC_RR0_REG_OFST             (0x10)              /**< (SDMMC_RR0) Response Offset */
-#define SDMMC_RR1_REG_OFST             (0x14)              /**< (SDMMC_RR1) Response Offset */
-#define SDMMC_RR2_REG_OFST             (0x18)              /**< (SDMMC_RR2) Response Offset */
-#define SDMMC_RR3_REG_OFST             (0x1C)              /**< (SDMMC_RR3) Response Offset */
 #define SDMMC_BDPR_REG_OFST            (0x20)              /**< (SDMMC_BDPR) Buffer Data Port Offset */
 #define SDMMC_PSR_REG_OFST             (0x24)              /**< (SDMMC_PSR) Present State Offset */
 #define SDMMC_HC1R_REG_OFST            (0x28)              /**< (SDMMC_HC1R) Host Control 1 Offset */
@@ -1725,9 +1721,6 @@
 #define SDMMC_AESR_REG_OFST            (0x54)              /**< (SDMMC_AESR) ADMA Error Status Offset */
 #define SDMMC_ASAR_REG_OFST            (0x58)              /**< (SDMMC_ASAR) ADMA System Address n Offset */
 #define SDMMC_PVR_REG_OFST             (0x60)              /**< (SDMMC_PVR) Preset Value n Offset */
-#define SDMMC_PVR0_REG_OFST            (0x60)              /**< (SDMMC_PVR0) Preset Value n Offset */
-#define SDMMC_PVR1_REG_OFST            (0x62)              /**< (SDMMC_PVR1) Preset Value n Offset */
-#define SDMMC_PVR2_REG_OFST            (0x64)              /**< (SDMMC_PVR2) Preset Value n Offset */
 #define SDMMC_SISR_REG_OFST            (0xFC)              /**< (SDMMC_SISR) Slot Interrupt Status Offset */
 #define SDMMC_HCVR_REG_OFST            (0xFE)              /**< (SDMMC_HCVR) Host Controller Version Offset */
 #define SDMMC_MC1R_REG_OFST            (0x204)             /**< (SDMMC_MC1R) e.MMC Control 1 Offset */

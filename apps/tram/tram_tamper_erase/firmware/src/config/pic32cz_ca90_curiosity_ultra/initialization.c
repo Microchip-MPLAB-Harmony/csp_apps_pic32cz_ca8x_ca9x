@@ -137,6 +137,8 @@ void SYS_Initialize ( void* data )
 
 
 
+    EVSYS_Initialize();
+
 	TRAM_Initialize();
 
     SERCOM5_USART_Initialize();

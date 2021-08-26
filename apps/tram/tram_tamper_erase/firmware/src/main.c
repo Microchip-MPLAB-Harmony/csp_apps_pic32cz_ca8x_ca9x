@@ -74,14 +74,14 @@ void populateTram(void)
     printf("\n\rPopulating TRAM:-");
     for(uint8_t i = 0; i < 31; i++)
     {
-        TRAM_REGS->TRAM_WORD[i] = ~(1 << i);
+        TRAM_REGS->TRAM_RAM[i] = ~(1 << i);
         if(i < 10)
         {
-            printf("\n\rTRAM register %d value:-    0x%08lx", i, TRAM_REGS->TRAM_WORD[i]);
+            printf("\n\rTRAM register %d value:-    0x%08lx", i, TRAM_REGS->TRAM_RAM[i]);
         }
         else
         {
-            printf("\n\rTRAM register %d value:-   0x%08lx", i, TRAM_REGS->TRAM_WORD[i]);
+            printf("\n\rTRAM register %d value:-   0x%08lx", i, TRAM_REGS->TRAM_RAM[i]);
         }
         
     }
@@ -123,11 +123,11 @@ int main ( void )
             {
                 if(i < 10)
                 {
-                    printf("\n\rTRAM register %d value:-    0x%08lx", i, TRAM_REGS->TRAM_WORD[i]);
+                    printf("\n\rTRAM register %d value:-    0x%08lx", i, TRAM_REGS->TRAM_RAM[i]);
                 }
                 else
                 {
-                    printf("\n\rTRAM register %d value:-   0x%08lx", i, TRAM_REGS->TRAM_WORD[i]);
+                    printf("\n\rTRAM register %d value:-   0x%08lx", i, TRAM_REGS->TRAM_RAM[i]);
                 }
             }
             tamper_detected = false;

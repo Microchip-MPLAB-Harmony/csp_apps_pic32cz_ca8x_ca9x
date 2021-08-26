@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_PORT_COMPONENT_H_
 #define _PIC32CZCA90_PORT_COMPONENT_H_
 
@@ -163,6 +163,14 @@
 #define PORT_EVCTRL_EVACT0_Pos                _U_(5)                                               /**< (PORT_EVCTRL) PORT Event Action 0 Position */
 #define PORT_EVCTRL_EVACT0_Msk                (_U_(0x3) << PORT_EVCTRL_EVACT0_Pos)                 /**< (PORT_EVCTRL) PORT Event Action 0 Mask */
 #define PORT_EVCTRL_EVACT0(value)             (PORT_EVCTRL_EVACT0_Msk & ((value) << PORT_EVCTRL_EVACT0_Pos))
+#define   PORT_EVCTRL_EVACT0_OUT_Val          _U_(0x0)                                             /**< (PORT_EVCTRL) Event output to pin  */
+#define   PORT_EVCTRL_EVACT0_SET_Val          _U_(0x1)                                             /**< (PORT_EVCTRL) Set output register of pin on event  */
+#define   PORT_EVCTRL_EVACT0_CLR_Val          _U_(0x2)                                             /**< (PORT_EVCTRL) Clear output register of pin on event  */
+#define   PORT_EVCTRL_EVACT0_TGL_Val          _U_(0x3)                                             /**< (PORT_EVCTRL) Toggle output register of pin on event  */
+#define PORT_EVCTRL_EVACT0_OUT                (PORT_EVCTRL_EVACT0_OUT_Val << PORT_EVCTRL_EVACT0_Pos) /**< (PORT_EVCTRL) Event output to pin Position  */
+#define PORT_EVCTRL_EVACT0_SET                (PORT_EVCTRL_EVACT0_SET_Val << PORT_EVCTRL_EVACT0_Pos) /**< (PORT_EVCTRL) Set output register of pin on event Position  */
+#define PORT_EVCTRL_EVACT0_CLR                (PORT_EVCTRL_EVACT0_CLR_Val << PORT_EVCTRL_EVACT0_Pos) /**< (PORT_EVCTRL) Clear output register of pin on event Position  */
+#define PORT_EVCTRL_EVACT0_TGL                (PORT_EVCTRL_EVACT0_TGL_Val << PORT_EVCTRL_EVACT0_Pos) /**< (PORT_EVCTRL) Toggle output register of pin on event Position  */
 #define PORT_EVCTRL_PORTEI0_Pos               _U_(7)                                               /**< (PORT_EVCTRL) PORT Event Input Enable 0 Position */
 #define PORT_EVCTRL_PORTEI0_Msk               (_U_(0x1) << PORT_EVCTRL_PORTEI0_Pos)                /**< (PORT_EVCTRL) PORT Event Input Enable 0 Mask */
 #define PORT_EVCTRL_PORTEI0(value)            (PORT_EVCTRL_PORTEI0_Msk & ((value) << PORT_EVCTRL_PORTEI0_Pos))
@@ -307,55 +315,7 @@
 #define PORT_WRCONFIG_REG_OFST         (0x28)              /**< (PORT_WRCONFIG) Write Configuration Offset */
 #define PORT_EVCTRL_REG_OFST           (0x2C)              /**< (PORT_EVCTRL) Event Input Control Offset */
 #define PORT_PMUX_REG_OFST             (0x30)              /**< (PORT_PMUX) Peripheral Multiplexing Offset */
-#define PORT_PMUX0_REG_OFST            (0x30)              /**< (PORT_PMUX0) Peripheral Multiplexing Offset */
-#define PORT_PMUX1_REG_OFST            (0x31)              /**< (PORT_PMUX1) Peripheral Multiplexing Offset */
-#define PORT_PMUX2_REG_OFST            (0x32)              /**< (PORT_PMUX2) Peripheral Multiplexing Offset */
-#define PORT_PMUX3_REG_OFST            (0x33)              /**< (PORT_PMUX3) Peripheral Multiplexing Offset */
-#define PORT_PMUX4_REG_OFST            (0x34)              /**< (PORT_PMUX4) Peripheral Multiplexing Offset */
-#define PORT_PMUX5_REG_OFST            (0x35)              /**< (PORT_PMUX5) Peripheral Multiplexing Offset */
-#define PORT_PMUX6_REG_OFST            (0x36)              /**< (PORT_PMUX6) Peripheral Multiplexing Offset */
-#define PORT_PMUX7_REG_OFST            (0x37)              /**< (PORT_PMUX7) Peripheral Multiplexing Offset */
-#define PORT_PMUX8_REG_OFST            (0x38)              /**< (PORT_PMUX8) Peripheral Multiplexing Offset */
-#define PORT_PMUX9_REG_OFST            (0x39)              /**< (PORT_PMUX9) Peripheral Multiplexing Offset */
-#define PORT_PMUX10_REG_OFST           (0x3A)              /**< (PORT_PMUX10) Peripheral Multiplexing Offset */
-#define PORT_PMUX11_REG_OFST           (0x3B)              /**< (PORT_PMUX11) Peripheral Multiplexing Offset */
-#define PORT_PMUX12_REG_OFST           (0x3C)              /**< (PORT_PMUX12) Peripheral Multiplexing Offset */
-#define PORT_PMUX13_REG_OFST           (0x3D)              /**< (PORT_PMUX13) Peripheral Multiplexing Offset */
-#define PORT_PMUX14_REG_OFST           (0x3E)              /**< (PORT_PMUX14) Peripheral Multiplexing Offset */
-#define PORT_PMUX15_REG_OFST           (0x3F)              /**< (PORT_PMUX15) Peripheral Multiplexing Offset */
 #define PORT_PINCFG_REG_OFST           (0x40)              /**< (PORT_PINCFG) Pin Configuration Offset */
-#define PORT_PINCFG0_REG_OFST          (0x40)              /**< (PORT_PINCFG0) Pin Configuration Offset */
-#define PORT_PINCFG1_REG_OFST          (0x41)              /**< (PORT_PINCFG1) Pin Configuration Offset */
-#define PORT_PINCFG2_REG_OFST          (0x42)              /**< (PORT_PINCFG2) Pin Configuration Offset */
-#define PORT_PINCFG3_REG_OFST          (0x43)              /**< (PORT_PINCFG3) Pin Configuration Offset */
-#define PORT_PINCFG4_REG_OFST          (0x44)              /**< (PORT_PINCFG4) Pin Configuration Offset */
-#define PORT_PINCFG5_REG_OFST          (0x45)              /**< (PORT_PINCFG5) Pin Configuration Offset */
-#define PORT_PINCFG6_REG_OFST          (0x46)              /**< (PORT_PINCFG6) Pin Configuration Offset */
-#define PORT_PINCFG7_REG_OFST          (0x47)              /**< (PORT_PINCFG7) Pin Configuration Offset */
-#define PORT_PINCFG8_REG_OFST          (0x48)              /**< (PORT_PINCFG8) Pin Configuration Offset */
-#define PORT_PINCFG9_REG_OFST          (0x49)              /**< (PORT_PINCFG9) Pin Configuration Offset */
-#define PORT_PINCFG10_REG_OFST         (0x4A)              /**< (PORT_PINCFG10) Pin Configuration Offset */
-#define PORT_PINCFG11_REG_OFST         (0x4B)              /**< (PORT_PINCFG11) Pin Configuration Offset */
-#define PORT_PINCFG12_REG_OFST         (0x4C)              /**< (PORT_PINCFG12) Pin Configuration Offset */
-#define PORT_PINCFG13_REG_OFST         (0x4D)              /**< (PORT_PINCFG13) Pin Configuration Offset */
-#define PORT_PINCFG14_REG_OFST         (0x4E)              /**< (PORT_PINCFG14) Pin Configuration Offset */
-#define PORT_PINCFG15_REG_OFST         (0x4F)              /**< (PORT_PINCFG15) Pin Configuration Offset */
-#define PORT_PINCFG16_REG_OFST         (0x50)              /**< (PORT_PINCFG16) Pin Configuration Offset */
-#define PORT_PINCFG17_REG_OFST         (0x51)              /**< (PORT_PINCFG17) Pin Configuration Offset */
-#define PORT_PINCFG18_REG_OFST         (0x52)              /**< (PORT_PINCFG18) Pin Configuration Offset */
-#define PORT_PINCFG19_REG_OFST         (0x53)              /**< (PORT_PINCFG19) Pin Configuration Offset */
-#define PORT_PINCFG20_REG_OFST         (0x54)              /**< (PORT_PINCFG20) Pin Configuration Offset */
-#define PORT_PINCFG21_REG_OFST         (0x55)              /**< (PORT_PINCFG21) Pin Configuration Offset */
-#define PORT_PINCFG22_REG_OFST         (0x56)              /**< (PORT_PINCFG22) Pin Configuration Offset */
-#define PORT_PINCFG23_REG_OFST         (0x57)              /**< (PORT_PINCFG23) Pin Configuration Offset */
-#define PORT_PINCFG24_REG_OFST         (0x58)              /**< (PORT_PINCFG24) Pin Configuration Offset */
-#define PORT_PINCFG25_REG_OFST         (0x59)              /**< (PORT_PINCFG25) Pin Configuration Offset */
-#define PORT_PINCFG26_REG_OFST         (0x5A)              /**< (PORT_PINCFG26) Pin Configuration Offset */
-#define PORT_PINCFG27_REG_OFST         (0x5B)              /**< (PORT_PINCFG27) Pin Configuration Offset */
-#define PORT_PINCFG28_REG_OFST         (0x5C)              /**< (PORT_PINCFG28) Pin Configuration Offset */
-#define PORT_PINCFG29_REG_OFST         (0x5D)              /**< (PORT_PINCFG29) Pin Configuration Offset */
-#define PORT_PINCFG30_REG_OFST         (0x5E)              /**< (PORT_PINCFG30) Pin Configuration Offset */
-#define PORT_PINCFG31_REG_OFST         (0x5F)              /**< (PORT_PINCFG31) Pin Configuration Offset */
 
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
 /** \brief GROUP register API structure */

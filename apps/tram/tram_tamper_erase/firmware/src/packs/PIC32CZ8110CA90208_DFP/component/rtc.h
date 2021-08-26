@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-21T19:08:33Z */
+/* file generated from device description version 2021-07-22T19:46:10Z */
 #ifndef _PIC32CZCA90_RTC_COMPONENT_H_
 #define _PIC32CZCA90_RTC_COMPONENT_H_
 
@@ -1605,18 +1605,8 @@
 #define RTC_MODE2_CLOCK_REG_OFST       (0x18)              /**< (RTC_MODE2_CLOCK) MODE2 Clock Value Offset */
 #define RTC_MODE1_PER_REG_OFST         (0x1C)              /**< (RTC_MODE1_PER) MODE1 Counter Period Offset */
 #define RTC_MODE0_COMP_REG_OFST        (0x20)              /**< (RTC_MODE0_COMP) MODE0 Compare n Value Offset */
-#define RTC_MODE0_COMP0_REG_OFST       (0x20)              /**< (RTC_MODE0_COMP0) MODE0 Compare n Value Offset */
-#define RTC_MODE0_COMP1_REG_OFST       (0x24)              /**< (RTC_MODE0_COMP1) MODE0 Compare n Value Offset */
 #define RTC_MODE1_COMP_REG_OFST        (0x20)              /**< (RTC_MODE1_COMP) MODE1 Compare n Value Offset */
-#define RTC_MODE1_COMP0_REG_OFST       (0x20)              /**< (RTC_MODE1_COMP0) MODE1 Compare n Value Offset */
-#define RTC_MODE1_COMP1_REG_OFST       (0x22)              /**< (RTC_MODE1_COMP1) MODE1 Compare n Value Offset */
-#define RTC_MODE1_COMP2_REG_OFST       (0x24)              /**< (RTC_MODE1_COMP2) MODE1 Compare n Value Offset */
-#define RTC_MODE1_COMP3_REG_OFST       (0x26)              /**< (RTC_MODE1_COMP3) MODE1 Compare n Value Offset */
 #define RTC_GP_REG_OFST                (0x40)              /**< (RTC_GP) General Purpose Offset */
-#define RTC_GP0_REG_OFST               (0x40)              /**< (RTC_GP0) General Purpose Offset */
-#define RTC_GP1_REG_OFST               (0x44)              /**< (RTC_GP1) General Purpose Offset */
-#define RTC_GP2_REG_OFST               (0x48)              /**< (RTC_GP2) General Purpose Offset */
-#define RTC_GP3_REG_OFST               (0x4C)              /**< (RTC_GP3) General Purpose Offset */
 #define RTC_TAMPCTRL_REG_OFST          (0x60)              /**< (RTC_TAMPCTRL) Tamper Control Offset */
 #define RTC_MODE0_TIMESTAMP_REG_OFST   (0x64)              /**< (RTC_MODE0_TIMESTAMP) MODE0 Timestamp Offset */
 #define RTC_MODE1_TIMESTAMP_REG_OFST   (0x64)              /**< (RTC_MODE1_TIMESTAMP) MODE1 Timestamp Offset */
