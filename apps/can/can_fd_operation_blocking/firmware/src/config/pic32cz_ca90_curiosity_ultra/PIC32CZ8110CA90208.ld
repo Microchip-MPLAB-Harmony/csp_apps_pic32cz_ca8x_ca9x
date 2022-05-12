@@ -240,7 +240,7 @@ SECTIONS
     {
     . = ALIGN(4);
     _s_can3_message_ram = .;
-    *(.can3_message_ram)
+    *(.can3_message_ram .can3_message_ram.*)
     . = ALIGN(4);
     _e_can3_message_ram = .;
     } > ram_nocache
