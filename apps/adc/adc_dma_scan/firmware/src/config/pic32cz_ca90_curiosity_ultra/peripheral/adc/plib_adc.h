@@ -87,8 +87,26 @@ extern "C" {
 
 void ADC_Initialize (void);
 
-void ADC_Enable( void );
-void ADC_Disable( void );
+/* Enable ADC module */
+static inline void ADC_Enable( void )
+{
+    ADC_REGS->ADC_CTRLA |= ADC_CTRLA_ENABLE_Msk;
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
+    {
+        /* Wait for Synchronization */
+    }
+}
+
+
+/* Disable ADC module */
+static inline void ADC_Disable( void )
+{
+    ADC_REGS->ADC_CTRLA &= ~ADC_CTRLA_ENABLE_Msk;
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
+    {
+        /* Wait for Synchronization */
+    }
+}
 
 void ADC_CompareEnable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
 void ADC_CompareDisable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);

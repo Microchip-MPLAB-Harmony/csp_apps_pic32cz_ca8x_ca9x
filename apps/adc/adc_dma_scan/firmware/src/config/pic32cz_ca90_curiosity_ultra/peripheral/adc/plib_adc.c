@@ -119,45 +119,31 @@ void ADC_Initialize(void)
 
 
     /* Analog and bias circuitry enable for the ADC SAR Core n (ANLEN) */
-    ADC_REGS->ADC_CTRLD |= 0x200000;
+    ADC_REGS->ADC_CTRLD |= 0x200000U;
 
     /* Enable the ADC Core n modules digital interface (CHNEN) */
-    ADC_REGS->ADC_CTRLD |= 0x20000;
+    ADC_REGS->ADC_CTRLD |= 0x20000U;
 
     /*Enable ADC module */
     ADC_REGS->ADC_CTRLA |= ADC_CTRLA_ENABLE_Msk;
 
-    while(ADC_REGS->ADC_SYNCBUSY)
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
 
     /* Wait for WKUPEXP delay to expire after which ADC SAR Core n is Ready (CRDY) */
-    while (!(ADC_REGS->ADC_CTLINTFLAG & 0x2));
+    while ((ADC_REGS->ADC_CTLINTFLAG & 0x2U) == 0U)
+    {
+
+    }
 
     /* Wait for voltage reference to be stable */
-    while (!(ADC_REGS->ADC_CTLINTFLAG & ADC_CTLINTFLAG_VREFRDY_Msk));
-
-}
-
-/* Enable ADC module */
-inline void ADC_Enable( void )
-{
-    ADC_REGS->ADC_CTRLA |= ADC_CTRLA_ENABLE_Msk;
-    while(ADC_REGS->ADC_SYNCBUSY)
+    while ((ADC_REGS->ADC_CTLINTFLAG & ADC_CTLINTFLAG_VREFRDY_Msk) == 0U)
     {
-        /* Wait for Synchronization */
-    }
-}
 
-/* Disable ADC module */
-inline void ADC_Disable( void )
-{
-    ADC_REGS->ADC_CTRLA &= ~ADC_CTRLA_ENABLE_Msk;
-    while(ADC_REGS->ADC_SYNCBUSY)
-    {
-        /* Wait for Synchronization */
     }
+
 }
 
 /* Enable channel compare mode */
@@ -165,7 +151,7 @@ void ADC_CompareEnable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
 {
     ADC_Disable();
 
-    ADC_REGS->CONFIG[core].ADC_CHNCFG1 |= (1 << channel);
+    ADC_REGS->CONFIG[core].ADC_CHNCFG1 |= (1UL << (uint32_t)channel);
 
     ADC_REGS->ADC_CMPCTRL[core] |= ADC_CMPCTRL_CMPEN_Msk;
 
@@ -177,7 +163,7 @@ void ADC_CompareDisable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
 {
     ADC_Disable();
 
-    ADC_REGS->CONFIG[core].ADC_CHNCFG1 &= ~(1 << channel);
+    ADC_REGS->CONFIG[core].ADC_CHNCFG1 &= ~(1UL << (uint32_t)channel);
 
     ADC_Enable();
 }
@@ -231,7 +217,7 @@ void ADC_GlobalEdgeConversionStart(void)
 {
     ADC_REGS->ADC_CTRLB |= ADC_CTRLB_GSWTRG_Msk;
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -241,7 +227,7 @@ void ADC_GlobalLevelConversionStart(void)
 {
     ADC_REGS->ADC_CTRLB |= ADC_CTRLB_LSWTRG_Msk;
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -251,7 +237,7 @@ void ADC_GlobalLevelConversionStop(void)
 {
     ADC_REGS->ADC_CTRLB &= ~ADC_CTRLB_LSWTRG_Msk;
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -259,9 +245,9 @@ void ADC_GlobalLevelConversionStop(void)
 
 void ADC_SyncTriggerEnable(void)
 {
-    ADC_REGS->ADC_CTRLB |= (1<<11);
+    ADC_REGS->ADC_CTRLB |= (1UL<<11U);
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -269,9 +255,9 @@ void ADC_SyncTriggerEnable(void)
 
 void ADC_SyncTriggerDisable(void)
 {
-    ADC_REGS->ADC_CTRLB &= ~(1<<11);
+    ADC_REGS->ADC_CTRLB &= ~(1UL<<11U);
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -284,7 +270,7 @@ void ADC_SyncTriggerCounterSet(uint16_t counterVal)
 
     ADC_REGS->ADC_CTRLC = (ADC_REGS->ADC_CTRLC & ~ADC_CTRLC_CNT_Msk) | (counterVal);
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -294,16 +280,16 @@ void ADC_SyncTriggerCounterSet(uint16_t counterVal)
 
 void ADC_SoftwareControlledConversionEnable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
 {
-    ADC_REGS->ADC_CTRLB = (ADC_REGS->ADC_CTRLB & ~(ADC_CTRLB_ADCORSEL_Msk | ADC_CTRLB_ADCHSEL_Msk)) | ((core << ADC_CTRLB_ADCORSEL_Pos) | (channel << ADC_CTRLB_ADCHSEL_Pos));
+    ADC_REGS->ADC_CTRLB = (ADC_REGS->ADC_CTRLB & ~(ADC_CTRLB_ADCORSEL_Msk | ADC_CTRLB_ADCHSEL_Msk)) | (((uint32_t)core << ADC_CTRLB_ADCORSEL_Pos) | ((uint32_t)channel << ADC_CTRLB_ADCHSEL_Pos));
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
 
     ADC_REGS->ADC_CTRLB |= ADC_CTRLB_SWCNVEN_Msk;
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -313,7 +299,7 @@ void ADC_ChannelSamplingStart(void)
 {
     ADC_REGS->ADC_CTRLB |= ADC_CTRLB_SAMP_Msk;
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -323,7 +309,7 @@ void ADC_ChannelSamplingStop(void)
 {
     ADC_REGS->ADC_CTRLB &= ~ADC_CTRLB_SAMP_Msk;
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -333,7 +319,7 @@ void ADC_ChannelConversionStart(void)
 {
     ADC_REGS->ADC_CTRLB |= ADC_CTRLB_RQCNVRT_Msk;
 
-    while((ADC_REGS->ADC_SYNCBUSY))
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
     {
         /* Wait for Synchronization */
     }
@@ -341,7 +327,7 @@ void ADC_ChannelConversionStart(void)
 
 bool ADC_ChannelResultIsReady(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
 {
-    return (bool)((ADC_REGS->INT[core].ADC_INTFLAG & (1 << (ADC_INTFLAG_CHRDY_Pos + channel))));
+    return (bool)((ADC_REGS->INT[core].ADC_INTFLAG & (1UL << (ADC_INTFLAG_CHRDY_Pos + (uint32_t)channel))) != 0U);
 }
 
 bool ADC_EOSStatusGet(ADC_CORE_NUM core)
@@ -352,7 +338,7 @@ bool ADC_EOSStatusGet(ADC_CORE_NUM core)
 /* Read the conversion result for the given core, channel */
 uint32_t ADC_ResultGet( ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
 {
-    ADC_REGS->ADC_CORCHDATAID = (ADC_REGS->ADC_CORCHDATAID & ~(ADC_CORCHDATAID_CORDYID_Msk | ADC_CORCHDATAID_CHRDYID_Msk)) | ((core << ADC_CORCHDATAID_CORDYID_Pos) | channel);
+    ADC_REGS->ADC_CORCHDATAID = (ADC_REGS->ADC_CORCHDATAID & ~(ADC_CORCHDATAID_CORDYID_Msk | ADC_CORCHDATAID_CHRDYID_Msk)) | (((uint32_t)core << ADC_CORCHDATAID_CORDYID_Pos) | (uint32_t)channel);
 
     return ADC_REGS->ADC_CHRDYDAT;
 }
