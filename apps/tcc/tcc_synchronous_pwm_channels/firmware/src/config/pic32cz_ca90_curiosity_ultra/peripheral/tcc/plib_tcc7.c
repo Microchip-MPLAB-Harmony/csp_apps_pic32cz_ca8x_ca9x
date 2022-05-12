@@ -186,6 +186,7 @@ void TCC7_OTHER_InterruptHandler(void)
     status = (TCC7_REGS->TCC_INTFLAG & 0xFFFFU);
     /* Clear interrupt flags */
     TCC7_REGS->TCC_INTFLAG = 0xFFFFU;
+    (void)TCC7_REGS->TCC_INTFLAG;
     if (TCC7_CallbackObj.callback_fn != NULL)
     {
         TCC7_CallbackObj.callback_fn(status, TCC7_CallbackObj.context);
