@@ -1335,4 +1335,4 @@ children:
       - type: User
         attributes: {value: '2048'}
 - type: ElementPosition
-  attributes: {x: '220', y: '20', id: core}
+  attributes: {x: '220', y: '19', id: core}
