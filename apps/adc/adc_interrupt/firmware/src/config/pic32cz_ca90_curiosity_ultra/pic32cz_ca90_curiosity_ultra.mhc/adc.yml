@@ -4,6 +4,13 @@ attributes: {id: adc}
 children:
 - type: Symbols
   children:
+  - type: String
+    attributes: {id: ADC_CORE_0_ADC_CONVERSION_RATE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: adc, value: '4.1667'}
   - type: Hex
     attributes: {id: ADC_CORE_1_ADC_CHNCFG1}
     children:
@@ -60,6 +67,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: adc, value: '0'}
+  - type: String
+    attributes: {id: ADC_CORE_1_ADC_CONVERSION_RATE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: adc, value: '2.5000'}
   - type: Comment
     attributes: {id: ADC_CORE_1_ADC_CONVERSION_TIME}
     children:
@@ -801,7 +815,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: adc, value: '2'}
+        attributes: {id: adc, value: '3'}
   - type: Hex
     attributes: {id: ADC_CTRLC}
     children:
@@ -822,14 +836,14 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: adc, value: '2097152'}
+        attributes: {id: adc, value: '3145728'}
   - type: Hex
     attributes: {id: ADC_CTRLD__CHNEN}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: adc, value: '131072'}
+        attributes: {id: adc, value: '196608'}
   - type: Integer
     attributes: {id: ADC_GLOBAL_CONTROL_CLOCK_FREQ}
     children:
@@ -931,7 +945,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: adc, value: '8'}
+        attributes: {id: adc, value: '16'}
   - type: Hex
     attributes: {id: ADC_PFFCTRL}
     children:

@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,20 +20,20 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_RSTC_INSTANCE_
 #define _PIC32CZCA90_RSTC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for RSTC peripheral ========== */
-#define RSTC_BACKUP_IMPLEMENTED                  _UL_(1)    
-#define RSTC_CM_DBGRESET_STRETCHED               _UL_(12)   /* Reset stretcher size for Cortex CPU related to DBGRESET. */
-#define RSTC_CM_HRESET_N_STRETCHED               _UL_(12)   /* Reset stretcher size for Cortex CPU related to HRESETn. */
-#define RSTC_CM_PORESET_STRETCHED                _UL_(12)   /* Reset stretcher size for Cortex CPU related to PORESET. */
-#define RSTC_HIB_IMPLEMENTED                     _UL_(1)    
-#define RSTC_VBAT_IMPLEMENTED                    _UL_(0)    /* One if VBAT (Battery backup mode) is supported */
-#define RSTC_INSTANCE_ID                         _UL_(5)    /* Instance index for RSTC */
-#define RSTC_MCLK_ID_APB                         _UL_(8)    /* Index for RSTC APB clock */
-#define RSTC_PAC_ID                              _UL_(5)    /* Index for RSTC registers write protection */
+#define RSTC_BACKUP_IMPLEMENTED                  (1)        
+#define RSTC_CM_DBGRESET_STRETCHED               (12)       /* Reset stretcher size for Cortex CPU related to DBGRESET. */
+#define RSTC_CM_HRESET_N_STRETCHED               (12)       /* Reset stretcher size for Cortex CPU related to HRESETn. */
+#define RSTC_CM_PORESET_STRETCHED                (12)       /* Reset stretcher size for Cortex CPU related to PORESET. */
+#define RSTC_HIB_IMPLEMENTED                     (1)        
+#define RSTC_VBAT_IMPLEMENTED                    (0)        /* One if VBAT (Battery backup mode) is supported */
+#define RSTC_INSTANCE_ID                         (5)        /* Instance index for RSTC */
+#define RSTC_MCLK_ID_APB                         (8)        /* Index for RSTC APB clock */
+#define RSTC_PAC_ID                              (5)        /* Index for RSTC registers write protection */
 
 #endif /* _PIC32CZCA90_RSTC_INSTANCE_ */
