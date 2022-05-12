@@ -63,7 +63,7 @@
 // *****************************************************************************
 
 /* EIC Channel Callback object */
-EIC_CALLBACK_OBJ    eicCallbackObject[EXTINT_COUNT];
+static EIC_CALLBACK_OBJ    eicCallbackObject[EXTINT_COUNT];
 
 
 void EIC_Initialize (void)
@@ -141,12 +141,12 @@ void EIC_Initialize (void)
 
 void EIC_InterruptEnable (EIC_PIN pin)
 {
-    EIC_REGS->EIC_INTENSET = (1UL << pin);
+    EIC_REGS->EIC_INTENSET = (1UL << (uint32_t)pin);
 }
 
 void EIC_InterruptDisable (EIC_PIN pin)
 {
-    EIC_REGS->EIC_INTENCLR = (1UL << pin);
+    EIC_REGS->EIC_INTENCLR = (1UL << (uint32_t)pin);
 }
 
 void EIC_CallbackRegister(EIC_PIN pin, EIC_CALLBACK callback, uintptr_t context)
@@ -164,6 +164,7 @@ void EIC_EXTINT_8_InterruptHandler(void)
 {
     /* Clear interrupt flag */
     EIC_REGS->EIC_INTFLAG = (1UL << 8);
+    (void)EIC_REGS->EIC_INTFLAG;
     /* Find any associated callback entries in the callback table */
     if ((eicCallbackObject[8].callback != NULL))
     {
