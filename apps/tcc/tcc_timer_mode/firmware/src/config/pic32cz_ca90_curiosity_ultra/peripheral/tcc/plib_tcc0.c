@@ -150,9 +150,10 @@ void TCC0_TimerCallbackRegister( TCC_CALLBACK callback, uintptr_t context )
 void TCC0_OTHER_InterruptHandler( void )
 {
     uint32_t status;
-    status = (uint32_t) (TCC0_REGS->TCC_INTFLAG & 0xFFFFU);
+    status = (TCC0_REGS->TCC_INTFLAG & 0xFFFFU);
     /* Clear interrupt flags */
     TCC0_REGS->TCC_INTFLAG = 0xFFFFU;
+    (void)TCC0_REGS->TCC_INTFLAG;
     if( TCC0_CallbackObject.callback_fn != NULL)
     {
         TCC0_CallbackObject.callback_fn(status, TCC0_CallbackObject.context);
