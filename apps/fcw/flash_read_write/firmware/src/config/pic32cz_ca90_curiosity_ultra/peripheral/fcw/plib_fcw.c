@@ -48,6 +48,7 @@
 // *****************************************************************************
 
 #include <string.h>
+#include "interrupts.h"
 #include "plib_fcw.h"
 
 /* ************************************************************************** */
@@ -92,9 +93,9 @@ typedef enum
 // *****************************************************************************
 // *****************************************************************************
 
-FCW_CALLBACK fcwCallbackFunc;
+static FCW_CALLBACK fcwCallbackFunc;
 
-uintptr_t fcwContext;
+static uintptr_t fcwContext;
 
 void FCW_CallbackRegister( FCW_CALLBACK callback, uintptr_t context )
 {
@@ -115,7 +116,7 @@ void FCW_InterruptHandler( void )
 
 static void FCW_UnlockSequence(FCW_UNLOCK_KEY key)
 {
-    FCW_REGS->FCW_KEY = key;
+    FCW_REGS->FCW_KEY = (uint32_t)key;
 }
 
 static void FCW_StartOperationAtAddress( uint32_t address,  FCW_OPERATION_MODE operation )
@@ -151,24 +152,34 @@ static void FCW_StartOperationAtAddress( uint32_t address,  FCW_OPERATION_MODE o
 
 void FCW_Initialize( void )
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
     FCW_StartOperationAtAddress( FCW_REGS->FCW_ADDR,  NO_OPERATION );
 }
 
 bool FCW_Read( uint32_t *data, uint32_t length, const uint32_t address )
 {
-    memcpy((void *)data, (void *)(address), length);
+	/* Add this as per the misra rule 11.6 */
+	uint32_t *xaddress = (uint32_t *)address;
+    (void) memcpy(data, xaddress, length);
 
     return true;
 }
 
 bool FCW_SingleDoubleWordWrite( uint32_t *data, uint32_t address )
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
-    FCW_REGS->FCW_DATA[0] = *(data++);
-    FCW_REGS->FCW_DATA[1] = *(data++);
+    FCW_REGS->FCW_DATA[0] = *data;
+	data++;
+    FCW_REGS->FCW_DATA[1] = *data;
+	data++;
 
     FCW_StartOperationAtAddress( address,  SINGLE_DOUBLE_WORD_PROGRAM_OPERATION);
 
@@ -177,16 +188,27 @@ bool FCW_SingleDoubleWordWrite( uint32_t *data, uint32_t address )
 
 bool FCW_QuadDoubleWordWrite( uint32_t *data, uint32_t address )
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
-    FCW_REGS->FCW_DATA[0] = *(data++);
-    FCW_REGS->FCW_DATA[1] = *(data++);
-    FCW_REGS->FCW_DATA[2] = *(data++);
-    FCW_REGS->FCW_DATA[3] = *(data++);
-    FCW_REGS->FCW_DATA[4] = *(data++);
-    FCW_REGS->FCW_DATA[5] = *(data++);
-    FCW_REGS->FCW_DATA[6] = *(data++);
-    FCW_REGS->FCW_DATA[7] = *(data++);   
+    FCW_REGS->FCW_DATA[0] = *data;
+	data++;
+    FCW_REGS->FCW_DATA[1] = *data;
+	data++;
+    FCW_REGS->FCW_DATA[2] = *data;
+	data++;
+    FCW_REGS->FCW_DATA[3] = *data;
+	data++;
+    FCW_REGS->FCW_DATA[4] = *data;
+	data++;
+    FCW_REGS->FCW_DATA[5] = *data;
+	data++;
+    FCW_REGS->FCW_DATA[6] = *data;
+	data++;
+    FCW_REGS->FCW_DATA[7] = *data; 
+    data++;	
  
     FCW_StartOperationAtAddress( address,  QUAD_DOUBLE_WORD_PROGRAM_OPERATION);
  
@@ -195,7 +217,10 @@ bool FCW_QuadDoubleWordWrite( uint32_t *data, uint32_t address )
 
 bool FCW_RowWrite( uint32_t *data, uint32_t address )
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
     FCW_REGS->FCW_SRCADDR = (uint32_t )(data);
  
@@ -206,7 +231,10 @@ bool FCW_RowWrite( uint32_t *data, uint32_t address )
 
 bool FCW_PageErase( uint32_t address )
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
     FCW_StartOperationAtAddress(address,  PAGE_ERASE_OPERATION);
 
@@ -220,12 +248,15 @@ FCW_ERROR FCW_ErrorGet( void )
 
 bool FCW_IsBusy( void )
 {
-    return (bool)(FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk);
+    return ((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk) != 0U);
 }
 
 void FCW_ProgramFlashBankSelect(PROGRAM_FLASH_BANK pfmBank)
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
     FCW_UnlockSequence(FCW_UNLOCK_SWAPKEY);
 
@@ -246,7 +277,11 @@ PROGRAM_FLASH_BANK FCW_ProgramFlashBankGet(void)
 
 void FCW_PFM_WriteProtectRegionSetup( PFM_WP_REGION region, PFM_WP_REGION_SETUP setupStruct )
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
+	
 
     FCW_UnlockSequence(FCW_UNLOCK_CFGKEY);
     FCW_REGS->FCW_PWP[region] = (FCW_PWP_PWPBASE(setupStruct.regionBaseAddress) | \
@@ -256,7 +291,10 @@ void FCW_PFM_WriteProtectRegionSetup( PFM_WP_REGION region, PFM_WP_REGION_SETUP 
 
 void FCW_PFM_WriteProtectEnable(PFM_WP_REGION region)
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
     FCW_UnlockSequence(FCW_UNLOCK_CFGKEY);
 
@@ -265,7 +303,10 @@ void FCW_PFM_WriteProtectEnable(PFM_WP_REGION region)
 
 void FCW_PFM_WriteProtectDisable(PFM_WP_REGION region)
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+		/* Do Nothing */	
+	}
 
     FCW_UnlockSequence(FCW_UNLOCK_CFGKEY);
 
@@ -274,7 +315,10 @@ void FCW_PFM_WriteProtectDisable(PFM_WP_REGION region)
 
 void FCW_PFM_WriteProtectLock(PFM_WP_REGION region)
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
     FCW_UnlockSequence(FCW_UNLOCK_CFGKEY);
 
@@ -283,39 +327,48 @@ void FCW_PFM_WriteProtectLock(PFM_WP_REGION region)
 
 void FCW_BootFlashWriteProtectEnable( BOOT_FLASH_BANK bootBank, FCW_BOOT_FLASH_WRITE_PROTECT writeProtectPage )
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
 
     FCW_UnlockSequence(FCW_UNLOCK_CFGKEY);
 
     if (bootBank == BOOT_FLASH_BANK_1)
     {
-        FCW_REGS->FCW_LBWP |= writeProtectPage;
+        FCW_REGS->FCW_LBWP |= (uint32_t)writeProtectPage;
     }
     else
     {
-        FCW_REGS->FCW_UBWP |= writeProtectPage;
+        FCW_REGS->FCW_UBWP |= (uint32_t)writeProtectPage;
     }
 }
 
 void FCW_BootFlashWriteProtectDisable(BOOT_FLASH_BANK bootBank, FCW_BOOT_FLASH_WRITE_PROTECT writeProtectPage )
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+		/* Do Nothing */	
+	}
 
     FCW_UnlockSequence(FCW_UNLOCK_CFGKEY);
 
     if (bootBank == BOOT_FLASH_BANK_1)
     {
-        FCW_REGS->FCW_LBWP &= (~writeProtectPage);
+        FCW_REGS->FCW_LBWP &= (uint32_t)(~writeProtectPage);
     }
     else
     {
-        FCW_REGS->FCW_UBWP &= (~writeProtectPage);
+        FCW_REGS->FCW_UBWP &= (uint32_t)(~writeProtectPage);
     }
 }
 
 void FCW_BootFlashWriteProtectLock(BOOT_FLASH_BANK bootBank)
 {
-    while((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk));
+    while(((FCW_REGS->FCW_STATUS & FCW_STATUS_BUSY_Msk)) != 0U)
+	{
+        /* Do Nothing */        
+    }
         
     FCW_UnlockSequence(FCW_UNLOCK_CFGKEY);
 

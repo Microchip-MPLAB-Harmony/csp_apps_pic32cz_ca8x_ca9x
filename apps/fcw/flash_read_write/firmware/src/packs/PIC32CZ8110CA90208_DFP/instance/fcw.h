@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,42 +20,42 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_FCW_INSTANCE_
 #define _PIC32CZCA90_FCW_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for FCW peripheral ========== */
-#define FCW_BFM_PNL_ADDR_MSB                     _UL_(15)   /* Flash Memory Parameters */
-#define FCW_BFM_SYS_ADDR_MSB                     _UL_(16)   /* Flash Memory Parameters */
-#define FCW_CFM_PNL_ADDR_MSB                     _UL_(14)   /* Flash Memory Parameters */
-#define FCW_CFM_SYS_ADDR_MSB                     _UL_(15)   /* Flash Memory Parameters */
-#define FCW_FCW_BFM_ADDR_BASE                    _UL_(0x06000000) /* Flash System Address (byte addresses) */
-#define FCW_FCW_CFM_ADDR_BASE                    _UL_(0x07000000) /* Flash System Address (byte addresses) */
-#define FCW_FCW_CPUS_PRESENT                     _UL_(3)    /* Flash System Address (byte addresses) */
-#define FCW_FCW_DAL0_VALUE                       _UL_(0x81) /* Flash System Address (byte addresses) */
-#define FCW_FCW_DAL1_VALUE                       _UL_(0x99) /* Flash System Address (byte addresses) */
-#define FCW_FCW_DAL2_VALUE                       _UL_(0xDB) /* Flash System Address (byte addresses) */
-#define FCW_FCW_HSM_PRESENT                      _UL_(1)    /* Flash System Address (byte addresses) */
-#define FCW_FCW_PADDR_MSB                        _UL_(10)   /* Flash System Address (byte addresses) */
-#define FCW_FCW_PERIOD_MIN                       _UL_(75)   /* Flash System Address (byte addresses) */
-#define FCW_FCW_PERIOD_NOM                       _UL_(116)  /* Flash System Address (byte addresses) */
-#define FCW_FCW_PFM_ADDR_BASE                    _UL_(0x08000000) /* Flash System Address (byte addresses) */
-#define FCW_PFM_NUM_PAGES                        _UL_(1024) /* No of PFM Pages Per panel */
-#define FCW_PFM_NUM_RR                           _UL_(8)    /* Flash Memory Parameters */
-#define FCW_PFM_PAGE_ADDR_MSB                    _UL_(11)   /* Flash Page Size MSB */
-#define FCW_PFM_PAGE_SIZE                        _UL_(4096) /* PFM page size */
-#define FCW_PFM_PNL_ADDR_MSB                     _UL_(21)   /* Single flash panel read address MSbit (using byte addressing) */
-#define FCW_PFM_PNL_DATA_MSB                     _UL_(271)  /* Flash Memory Parameters */
-#define FCW_PFM_ROW_ADDR_MSB                     _UL_(9)    /* Flash Memory Parameters */
-#define FCW_PFM_SIZE                             _UL_(10)   /* Flash Memory Parameters */
-#define FCW_PFM_SYS_ADDR_MSB                     _UL_(22)   /* The MS bit of the system byte address needed to address the entire PFM region (both panels Main) */
-#define FCW_FLASH_SIZE                           _UL_(8388608) 
-#define FCW_PAGES                                _UL_(2048) 
-#define FCW_PAGES_PR_REGION                      _UL_(128)  
-#define FCW_INSTANCE_ID                          _UL_(1)    /* Instance index for FCW */
-#define FCW_MCLK_ID_AHB                          _UL_(2)    /* Index for FCW AHB clock */
-#define FCW_MCLK_ID_APB                          _UL_(3)    /* Index for FCW APB clock */
-#define FCW_PAC_ID                               _UL_(1)    /* Index for FCW registers write protection */
+#define FCW_BFM_PNL_ADDR_MSB                     (15)       /* Flash Memory Parameters */
+#define FCW_BFM_SYS_ADDR_MSB                     (16)       /* Flash Memory Parameters */
+#define FCW_CFM_PNL_ADDR_MSB                     (14)       /* Flash Memory Parameters */
+#define FCW_CFM_SYS_ADDR_MSB                     (15)       /* Flash Memory Parameters */
+#define FCW_BFM_ADDR_BASE                        (0x06000000) /* Flash System Address (byte addresses) */
+#define FCW_CFM_ADDR_BASE                        (0x07000000) /* Flash System Address (byte addresses) */
+#define FCW_CPUS_PRESENT                         (3)        /* Flash System Address (byte addresses) */
+#define FCW_DAL0_VALUE                           (0x81)     /* Flash System Address (byte addresses) */
+#define FCW_DAL1_VALUE                           (0x99)     /* Flash System Address (byte addresses) */
+#define FCW_DAL2_VALUE                           (0xDB)     /* Flash System Address (byte addresses) */
+#define FCW_HSM_PRESENT                          (1)        /* Flash System Address (byte addresses) */
+#define FCW_PADDR_MSB                            (10)       /* Flash System Address (byte addresses) */
+#define FCW_PERIOD_MIN                           (75)       /* Flash System Address (byte addresses) */
+#define FCW_PERIOD_NOM                           (116)      /* Flash System Address (byte addresses) */
+#define FCW_PFM_ADDR_BASE                        (0x08000000) /* Flash System Address (byte addresses) */
+#define FCW_PFM_NUM_PAGES                        (1024)     /* No of PFM Pages Per panel */
+#define FCW_PFM_NUM_RR                           (8)        /* Flash Memory Parameters */
+#define FCW_PFM_PAGE_ADDR_MSB                    (11)       /* Flash Page Size MSB */
+#define FCW_PFM_PAGE_SIZE                        (4096)     /* PFM page size */
+#define FCW_PFM_PNL_ADDR_MSB                     (21)       /* Single flash panel read address MSbit (using byte addressing) */
+#define FCW_PFM_PNL_DATA_MSB                     (271)      /* Flash Memory Parameters */
+#define FCW_PFM_ROW_ADDR_MSB                     (9)        /* Flash Memory Parameters */
+#define FCW_PFM_SIZE                             (10)       /* Flash Memory Parameters */
+#define FCW_PFM_SYS_ADDR_MSB                     (22)       /* The MS bit of the system byte address needed to address the entire PFM region (both panels Main) */
+#define FCW_FLASH_SIZE                           (8388608)  
+#define FCW_PAGES                                (2048)     
+#define FCW_PAGES_PR_REGION                      (128)      
+#define FCW_INSTANCE_ID                          (1)        /* Instance index for FCW */
+#define FCW_MCLK_ID_AHB                          (2)        /* Index for FCW AHB clock */
+#define FCW_MCLK_ID_APB                          (3)        /* Index for FCW APB clock */
+#define FCW_PAC_ID                               (1)        /* Index for FCW registers write protection */
 
 #endif /* _PIC32CZCA90_FCW_INSTANCE_ */
