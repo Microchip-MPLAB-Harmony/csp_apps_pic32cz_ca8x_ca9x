@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,18 +20,18 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_SPI_IXS1_INSTANCE_
 #define _PIC32CZCA90_SPI_IXS1_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for SPI_IXS1 peripheral ========== */
-#define SPI_IXS1_DMAC_ID_RX                      _UL_(81)   
-#define SPI_IXS1_DMAC_ID_TX                      _UL_(82)   
-#define SPI_IXS1_GCLK_ID                         _UL_(45)   /* Index of Generic Clock */
-#define SPI_IXS1_TPD_MASTER                      _UL_(0)    /* Indicates a master or slave number for TPD mode( 1=master,0=slave) */
-#define SPI_IXS1_INSTANCE_ID                     _UL_(47)   /* Instance index for SPI_IXS1 */
-#define SPI_IXS1_MCLK_ID_APB                     _UL_(55)   /* Index for SPI_IXS1 APB clock */
-#define SPI_IXS1_PAC_ID                          _UL_(47)   /* Index for SPI_IXS1 registers write protection */
+#define SPI_IXS1_DMAC_ID_RX                      (81)       
+#define SPI_IXS1_DMAC_ID_TX                      (82)       
+#define SPI_IXS1_GCLK_ID                         (45)       /* Index of Generic Clock */
+#define SPI_IXS1_TPD_MASTER                      (0)        /* Indicates a master or slave number for TPD mode( 1=master,0=slave) */
+#define SPI_IXS1_INSTANCE_ID                     (47)       /* Instance index for SPI_IXS1 */
+#define SPI_IXS1_MCLK_ID_APB                     (55)       /* Index for SPI_IXS1 APB clock */
+#define SPI_IXS1_PAC_ID                          (47)       /* Index for SPI_IXS1 registers write protection */
 
 #endif /* _PIC32CZCA90_SPI_IXS1_INSTANCE_ */
