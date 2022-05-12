@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,27 +20,27 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_TCC5_INSTANCE_
 #define _PIC32CZCA90_TCC5_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for TCC5 peripheral ========== */
-#define TCC5_CC_NUM                              _UL_(2)    /* Number of Compare/Capture units */
-#define TCC5_DITHERING                           _UL_(1)    /* Dithering feature implemented */
-#define TCC5_DMAC_ID_MC_0                        _UL_(57)   /* Indexes of DMA Match/Compare triggers 0 */
-#define TCC5_DMAC_ID_MC_1                        _UL_(58)   /* Indexes of DMA Match/Compare triggers 1 */
-#define TCC5_DMAC_ID_OVF                         _UL_(56)   /* DMA overflow/underflow/retrigger trigger */
-#define TCC5_DTI                                 _UL_(1)    /* Dead-Time-Insertion feature implemented */
-#define TCC5_GCLK_ID                             _UL_(36)   /* Index of Generic Clock */
-#define TCC5_MASTER_SLAVE_MODE                   _UL_(0)    /* TCC type 0 : NA, 1 : Master, 2 : Slave */
-#define TCC5_OTMX                                _UL_(1)    /* Output Matrix feature implemented */
-#define TCC5_OW_NUM                              _UL_(2)    /* Number of Output Waveforms */
-#define TCC5_PG                                  _UL_(1)    /* Pattern Generation feature implemented */
-#define TCC5_SIZE                                _UL_(32)   
-#define TCC5_SWAP                                _UL_(1)    /* DTI outputs swap feature implemented */
-#define TCC5_INSTANCE_ID                         _UL_(38)   /* Instance index for TCC5 */
-#define TCC5_MCLK_ID_APB                         _UL_(46)   /* Index for TCC5 APB clock */
-#define TCC5_PAC_ID                              _UL_(38)   /* Index for TCC5 registers write protection */
+#define TCC5_CC_NUM                              (2)        /* Number of Compare/Capture units */
+#define TCC5_DITHERING                           (1)        /* Dithering feature implemented */
+#define TCC5_DMAC_ID_MC_0                        (57)       /* Indexes of DMA Match/Compare triggers 0 */
+#define TCC5_DMAC_ID_MC_1                        (58)       /* Indexes of DMA Match/Compare triggers 1 */
+#define TCC5_DMAC_ID_OVF                         (56)       /* DMA overflow/underflow/retrigger trigger */
+#define TCC5_DTI                                 (1)        /* Dead-Time-Insertion feature implemented */
+#define TCC5_GCLK_ID                             (36)       /* Index of Generic Clock */
+#define TCC5_MASTER_SLAVE_MODE                   (0)        /* TCC type 0 : NA, 1 : Master, 2 : Slave */
+#define TCC5_OTMX                                (1)        /* Output Matrix feature implemented */
+#define TCC5_OW_NUM                              (2)        /* Number of Output Waveforms */
+#define TCC5_PG                                  (1)        /* Pattern Generation feature implemented */
+#define TCC5_SIZE                                (32)       
+#define TCC5_SWAP                                (1)        /* DTI outputs swap feature implemented */
+#define TCC5_INSTANCE_ID                         (38)       /* Instance index for TCC5 */
+#define TCC5_MCLK_ID_APB                         (46)       /* Index for TCC5 APB clock */
+#define TCC5_PAC_ID                              (38)       /* Index for TCC5 registers write protection */
 
 #endif /* _PIC32CZCA90_TCC5_INSTANCE_ */
