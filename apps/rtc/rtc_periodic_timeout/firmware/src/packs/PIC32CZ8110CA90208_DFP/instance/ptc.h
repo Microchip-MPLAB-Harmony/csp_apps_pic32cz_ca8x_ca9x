@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,19 +20,19 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_PTC_INSTANCE_
 #define _PIC32CZCA90_PTC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for PTC peripheral ========== */
-#define PTC_DMAC_ID_EOC                          _UL_(78)   /* Index of DMA EOC trigger */
-#define PTC_DMAC_ID_SEQ                          _UL_(76)   /* Index of DMA SEQ trigger */
-#define PTC_DMAC_ID_WCOMP                        _UL_(77)   /* Index of DMA WCOMP trigger */
-#define PTC_GCLK_ID                              _UL_(43)   /* Index of Generic Clock */
-#define PTC_LINES_NUM                            _UL_(32)   /* Number of PTC lines */
-#define PTC_INSTANCE_ID                          _UL_(45)   /* Instance index for PTC */
-#define PTC_MCLK_ID_APB                          _UL_(53)   /* Index for PTC APB clock */
-#define PTC_PAC_ID                               _UL_(45)   /* Index for PTC registers write protection */
+#define PTC_DMAC_ID_EOC                          (78)       /* Index of DMA EOC trigger */
+#define PTC_DMAC_ID_SEQ                          (76)       /* Index of DMA SEQ trigger */
+#define PTC_DMAC_ID_WCOMP                        (77)       /* Index of DMA WCOMP trigger */
+#define PTC_GCLK_ID                              (43)       /* Index of Generic Clock */
+#define PTC_LINES_NUM                            (32)       /* Number of PTC lines */
+#define PTC_INSTANCE_ID                          (45)       /* Instance index for PTC */
+#define PTC_MCLK_ID_APB                          (53)       /* Index for PTC APB clock */
+#define PTC_PAC_ID                               (45)       /* Index for PTC registers write protection */
 
 #endif /* _PIC32CZCA90_PTC_INSTANCE_ */

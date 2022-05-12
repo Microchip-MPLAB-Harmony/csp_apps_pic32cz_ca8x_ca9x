@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,21 +20,21 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_SQI0_INSTANCE_
 #define _PIC32CZCA90_SQI0_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for SQI0 peripheral ========== */
-#define SQI0_CBUF_DEPTH                          _UL_(3)    
-#define SQI0_GCLK_ID                             _UL_(56)   /* Index of Generic Clock */
-#define SQI0_SFR_ADDRESS                         _UL_(0x4f008000) 
-#define SQI0_TRXBUF_DEPTH                        _UL_(8)    
-#define SQI0_XIP_ADDRESS                         _UL_(0x80) 
-#define SQI0_XIP_CS_MSB                          _UL_(1)    
-#define SQI0_XIP_HSEL                            _UL_(0)    
-#define SQI0_INSTANCE_ID                         _UL_(57)   /* Instance index for SQI0 */
-#define SQI0_MCLK_ID_AHB                         _UL_(66)   /* Index for SQI0 AHB clock */
-#define SQI0_PAC_ID                              _UL_(57)   /* Index for SQI0 registers write protection */
+#define SQI0_CBUF_DEPTH                          (3)        
+#define SQI0_GCLK_ID                             (56)       /* Index of Generic Clock */
+#define SQI0_SFR_ADDRESS                         (0x4f008000) 
+#define SQI0_TRXBUF_DEPTH                        (8)        
+#define SQI0_XIP_ADDRESS                         (0x80)     
+#define SQI0_XIP_CS_MSB                          (1)        
+#define SQI0_XIP_HSEL                            (0)        
+#define SQI0_INSTANCE_ID                         (57)       /* Instance index for SQI0 */
+#define SQI0_MCLK_ID_AHB                         (66)       /* Index for SQI0 AHB clock */
+#define SQI0_PAC_ID                              (57)       /* Index for SQI0 registers write protection */
 
 #endif /* _PIC32CZCA90_SQI0_INSTANCE_ */
