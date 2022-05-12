@@ -19,6 +19,34 @@ children:
       - type: Dynamic
         attributes: {id: core, value: '150000000'}
   - type: Boolean
+    attributes: {id: ADC_CORE1_INTERRUPT_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: adc, value: 'false'}
+  - type: Boolean
+    attributes: {id: ADC_CORE1_INTERRUPT_ENABLE_UPDATE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'true'}
+  - type: String
+    attributes: {id: ADC_CORE1_INTERRUPT_HANDLER}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: adc, value: ADC_CORE1_Handler}
+  - type: Boolean
+    attributes: {id: ADC_CORE1_INTERRUPT_HANDLER_LOCK}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: adc, value: 'false'}
+  - type: Boolean
     attributes: {id: ADC_CORE2_INTERRUPT_ENABLE}
     children:
     - type: Values
@@ -381,6 +409,27 @@ children:
         attributes: {id: core, value: ADC_GLOBAL_Handler}
   - type: Boolean
     attributes: {id: NVIC_185_0_HANDLER_LOCK}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'false'}
+  - type: Boolean
+    attributes: {id: NVIC_186_0_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'false'}
+  - type: String
+    attributes: {id: NVIC_186_0_HANDLER}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: ADC_CORE1_Handler}
+  - type: Boolean
+    attributes: {id: NVIC_186_0_HANDLER_LOCK}
     children:
     - type: Values
       children:

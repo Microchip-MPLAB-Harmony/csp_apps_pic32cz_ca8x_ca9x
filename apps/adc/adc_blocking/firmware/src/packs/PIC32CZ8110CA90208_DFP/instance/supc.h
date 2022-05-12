@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,24 +20,24 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_SUPC_INSTANCE_
 #define _PIC32CZCA90_SUPC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for SUPC peripheral ========== */
-#define SUPC_ADDVREG_NUM                         _UL_(3)    /* Number of additional capless regulators for USB, PLL, ... */
-#define SUPC_ADDVREG_PLL_NUM                     _UL_(1)    /* Number of additional capless regulators dedicated to PLL(s) (between 0 and ADDVREG_NUM) */
-#define SUPC_ADDVREG_PLL_START_INDEX             _UL_(2)    /* Index of the first additional capless regulator dedicated to a PLL within [ADDVREG_NUM-1:0] range. Must be equal to 1 if ADDVREG_PLL_NUM=0. */
-#define SUPC_BKOUT_NUM                           _UL_(2)    /* Number of BKOUT output pin */
-#define SUPC_BORVDDUSB_NUM                       _UL_(2)    /* Number of BOR_USB */
-#define SUPC_CHRG_PUMP_NUM                       _UL_(3)    /* Number of Charge Pump */
-#define SUPC_IOB_IMPLEMENTED                     _UL_(0)    /* one if IOB feature is implemented */
-#define SUPC_USER_LDO_IMPLEMENTED                _UL_(0)    /* one if USER_LDO feature is implemented */
-#define SUPC_VBAT_IMPLEMENTED                    _UL_(0)    /* one if VBAT feature (battery backup feature) is implemented. */
-#define SUPC_VREGSW_NUM                          _UL_(4)    /* Number of main voltage regulator (100mA). Example: 1 for Unicorn, 4 for Riverside. */
-#define SUPC_INSTANCE_ID                         _UL_(4)    /* Instance index for SUPC */
-#define SUPC_MCLK_ID_APB                         _UL_(7)    /* Index for SUPC APB clock */
-#define SUPC_PAC_ID                              _UL_(4)    /* Index for SUPC registers write protection */
+#define SUPC_ADDVREG_NUM                         (3)        /* Number of additional capless regulators for USB, PLL, ... */
+#define SUPC_ADDVREG_PLL_NUM                     (1)        /* Number of additional capless regulators dedicated to PLL(s) (between 0 and ADDVREG_NUM) */
+#define SUPC_ADDVREG_PLL_START_INDEX             (2)        /* Index of the first additional capless regulator dedicated to a PLL within [ADDVREG_NUM-1:0] range. Must be equal to 1 if ADDVREG_PLL_NUM=0. */
+#define SUPC_BKOUT_NUM                           (2)        /* Number of BKOUT output pin */
+#define SUPC_BORVDDUSB_NUM                       (2)        /* Number of BOR_USB */
+#define SUPC_CHRG_PUMP_NUM                       (3)        /* Number of Charge Pump */
+#define SUPC_IOB_IMPLEMENTED                     (0)        /* one if IOB feature is implemented */
+#define SUPC_USER_LDO_IMPLEMENTED                (0)        /* one if USER_LDO feature is implemented */
+#define SUPC_VBAT_IMPLEMENTED                    (0)        /* one if VBAT feature (battery backup feature) is implemented. */
+#define SUPC_VREGSW_NUM                          (4)        /* Number of main voltage regulator (100mA). Example: 1 for Unicorn, 4 for Riverside. */
+#define SUPC_INSTANCE_ID                         (4)        /* Instance index for SUPC */
+#define SUPC_MCLK_ID_APB                         (7)        /* Index for SUPC APB clock */
+#define SUPC_PAC_ID                              (4)        /* Index for SUPC registers write protection */
 
 #endif /* _PIC32CZCA90_SUPC_INSTANCE_ */
