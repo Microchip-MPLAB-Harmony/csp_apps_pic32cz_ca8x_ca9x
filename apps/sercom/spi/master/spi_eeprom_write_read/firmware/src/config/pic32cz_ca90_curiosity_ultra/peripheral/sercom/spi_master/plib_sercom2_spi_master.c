@@ -172,10 +172,16 @@ bool SERCOM2_SPI_TransferSetup(SPI_TRANSFER_SETUP *setup, uint32_t spiSourceCloc
 
     if(setup != NULL)
     {
-        baudValue = (spiSourceClock/(2U*(setup->clockFrequency))) - 1U;
-
-        if((baudValue > 0U) && (baudValue <= 255U))
+        if (setup->clockFrequency <= spiSourceClock/2U)
         {
+            baudValue = (spiSourceClock/(2U*(setup->clockFrequency))) - 1U;
+
+            /* Set the lowest possible baud */
+            if (baudValue >= 255U)
+            {
+                baudValue = 255U;
+            }
+
             /* Selection of the Clock Polarity and Clock Phase */
             SERCOM2_REGS->SPIM.SERCOM_CTRLA &= ~(SERCOM_SPIM_CTRLA_CPOL_Msk | SERCOM_SPIM_CTRLA_CPHA_Msk);
             SERCOM2_REGS->SPIM.SERCOM_CTRLA |= (uint32_t)setup->clockPolarity | (uint32_t)setup->clockPhase;
@@ -263,22 +269,22 @@ void SERCOM2_SPI_CallbackRegister(SERCOM_SPI_CALLBACK callBack, uintptr_t contex
 bool SERCOM2_SPI_IsBusy(void)
 {
     bool isBusy = false;
-	if ((sercom2SPIObj.txSize == 0U) && (sercom2SPIObj.rxSize == 0U))
-	{
-		/* This means no transfer has been requested yet; hence SPI is not busy. */
-		isBusy = false;
-	}
-	else
-	{
+    if ((sercom2SPIObj.txSize == 0U) && (sercom2SPIObj.rxSize == 0U))
+    {
+        /* This means no transfer has been requested yet; hence SPI is not busy. */
+        isBusy = false;
+    }
+    else
+    {
         /* if transmit is not complete or if the state flag is not set, SPI is busy */
         isBusy = (((SERCOM2_REGS->SPIM.SERCOM_INTFLAG & SERCOM_SPIM_INTFLAG_TXC_Msk) == 0U) || sercom2SPIObj.transferIsBusy);
-	}
+    }
     return isBusy;
 }
 
 bool SERCOM2_SPI_IsTransmitterBusy(void)
 {
-    return ((SERCOM2_REGS->SPIM.SERCOM_INTFLAG & SERCOM_SPIM_INTFLAG_TXC_Msk) == 0)? true : false;
+    return ((SERCOM2_REGS->SPIM.SERCOM_INTFLAG & SERCOM_SPIM_INTFLAG_TXC_Msk) == 0U)? true : false;
 }
 
 // *****************************************************************************
@@ -368,7 +374,7 @@ bool SERCOM2_SPI_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveDa
             (void)dummyData;
         }
 
-        SERCOM2_REGS->SPIM.SERCOM_STATUS |= (uint16_t)SERCOM_SPIM_STATUS_BUFOVF_Msk;
+        SERCOM2_REGS->SPIM.SERCOM_STATUS |= SERCOM_SPIM_STATUS_BUFOVF_Msk;
 
         SERCOM2_REGS->SPIM.SERCOM_INTFLAG |= (uint8_t)SERCOM_SPIM_INTFLAG_ERROR_Msk;
 
@@ -479,11 +485,13 @@ void SERCOM2_SPI_InterruptHandler(void)
             {
                 if(dataBits == (uint32_t)SPI_DATA_BITS_8)
                 {
-                    ((uint8_t*)sercom2SPIObj.rxBuffer)[sercom2SPIObj.rxCount++] = (uint8_t)receivedData;
+                    ((uint8_t*)sercom2SPIObj.rxBuffer)[sercom2SPIObj.rxCount] = (uint8_t)receivedData;
+                    sercom2SPIObj.rxCount++;
                 }
                 else
                 {
-                    ((uint16_t*)sercom2SPIObj.rxBuffer)[sercom2SPIObj.rxCount++] = (uint16_t)receivedData;
+                    ((uint16_t*)sercom2SPIObj.rxBuffer)[sercom2SPIObj.rxCount] = (uint16_t)receivedData;
+                    sercom2SPIObj.rxCount++;
                 }
             }
         }
@@ -499,7 +507,8 @@ void SERCOM2_SPI_InterruptHandler(void)
             {
                 if(sercom2SPIObj.txCount < sercom2SPIObj.txSize)
                 {
-                    SERCOM2_REGS->SPIM.SERCOM_DATA = ((uint8_t*)sercom2SPIObj.txBuffer)[sercom2SPIObj.txCount++];
+                    SERCOM2_REGS->SPIM.SERCOM_DATA = ((uint8_t*)sercom2SPIObj.txBuffer)[sercom2SPIObj.txCount];
+                    sercom2SPIObj.txCount++;
                 }
                 else if(sercom2SPIObj.dummySize > 0U)
                 {
@@ -516,7 +525,8 @@ void SERCOM2_SPI_InterruptHandler(void)
             {
                 if(sercom2SPIObj.txCount < sercom2SPIObj.txSize)
                 {
-                    SERCOM2_REGS->SPIM.SERCOM_DATA = ((uint16_t*)sercom2SPIObj.txBuffer)[sercom2SPIObj.txCount++];
+                    SERCOM2_REGS->SPIM.SERCOM_DATA = ((uint16_t*)sercom2SPIObj.txBuffer)[sercom2SPIObj.txCount];
+                    sercom2SPIObj.txCount++;
                 }
                 else if(sercom2SPIObj.dummySize > 0U)
                 {
