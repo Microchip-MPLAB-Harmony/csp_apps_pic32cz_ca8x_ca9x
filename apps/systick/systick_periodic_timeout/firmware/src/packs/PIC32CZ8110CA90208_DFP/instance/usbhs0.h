@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,12 +20,12 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_USBHS0_INSTANCE_
 #define _PIC32CZCA90_USBHS0_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for USBHS0 peripheral ========== */
-#define USBHS0_MCLK_ID_AHB                       _UL_(73)   /* Index for USBHS0 AHB clock */
+#define USBHS0_MCLK_ID_AHB                       (73)       /* Index for USBHS0 AHB clock */
 
 #endif /* _PIC32CZCA90_USBHS0_INSTANCE_ */
