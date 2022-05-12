@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,17 +20,17 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_DMA_INSTANCE_
 #define _PIC32CZCA90_DMA_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for DMA peripheral ========== */
-#define DMA_DMAC_ID_EVSYS                        _UL_(1)    /* Events trigger index */
-#define DMA_DMAC_ID_SWTRG                        _UL_(0)    /* Software trigger index */
-#define DMA_INSTANCE_ID                          _UL_(19)   /* Instance index for DMA */
-#define DMA_MCLK_ID_APB                          _UL_(25)   /* Index for DMA APB clock */
-#define DMA_MCLK_ID_AXI                          _UL_(24)   /* Index for DMA AXI clock */
-#define DMA_PAC_ID                               _UL_(19)   /* Index for DMA registers write protection */
+#define DMA_DMAC_ID_EVSYS                        (1)        /* Events trigger index */
+#define DMA_DMAC_ID_SWTRG                        (0)        /* Software trigger index */
+#define DMA_INSTANCE_ID                          (19)       /* Instance index for DMA */
+#define DMA_MCLK_ID_APB                          (25)       /* Index for DMA APB clock */
+#define DMA_MCLK_ID_AXI                          (24)       /* Index for DMA AXI clock */
+#define DMA_PAC_ID                               (19)       /* Index for DMA registers write protection */
 
 #endif /* _PIC32CZCA90_DMA_INSTANCE_ */
