@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,21 +20,21 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_DRMTCM_INSTANCE_
 #define _PIC32CZCA90_DRMTCM_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for DRMTCM peripheral ========== */
-#define DRMTCM_DPTRMSB                           _UL_(5)    
-#define DRMTCM_DTCMADDR_MSB                      _UL_(16)   
-#define DRMTCM_DTCMPAR                           _UL_(7)    
-#define DRMTCM_IPTRMSB                           _UL_(6)    
-#define DRMTCM_ITCMADDR_MSB                      _UL_(16)   
-#define DRMTCM_ITCMPAR                           _UL_(8)    
-#define DRMTCM_NO_ECC                            _UL_(0)    
-#define DRMTCM_INSTANCE_ID                       _UL_(15)   /* Instance index for DRMTCM */
-#define DRMTCM_MCLK_ID_APB                       _UL_(19)   /* Index for DRMTCM APB clock */
-#define DRMTCM_PAC_ID                            _UL_(15)   /* Index for DRMTCM registers write protection */
+#define DRMTCM_DPTRMSB                           (5)        
+#define DRMTCM_DTCMADDR_MSB                      (16)       
+#define DRMTCM_DTCMPAR                           (7)        
+#define DRMTCM_IPTRMSB                           (6)        
+#define DRMTCM_ITCMADDR_MSB                      (16)       
+#define DRMTCM_ITCMPAR                           (8)        
+#define DRMTCM_NO_ECC                            (0)        
+#define DRMTCM_INSTANCE_ID                       (15)       /* Instance index for DRMTCM */
+#define DRMTCM_MCLK_ID_APB                       (19)       /* Index for DRMTCM APB clock */
+#define DRMTCM_PAC_ID                            (15)       /* Index for DRMTCM registers write protection */
 
 #endif /* _PIC32CZCA90_DRMTCM_INSTANCE_ */

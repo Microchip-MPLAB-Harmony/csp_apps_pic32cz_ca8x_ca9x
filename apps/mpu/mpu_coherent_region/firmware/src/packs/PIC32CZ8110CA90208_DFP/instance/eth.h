@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,19 +20,19 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_ETH_INSTANCE_
 #define _PIC32CZCA90_ETH_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for ETH peripheral ========== */
-#define ETH_GCLK_ID_TSU                          _UL_(55)   /* 1588 External Clock */
-#define ETH_GCLK_ID_TX                           _UL_(54)   /* GIGE/Loopback clock */
-#define ETH_MEM_MARGINADJ_MSB                    _UL_(9)    /* Number of Memory Margin Adjust bits */
-#define ETH_NUM_INT                              _UL_(6)    /* Number of Interrupts */
-#define ETH_INSTANCE_ID                          _UL_(56)   /* Instance index for ETH */
-#define ETH_MCLK_ID_AXI                          _UL_(64)   /* Index for ETH AXI clock */
-#define ETH_MCLK_ID_APB                          _UL_(65)   /* Index for ETH APB clock */
-#define ETH_PAC_ID                               _UL_(56)   /* Index for ETH registers write protection */
+#define ETH_GCLK_ID_TSU                          (55)       /* 1588 External Clock */
+#define ETH_GCLK_ID_TX                           (54)       /* GIGE/Loopback clock */
+#define ETH_MEM_MARGINADJ_MSB                    (9)        /* Number of Memory Margin Adjust bits */
+#define ETH_NUM_INT                              (6)        /* Number of Interrupts */
+#define ETH_INSTANCE_ID                          (56)       /* Instance index for ETH */
+#define ETH_MCLK_ID_AXI                          (64)       /* Index for ETH AXI clock */
+#define ETH_MCLK_ID_APB                          (65)       /* Index for ETH APB clock */
+#define ETH_PAC_ID                               (56)       /* Index for ETH registers write protection */
 
 #endif /* _PIC32CZCA90_ETH_INSTANCE_ */
