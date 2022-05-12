@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,15 +20,15 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_TRAM_INSTANCE_
 #define _PIC32CZCA90_TRAM_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for TRAM peripheral ========== */
-#define TRAM_ADDR_MSB                            _UL_(10)   /* Value of the MSB bit of physical RAM address */
-#define TRAM_INSTANCE_ID                         _UL_(17)   /* Instance index for TRAM */
-#define TRAM_MCLK_ID_APB                         _UL_(21)   /* Index for TRAM APB clock */
-#define TRAM_PAC_ID                              _UL_(17)   /* Index for TRAM registers write protection */
+#define TRAM_ADDR_MSB                            (10)       /* Value of the MSB bit of physical RAM address */
+#define TRAM_INSTANCE_ID                         (17)       /* Instance index for TRAM */
+#define TRAM_MCLK_ID_APB                         (21)       /* Index for TRAM APB clock */
+#define TRAM_PAC_ID                              (17)       /* Index for TRAM registers write protection */
 
 #endif /* _PIC32CZCA90_TRAM_INSTANCE_ */

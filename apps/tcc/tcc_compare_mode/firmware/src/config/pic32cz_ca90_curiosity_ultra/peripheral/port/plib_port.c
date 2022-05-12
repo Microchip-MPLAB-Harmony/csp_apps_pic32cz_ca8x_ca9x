@@ -52,7 +52,6 @@
 // Section: PORT Implementation
 // *****************************************************************************
 // *****************************************************************************
-
 // *****************************************************************************
 /* Function:
 
@@ -96,8 +95,8 @@ void PORT_Initialize(void)
    /************************** GROUP 6 Initialization *************************/
 
 
-}
 
+}
 // *****************************************************************************
 /* Function:
     uint32_t PORT_GroupRead(PORT_GROUP group)
@@ -307,7 +306,7 @@ void PORT_PinPeripheralFunctionConfig(PORT_PIN pin, PERIPHERAL_FUNCTION function
     PORT_GROUP group = GET_PORT_GROUP(pin);
     uint32_t pin_num = ((uint32_t)pin) & 0x1FU;
     uint32_t pinmux_val = (uint32_t)((port_group_registers_t*)group)->PORT_PMUX[(pin_num >> 1)];
-    
+
     /* For odd pins */
     if (0U != (pin_num & 0x01U))
     {
@@ -318,7 +317,7 @@ void PORT_PinPeripheralFunctionConfig(PORT_PIN pin, PERIPHERAL_FUNCTION function
         pinmux_val = (pinmux_val & ~0x0FU) | periph_func;
     }
     ((port_group_registers_t*)group)->PORT_PMUX[(pin_num >> 1)] = (uint8_t)pinmux_val;
-    
+
     /* Enable peripheral control of the pin */
     ((port_group_registers_t*)group)->PORT_PINCFG[pin_num] |= (uint8_t)PORT_PINCFG_PMUXEN_Msk;
 }
