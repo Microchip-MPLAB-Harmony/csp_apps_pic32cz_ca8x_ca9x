@@ -174,9 +174,10 @@ void TCC1_CaptureCallbackRegister( TCC_CALLBACK callback, uintptr_t context )
 void TCC1_MC0_InterruptHandler(void)
 {
     uint32_t status;
-    status = (uint32_t)TCC_INTFLAG_MC0_Msk;
+    status = TCC_INTFLAG_MC0_Msk;
     /* Clear interrupt flags */
     TCC1_REGS->TCC_INTFLAG = TCC_INTFLAG_MC0_Msk;
+    (void)TCC1_REGS->TCC_INTFLAG;
     if (TCC1_CallbackObject.callback_fn != NULL)
     {
         TCC1_CallbackObject.callback_fn(status, TCC1_CallbackObject.context);
@@ -187,9 +188,10 @@ void TCC1_MC0_InterruptHandler(void)
 void TCC1_MC1_InterruptHandler(void)
 {
     uint32_t status;
-    status = (uint32_t)TCC_INTFLAG_MC1_Msk;
+    status = TCC_INTFLAG_MC1_Msk;
     /* Clear interrupt flags */
     TCC1_REGS->TCC_INTFLAG = TCC_INTFLAG_MC1_Msk;
+    (void)TCC1_REGS->TCC_INTFLAG;
     if (TCC1_CallbackObject.callback_fn != NULL)
     {
         TCC1_CallbackObject.callback_fn(status, TCC1_CallbackObject.context);
