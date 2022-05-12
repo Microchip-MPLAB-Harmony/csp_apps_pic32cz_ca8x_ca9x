@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,27 +20,27 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_TCC7_INSTANCE_
 #define _PIC32CZCA90_TCC7_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for TCC7 peripheral ========== */
-#define TCC7_CC_NUM                              _UL_(2)    /* Number of Compare/Capture units */
-#define TCC7_DITHERING                           _UL_(1)    /* Dithering feature implemented */
-#define TCC7_DMAC_ID_MC_0                        _UL_(63)   /* Indexes of DMA Match/Compare triggers 0 */
-#define TCC7_DMAC_ID_MC_1                        _UL_(64)   /* Indexes of DMA Match/Compare triggers 1 */
-#define TCC7_DMAC_ID_OVF                         _UL_(62)   /* DMA overflow/underflow/retrigger trigger */
-#define TCC7_DTI                                 _UL_(1)    /* Dead-Time-Insertion feature implemented */
-#define TCC7_GCLK_ID                             _UL_(38)   /* Index of Generic Clock */
-#define TCC7_MASTER_SLAVE_MODE                   _UL_(0)    /* TCC type 0 : NA, 1 : Master, 2 : Slave */
-#define TCC7_OTMX                                _UL_(0)    /* Output Matrix feature implemented */
-#define TCC7_OW_NUM                              _UL_(2)    /* Number of Output Waveforms */
-#define TCC7_PG                                  _UL_(0)    /* Pattern Generation feature implemented */
-#define TCC7_SIZE                                _UL_(32)   
-#define TCC7_SWAP                                _UL_(1)    /* DTI outputs swap feature implemented */
-#define TCC7_INSTANCE_ID                         _UL_(40)   /* Instance index for TCC7 */
-#define TCC7_MCLK_ID_APB                         _UL_(48)   /* Index for TCC7 APB clock */
-#define TCC7_PAC_ID                              _UL_(40)   /* Index for TCC7 registers write protection */
+#define TCC7_CC_NUM                              (2)        /* Number of Compare/Capture units */
+#define TCC7_DITHERING                           (1)        /* Dithering feature implemented */
+#define TCC7_DMAC_ID_MC_0                        (63)       /* Indexes of DMA Match/Compare triggers 0 */
+#define TCC7_DMAC_ID_MC_1                        (64)       /* Indexes of DMA Match/Compare triggers 1 */
+#define TCC7_DMAC_ID_OVF                         (62)       /* DMA overflow/underflow/retrigger trigger */
+#define TCC7_DTI                                 (1)        /* Dead-Time-Insertion feature implemented */
+#define TCC7_GCLK_ID                             (38)       /* Index of Generic Clock */
+#define TCC7_MASTER_SLAVE_MODE                   (0)        /* TCC type 0 : NA, 1 : Master, 2 : Slave */
+#define TCC7_OTMX                                (0)        /* Output Matrix feature implemented */
+#define TCC7_OW_NUM                              (2)        /* Number of Output Waveforms */
+#define TCC7_PG                                  (0)        /* Pattern Generation feature implemented */
+#define TCC7_SIZE                                (32)       
+#define TCC7_SWAP                                (1)        /* DTI outputs swap feature implemented */
+#define TCC7_INSTANCE_ID                         (40)       /* Instance index for TCC7 */
+#define TCC7_MCLK_ID_APB                         (48)       /* Index for TCC7 APB clock */
+#define TCC7_PAC_ID                              (40)       /* Index for TCC7 registers write protection */
 
 #endif /* _PIC32CZCA90_TCC7_INSTANCE_ */
