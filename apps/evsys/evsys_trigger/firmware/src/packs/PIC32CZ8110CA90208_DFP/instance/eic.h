@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,19 +20,19 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_EIC_INSTANCE_
 #define _PIC32CZCA90_EIC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for EIC peripheral ========== */
-#define EIC_EXTINT_NUM                           _UL_(16)   /* Number of external interrupts */
-#define EIC_GCLK_ID                              _UL_(5)    /* Generic Clock index */
-#define EIC_NUMBER_OF_CONFIG_REGS                _UL_(2)    /* Number of CONFIG registers */
-#define EIC_NUMBER_OF_INTERRUPTS                 _UL_(16)   /* Number of external interrupts (obsolete) */
-#define EIC_SECURE_IMPLEMENTED                   _UL_(0)    /* Security Configuration implemented? */
-#define EIC_INSTANCE_ID                          _UL_(13)   /* Instance index for EIC */
-#define EIC_MCLK_ID_APB                          _UL_(16)   /* Index for EIC APB clock */
-#define EIC_PAC_ID                               _UL_(13)   /* Index for EIC registers write protection */
+#define EIC_EXTINT_NUM                           (16)       /* Number of external interrupts */
+#define EIC_GCLK_ID                              (5)        /* Generic Clock index */
+#define EIC_NUMBER_OF_CONFIG_REGS                (2)        /* Number of CONFIG registers */
+#define EIC_NUMBER_OF_INTERRUPTS                 (16)       /* Number of external interrupts (obsolete) */
+#define EIC_SECURE_IMPLEMENTED                   (0)        /* Security Configuration implemented? */
+#define EIC_INSTANCE_ID                          (13)       /* Instance index for EIC */
+#define EIC_MCLK_ID_APB                          (16)       /* Index for EIC APB clock */
+#define EIC_PAC_ID                               (13)       /* Index for EIC registers write protection */
 
 #endif /* _PIC32CZCA90_EIC_INSTANCE_ */
