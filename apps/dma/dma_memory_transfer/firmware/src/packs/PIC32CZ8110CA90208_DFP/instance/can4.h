@@ -1,7 +1,7 @@
 /*
  * Instance header file for PIC32CZ8110CA90208
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,20 +20,20 @@
  *
  */
 
-/* file generated from device description version 2021-07-22T19:46:10Z */
+/* file generated from device description version 2022-03-10T17:15:57Z */
 #ifndef _PIC32CZCA90_CAN4_INSTANCE_
 #define _PIC32CZCA90_CAN4_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for CAN4 peripheral ========== */
-#define CAN4_DMAC_ID_DEBUG                       _UL_(87)   /* DMA CAN Debug Req */
-#define CAN4_ECC_BERR_IMPLEMENTED                _UL_(0)    /* ECC error */
-#define CAN4_EXT_TSTAMP_IMPLEMENTED              _UL_(0)    /* External time stamp */
-#define CAN4_GCLK_ID                             _UL_(50)   /* Index of Generic Clock */
-#define CAN4_MSG_RAM_ADDR                        _UL_(0x20) /* 8-bits MSB */
-#define CAN4_RXD_SYNC_METHOD                     _UL_(0)    /* RXD Synchronization Method */
-#define CAN4_INSTANCE_ID                         _UL_(52)   /* Instance index for CAN4 */
-#define CAN4_MCLK_ID_AHB                         _UL_(60)   /* Index for CAN4 AHB clock */
-#define CAN4_PAC_ID                              _UL_(52)   /* Index for CAN4 registers write protection */
+#define CAN4_DMAC_ID_DEBUG                       (87)       /* DMA CAN Debug Req */
+#define CAN4_ECC_BERR_IMPLEMENTED                (0)        /* ECC error */
+#define CAN4_EXT_TSTAMP_IMPLEMENTED              (0)        /* External time stamp */
+#define CAN4_GCLK_ID                             (50)       /* Index of Generic Clock */
+#define CAN4_MSG_RAM_ADDR                        (0x20)     /* 8-bits MSB */
+#define CAN4_RXD_SYNC_METHOD                     (0)        /* RXD Synchronization Method */
+#define CAN4_INSTANCE_ID                         (52)       /* Instance index for CAN4 */
+#define CAN4_MCLK_ID_AHB                         (60)       /* Index for CAN4 AHB clock */
+#define CAN4_PAC_ID                              (52)       /* Index for CAN4 registers write protection */
 
 #endif /* _PIC32CZCA90_CAN4_INSTANCE_ */
