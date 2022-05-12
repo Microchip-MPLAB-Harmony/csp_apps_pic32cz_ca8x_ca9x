@@ -86,25 +86,25 @@ typedef enum
 typedef uint32_t DMA_TRANSFER_EVENT;
 
 /* Block was transferred successfully. */
-#define DMA_TRANSFER_EVENT_BLOCK_TRANSFER_COMPLETE          0x01
+#define DMA_TRANSFER_EVENT_BLOCK_TRANSFER_COMPLETE          (0x01U)
 
 /* Error while processing the request */
-#define DMA_TRANSFER_EVENT_ERROR                            0x02
+#define DMA_TRANSFER_EVENT_ERROR                            (0x02U)
 
 /* An start trigger event has been detected and the block transfer has started */
-#define DMA_TRANSFER_EVENT_START_DETECTED                   0x04
+#define DMA_TRANSFER_EVENT_START_DETECTED                   (0x04U)
 
 /* An abort trigger event has been detected and the DMA transfer has been aborted */
-#define DMA_TRANSFER_EVENT_TRANSFER_ABORTED                 0x08
+#define DMA_TRANSFER_EVENT_TRANSFER_ABORTED                 (0x08U)
 
 /* A cell transfer has been completed (CSZ bytes has been transferred) */
-#define DMA_TRANSFER_EVENT_CELL_TRANSFER_COMPLETE           0x10
+#define DMA_TRANSFER_EVENT_CELL_TRANSFER_COMPLETE           (0x10U)
 
 /* A half block transfer has been completed */
-#define DMA_TRANSFER_EVENT_HALF_BLOCK_TRANSFER_COMPLETE     0x20
+#define DMA_TRANSFER_EVENT_HALF_BLOCK_TRANSFER_COMPLETE     (0x20U)
 
 /* A link list done event has been completed */
-#define DMA_TRANSFER_EVENT_LINKED_LIST_TRANSFER_COMPLETE    0x40
+#define DMA_TRANSFER_EVENT_LINKED_LIST_TRANSFER_COMPLETE    (0x40U)
 
 typedef uint32_t DMA_INT;
 

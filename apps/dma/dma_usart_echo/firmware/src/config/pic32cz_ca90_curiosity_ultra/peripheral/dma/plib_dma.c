@@ -53,14 +53,14 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define DMA_CHANNELS_NUMBER        2
+#define DMA_CHANNELS_NUMBER        (2U)
 
 /* DMA channels object configuration structure */
 typedef struct
 {
     DMA_CHANNEL_CALLBACK  callback;
-    uintptr_t              context;
-    uint8_t                busyStatus;
+    uintptr_t             context;
+    bool                  busyStatus;
 } DMA_CH_OBJECT ;
 
 /* DMA Channels object information structure */
@@ -78,13 +78,13 @@ This function initializes the DMA controller of the device.
 
 void DMA_Initialize( void )
 {
-    uint32_t channel = 0;
+    uint32_t channel = 0U;
 
     /* Initialize DMA Channel objects */
-    for(channel = 0; channel < DMA_CHANNELS_NUMBER; channel++)
+    for(channel = 0U; channel < DMA_CHANNELS_NUMBER; channel++)
     {
         dmaChannelObj[channel].callback = NULL;
-        dmaChannelObj[channel].context = 0;
+        dmaChannelObj[channel].context = 0U;
         dmaChannelObj[channel].busyStatus = false;
     }
 
@@ -92,10 +92,10 @@ void DMA_Initialize( void )
 
 
    /***************** Configure DMA channel 0 ********************/
-   DMA_REGS->CHANNEL[0].DMA_CHCTRLB = DMA_CHCTRLB_TRIG(16) | DMA_CHCTRLB_PRI(DMA_CHCTRLB_PRI_PRI_1_Val) | DMA_CHCTRLB_RAS(DMA_CHCTRLB_RAS_BYTE_ADDR_INCR_Val) | DMA_CHCTRLB_WAS(DMA_CHCTRLB_WAS_FIXED_BYTE_ADDR_INCR_Val) | DMA_CHCTRLB_CASTEN(0) ;
+   DMA_REGS->CHANNEL[0].DMA_CHCTRLB = DMA_CHCTRLB_TRIG(16U) | DMA_CHCTRLB_PRI(DMA_CHCTRLB_PRI_PRI_1_Val) | DMA_CHCTRLB_RAS(DMA_CHCTRLB_RAS_BYTE_ADDR_INCR_Val) | DMA_CHCTRLB_WAS(DMA_CHCTRLB_WAS_FIXED_BYTE_ADDR_INCR_Val) | DMA_CHCTRLB_CASTEN(0U) ;
    
 
-   DMA_REGS->CHANNEL[0].DMA_CHXSIZ = DMA_CHXSIZ_CSZ(1);
+   DMA_REGS->CHANNEL[0].DMA_CHXSIZ = DMA_CHXSIZ_CSZ(1U);
 
    
 
@@ -107,10 +107,10 @@ void DMA_Initialize( void )
 
 
    /***************** Configure DMA channel 1 ********************/
-   DMA_REGS->CHANNEL[1].DMA_CHCTRLB = DMA_CHCTRLB_TRIG(15) | DMA_CHCTRLB_PRI(DMA_CHCTRLB_PRI_PRI_1_Val) | DMA_CHCTRLB_RAS(DMA_CHCTRLB_RAS_FIXED_BYTE_ADDR_INCR_Val) | DMA_CHCTRLB_WAS(DMA_CHCTRLB_WAS_BYTE_ADDR_INCR_Val) | DMA_CHCTRLB_CASTEN(0) ;
+   DMA_REGS->CHANNEL[1].DMA_CHCTRLB = DMA_CHCTRLB_TRIG(15U) | DMA_CHCTRLB_PRI(DMA_CHCTRLB_PRI_PRI_1_Val) | DMA_CHCTRLB_RAS(DMA_CHCTRLB_RAS_FIXED_BYTE_ADDR_INCR_Val) | DMA_CHCTRLB_WAS(DMA_CHCTRLB_WAS_BYTE_ADDR_INCR_Val) | DMA_CHCTRLB_CASTEN(0U) ;
    
 
-   DMA_REGS->CHANNEL[1].DMA_CHXSIZ = DMA_CHXSIZ_CSZ(1);
+   DMA_REGS->CHANNEL[1].DMA_CHXSIZ = DMA_CHXSIZ_CSZ(1U);
 
    
 
@@ -132,15 +132,18 @@ bool DMA_ChannelTransfer( DMA_CHANNEL channel, const void *srcAddr, const void *
 {
     bool returnStatus = false;
 
+    const uint32_t *XsrcAddr  = (const uint32_t *)srcAddr;
+    const uint32_t *XdestAddr = (const uint32_t *)destAddr;
+
     if (dmaChannelObj[channel].busyStatus == false)
     {
         dmaChannelObj[channel].busyStatus = true;
 
         /*Set source address */
-        DMA_REGS->CHANNEL[channel].DMA_CHSSA = (uint32_t) srcAddr;
+        DMA_REGS->CHANNEL[channel].DMA_CHSSA = (uint32_t) XsrcAddr;
 
         /*Set destination address */
-        DMA_REGS->CHANNEL[channel].DMA_CHDSA = (uint32_t) destAddr;
+        DMA_REGS->CHANNEL[channel].DMA_CHDSA = (uint32_t) XdestAddr;
 
         /* Set the block transfer size in bytes */
         DMA_REGS->CHANNEL[channel].DMA_CHXSIZ = (DMA_REGS->CHANNEL[channel].DMA_CHXSIZ & ~DMA_CHXSIZ_BLKSZ_Msk) | (blockSize << DMA_CHXSIZ_BLKSZ_Pos);
@@ -149,7 +152,7 @@ bool DMA_ChannelTransfer( DMA_CHANNEL channel, const void *srcAddr, const void *
         DMA_REGS->CHANNEL[channel].DMA_CHCTRLA |= DMA_CHCTRLA_ENABLE_Msk;
 
         /* Verify if Trigger source is Software Trigger */
-        if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLB & DMA_CHCTRLB_TRIG_Msk) >> DMA_CHCTRLB_TRIG_Pos) == 0x00)
+        if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLB & DMA_CHCTRLB_TRIG_Msk) >> DMA_CHCTRLB_TRIG_Pos) == 0x00U)
         {
             /* Trigger the DMA transfer */
             DMA_REGS->CHANNEL[channel].DMA_CHCTRLA |= DMA_CHCTRLA_SWFRC_Msk;
@@ -178,7 +181,7 @@ void DMA_ChannelCallbackRegister( DMA_CHANNEL channel, const DMA_CHANNEL_CALLBAC
 
 bool DMA_ChannelIsBusy ( DMA_CHANNEL channel )
 {
-    return (bool)dmaChannelObj[channel].busyStatus;
+    return (dmaChannelObj[channel].busyStatus);
 }
 
 /*******************************************************************************
@@ -187,7 +190,7 @@ bool DMA_ChannelIsBusy ( DMA_CHANNEL channel )
 void DMA_ChannelEnable ( DMA_CHANNEL channel )
 {
     /* Enable the DMA channel */
-    DMA_REGS->CHANNEL[channel].DMA_CHCTRLA |= DMA_CHCTRLA_ENABLE_Msk;    
+    DMA_REGS->CHANNEL[channel].DMA_CHCTRLA |= DMA_CHCTRLA_ENABLE_Msk;
 
     dmaChannelObj[channel].busyStatus=true;
 
@@ -198,7 +201,11 @@ void DMA_ChannelDisable ( DMA_CHANNEL channel )
     /* Disable the DMA channel */
     DMA_REGS->CHANNEL[channel].DMA_CHCTRLA &= (~DMA_CHCTRLA_ENABLE_Msk);
 
-    while((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk) != 0);
+    while((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk) != 0U)
+    {
+        /* Do nothing */
+
+    }
 
     dmaChannelObj[channel].busyStatus=false;
 
@@ -228,10 +235,10 @@ DMA_INT DMA_ChannelInterruptFlagsGet ( DMA_CHANNEL channel )
 void DMA_ChannelPatternMatchSetup ( DMA_CHANNEL channel, DMA_PATTERN_MATCH_LEN patternLen, uint16_t matchData )
 {
     // CHCTRLBk is CHCTRLAk.ENABLE=1 write protected
-    if (!(DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk))
+    if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk)) == 0U)
     {
-		DMA_REGS->CHANNEL[channel].DMA_CHPDAT = (DMA_REGS->CHANNEL[channel].DMA_CHPDAT & ~DMA_CHPDAT_PDAT_Msk) | (matchData << DMA_CHPDAT_PDAT_Pos);
-		
+        DMA_REGS->CHANNEL[channel].DMA_CHPDAT = (DMA_REGS->CHANNEL[channel].DMA_CHPDAT & ~DMA_CHPDAT_PDAT_Msk) | (matchData << DMA_CHPDAT_PDAT_Pos);
+
         if (patternLen == DMA_PATTERN_MATCH_LEN_1BYTE)
         {
             DMA_REGS->CHANNEL[channel].DMA_CHCTRLB &= ~DMA_CHCTRLB_PATLEN_Msk;
@@ -240,15 +247,15 @@ void DMA_ChannelPatternMatchSetup ( DMA_CHANNEL channel, DMA_PATTERN_MATCH_LEN p
         {
             DMA_REGS->CHANNEL[channel].DMA_CHCTRLB |= DMA_CHCTRLB_PATLEN_Msk;
         }
-						
-		DMA_REGS->CHANNEL[channel].DMA_CHCTRLB |= DMA_CHCTRLB_PATEN_Msk;
+
+        DMA_REGS->CHANNEL[channel].DMA_CHCTRLB |= DMA_CHCTRLB_PATEN_Msk;
     }
 }
 
 void DMA_ChannelPatternMatchEnable ( DMA_CHANNEL channel )
 {
     // CHCTRLBk is CHCTRLAk.ENABLE=1 write protected
-    if (!(DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk))
+    if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk)) == 0U)
     {
         DMA_REGS->CHANNEL[channel].DMA_CHCTRLB |= DMA_CHCTRLB_PATEN_Msk;
     }
@@ -257,7 +264,7 @@ void DMA_ChannelPatternMatchEnable ( DMA_CHANNEL channel )
 void DMA_ChannelPatternMatchDisable ( DMA_CHANNEL channel )
 {
     // CHCTRLBk is CHCTRLAk.ENABLE=1 write protected
-    if (!(DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk))
+    if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk)) == 0U)
     {
         DMA_REGS->CHANNEL[channel].DMA_CHCTRLB &= ~DMA_CHCTRLB_PATEN_Msk;
     }
@@ -266,7 +273,7 @@ void DMA_ChannelPatternMatchDisable ( DMA_CHANNEL channel )
 void DMA_ChannelPatternIgnoreByteEnable ( DMA_CHANNEL channel )
 {
     // CHCTRLBk is CHCTRLAk.ENABLE=1 write protected
-    if (!(DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk))
+    if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk)) == 0U)
     {
         DMA_REGS->CHANNEL[channel].DMA_CHCTRLB |= DMA_CHCTRLB_PIGNEN_Msk;
     }
@@ -275,7 +282,7 @@ void DMA_ChannelPatternIgnoreByteEnable ( DMA_CHANNEL channel )
 void DMA_ChannelPatternIgnoreByteDisable ( DMA_CHANNEL channel )
 {
     // CHCTRLBk is CHCTRLAk.ENABLE=1 write protected
-    if (!(DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk))
+    if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk)) == 0U)
     {
         DMA_REGS->CHANNEL[channel].DMA_CHCTRLB &= ~DMA_CHCTRLB_PIGNEN_Msk;
     }
@@ -284,7 +291,7 @@ void DMA_ChannelPatternIgnoreByteDisable ( DMA_CHANNEL channel )
 void DMA_ChannelPatternIgnoreValue ( DMA_CHANNEL channel, uint8_t ignoreValue )
 {
     // CHCTRLBk is CHCTRLAk.ENABLE=1 write protected
-    if (!(DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk))
+    if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk)) == 0U)
     {
         DMA_REGS->CHANNEL[channel].DMA_CHPDAT = (DMA_REGS->CHANNEL[channel].DMA_CHPDAT & ~DMA_CHPDAT_PIGN_Msk) | (ignoreValue << DMA_CHPDAT_PIGN_Pos);
     }
@@ -307,27 +314,28 @@ DMA_CHANNEL_CONFIG DMA_ChannelSettingsGet (DMA_CHANNEL channel)
 
 bool DMA_ChannelSettingsSet (DMA_CHANNEL channel, DMA_CHANNEL_CONFIG setting)
 {
+    bool ChannelSettingsSet = false;
     // CHCTRLBk is CHCTRLAk.ENABLE=1 write protected
-    if (!(DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk))
+    if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk)) == 0U)
     {
         /* Set the new settings */
         DMA_REGS->CHANNEL[channel].DMA_CHCTRLB = setting;
-        return true;
+        ChannelSettingsSet = true;
     }
 
-    return false;
+    return ChannelSettingsSet;
 }
 
 //*******************************************************************************
 //    Functions to handle DMA interrupt events.
 //*******************************************************************************
-static void _DMA_interruptHandler(uint32_t channel)
+static void DMA_interruptHandler(uint32_t channel)
 {
     DMA_CH_OBJECT  *dmacChObj = NULL;
-    volatile uint32_t chIntFlagStatus = 0;
-    volatile uint32_t chIntFlagsEnabled = 0;
+    volatile uint32_t chIntFlagStatus = 0U;
+    volatile uint32_t chIntFlagsEnabled = 0U;
 
-    DMA_TRANSFER_EVENT event = 0;
+    DMA_TRANSFER_EVENT event = 0U;
 
     dmacChObj = (DMA_CH_OBJECT *)&dmaChannelObj[channel];
 
@@ -338,48 +346,48 @@ static void _DMA_interruptHandler(uint32_t channel)
     chIntFlagsEnabled = chIntFlagStatus & (DMA_REGS->CHANNEL[channel].DMA_CHINTENSET | (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk));
 
     /* An start trigger event has been detected and the block transfer has started */
-    if (chIntFlagsEnabled & DMA_CHINTF_SD_Msk)
+    if ((chIntFlagsEnabled & DMA_CHINTF_SD_Msk) != 0U)
     {
         event |= DMA_TRANSFER_EVENT_START_DETECTED;
     }
 
     /* An abort trigger event has been detected and the DMA transfer has been aborted */
-    if (chIntFlagsEnabled & DMA_CHINTF_TA_Msk)
+    if ((chIntFlagsEnabled & DMA_CHINTF_TA_Msk) != 0U)
     {
         event |= DMA_TRANSFER_EVENT_TRANSFER_ABORTED;
     }
 
     /* A cell transfer has been completed (CSZ bytes has been transferred) */
-    if (chIntFlagsEnabled & DMA_CHINTF_CC_Msk)
+    if ((chIntFlagsEnabled & DMA_CHINTF_CC_Msk) != 0U)
     {
         event |= DMA_TRANSFER_EVENT_CELL_TRANSFER_COMPLETE;
     }
 
     /* A block transfer has been completed */
-    if (chIntFlagsEnabled & DMA_CHINTF_BC_Msk)
+    if ((chIntFlagsEnabled & DMA_CHINTF_BC_Msk) != 0U)
     {
         event |= DMA_TRANSFER_EVENT_BLOCK_TRANSFER_COMPLETE;
     }
 
     /* A half block transfer has been completed */
-    if (chIntFlagsEnabled & DMA_CHINTF_BH_Msk)
+    if ((chIntFlagsEnabled & DMA_CHINTF_BH_Msk) != 0U)
     {
         event |= DMA_TRANSFER_EVENT_HALF_BLOCK_TRANSFER_COMPLETE;
     }
 
     /* A link list done event has been completed */
-    if (chIntFlagsEnabled & DMA_CHINTF_LL_Msk)
+    if ((chIntFlagsEnabled & DMA_CHINTF_LL_Msk) != 0U)
     {
         event |= DMA_TRANSFER_EVENT_LINKED_LIST_TRANSFER_COMPLETE;
     }
-	
-	/* A write error or read error event has been detected */
-    if (chIntFlagsEnabled & (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk))
+
+    /* A write error or read error event has been detected */
+    if ((chIntFlagsEnabled & (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk)) != 0U)
     {
         event |= DMA_TRANSFER_EVENT_ERROR;
     }
 
-    if (chIntFlagStatus & (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk | DMA_CHINTF_LL_Msk | DMA_CHINTF_BC_Msk | DMA_CHINTF_TA_Msk))
+    if ((chIntFlagStatus & (DMA_CHINTF_WRE_Msk | DMA_CHINTF_RDE_Msk | DMA_CHINTF_LL_Msk | DMA_CHINTF_BC_Msk | DMA_CHINTF_TA_Msk)) != 0U)
     {
         dmacChObj->busyStatus = false;
     }
@@ -388,7 +396,7 @@ static void _DMA_interruptHandler(uint32_t channel)
     DMA_REGS->CHANNEL[channel].DMA_CHINTF = chIntFlagStatus;
 
     /* Execute the callback function */
-    if ((dmacChObj->callback != NULL) && (event != 0))
+    if ((dmacChObj->callback != NULL) && (event != 0U))
     {
         dmacChObj->callback (event, dmacChObj->context);
     }
@@ -396,65 +404,65 @@ static void _DMA_interruptHandler(uint32_t channel)
 
 void DMA_PRI0_InterruptHandler( void )
 {
-    volatile uint32_t dmaIntPriority1Status = 0;
-    uint32_t channel = 0;
+    volatile uint32_t dmaIntPriority1Status = 0U;
+    uint32_t channel = 0U;
 
     /* Get the DMA channel interrupt status */
     dmaIntPriority1Status = DMA_REGS->DMA_INTSTAT1;
 
-    for (channel = 0; channel < 2; channel++)
+    for (channel = 0U; channel < 2U; channel++)
     {
-        if (dmaIntPriority1Status & (1 << channel))
+        if ((dmaIntPriority1Status & ((uint32_t)1U << channel)) != (uint32_t)0U)
         {
-            _DMA_interruptHandler(channel);
+            DMA_interruptHandler(channel);
         }
     }
 }
 void DMA_PRI1_InterruptHandler( void )
 {
-    volatile uint32_t dmaIntPriority2Status = 0;
-    uint32_t channel = 0;
+    volatile uint32_t dmaIntPriority2Status = 0U;
+    uint32_t channel = 0U;
 
     /* Get the DMA channel interrupt status */
     dmaIntPriority2Status = DMA_REGS->DMA_INTSTAT2;
 
-    for (channel = 0; channel < 2; channel++)
+    for (channel = 0U; channel < 2U; channel++)
     {
-        if (dmaIntPriority2Status & (1 << channel))
+        if ((dmaIntPriority2Status & ((uint32_t)1U << channel)) != (uint32_t)0U)
         {
-            _DMA_interruptHandler(channel);
+            DMA_interruptHandler(channel);
         }
     }
 }
 void DMA_PRI2_InterruptHandler( void )
 {
-    volatile uint32_t dmaIntPriority3Status = 0;
-    uint32_t channel = 0;
+    volatile uint32_t dmaIntPriority3Status = 0U;
+    uint32_t channel = 0U;
 
     /* Get the DMA channel interrupt status */
     dmaIntPriority3Status = DMA_REGS->DMA_INTSTAT3;
 
-    for (channel = 0; channel < 2; channel++)
+    for (channel = 0U; channel < 2U; channel++)
     {
-        if (dmaIntPriority3Status & (1 << channel))
+        if ((dmaIntPriority3Status & ((uint32_t)1U << channel)) != (uint32_t)0U)
         {
-            _DMA_interruptHandler(channel);
+            DMA_interruptHandler(channel);
         }
     }
 }
 void DMA_PRI3_InterruptHandler( void )
 {
-    volatile uint32_t dmaIntPriority4Status = 0;
-    uint32_t channel = 0;
+    volatile uint32_t dmaIntPriority4Status = 0U;
+    uint32_t channel = 0U;
 
     /* Get the DMA channel interrupt status */
     dmaIntPriority4Status = DMA_REGS->DMA_INTSTAT4;
 
-    for (channel = 0; channel < 2; channel++)
+    for (channel = 0U; channel < 2U; channel++)
     {
-        if (dmaIntPriority4Status & (1 << channel))
+        if ((dmaIntPriority4Status & ((uint32_t)1U << channel)) != (uint32_t)0U)
         {
-            _DMA_interruptHandler(channel);
+            DMA_interruptHandler(channel);
         }
     }
 }
