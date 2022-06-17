@@ -1,0 +1,81 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_tcc_synchronous_pwm_channels",
+		"version": "3.0.0",
+		"displayName": "TCC PWM generation Example for PIC32CZ_CA Family",
+		"projectName": "tcc_synchronous_pwm_channels_pic32cz_ca90_curiosity_ultra",
+		"shortDescription": "This example application shows how to use the TCC to generate a 2 or 3 phase PWM signals for motor control with dead time.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.00.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.1.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32CZ-CA90_DFP",
+			"semverRange": "^1.0.14"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.8.0"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32CZ8110CA90208",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit",
+				"PIC32CZ-CA90 Curiosity Ultra board"
+			],
+			[
+				"Harmony",
+				"Peripherals",
+				"TCC"
+			],
+			[
+				"Peripherals",
+				"TCC"
+			]
+		],
+		"peripherals": [
+			"TCC"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32CZ8110CA90208",
+			"PIC32CZ_CA Family",
+			"TC",
+			"TCC",
+			"TMR",
+			"Timer",
+			"PWM"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}

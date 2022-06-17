@@ -1,0 +1,83 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_spi_write_read",
+		"version": "3.0.0",
+		"displayName": "SERCOM SPI Slave read write Example for PIC32CZ_CA Family",
+		"projectName": "spi_write_read_pic32cz_ca90_curiosity_ultra",
+		"shortDescription": "This example application demonstrates how to use the SERCOM SPI peripheral in slave mode",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.00.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.1.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32CZ-CA90_DFP",
+			"semverRange": "^1.0.14"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.8.0"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32CZ8110CA90208",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit",
+				"PIC32CZ-CA90 Curiosity Ultra board"
+			],
+			[
+				"Harmony",
+				"Peripherals",
+				"SERCOM"
+			],
+			[
+				"Peripherals",
+				"SERCOM"
+			]
+		],
+		"peripherals": [
+			"SERCOM"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32CZ8110CA90208",
+			"PIC32CZ_CA Family",
+			"FLEXCOM",
+			"Serial Communication",
+			"I2C",
+			"SPI",
+			"UART",
+			"SERCOM",
+			"TWI"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
