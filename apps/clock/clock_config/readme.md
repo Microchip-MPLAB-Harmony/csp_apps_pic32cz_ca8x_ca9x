@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA90 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA80 family
 title: Clock configuration 
 has_children: false
 has_toc: false
@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cz_ca90_curiosity_ultra.X | MPLABX Project for [PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca80_curiosity_ultra.X | MPLABX Project for [PIC32CZ CA80 Curiosity Ultra board]()|
 |||
 
 ## Setting up the hardware
@@ -35,10 +35,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cz_ca90_curiosity_ultra.X | [PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca80_curiosity_ultra.X | [PIC32CZ CA80 Curiosity Ultra board]()|
 |||
 
-### [PIC32CZ CA90 Curiosity Ultra board]()
+### [PIC32CZ CA80 Curiosity Ultra board]()
 
 - Connect an oscilloscope to monitor the PORT pin PC0 (Pin 11 of the EXT1 header)
 - Connect the Debug USB port on the board to the computer using a micro USB cable
@@ -53,5 +53,5 @@ Refer to the following table for clock output pin and LED name for different boa
 
 | Board      | Clock output pin | LED Name |
 | ---------- | ---------------- |--------- |
-| [PIC32CZ CA90 Curiosity Ultra board]() | PC0 (Pin #11 on the EXT1 header)  | LED0 |
+| [PIC32CZ CA80 Curiosity Ultra board]() | PC0 (Pin #11 on the EXT1 header)  | LED0 |
 ||||

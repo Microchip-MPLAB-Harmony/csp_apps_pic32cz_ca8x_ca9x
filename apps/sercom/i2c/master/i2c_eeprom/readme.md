@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA90 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA80 family
 title: SERCOM I2C EEPROM read write 
 has_children: false
 has_toc: false
@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cz_ca90_curiosity_ultra.X    | MPLABX Project for [PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca80_curiosity_ultra.X    | MPLABX Project for [PIC32CZ CA80 Curiosity Ultra board]()|
 |||
 
 ## Setting up the hardware
@@ -35,10 +35,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cz_ca90_curiosity_ultra.X    | [PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca80_curiosity_ultra.X    | [PIC32CZ CA80 Curiosity Ultra board]()|
 |||
 
-### Setting up [PIC32CZ CA90 Curiosity Ultra board]()
+### Setting up [PIC32CZ CA80 Curiosity Ultra board]()
 
 - Connect [mikroBUS Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) to EXT1 header
 - Plug the [EEPROM 3 click Board](https://www.mikroe.com/eeprom-3-click) into the MikroBus socket of the [mikroBUS Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/ATMBUSADAPTER-XPRO)
@@ -55,5 +55,5 @@ The following table shows the LED name:
 
 | Board      |LED Name   |
 | ---------- | ----------- |
-| [PIC32CZ CA90 Curiosity Ultra board]()    | LED0 |
+| [PIC32CZ CA80 Curiosity Ultra board]()    | LED0 |
 ||||

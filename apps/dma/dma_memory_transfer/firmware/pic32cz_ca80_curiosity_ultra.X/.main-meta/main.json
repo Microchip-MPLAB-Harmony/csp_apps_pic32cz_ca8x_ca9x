@@ -1,0 +1,80 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_dmac_memory_transfer",
+		"version": "3.0.0",
+		"displayName": "DMAC memory transfer Example for PIC32CZ_CA Family",
+		"projectName": "dma_memory_transfer_pic32cz_ca80_curiosity_ultra",
+		"shortDescription": "This example application demonstrates how to use the DMAC peripheral to do a memory to memory transfer.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.00.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.1.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32CZ-CA80_DFP",
+			"semverRange": "^1.0.14"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.8.0"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32CZ8110CA80208",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit",
+				"PIC32CZ-CA80 Curiosity Ultra board"
+			],
+			[
+				"Harmony",
+				"Peripherals",
+				"DMAC"
+			],
+			[
+				"Peripherals",
+				"DMAC"
+			]
+		],
+		"peripherals": [
+			"DMAC"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32CZ8110CA80208",
+			"PIC32CZ_CA Family",
+			"DMA",
+			"Direct Memory Access",
+			"DMA Memory Transfer",
+			"DMA Controller"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}

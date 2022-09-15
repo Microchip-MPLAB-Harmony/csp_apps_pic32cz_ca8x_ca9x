@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ-CA90 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ-CA80 family
 title: TRAM erase on tamper detect 
 has_children: false
 has_toc: false
@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cz_ca90_curiosity_ultra.X  | MPLABX project for [PIC32CZ-CA90 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/ |
+| pic32cz_ca80_curiosity_ultra.X  | MPLABX project for [PIC32CZ-CA80 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/ |
 |||
 
 ## Setting up the hardware
@@ -35,10 +35,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cz_ca90_curiosity_ultra.X    | [PIC32CZ-CA90 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)|
+| pic32cz_ca80_curiosity_ultra.X    | [PIC32CZ-CA80 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)|
 |||
 
-### Setting up [PIC32CZ-CA90 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)
+### Setting up [PIC32CZ-CA80 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)
 
 - Connect the Debug USB port on the board to the computer using a micro USB cable
 
@@ -60,7 +60,7 @@ The following table shows the target hardware for the application projects.
 
 | Board      | Switch Name | LED Name |
 | ---------- | ---------| ------------|
-| [PIC32CZ CA90 Curiosity Ultra board]()    | SW0 | LED0 |
+| [PIC32CZ CA80 Curiosity Ultra board]()    | SW0 | LED0 |
 
 6. Console will output the current value of TRAM (Observe that the TRAM values now read zero indicating a erasure of the TRAM content)
 

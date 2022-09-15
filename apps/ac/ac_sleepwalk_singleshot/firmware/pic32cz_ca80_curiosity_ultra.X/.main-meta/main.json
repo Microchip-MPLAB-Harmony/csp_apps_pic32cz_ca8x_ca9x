@@ -1,0 +1,81 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_ac_sleepwalk_singleshot",
+		"version": "3.0.0",
+		"displayName": "AC Sleepwalking Example for PIC32CZ_CA Family",
+		"projectName": "ac_sleepwalk_singleshot_pic32cz_ca80_curiosity_ultra",
+		"shortDescription": "This example application shows how to use the AC Peripheral library to perform a single shot comparison in standby sleep mode periodically and wake up the device when the comparator output toggles.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.00.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.1.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32CZ-CA80_DFP",
+			"semverRange": "^1.0.14"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.8.0"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32CZ8110CA80208",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit",
+				"PIC32CZ-CA80 Curiosity Ultra board"
+			],
+			[
+				"Harmony",
+				"Peripherals",
+				"AC"
+			],
+			[
+				"Peripherals",
+				"AC"
+			]
+		],
+		"peripherals": [
+			"AC"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32CZ8110CA80208",
+			"PIC32CZ_CA Family",
+			"AC voltage",
+			"AC",
+			"Analog Comparator",
+			"Comparator",
+			"Analog"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}

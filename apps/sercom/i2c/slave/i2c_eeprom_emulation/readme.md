@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA90 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA80 family
 title: SERCOM I2C EEPROM emulation (I2C slave) 
 has_children: false
 has_toc: false
@@ -39,7 +39,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cz_ca90_curiosity_ultra.X    | MPLABX Project for [PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca80_curiosity_ultra.X    | MPLABX Project for [PIC32CZ CA80 Curiosity Ultra board]()|
 |||
 
 ## Setting up the hardware
@@ -48,10 +48,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cz_ca90_curiosity_ultra.X    | [PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca80_curiosity_ultra.X    | [PIC32CZ CA80 Curiosity Ultra board]()|
 |||
 
-### Setting up [PIC32CZ CA90 Curiosity Ultra board]()
+### Setting up [PIC32CZ CA80 Curiosity Ultra board]()
 
 - On EXT1 header, connect I2C SDA line on Pin 11 (PA08) and I2C SCL line on Pin 12 (PA09) with the corresponding SDA and SCL lines of the I2C master
 - Connect a ground wire from Pin 2 of EXT1 to the ground of the I2C master

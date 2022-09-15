@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cz_ca90_curiosity_ultra.X    | MPLABX Project for [PIC32CZ-CA90 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)|
+| pic32cz_ca80_curiosity_ultra.X    | MPLABX Project for [PIC32CZ-CA80 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)|
 |||
 
 ## Setting up the hardware
@@ -35,10 +35,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cz_ca90_curiosity_ultra.X    | [PIC32CZ-CA90 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)|
+| pic32cz_ca80_curiosity_ultra.X    | [PIC32CZ-CA80 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)|
 |||
 
-### Setting up [PIC32CZ-CA90 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)
+### Setting up [PIC32CZ-CA80 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/)
 
 - Connect the Debug USB port on the board to the computer using a micro USB cable
 
@@ -49,7 +49,7 @@ The following table shows the target hardware for the application projects.
 3. Observe the dead time between the high side (**1us**) and the low side (**0.5us**)
 4. Observe the pwm frequency to be **30 KHz**
 
-[PIC32CZ-CA90 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/) pin details:
+[PIC32CZ-CA80 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/) pin details:
 
 |Signal Name| Pad   | Pin |
 |-----------|-------|-----|
@@ -57,6 +57,6 @@ The following table shows the target hardware for the application projects.
 | CH1-PWML  | PA23  | Pin 8 of EXT2 connector |
 
 
-[PIC32CZ-CA90 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/) waveforms:
+[PIC32CZ-CA80 Curiosity Ultra board](https://www.microchip.com/developmenttools/ProductDetails/) waveforms:
 
   ![output](images/output_tcc_synchronous_pwm_channels.png)

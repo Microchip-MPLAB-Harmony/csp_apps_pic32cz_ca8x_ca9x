@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ-CA90 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ-CA80 family
 title: TCC capture mode 
 has_children: false
 has_toc: false
@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cz_ca90_curiosity_ultra.X    | MPLABX Project for [PIC32CZ-CA90 curiosity ultra board](https://www.microchip.com/developmenttools/productdetails/)|
+| pic32cz_ca80_curiosity_ultra.X    | MPLABX Project for [PIC32CZ-CA80 curiosity ultra board](https://www.microchip.com/developmenttools/productdetails/)|
 |||
 
 ## Setting up the hardware
@@ -35,10 +35,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cz_ca90_curiosity_ultra.X    | [PIC32CZ-CA90 curiosity ultra board](https://www.microchip.com/developmenttools/productdetails/)|
+| pic32cz_ca80_curiosity_ultra.X    | [PIC32CZ-CA80 curiosity ultra board](https://www.microchip.com/developmenttools/productdetails/)|
 |||
 
-### Setting up [PIC32CZ-CA90 curiosity ultra board](https://www.microchip.com/developmenttools/productdetails/)
+### Setting up [PIC32CZ-CA80 curiosity ultra board](https://www.microchip.com/developmenttools/productdetails/)
 
 - Connect the Debug USB port on the board to the computer using a micro USB cable
 - Connect a wire from Pin 11 on EXT2 to RX Pin of any USB to UART converter (for eg: [USB UART click board](https://www.mikroe.com/usb-uart-click))

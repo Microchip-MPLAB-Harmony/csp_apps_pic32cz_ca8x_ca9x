@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA90 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA80 family
 title: SERCOM SPI Master read write test application
 has_children: false
 has_toc: false
@@ -36,7 +36,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cz_ca90_curiosity_ultra.X    | MPLABX Project for [PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca80_curiosity_ultra.X    | MPLABX Project for [PIC32CZ CA80 Curiosity Ultra board]()|
 |||
 
 ## Setting up the hardware
@@ -45,12 +45,12 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cz_ca90_curiosity_ultra.X    | [PIC32CZ CA90 Curiosity Ultra board]()|
+| pic32cz_ca80_curiosity_ultra.X    | [PIC32CZ CA80 Curiosity Ultra board]()|
 |||
 
-### Setting up [PIC32CZ CA90 Curiosity Ultra board]()
+### Setting up [PIC32CZ CA80 Curiosity Ultra board]()
 
-- To run this demo two [PIC32CZ CA90 Curiosity Ultra board]() are required. One will be progammed as SPI master and other will be programmed as SPI slave.
+- To run this demo two [PIC32CZ CA80 Curiosity Ultra board]() are required. One will be progammed as SPI master and other will be programmed as SPI slave.
 - Connect Pin 15, 16, 17, 18 on EXT2 of SPI slave to Pin 15, 16, 17, 18 on EXT2 of SPI master 
     - Pin 15 - SPI Chip Select
     - Pin 16 - MOSI
@@ -72,6 +72,6 @@ Following table provides the Switch and LED name:
 
 | Board      | Switch Name | LED Name |
 | ---------- | ---------------- |--------- |
-| [PIC32CZ CA90 Curiosity Ultra board]() | SW0 | LED0 |
+| [PIC32CZ CA80 Curiosity Ultra board]() | SW0 | LED0 |
 |||
 
