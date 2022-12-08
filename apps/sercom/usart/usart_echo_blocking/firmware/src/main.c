@@ -79,22 +79,22 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     /* Send start message */
-    SERCOM5_USART_Write(&messageStart[0], sizeof(messageStart));
+    SERCOM1_USART_Write(&messageStart[0], sizeof(messageStart));
     
     while ( true )
     {
         /* Check if there is a received character */
-        if(SERCOM5_USART_ReceiverIsReady() == true)
+        if(SERCOM1_USART_ReceiverIsReady() == true)
         {
-            if(SERCOM5_USART_ErrorGet() == USART_ERROR_NONE)
+            if(SERCOM1_USART_ErrorGet() == USART_ERROR_NONE)
             {
-                SERCOM5_USART_Read(&data, 1);
+                SERCOM1_USART_Read(&data, 1);
 
                 if((data == '\n') || (data == '\r'))
                 {
-                    SERCOM5_USART_Write(&newline[0],sizeof(newline));
-                    SERCOM5_USART_Write(&receiveBuffer[0],rxCounter);
-                    SERCOM5_USART_Write(&newline[0],sizeof(newline));
+                    SERCOM1_USART_Write(&newline[0],sizeof(newline));
+                    SERCOM1_USART_Write(&receiveBuffer[0],rxCounter);
+                    SERCOM1_USART_Write(&newline[0],sizeof(newline));
                     rxCounter = 0;
                     LED0_Toggle();
                 }
@@ -105,7 +105,7 @@ int main ( void )
             }
             else
             {
-                SERCOM5_USART_Write(&errorMessage[0],sizeof(errorMessage));
+                SERCOM1_USART_Write(&errorMessage[0],sizeof(errorMessage));
             }
         }
     }

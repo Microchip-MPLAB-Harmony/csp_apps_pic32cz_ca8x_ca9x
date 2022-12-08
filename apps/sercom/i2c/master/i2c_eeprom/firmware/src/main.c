@@ -99,7 +99,7 @@ void APP_I2CCallback(uintptr_t context )
 {
     APP_TRANSFER_STATUS* transferStatus = (APP_TRANSFER_STATUS*)context;
 
-    if(SERCOM0_I2C_ErrorGet() == SERCOM_I2C_ERROR_NONE)
+    if(SERCOM5_I2C_ErrorGet() == SERCOM_I2C_ERROR_NONE)
     {
         if (transferStatus)
         {
@@ -138,11 +138,11 @@ int main ( void )
             case APP_STATE_EEPROM_STATUS_VERIFY:
 
                 /* Register the TWIHS Callback with transfer status as context */
-                SERCOM0_I2C_CallbackRegister( APP_I2CCallback, (uintptr_t)&transferStatus );
+                SERCOM5_I2C_CallbackRegister( APP_I2CCallback, (uintptr_t)&transferStatus );
 
                /* Verify if EEPROM is ready to accept new requests */
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                SERCOM0_I2C_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
+                SERCOM5_I2C_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
 
                 state = APP_STATE_EEPROM_WRITE;
                 break;
@@ -153,7 +153,7 @@ int main ( void )
                 {
                     /* Write data to EEPROM */
                     transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    SERCOM0_I2C_Write(APP_AT24MAC_DEVICE_ADDR, &testTxData[0], APP_TRANSMIT_DATA_LENGTH);
+                    SERCOM5_I2C_Write(APP_AT24MAC_DEVICE_ADDR, &testTxData[0], APP_TRANSMIT_DATA_LENGTH);
                     state = APP_STATE_EEPROM_WAIT_WRITE_COMPLETE;
                 }
                 else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
@@ -170,7 +170,7 @@ int main ( void )
                 {
                     /* Read the status of internal write cycle */
                     transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    SERCOM0_I2C_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
+                    SERCOM5_I2C_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
                     state = APP_STATE_EEPROM_CHECK_INTERNAL_WRITE_STATUS;
                 }
                 else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
@@ -189,7 +189,7 @@ int main ( void )
                 {
                     /* EEPROM's internal write cycle is not complete. Keep checking. */
                     transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    SERCOM0_I2C_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
+                    SERCOM5_I2C_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
                 }
                 break;
 
@@ -197,7 +197,7 @@ int main ( void )
 
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
                 /* Read the data from the page written earlier */
-                SERCOM0_I2C_WriteRead(APP_AT24MAC_DEVICE_ADDR, &testTxData[0], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &testRxData[0], APP_RECEIVE_DATA_LENGTH);
+                SERCOM5_I2C_WriteRead(APP_AT24MAC_DEVICE_ADDR, &testTxData[0], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &testRxData[0], APP_RECEIVE_DATA_LENGTH);
 
                 state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
 

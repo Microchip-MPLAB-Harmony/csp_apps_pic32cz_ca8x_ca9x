@@ -59,6 +59,14 @@ void NVIC_Initialize( void )
 
     /* Enable the interrupt sources and configure the priorities as configured
      * from within the "Interrupt Manager" of MHC. */
+    NVIC_SetPriority(RTC_TAMPER_IRQn, 7);
+    NVIC_EnableIRQ(RTC_TAMPER_IRQn);
+    NVIC_SetPriority(RTC_OVF_IRQn, 7);
+    NVIC_EnableIRQ(RTC_OVF_IRQn);
+    NVIC_SetPriority(RTC_PERIOD_IRQn, 7);
+    NVIC_EnableIRQ(RTC_PERIOD_IRQn);
+    NVIC_SetPriority(RTC_COMPARE_IRQn, 7);
+    NVIC_EnableIRQ(RTC_COMPARE_IRQn);
 
     /* Enable Usage fault */
     SCB->SHCSR |= (SCB_SHCSR_USGFAULTENA_Msk);

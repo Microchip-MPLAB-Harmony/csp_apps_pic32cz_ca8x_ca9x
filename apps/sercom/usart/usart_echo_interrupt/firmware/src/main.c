@@ -75,7 +75,7 @@ void APP_WriteCallback(uintptr_t context)
 
 void APP_ReadCallback(uintptr_t context)
 {
-    if(SERCOM5_USART_ErrorGet() != USART_ERROR_NONE)
+    if(SERCOM1_USART_ErrorGet() != USART_ERROR_NONE)
     {
         /* ErrorGet clears errors, set error flag to notify console */
         errorStatus = true;
@@ -98,9 +98,9 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     /* Register callback functions and send start message */
-    SERCOM5_USART_WriteCallbackRegister(APP_WriteCallback, 0);
-    SERCOM5_USART_ReadCallbackRegister(APP_ReadCallback, 0);
-    SERCOM5_USART_Write(&messageStart[0], sizeof(messageStart));
+    SERCOM1_USART_WriteCallbackRegister(APP_WriteCallback, 0);
+    SERCOM1_USART_ReadCallbackRegister(APP_ReadCallback, 0);
+    SERCOM1_USART_Write(&messageStart[0], sizeof(messageStart));
 
     while ( true )
     {
@@ -108,7 +108,7 @@ int main ( void )
         {
             /* Send error message to console */
             errorStatus = false;
-            SERCOM5_USART_Write(&messageError[0], sizeof(messageError));
+            SERCOM1_USART_Write(&messageError[0], sizeof(messageError));
         }
         else if(readStatus == true)
         {
@@ -121,14 +121,14 @@ int main ( void )
             echoBuffer[RX_BUFFER_SIZE+2] = '\n';
             echoBuffer[RX_BUFFER_SIZE+3] = '\r';
 
-            SERCOM5_USART_Write(&echoBuffer[0], sizeof(echoBuffer));
+            SERCOM1_USART_Write(&echoBuffer[0], sizeof(echoBuffer));
             LED0_Toggle();
         }
         else if(writeStatus == true)
         {
             /* Submit buffer to read user data */
             writeStatus = false;
-            SERCOM5_USART_Read(&receiveBuffer[0], sizeof(receiveBuffer));
+            SERCOM1_USART_Read(&receiveBuffer[0], sizeof(receiveBuffer));
         }
         else
         {

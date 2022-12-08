@@ -41,14 +41,11 @@ The following table shows the target hardware for the application projects.
 ### Setting up [PIC32CZ CA80 Curiosity Ultra board]()
 
 - Connect the Debug USB port on the board to the computer using a micro USB cable
-- Connect a wire from Pin 11 on EXT2 to Pin 14 on Mikrobus Xplained board
-- Connect a wire from Pin 12 on EXT2 to Pin 15 on Mikrobus Xplained board
-- Connect VCC and GND between EXT2 and Mikrobus Xplained board
 
 ## Running the Application
 
 1. Open the Terminal application (Ex.:Tera term) on the computer
-2. Connect to the EDBG Virtual COM port and configure the serial settings as follows:
+2. Connect to the PKOB4 Virtual COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None

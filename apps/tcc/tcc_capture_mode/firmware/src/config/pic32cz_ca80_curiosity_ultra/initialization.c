@@ -351,13 +351,13 @@ void SYS_Initialize ( void* data )
 
     TCC1_CaptureInitialize();
 
+    SERCOM1_USART_Initialize();
+
     TCC0_CompareInitialize();
 
     EVSYS_Initialize();
 
 	SYSTICK_TimerInitialize();
-    SERCOM5_USART_Initialize();
-
     EIC_Initialize();
 
 

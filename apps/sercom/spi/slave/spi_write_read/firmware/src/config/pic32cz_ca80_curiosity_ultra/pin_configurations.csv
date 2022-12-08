@@ -19,7 +19,7 @@
 22,PE06,,Available,,,,,,NORMAL
 23,PE07,,Available,,,,,,NORMAL
 24,PA07,,Available,,,,,,NORMAL
-25,PA08,,Available,,,,,,NORMAL
+25,PA08,GPIO_PA08,GPIO,Digital,Out,Low,,,NORMAL
 26,PA09,,Available,,,,,,NORMAL
 27,PE08,,Available,,,,,,NORMAL
 28,PE09,,Available,,,,,,NORMAL
@@ -40,7 +40,7 @@
 45,PA15,,Available,,,,,,NORMAL
 48,PA16,,Available,,,,,,NORMAL
 49,PA17,,Available,,,,,,NORMAL
-50,PA18,,ADC_VINP16,Analog,High Impedance,n/a,,,NORMAL
+50,PA18,,Available,,,,,,NORMAL
 51,PA19,,Available,,,,,,NORMAL
 52,PA20,,Available,,,,,,NORMAL
 53,PB00,,Available,,,,,,NORMAL
@@ -52,7 +52,7 @@
 59,PB20,,Available,,,,,,NORMAL
 62,PB04,,Available,,,,,,NORMAL
 63,PB05,,Available,,,,,,NORMAL
-66,PB21,,Available,,,,,,NORMAL
+66,PB21,LED0,GPIO,Digital,Out,High,,,NORMAL
 67,PB06,,Available,,,,,,NORMAL
 68,PB22,,Available,,,,,,NORMAL
 69,PB23,,Available,,,,,,NORMAL
@@ -99,10 +99,10 @@
 119,PC23,,Available,,,,,,NORMAL
 120,PC24,,Available,,,,,,NORMAL
 121,PC09,,Available,,,,,,NORMAL
-122,PC25,,SERCOM5_PAD0,Digital,High Impedance,n/a,No,No,NORMAL
+122,PC25,,Available,,,,,,NORMAL
 125,PC30,,Available,,,,,,NORMAL
 126,PC31,,Available,,,,,,NORMAL
-127,PC26,,SERCOM5_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
+127,PC26,,Available,,,,,,NORMAL
 128,PG00,,Available,,,,,,NORMAL
 129,PG05,,Available,,,,,,NORMAL
 130,PG06,,Available,,,,,,NORMAL
@@ -118,11 +118,11 @@
 142,PC27,,Available,,,,,,NORMAL
 143,PG03,,Available,,,,,,NORMAL
 144,PC28,,Available,,,,,,NORMAL
-145,PC12,,Available,,,,,,NORMAL
-146,PC13,,Available,,,,,,NORMAL
+145,PC12,,SERCOM3_PAD0,Digital,High Impedance,n/a,No,No,NORMAL
+146,PC13,,SERCOM3_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
 147,PC29,,Available,,,,,,NORMAL
-148,PC14,,Available,,,,,,NORMAL
-149,PC15,,Available,,,,,,NORMAL
+148,PC14,,SERCOM3_PAD2,Digital,High Impedance,n/a,No,No,NORMAL
+149,PC15,,SERCOM3_PAD3,Digital,High Impedance,n/a,No,No,NORMAL
 153,PC17,,Available,,,,,,NORMAL
 154,PC18,,Available,,,,,,NORMAL
 155,PC19,,Available,,,,,,NORMAL

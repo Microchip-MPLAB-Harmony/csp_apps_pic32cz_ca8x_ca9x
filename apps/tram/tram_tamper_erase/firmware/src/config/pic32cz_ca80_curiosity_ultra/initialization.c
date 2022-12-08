@@ -349,11 +349,11 @@ void SYS_Initialize ( void* data )
 
 
 
+    SERCOM1_USART_Initialize();
+
     EVSYS_Initialize();
 
 	TRAM_Initialize();
-
-    SERCOM5_USART_Initialize();
 
     RTC_Initialize();
 

@@ -326,9 +326,9 @@ void SYS_Initialize ( void* data )
 
 
 
-    SERCOM0_I2C_Initialize();
-
     EVSYS_Initialize();
+
+    SERCOM5_I2C_Initialize();
 
 
 

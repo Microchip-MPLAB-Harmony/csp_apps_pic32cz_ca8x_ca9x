@@ -63,7 +63,7 @@ uint8_t rxData[sizeof(txData)];
 volatile bool transferStatus=false;
 
 /* This function will be called by SPI PLIB when transfer is completed */
-void SERCOM2_SPI_Callback(uintptr_t context )
+void SERCOM3_SPI_Callback(uintptr_t context )
 {
     transferStatus = true;
 }
@@ -80,10 +80,10 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     /* Register callback function   */
-    SERCOM2_SPI_CallbackRegister(SERCOM2_SPI_Callback, 0);
+    SERCOM3_SPI_CallbackRegister(SERCOM3_SPI_Callback, 0);
    
     /* SPI Write Read */
-    SERCOM2_SPI_WriteRead(&txData[0], sizeof(txData), &rxData[0], sizeof(rxData));
+    SERCOM3_SPI_WriteRead(&txData[0], sizeof(txData), &rxData[0], sizeof(rxData));
 	
 	/* Busy wait on transfer status */
 	while(transferStatus != true);

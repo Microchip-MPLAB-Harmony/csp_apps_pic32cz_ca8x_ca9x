@@ -41,15 +41,12 @@ The following table shows the target hardware for the application projects.
 ### Setting up [PIC32CZ-CA80 curiosity ultra board](https://www.microchip.com/developmenttools/productdetails/)
 
 - Connect the Debug USB port on the board to the computer using a micro USB cable
-- Connect a wire from Pin 11 on EXT2 to RX Pin of any USB to UART converter (for eg: [USB UART click board](https://www.mikroe.com/usb-uart-click))
-- Connect a wire from Pin 12 on EXT2 to TX Pin on "USB to UART converter"
-- Connect VCC and GND between EXT2 and "USB to UART converter"
 - Connect Pin 6 (EIC_EXTINT10) and Pin 11 (TCC0_WO0) of EXT1 connector on the board
 
 ## Running the Application
 
 1. Open the Terminal application (Ex.:Tera term) on the computer
-2. Connect to the Virtual COM port and configure the serial settings as follows:
+2. Connect to the PKOB4 Virtual COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None

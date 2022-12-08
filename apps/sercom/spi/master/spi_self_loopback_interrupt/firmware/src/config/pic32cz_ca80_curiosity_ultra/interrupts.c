@@ -152,13 +152,13 @@ extern void SERCOM1_1_Handler          ( void ) __attribute__((weak, alias("Dumm
 extern void SERCOM1_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM1_3_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM1_4_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void SERCOM3_6_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void SERCOM3_5_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void SERCOM3_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void SERCOM3_1_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void SERCOM3_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void SERCOM3_3_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void SERCOM3_4_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_6_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_5_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_1_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_3_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_4_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM4_6_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM4_5_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM4_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -386,20 +386,20 @@ const H3DeviceVectors exception_table=
     .pfnSERCOM1_2_Handler          = SERCOM1_2_Handler,
     .pfnSERCOM1_3_Handler          = SERCOM1_3_Handler,
     .pfnSERCOM1_4_Handler          = SERCOM1_4_Handler,
-    .pfnSERCOM2_6_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_5_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_0_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_1_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_2_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_3_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_4_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM3_6_Handler          = SERCOM3_6_Handler,
-    .pfnSERCOM3_5_Handler          = SERCOM3_5_Handler,
-    .pfnSERCOM3_0_Handler          = SERCOM3_0_Handler,
-    .pfnSERCOM3_1_Handler          = SERCOM3_1_Handler,
-    .pfnSERCOM3_2_Handler          = SERCOM3_2_Handler,
-    .pfnSERCOM3_3_Handler          = SERCOM3_3_Handler,
-    .pfnSERCOM3_4_Handler          = SERCOM3_4_Handler,
+    .pfnSERCOM2_6_Handler          = SERCOM2_6_Handler,
+    .pfnSERCOM2_5_Handler          = SERCOM2_5_Handler,
+    .pfnSERCOM2_0_Handler          = SERCOM2_0_Handler,
+    .pfnSERCOM2_1_Handler          = SERCOM2_1_Handler,
+    .pfnSERCOM2_2_Handler          = SERCOM2_2_Handler,
+    .pfnSERCOM2_3_Handler          = SERCOM2_3_Handler,
+    .pfnSERCOM2_4_Handler          = SERCOM2_4_Handler,
+    .pfnSERCOM3_6_Handler          = SERCOM3_SPI_InterruptHandler,
+    .pfnSERCOM3_5_Handler          = SERCOM3_SPI_InterruptHandler,
+    .pfnSERCOM3_0_Handler          = SERCOM3_SPI_InterruptHandler,
+    .pfnSERCOM3_1_Handler          = SERCOM3_SPI_InterruptHandler,
+    .pfnSERCOM3_2_Handler          = SERCOM3_SPI_InterruptHandler,
+    .pfnSERCOM3_3_Handler          = SERCOM3_SPI_InterruptHandler,
+    .pfnSERCOM3_4_Handler          = SERCOM3_SPI_InterruptHandler,
     .pfnSERCOM4_6_Handler          = SERCOM4_6_Handler,
     .pfnSERCOM4_5_Handler          = SERCOM4_5_Handler,
     .pfnSERCOM4_0_Handler          = SERCOM4_0_Handler,

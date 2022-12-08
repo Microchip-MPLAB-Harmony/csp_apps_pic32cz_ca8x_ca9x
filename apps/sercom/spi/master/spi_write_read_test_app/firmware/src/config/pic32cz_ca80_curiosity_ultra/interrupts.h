@@ -64,6 +64,7 @@ void MemoryManagement_Handler (void);
 void BusFault_Handler (void);
 void UsageFault_Handler (void);
 void DebugMonitor_Handler (void);
+void SERCOM3_SPI_InterruptHandler (void);
 
 
 

@@ -109,7 +109,7 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
     APP_SLAVE_CS_Set();       
-    
+
     LED_Off();
     
     /* Wait for user to press the switch */
@@ -131,11 +131,11 @@ int main ( void )
                     /* Wait for the SPI slave to become ready before sending next commands */         
                     while (APP_SLAVE_BUSY_PIN_Get() == 1);
                     state = nextState;
-                }
+    }
                 break;
 
             case APP_STATE_WRITE_DATA:
-                                                          
+
                 txData[0] = APP_CMD_WRITE;
                 txData[1] = (APP_MEM_ADDR >> 8);
                 txData[2] = APP_MEM_ADDR;
@@ -170,17 +170,17 @@ int main ( void )
                     LED_On();    
                     /* Repeat the test */
                     state = APP_STATE_WRITE_DATA;
-                }
+}
                 else
                 {
                     LED_Off();
                     state = APP_STATE_ERROR;
                 }
                 break;
-                
+
             case APP_STATE_ERROR:
                 break;
-                
+
             default:
                 break;
         }
@@ -190,3 +190,4 @@ int main ( void )
 /*******************************************************************************
  End of File
 */
+
