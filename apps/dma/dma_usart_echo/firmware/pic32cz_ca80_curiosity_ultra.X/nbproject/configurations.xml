@@ -26,8 +26,8 @@
             </logicalFolder>
             <logicalFolder name="f6" displayName="sercom" projectFiles="true">
               <logicalFolder name="f1" displayName="usart" projectFiles="true">
-                <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/peripheral/sercom/usart/plib_sercom5_usart.h</itemPath>
                 <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/peripheral/sercom/usart/plib_sercom_usart_common.h</itemPath>
+                <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/peripheral/sercom/usart/plib_sercom1_usart.h</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -76,7 +76,6 @@
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/freqm.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/fuses.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/gclk.h</itemPath>
-            <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/hsm.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/mclk.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/mcramc.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/component/mlb.h</itemPath>
@@ -121,7 +120,6 @@
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/instance/freqm.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/instance/fuses.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/instance/gclk.h</itemPath>
-            <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/instance/hsm.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/instance/mclk.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/instance/mcramc.h</itemPath>
             <itemPath>../src/packs/PIC32CZ8110CA80208_DFP/instance/mlb.h</itemPath>
@@ -228,9 +226,9 @@
             <logicalFolder name="f5" displayName="port" projectFiles="true">
               <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/peripheral/port/plib_port.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="sercom" projectFiles="true">
-              <logicalFolder name="f1" displayName="usart" projectFiles="true">
-                <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/peripheral/sercom/usart/plib_sercom5_usart.c</itemPath>
+            <logicalFolder name="sercom" displayName="sercom" projectFiles="true">
+              <logicalFolder name="usart" displayName="usart" projectFiles="true">
+                <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/peripheral/sercom/usart/plib_sercom1_usart.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -258,14 +256,14 @@
         <targetDevice>PIC32CZ8110CA80208</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>ICD4Tool</platformTool>
+        <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.10</languageToolchainVersion>
+        <languageToolchainVersion>4.20</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
-        <pack name="PIC32CZ-CA80_DFP" vendor="Microchip" version="1.0.14"/>
+        <pack name="PIC32CZ-CA80_DFP" vendor="Microchip" version="1.0.17"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -321,6 +319,7 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -377,6 +376,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -416,6 +416,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -444,6 +445,7 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
+        <property key="appendMe" value=""/>
         <property key="common-include-directories" value=""/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>

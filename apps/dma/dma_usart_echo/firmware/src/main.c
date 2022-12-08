@@ -98,7 +98,7 @@ int main ( void )
     
     /* Clean cache before submitting DMA request, to move data from data cache to main memory */
     DCACHE_CLEAN_BY_ADDR((uint32_t *)startMessage, strlen(startMessage));
-    DMA_ChannelTransfer(DMA_CHANNEL_0, startMessage, (const void *)&SERCOM5_REGS->USART_INT.SERCOM_DATA, strlen(startMessage));
+    DMA_ChannelTransfer(DMA_CHANNEL_0, startMessage, (const void *)&SERCOM1_REGS->USART_INT.SERCOM_DATA, strlen(startMessage));
             
     while ( true )
     {
@@ -114,7 +114,7 @@ int main ( void )
             /* Clean cache before submitting DMA request, to move data from data cache to main memory */
             DCACHE_CLEAN_BY_ADDR((uint32_t *)echoBuffer, (NUM_BYTES_TO_READ + 2));
 
-            DMA_ChannelTransfer(DMA_CHANNEL_0, echoBuffer, (const void *)&SERCOM5_REGS->USART_INT.SERCOM_DATA, (NUM_BYTES_TO_READ + 2));
+            DMA_ChannelTransfer(DMA_CHANNEL_0, echoBuffer, (const void *)&SERCOM1_REGS->USART_INT.SERCOM_DATA, (NUM_BYTES_TO_READ + 2));
             LED0_Toggle();
         }
         else if(writeComplete == true)
@@ -125,7 +125,7 @@ int main ( void )
             /* Invalidate cache lines before submitting DMA read request */
             DCACHE_INVALIDATE_BY_ADDR((uint32_t *)receiveBuffer, NUM_BYTES_TO_READ);
             
-            DMA_ChannelTransfer(DMA_CHANNEL_1, (const void *)&SERCOM5_REGS->USART_INT.SERCOM_DATA, receiveBuffer, NUM_BYTES_TO_READ);            
+            DMA_ChannelTransfer(DMA_CHANNEL_1, (const void *)&SERCOM1_REGS->USART_INT.SERCOM_DATA, receiveBuffer, NUM_BYTES_TO_READ);            
         }
         else
         {
