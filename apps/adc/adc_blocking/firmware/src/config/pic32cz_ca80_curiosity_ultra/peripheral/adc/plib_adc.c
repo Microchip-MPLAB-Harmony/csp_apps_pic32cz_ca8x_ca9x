@@ -56,7 +56,7 @@
 void ADC_Initialize(void)
 {
     /* Copy calibration value for all the enabled ADC cores */
-    //ADC_REGS->CONFIG[1].ADC_CALCTRL = ADC_CALIB_FCCFG65;
+    ADC_REGS->CONFIG[1].ADC_CALCTRL = ADC_CALIB_FCCFG65;
 
     /*
     ONDEMAND = false
