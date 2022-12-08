@@ -47,7 +47,7 @@ The following table shows the target hardware for the application projects.
 ## Running the Application
 
 1. Build and Program the application using its IDE
-2. Connect to the Virtual COM port and configure the serial settings as follows:
+2. Connect to the PKOB4 Virtual COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None

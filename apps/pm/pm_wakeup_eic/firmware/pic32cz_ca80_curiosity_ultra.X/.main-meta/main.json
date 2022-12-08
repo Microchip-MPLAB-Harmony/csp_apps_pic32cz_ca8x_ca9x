@@ -10,12 +10,12 @@
 		"shortDescription": "This application demonstrates entering the low power modes and exiting it using the EIC.",
 		"ide": {
 			"name": "MPLABX",
-			"semverRange": ">=6.00.0"
+			"semverRange": ">=6.05.0"
 		},
 		"compiler": [
 			{
 				"name": "XC32",
-				"semverRange": ">=4.1.0"
+				"semverRange": ">=4.2.0"
 			}
 		],
 		"dfp": {
@@ -23,8 +23,8 @@
 			"semverRange": "^5.4.0"
 		},
 		"configurator": {
-			"name": "MHC",
-			"semverRange": ">=3.8.0"
+			"name": "MCC",
+			"semverRange": ">=5.2.2"
 		},
 		"device": {
 			"metaDataVersion": "1.0.0",

@@ -74,7 +74,7 @@ bool FCR_Read( uint32_t *data, uint32_t length, const uint32_t address )
 
 bool FCR_CRCCalculate (uint32_t startAddress, size_t length, uint32_t crcSeed, uint32_t * crc)
 {
-    // Clear CRC Registers
+	// Clear CRC Registers
     FCR_REGS->FCR_CRCCTRL |= FCR_CRCCTRL_CRCRST(1U);
     while((FCR_REGS->FCR_CRCCTRL & FCR_CRCCTRL_CRCRST_Msk) == 1U)
     {

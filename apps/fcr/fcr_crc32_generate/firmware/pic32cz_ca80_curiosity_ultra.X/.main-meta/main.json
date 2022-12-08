@@ -3,11 +3,11 @@
 	"category": "com.microchip.ide.project",
 	"content": {
 		"metaDataVersion": "1.1.0",
-		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_CAN_Normal_Operation_blocking",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_fcr_crc32_generate",
 		"version": "3.0.0",
-		"displayName": "CAN Normal Operation_blocking Example for PIC32CZ_CA Family",
-		"projectName": "can_normal_operation_blocking_pic32cz_ca80_curiosity_ultra",
-		"shortDescription": "This example application shows how to use the CAN module to transmit and receive normal CAN messages in polling mode.",
+		"displayName": "FCR crc32 generate Example for PIC32CZ_CA Family",
+		"projectName": "fcr_crc32_generate_pic32cz_ca80_curiosity_ultra",
+		"shortDescription": "This example application demonstrates how to use the FCR Peripheral library to compute 32-bit Cyclic Redundancy Checksum (CRC).",
 		"ide": {
 			"name": "MPLABX",
 			"semverRange": ">=6.05.0"
@@ -45,25 +45,24 @@
 			[
 				"Harmony",
 				"Peripherals",
-				"CAN"
+				"FCR"
 			],
 			[
 				"Peripherals",
-				"CAN"
+				"FCR"
 			]
 		],
 		"peripherals": [
-			"CAN"
+			"FCR"
 		],
 		"keywords": [
 			"MHC",
 			"Harmony",
 			"PIC32CZ8110CA80208",
 			"PIC32CZ_CA Family",
-			"CAN",
-			"CAN Normal Operation",
-			"Controller Area Network",
-			"CAN Blocking",
+			"Memory",
+			"Flash",
+			"FCR"
 		],
 		"additionalData": {
 			"longDescription": {
