@@ -65,15 +65,6 @@
 // *****************************************************************************
 // *****************************************************************************
 
-/*** Macros for GPIO_PB28 pin ***/
-#define GPIO_PB28_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 28U))
-#define GPIO_PB28_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 28U))
-#define GPIO_PB28_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 28U))
-#define GPIO_PB28_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 28U))
-#define GPIO_PB28_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 28U))
-#define GPIO_PB28_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 28U)) & 0x01U)
-#define GPIO_PB28_PIN                  PORT_PIN_PB28
-
 // *****************************************************************************
 /* PORT Group
 
