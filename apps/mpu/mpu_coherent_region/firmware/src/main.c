@@ -57,11 +57,11 @@
 #define LED_OFF                     LED_Set
 #define LED_TOGGLE                  LED_Toggle
 
-#define SERCOM5_USART_TRANSMIT_CHANNEL     DMA_CHANNEL_0
-#define SERCOM5_USART_RECEIVE_CHANNEL      DMA_CHANNEL_1
+#define SERCOM1_USART_TRANSMIT_CHANNEL     DMA_CHANNEL_0
+#define SERCOM1_USART_RECEIVE_CHANNEL      DMA_CHANNEL_1
 
-#define SERCOM5_USART_TRANSMIT_ADDRESS     (&SERCOM5_REGS->USART_INT.SERCOM_DATA)
-#define SERCOM5_USART_RECEIVE_ADDRESS      (&SERCOM5_REGS->USART_INT.SERCOM_DATA)
+#define SERCOM1_USART_TRANSMIT_ADDRESS     (&SERCOM1_REGS->USART_INT.SERCOM_DATA)
+#define SERCOM1_USART_RECEIVE_ADDRESS      (&SERCOM1_REGS->USART_INT.SERCOM_DATA)
 
 #define WRITE_SIZE                  400
 #define READ_SIZE                   10
@@ -118,10 +118,10 @@ handle cache coherency ****\r\n**** Type a buffer of 10 characters and observe \
 it echo back ****\r\n**** LED toggles on each time buffer is echoed ****\r\n");
 
     /* Register callback functions for both write and read contexts */
-    DMA_ChannelCallbackRegister(SERCOM5_USART_TRANSMIT_CHANNEL, DMA_Callback, 0);
-    DMA_ChannelCallbackRegister(SERCOM5_USART_RECEIVE_CHANNEL, DMA_Callback, 1);
+    DMA_ChannelCallbackRegister(SERCOM1_USART_TRANSMIT_CHANNEL, DMA_Callback, 0);
+    DMA_ChannelCallbackRegister(SERCOM1_USART_RECEIVE_CHANNEL, DMA_Callback, 1);
 
-    DMA_ChannelTransfer(SERCOM5_USART_TRANSMIT_CHANNEL, writeBuffer, (const void *)SERCOM5_USART_TRANSMIT_ADDRESS, strlen(writeBuffer));
+    DMA_ChannelTransfer(SERCOM1_USART_TRANSMIT_CHANNEL, writeBuffer, (const void *)SERCOM1_USART_TRANSMIT_ADDRESS, strlen(writeBuffer));
 
     while ( true )
     {
@@ -130,7 +130,7 @@ it echo back ****\r\n**** LED toggles on each time buffer is echoed ****\r\n");
             /* Send error message to console.
              * Using USART directly to since DMA is in error condition */
             errorStatus = false;
-            SERCOM5_USART_Write(failureMessage, sizeof(failureMessage));
+            SERCOM1_USART_Write(failureMessage, sizeof(failureMessage));
         }
         else if(readStatus == true)
         {
@@ -141,14 +141,14 @@ it echo back ****\r\n**** LED toggles on each time buffer is echoed ****\r\n");
             echoBuffer[READ_SIZE] = '\r';
             echoBuffer[READ_SIZE+1] = '\n';
 
-            DMA_ChannelTransfer(SERCOM5_USART_TRANSMIT_CHANNEL, echoBuffer, (const void *)SERCOM5_USART_TRANSMIT_ADDRESS, (READ_SIZE+2));
+            DMA_ChannelTransfer(SERCOM1_USART_TRANSMIT_CHANNEL, echoBuffer, (const void *)SERCOM1_USART_TRANSMIT_ADDRESS, (READ_SIZE+2));
             LED_TOGGLE();
         }
         else if(writeStatus == true)
         {
             /* Submit buffer to read user data */
             writeStatus = false;
-            DMA_ChannelTransfer(SERCOM5_USART_RECEIVE_CHANNEL, (const void *)SERCOM5_USART_RECEIVE_ADDRESS, readBuffer, READ_SIZE);
+            DMA_ChannelTransfer(SERCOM1_USART_RECEIVE_CHANNEL, (const void *)SERCOM1_USART_RECEIVE_ADDRESS, readBuffer, READ_SIZE);
         }
         else
         {
