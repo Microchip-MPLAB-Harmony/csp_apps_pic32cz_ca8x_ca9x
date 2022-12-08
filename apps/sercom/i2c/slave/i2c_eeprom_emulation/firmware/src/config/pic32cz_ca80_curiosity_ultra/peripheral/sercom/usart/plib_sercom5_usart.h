@@ -1,18 +1,22 @@
 /*******************************************************************************
-  NVIC PLIB Implementation
+  SERCOM Universal Synchronous/Asynchrnous Receiver/Transmitter PLIB
 
-  Company:
+  Company
     Microchip Technology Inc.
 
-  File Name:
-    plib_nvic.c
+  File Name
+    plib_sercom5_usart.h
 
-  Summary:
-    NVIC PLIB Source File
+  Summary
+    USART peripheral library interface.
 
-  Description:
-    None
+  Description
+    This file defines the interface to the USART peripheral library. This
+    library provides access to and control of the associated peripheral
+    instance.
 
+  Remarks:
+    None.
 *******************************************************************************/
 
 /*******************************************************************************
@@ -38,64 +42,69 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#include "device.h"
-#include "plib_nvic.h"
-
+#ifndef PLIB_SERCOM5_USART_H // Guards against multiple inclusion
+#define PLIB_SERCOM5_USART_H
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: NVIC Implementation
+// Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
 
-void NVIC_Initialize( void )
-{
-    /* Priority 0 to 7 and no sub-priority. 0 is the highest priority */
-    NVIC_SetPriorityGrouping( 0x00 );
+#include "plib_sercom_usart_common.h"
 
-    /* Enable NVIC Controller */
-    __DMB();
-    __enable_irq();
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus // Provide C++ Compatibility
 
-    /* Enable the interrupt sources and configure the priorities as configured
-     * from within the "Interrupt Manager" of MHC. */
+    extern "C" {
 
-    /* Enable Usage fault */
-    SCB->SHCSR |= (SCB_SHCSR_USGFAULTENA_Msk);
-    /* Trap divide by zero */
-    SCB->CCR   |= SCB_CCR_DIV_0_TRP_Msk;
+#endif
+// DOM-IGNORE-END
 
-    /* Enable Bus fault */
-    SCB->SHCSR |= (SCB_SHCSR_BUSFAULTENA_Msk);
+// *****************************************************************************
+// *****************************************************************************
+// Section: Interface Routines
+// *****************************************************************************
+// *****************************************************************************
 
-}
+void SERCOM5_USART_Initialize( void );
 
-void NVIC_INT_Enable( void )
-{
-    __DMB();
-    __enable_irq();
-}
+bool SERCOM5_USART_SerialSetup( USART_SERIAL_SETUP * serialSetup, uint32_t clkFrequency );
 
-bool NVIC_INT_Disable( void )
-{
-    bool processorStatus = (__get_PRIMASK() == 0U);
+void SERCOM5_USART_TransmitterEnable( void );
 
-    __disable_irq();
-    __DMB();
+void SERCOM5_USART_TransmitterDisable( void );
 
-    return processorStatus;
-}
+bool SERCOM5_USART_Write( void *buffer, const size_t size );
 
-void NVIC_INT_Restore( bool state )
-{
-    if( state == true )
-    {
-        __DMB();
-        __enable_irq();
+bool SERCOM5_USART_TransmitComplete( void );
+
+
+bool SERCOM5_USART_TransmitterIsReady( void );
+
+void SERCOM5_USART_WriteByte( int data );
+
+
+void SERCOM5_USART_ReceiverEnable( void );
+
+void SERCOM5_USART_ReceiverDisable( void );
+
+bool SERCOM5_USART_Read( void *buffer, const size_t size );
+
+bool SERCOM5_USART_ReceiverIsReady( void );
+
+int SERCOM5_USART_ReadByte( void );
+
+USART_ERROR SERCOM5_USART_ErrorGet( void );
+
+uint32_t SERCOM5_USART_FrequencyGet( void );
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+
     }
-    else
-    {
-        __disable_irq();
-        __DMB();
-    }
-}
+
+#endif
+// DOM-IGNORE-END
+
+#endif //PLIB_SERCOM5_USART_H
