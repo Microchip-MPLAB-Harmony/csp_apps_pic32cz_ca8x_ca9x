@@ -279,11 +279,11 @@ int main ( void )
         }
 
         /* User input */
-        if (SERCOM5_USART_ReceiverIsReady() == false)
+        if (SERCOM1_USART_ReceiverIsReady() == false)
         {
             continue;
         }
-        user_input = (uint8_t)SERCOM5_USART_ReadByte();
+        user_input = (uint8_t)SERCOM1_USART_ReadByte();
 
         switch (user_input)
         {

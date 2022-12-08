@@ -667,6 +667,7 @@ void CAN3_InterruptClear(CAN_INTERRUPT_MASK interruptMask)
 void CAN3_MessageRAMConfigSet(uint8_t *msgRAMConfigBaseAddress)
 {
     uint32_t offset = 0U;
+    uint32_t msgRAMConfigBaseAddr = (uint32_t)msgRAMConfigBaseAddress;
 
     (void) memset(msgRAMConfigBaseAddress, 0x00, CAN3_MESSAGE_RAM_CONFIG_SIZE);
 
@@ -681,37 +682,37 @@ void CAN3_MessageRAMConfigSet(uint8_t *msgRAMConfigBaseAddress)
     CAN3_REGS->CAN_CCCR |= CAN_CCCR_CCE_Msk;
 
     /* Message RAM Base Address Offset */
-    CAN3_REGS->CAN_MRCFG = (uint32_t)msgRAMConfigBaseAddress & CAN_MRCFG_OFFSET_Msk;
+    CAN3_REGS->CAN_MRCFG = (msgRAMConfigBaseAddr & CAN_MRCFG_OFFSET_Msk);
 
-    can3Obj.msgRAMConfig.rxFIFO0Address = (can_rxf0e_registers_t *)msgRAMConfigBaseAddress;
+    can3Obj.msgRAMConfig.rxFIFO0Address = (can_rxf0e_registers_t *)msgRAMConfigBaseAddr;
     offset = CAN3_RX_FIFO0_SIZE;
     /* Receive FIFO 0 Configuration Register */
     CAN3_REGS->CAN_RXF0C = CAN_RXF0C_F0S(1UL) | CAN_RXF0C_F0WM(0UL) | CAN_RXF0C_F0OM_Msk |
             CAN_RXF0C_F0SA((uint32_t)can3Obj.msgRAMConfig.rxFIFO0Address);
 
-    can3Obj.msgRAMConfig.rxFIFO1Address = (can_rxf1e_registers_t *)(msgRAMConfigBaseAddress + offset);
+    can3Obj.msgRAMConfig.rxFIFO1Address = (can_rxf1e_registers_t *)(msgRAMConfigBaseAddr + offset);
     offset += CAN3_RX_FIFO1_SIZE;
     /* Receive FIFO 1 Configuration Register */
     CAN3_REGS->CAN_RXF1C = CAN_RXF1C_F1S(1UL) | CAN_RXF1C_F1WM(0UL) | CAN_RXF1C_F1OM_Msk |
             CAN_RXF1C_F1SA((uint32_t)can3Obj.msgRAMConfig.rxFIFO1Address);
 
-    can3Obj.msgRAMConfig.rxBuffersAddress = (can_rxbe_registers_t *)(msgRAMConfigBaseAddress + offset);
+    can3Obj.msgRAMConfig.rxBuffersAddress = (can_rxbe_registers_t *)(msgRAMConfigBaseAddr + offset);
     offset += CAN3_RX_BUFFER_SIZE;
     CAN3_REGS->CAN_RXBC = CAN_RXBC_RBSA((uint32_t)can3Obj.msgRAMConfig.rxBuffersAddress);
 
-    can3Obj.msgRAMConfig.txBuffersAddress = (can_txbe_registers_t *)(msgRAMConfigBaseAddress + offset);
+    can3Obj.msgRAMConfig.txBuffersAddress = (can_txbe_registers_t *)(msgRAMConfigBaseAddr + offset);
     offset += CAN3_TX_FIFO_BUFFER_SIZE;
     /* Transmit Buffer/FIFO Configuration Register */
     CAN3_REGS->CAN_TXBC = CAN_TXBC_TFQS(1UL) |
             CAN_TXBC_TBSA((uint32_t)can3Obj.msgRAMConfig.txBuffersAddress);
 
-    can3Obj.msgRAMConfig.txEventFIFOAddress =  (can_txefe_registers_t *)(msgRAMConfigBaseAddress + offset);
+    can3Obj.msgRAMConfig.txEventFIFOAddress =  (can_txefe_registers_t *)(msgRAMConfigBaseAddr + offset);
     offset += CAN3_TX_EVENT_FIFO_SIZE;
     /* Transmit Event FIFO Configuration Register */
     CAN3_REGS->CAN_TXEFC = CAN_TXEFC_EFWM(0UL) | CAN_TXEFC_EFS(1UL) |
             CAN_TXEFC_EFSA((uint32_t)can3Obj.msgRAMConfig.txEventFIFOAddress);
 
-    can3Obj.msgRAMConfig.stdMsgIDFilterAddress = (can_sidfe_registers_t *)(msgRAMConfigBaseAddress + offset);
+    can3Obj.msgRAMConfig.stdMsgIDFilterAddress = (can_sidfe_registers_t *)(msgRAMConfigBaseAddr + offset);
     (void) memcpy(can3Obj.msgRAMConfig.stdMsgIDFilterAddress,
            (const void *)can3StdFilter,
            CAN3_STD_MSG_ID_FILTER_SIZE);
@@ -720,7 +721,7 @@ void CAN3_MessageRAMConfigSet(uint8_t *msgRAMConfigBaseAddress)
     CAN3_REGS->CAN_SIDFC = CAN_SIDFC_LSS(2UL) |
             CAN_SIDFC_FLSSA((uint32_t)can3Obj.msgRAMConfig.stdMsgIDFilterAddress);
 
-    can3Obj.msgRAMConfig.extMsgIDFilterAddress = (can_xidfe_registers_t *)(msgRAMConfigBaseAddress + offset);
+    can3Obj.msgRAMConfig.extMsgIDFilterAddress = (can_xidfe_registers_t *)(msgRAMConfigBaseAddr + offset);
     (void) memcpy(can3Obj.msgRAMConfig.extMsgIDFilterAddress,
            (const void *)can3ExtFilter,
            CAN3_EXT_MSG_ID_FILTER_SIZE);
