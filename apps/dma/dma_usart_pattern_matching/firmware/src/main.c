@@ -104,7 +104,7 @@ int main ( void )
     DCACHE_CLEAN_BY_ADDR((uint32_t *)startMessage, strlen(startMessage));
     
     /* Transmit the startMessage before turning on the pattern match */
-    DMA_ChannelTransfer(USART_TRANSMIT_CHANNEL, (const void *)startMessage, (const void *)&SERCOM5_REGS->USART_INT.SERCOM_DATA, sizeof(startMessage));
+    DMA_ChannelTransfer(USART_TRANSMIT_CHANNEL, (const void *)startMessage, (const void *)&SERCOM1_REGS->USART_INT.SERCOM_DATA, sizeof(startMessage));
     
     while (DMA_ChannelIsBusy(USART_TRANSMIT_CHANNEL));        
         
@@ -117,7 +117,7 @@ int main ( void )
     DMA_ChannelPatternMatchSetup(USART_TRANSMIT_CHANNEL, DMA_PATTERN_MATCH_LEN_1BYTE, (uint16_t)(0x0D)); 
     
     /* Submit buffer to read user data */
-    DMA_ChannelTransfer(USART_RECEIVE_CHANNEL, (const void *)&SERCOM5_REGS->USART_INT.SERCOM_DATA, (const void *)receiveBuffer, NUM_BYTES_TO_READ);
+    DMA_ChannelTransfer(USART_RECEIVE_CHANNEL, (const void *)&SERCOM1_REGS->USART_INT.SERCOM_DATA, (const void *)receiveBuffer, NUM_BYTES_TO_READ);
         
     while ( true )
     {        
@@ -132,7 +132,7 @@ int main ( void )
             DCACHE_CLEAN_BY_ADDR((uint32_t *)echoBuffer, NUM_BYTES_TO_READ);
             
             /* Since pattern matching is enabled on DMA USART TX channel, this should terminate transfer when 0x0D is found */
-            DMA_ChannelTransfer(USART_TRANSMIT_CHANNEL, (const void *)echoBuffer, (const void *)&SERCOM5_REGS->USART_INT.SERCOM_DATA, NUM_BYTES_TO_READ);
+            DMA_ChannelTransfer(USART_TRANSMIT_CHANNEL, (const void *)echoBuffer, (const void *)&SERCOM1_REGS->USART_INT.SERCOM_DATA, NUM_BYTES_TO_READ);
             LED0_Toggle();
         }
         else if(writeComplete == true)
@@ -140,7 +140,7 @@ int main ( void )
             writeComplete = false;
             
             /* Ensure to add new line character on the console before receiving the next data from user */
-            DMA_ChannelTransfer(USART_TRANSMIT_CHANNEL, (const void *)&new_line_ch, (const void *)&SERCOM5_REGS->USART_INT.SERCOM_DATA, 1);
+            DMA_ChannelTransfer(USART_TRANSMIT_CHANNEL, (const void *)&new_line_ch, (const void *)&SERCOM1_REGS->USART_INT.SERCOM_DATA, 1);
             while(writeComplete == false);
             
             writeComplete = false;
@@ -149,7 +149,7 @@ int main ( void )
             DCACHE_INVALIDATE_BY_ADDR((uint32_t *)receiveBuffer, NUM_BYTES_TO_READ);
             
             /* Submit buffer to read user data */
-            DMA_ChannelTransfer(USART_RECEIVE_CHANNEL, (const void *)&SERCOM5_REGS->USART_INT.SERCOM_DATA, (const void *)receiveBuffer, NUM_BYTES_TO_READ);            
+            DMA_ChannelTransfer(USART_RECEIVE_CHANNEL, (const void *)&SERCOM1_REGS->USART_INT.SERCOM_DATA, (const void *)receiveBuffer, NUM_BYTES_TO_READ);            
         }
         else
         {
