@@ -1,7 +1,7 @@
 package:
   format-version: "1.0.0"
   name: "csp_apps_pic32cz_ca"
-  version: "v3.0.0-eng.1"
+  version: "v3.0.0-E1"
   type: "application"
   status: "production"
   required: true
@@ -9,6 +9,6 @@ package:
   dependencies:
     - name: "csp"
       type: "package"
-      version: "v3.15.0-eng.1"
+      version: "v3.15.0-E1"
 
 
