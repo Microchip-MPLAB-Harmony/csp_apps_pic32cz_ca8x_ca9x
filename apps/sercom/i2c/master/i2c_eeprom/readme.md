@@ -40,7 +40,7 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [PIC32CZ CA80 Curiosity Ultra board]()
 
-- Connect [mikroBUS Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) to EXT1 header
+- Connect [mikroBUS Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) to EXT2 header
 - Plug the [EEPROM 3 click Board](https://www.mikroe.com/eeprom-3-click) into the MikroBus socket of the [mikroBUS Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/ATMBUSADAPTER-XPRO)
 - Connect the Debug USB port on the board to the computer using a micro USB cable
 
