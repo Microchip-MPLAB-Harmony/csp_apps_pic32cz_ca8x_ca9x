@@ -115,7 +115,7 @@ int main ( void )
     printf("\n\r             Low power demo using RTC           ");
     printf("\n\r----------------------------------------------"); 
           
-    if(reset_cause_bkup == RSTC_BKUPEXIT_HIB_Msk)
+    if((reset_cause_bkup & RSTC_BKUPEXIT_HIB_Msk) == RSTC_BKUPEXIT_HIB_Msk)
         printf("\n\n\rDevice exited from Hibernate mode\n");
     else if(reset_cause == RSTC_RCAUSE_POR_Msk)
         printf("\n\n\rDevice exited from OFF mode\n");
