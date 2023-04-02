@@ -246,6 +246,34 @@ USART_ERROR SERCOM1_USART_ErrorGet( void )
     return errorStatus;
 }
 
+void SERCOM1_USART_Enable( void )
+{
+    if((SERCOM1_REGS->USART_INT.SERCOM_CTRLA & SERCOM_USART_INT_CTRLA_ENABLE_Msk) == 0U)
+    {
+        SERCOM1_REGS->USART_INT.SERCOM_CTRLA |= SERCOM_USART_INT_CTRLA_ENABLE_Msk;
+
+        /* Wait for sync */
+        while((SERCOM1_REGS->USART_INT.SERCOM_SYNCBUSY) != 0U)
+        {
+            /* Do nothing */
+        }
+    }
+}
+
+void SERCOM1_USART_Disable( void )
+{
+    if((SERCOM1_REGS->USART_INT.SERCOM_CTRLA & SERCOM_USART_INT_CTRLA_ENABLE_Msk) != 0U)
+    {
+        SERCOM1_REGS->USART_INT.SERCOM_CTRLA &= ~SERCOM_USART_INT_CTRLA_ENABLE_Msk;
+
+        /* Wait for sync */
+        while((SERCOM1_REGS->USART_INT.SERCOM_SYNCBUSY) != 0U)
+        {
+            /* Do nothing */
+        }
+    }
+}
+
 
 void SERCOM1_USART_TransmitterEnable( void )
 {
@@ -409,7 +437,7 @@ bool SERCOM1_USART_ReadAbort(void)
 
         /* If required application should read the num bytes processed prior to calling the read abort API */
         sercom1USARTObj.rxSize = 0U;
-		sercom1USARTObj.rxProcessedSize = 0U;
+        sercom1USARTObj.rxProcessedSize = 0U;
     }
 
     return true;
@@ -425,7 +453,7 @@ void SERCOM1_USART_ReadCallbackRegister( SERCOM_USART_CALLBACK callback, uintptr
 
 void static SERCOM1_USART_ISR_ERR_Handler( void )
 {
-    USART_ERROR errorStatus = USART_ERROR_NONE;
+    USART_ERROR errorStatus;
 
     errorStatus = (USART_ERROR) (SERCOM1_REGS->USART_INT.SERCOM_STATUS & (uint16_t)(SERCOM_USART_INT_STATUS_PERR_Msk | SERCOM_USART_INT_STATUS_FERR_Msk | SERCOM_USART_INT_STATUS_BUFOVF_Msk));
 
@@ -493,8 +521,8 @@ void static SERCOM1_USART_ISR_RX_Handler( void )
 
 void static SERCOM1_USART_ISR_TX_Handler( void )
 {
-    bool  dataRegisterEmpty= false;
-    bool  dataAvailable = false;
+    bool  dataRegisterEmpty;
+    bool  dataAvailable;
     if(sercom1USARTObj.txBusyStatus == true)
     {
         dataAvailable = (sercom1USARTObj.txProcessedSize < sercom1USARTObj.txSize);
@@ -535,7 +563,7 @@ void static SERCOM1_USART_ISR_TX_Handler( void )
 
 void SERCOM1_USART_InterruptHandler( void )
 {
-    bool testCondition = false;
+    bool testCondition;
     if(SERCOM1_REGS->USART_INT.SERCOM_INTENSET != 0U)
     {
         /* Checks for error flag */
