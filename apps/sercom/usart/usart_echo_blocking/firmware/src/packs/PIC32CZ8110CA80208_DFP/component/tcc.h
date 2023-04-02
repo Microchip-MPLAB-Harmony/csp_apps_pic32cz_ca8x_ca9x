@@ -1,7 +1,7 @@
 /*
  * Component description for TCC
  *
- * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2023 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2022-07-07T22:59:24Z */
+/* file generated from device description version 2023-03-15T02:47:26Z */
 #ifndef _PIC32CZCA80_TCC_COMPONENT_H_
 #define _PIC32CZCA80_TCC_COMPONENT_H_
 
@@ -147,18 +147,6 @@
 #define TCC_CTRLBCLR_CMD_Pos                  _UINT8_(5)                                           /* (TCC_CTRLBCLR) TCC Command Position */
 #define TCC_CTRLBCLR_CMD_Msk                  (_UINT8_(0x7) << TCC_CTRLBCLR_CMD_Pos)               /* (TCC_CTRLBCLR) TCC Command Mask */
 #define TCC_CTRLBCLR_CMD(value)               (TCC_CTRLBCLR_CMD_Msk & (_UINT8_(value) << TCC_CTRLBCLR_CMD_Pos)) /* Assigment of value for CMD in the TCC_CTRLBCLR register */
-#define   TCC_CTRLBCLR_CMD_NONE_Val           _UINT8_(0x0)                                         /* (TCC_CTRLBCLR) No action  */
-#define   TCC_CTRLBCLR_CMD_RETRIGGER_Val      _UINT8_(0x1)                                         /* (TCC_CTRLBCLR) Clear start, restart or retrigger  */
-#define   TCC_CTRLBCLR_CMD_STOP_Val           _UINT8_(0x2)                                         /* (TCC_CTRLBCLR) Force stop  */
-#define   TCC_CTRLBCLR_CMD_UPDATE_Val         _UINT8_(0x3)                                         /* (TCC_CTRLBCLR) Force update or double buffered registers  */
-#define   TCC_CTRLBCLR_CMD_READSYNC_Val       _UINT8_(0x4)                                         /* (TCC_CTRLBCLR) Force COUNT read synchronization  */
-#define   TCC_CTRLBCLR_CMD_DMAOS_Val          _UINT8_(0x5)                                         /* (TCC_CTRLBCLR) One-shot DMA trigger  */
-#define TCC_CTRLBCLR_CMD_NONE                 (TCC_CTRLBCLR_CMD_NONE_Val << TCC_CTRLBCLR_CMD_Pos)  /* (TCC_CTRLBCLR) No action Position  */
-#define TCC_CTRLBCLR_CMD_RETRIGGER            (TCC_CTRLBCLR_CMD_RETRIGGER_Val << TCC_CTRLBCLR_CMD_Pos) /* (TCC_CTRLBCLR) Clear start, restart or retrigger Position  */
-#define TCC_CTRLBCLR_CMD_STOP                 (TCC_CTRLBCLR_CMD_STOP_Val << TCC_CTRLBCLR_CMD_Pos)  /* (TCC_CTRLBCLR) Force stop Position  */
-#define TCC_CTRLBCLR_CMD_UPDATE               (TCC_CTRLBCLR_CMD_UPDATE_Val << TCC_CTRLBCLR_CMD_Pos) /* (TCC_CTRLBCLR) Force update or double buffered registers Position  */
-#define TCC_CTRLBCLR_CMD_READSYNC             (TCC_CTRLBCLR_CMD_READSYNC_Val << TCC_CTRLBCLR_CMD_Pos) /* (TCC_CTRLBCLR) Force COUNT read synchronization Position  */
-#define TCC_CTRLBCLR_CMD_DMAOS                (TCC_CTRLBCLR_CMD_DMAOS_Val << TCC_CTRLBCLR_CMD_Pos) /* (TCC_CTRLBCLR) One-shot DMA trigger Position  */
 #define TCC_CTRLBCLR_Msk                      _UINT8_(0xFF)                                        /* (TCC_CTRLBCLR) Register Mask  */
 
 
@@ -188,18 +176,6 @@
 #define TCC_CTRLBSET_CMD_Pos                  _UINT8_(5)                                           /* (TCC_CTRLBSET) TCC Command Position */
 #define TCC_CTRLBSET_CMD_Msk                  (_UINT8_(0x7) << TCC_CTRLBSET_CMD_Pos)               /* (TCC_CTRLBSET) TCC Command Mask */
 #define TCC_CTRLBSET_CMD(value)               (TCC_CTRLBSET_CMD_Msk & (_UINT8_(value) << TCC_CTRLBSET_CMD_Pos)) /* Assigment of value for CMD in the TCC_CTRLBSET register */
-#define   TCC_CTRLBSET_CMD_NONE_Val           _UINT8_(0x0)                                         /* (TCC_CTRLBSET) No action  */
-#define   TCC_CTRLBSET_CMD_RETRIGGER_Val      _UINT8_(0x1)                                         /* (TCC_CTRLBSET) Clear start, restart or retrigger  */
-#define   TCC_CTRLBSET_CMD_STOP_Val           _UINT8_(0x2)                                         /* (TCC_CTRLBSET) Force stop  */
-#define   TCC_CTRLBSET_CMD_UPDATE_Val         _UINT8_(0x3)                                         /* (TCC_CTRLBSET) Force update or double buffered registers  */
-#define   TCC_CTRLBSET_CMD_READSYNC_Val       _UINT8_(0x4)                                         /* (TCC_CTRLBSET) Force COUNT read synchronization  */
-#define   TCC_CTRLBSET_CMD_DMAOS_Val          _UINT8_(0x5)                                         /* (TCC_CTRLBSET) One-shot DMA trigger  */
-#define TCC_CTRLBSET_CMD_NONE                 (TCC_CTRLBSET_CMD_NONE_Val << TCC_CTRLBSET_CMD_Pos)  /* (TCC_CTRLBSET) No action Position  */
-#define TCC_CTRLBSET_CMD_RETRIGGER            (TCC_CTRLBSET_CMD_RETRIGGER_Val << TCC_CTRLBSET_CMD_Pos) /* (TCC_CTRLBSET) Clear start, restart or retrigger Position  */
-#define TCC_CTRLBSET_CMD_STOP                 (TCC_CTRLBSET_CMD_STOP_Val << TCC_CTRLBSET_CMD_Pos)  /* (TCC_CTRLBSET) Force stop Position  */
-#define TCC_CTRLBSET_CMD_UPDATE               (TCC_CTRLBSET_CMD_UPDATE_Val << TCC_CTRLBSET_CMD_Pos) /* (TCC_CTRLBSET) Force update or double buffered registers Position  */
-#define TCC_CTRLBSET_CMD_READSYNC             (TCC_CTRLBSET_CMD_READSYNC_Val << TCC_CTRLBSET_CMD_Pos) /* (TCC_CTRLBSET) Force COUNT read synchronization Position  */
-#define TCC_CTRLBSET_CMD_DMAOS                (TCC_CTRLBSET_CMD_DMAOS_Val << TCC_CTRLBSET_CMD_Pos) /* (TCC_CTRLBSET) One-shot DMA trigger Position  */
 #define TCC_CTRLBSET_Msk                      _UINT8_(0xFF)                                        /* (TCC_CTRLBSET) Register Mask  */
 
 
