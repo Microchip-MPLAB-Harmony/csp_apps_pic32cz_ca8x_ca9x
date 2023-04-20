@@ -41,6 +41,7 @@
 // DOM-IGNORE-END
 #include "device.h"
 #include "plib_adc.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -49,7 +50,7 @@
 // *****************************************************************************
 
 /* Load ADC calibration constant */
-#define ADC_CALIB_FCCFG65           *((uint32_t*)0x0A007184)
+#define ADC_CALIB_FCCFG65           *((uint32_t*)0xa007184)
 
 
 
@@ -141,6 +142,7 @@ void ADC_CompareEnable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
     ADC_Enable();
 }
 
+
 /* Disable channel compare mode */
 void ADC_CompareDisable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
 {
@@ -156,7 +158,7 @@ void ADC_CompareWinThresholdSet(ADC_CORE_NUM core, uint16_t low_threshold, uint1
 {
     ADC_Disable();
 
-    ADC_REGS->ADC_CMPCTRL[core] = (ADC_REGS->ADC_CMPCTRL[core] & ~(ADC_CMPCTRL_ADCMPHI_Msk | ADC_CMPCTRL_ADCMPLO_Msk)) | ((low_threshold << ADC_CMPCTRL_ADCMPLO_Pos) | (high_threshold << ADC_CMPCTRL_ADCMPHI_Pos));
+    ADC_REGS->ADC_CMPCTRL[core] = (ADC_REGS->ADC_CMPCTRL[core] & ~(ADC_CMPCTRL_ADCMPHI_Msk | ADC_CMPCTRL_ADCMPLO_Msk)) | (((uint32_t)low_threshold << ADC_CMPCTRL_ADCMPLO_Pos) | ((uint32_t)high_threshold << ADC_CMPCTRL_ADCMPHI_Pos));
 
     ADC_Enable();
 }
@@ -169,11 +171,6 @@ void ADC_CompareWinModeSet(ADC_CORE_NUM core, ADC_CMPCTRL mode)
     ADC_REGS->ADC_CMPCTRL[core] = (ADC_REGS->ADC_CMPCTRL[core] & ~(ADC_CMPCTRL_IELOLO_Msk | ADC_CMPCTRL_IELOHI_Msk | ADC_CMPCTRL_IEBTWN_Msk | ADC_CMPCTRL_IEHILO_Msk | ADC_CMPCTRL_IEHIHI_Msk)) | mode;
 
     ADC_Enable();
-}
-
-ADC_GLOBAL_INT ADC_GlobalInterruptsStatusGet(void)
-{
-    return ADC_REGS->ADC_CTLINTFLAG;
 }
 
 void ADC_CoreInterruptsEnable(ADC_CORE_NUM core, ADC_CORE_INT interruptMask)
@@ -194,6 +191,46 @@ ADC_CORE_INT ADC_CoreInterruptsStatusGet(ADC_CORE_NUM core)
 void ADC_CoreInterruptsStatusClear(ADC_CORE_NUM core, ADC_CORE_INT interruptMask)
 {
     ADC_REGS->INT[core].ADC_INTFLAG = interruptMask;
+}
+
+void ADC_SoftwareControlledConversionEnable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
+{
+    ADC_REGS->ADC_CTRLB = (ADC_REGS->ADC_CTRLB & ~(ADC_CTRLB_ADCORSEL_Msk | ADC_CTRLB_ADCHSEL_Msk)) | (((uint32_t)core << ADC_CTRLB_ADCORSEL_Pos) | ((uint32_t)channel << ADC_CTRLB_ADCHSEL_Pos));
+
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
+    {
+        /* Wait for Synchronization */
+    }
+
+    ADC_REGS->ADC_CTRLB |= ADC_CTRLB_SWCNVEN_Msk;
+
+    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
+    {
+        /* Wait for Synchronization */
+    }
+}
+
+bool ADC_ChannelResultIsReady(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
+{
+    return (bool)((ADC_REGS->INT[core].ADC_INTFLAG & (1UL << (ADC_INTFLAG_CHRDY_Pos + (uint32_t)channel))) != 0U);
+}
+
+bool ADC_EOSStatusGet(ADC_CORE_NUM core)
+{
+    return (bool)((ADC_REGS->INT[core].ADC_INTFLAG & ADC_INTFLAG_EOSRDY_Msk) == ADC_INTFLAG_EOSRDY_Msk);
+}
+
+/* Read the conversion result for the given core, channel */
+uint32_t ADC_ResultGet( ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
+{
+    ADC_REGS->ADC_CORCHDATAID = (ADC_REGS->ADC_CORCHDATAID & ~(ADC_CORCHDATAID_CORDYID_Msk | ADC_CORCHDATAID_CHRDYID_Msk)) | (((uint32_t)core << ADC_CORCHDATAID_CORDYID_Pos) | (uint32_t)channel);
+
+    return ADC_REGS->ADC_CHRDYDAT;
+}
+
+ADC_GLOBAL_INT ADC_GlobalInterruptsStatusGet(void)
+{
+    return ADC_REGS->ADC_CTLINTFLAG;
 }
 
 void ADC_GlobalEdgeConversionStart(void)
@@ -261,23 +298,6 @@ void ADC_SyncTriggerCounterSet(uint16_t counterVal)
     ADC_Enable();
 }
 
-void ADC_SoftwareControlledConversionEnable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
-{
-    ADC_REGS->ADC_CTRLB = (ADC_REGS->ADC_CTRLB & ~(ADC_CTRLB_ADCORSEL_Msk | ADC_CTRLB_ADCHSEL_Msk)) | (((uint32_t)core << ADC_CTRLB_ADCORSEL_Pos) | ((uint32_t)channel << ADC_CTRLB_ADCHSEL_Pos));
-
-    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
-    {
-        /* Wait for Synchronization */
-    }
-
-    ADC_REGS->ADC_CTRLB |= ADC_CTRLB_SWCNVEN_Msk;
-
-    while((ADC_REGS->ADC_SYNCBUSY) != 0U)
-    {
-        /* Wait for Synchronization */
-    }
-}
-
 void ADC_ChannelSamplingStart(void)
 {
     ADC_REGS->ADC_CTRLB |= ADC_CTRLB_SAMP_Msk;
@@ -306,24 +326,6 @@ void ADC_ChannelConversionStart(void)
     {
         /* Wait for Synchronization */
     }
-}
-
-bool ADC_ChannelResultIsReady(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
-{
-    return (bool)((ADC_REGS->INT[core].ADC_INTFLAG & (1UL << (ADC_INTFLAG_CHRDY_Pos + (uint32_t)channel))) != 0U);
-}
-
-bool ADC_EOSStatusGet(ADC_CORE_NUM core)
-{
-    return (bool)((ADC_REGS->INT[core].ADC_INTFLAG & ADC_INTFLAG_EOSRDY_Msk) == ADC_INTFLAG_EOSRDY_Msk);
-}
-
-/* Read the conversion result for the given core, channel */
-uint32_t ADC_ResultGet( ADC_CORE_NUM core, ADC_CHANNEL_NUM channel)
-{
-    ADC_REGS->ADC_CORCHDATAID = (ADC_REGS->ADC_CORCHDATAID & ~(ADC_CORCHDATAID_CORDYID_Msk | ADC_CORCHDATAID_CHRDYID_Msk)) | (((uint32_t)core << ADC_CORCHDATAID_CORDYID_Pos) | (uint32_t)channel);
-
-    return ADC_REGS->ADC_CHRDYDAT;
 }
 
 
