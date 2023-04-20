@@ -73,6 +73,8 @@
 // Section: Data Types
 // *****************************************************************************
 // *****************************************************************************
+#define CAN3_CLOCK_FREQUENCY    150000000U
+
 /* CAN3 Message RAM Configuration Size */
 #define CAN3_RX_FIFO0_ELEMENT_SIZE       72U
 #define CAN3_RX_FIFO0_SIZE               72U
@@ -116,6 +118,9 @@ bool CAN3_ExtendedFilterElementSet(uint8_t filterNumber, can_xidfe_registers_t *
 bool CAN3_ExtendedFilterElementGet(uint8_t filterNumber, can_xidfe_registers_t *extMsgIDFilterElement);
 void CAN3_SleepModeEnter(void);
 void CAN3_SleepModeExit(void);
+bool CAN3_BitTimingCalculationGet(CAN_BIT_TIMING_SETUP *setup, CAN_BIT_TIMING *bitTiming);
+bool CAN3_BitTimingSet(CAN_BIT_TIMING *bitTiming);
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
     }
