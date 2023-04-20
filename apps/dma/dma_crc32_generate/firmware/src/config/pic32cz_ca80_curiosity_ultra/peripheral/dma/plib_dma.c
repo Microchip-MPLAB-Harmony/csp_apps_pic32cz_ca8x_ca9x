@@ -64,7 +64,7 @@ typedef struct
 } DMA_CH_OBJECT ;
 
 /* DMA Channels object information structure */
-static DMA_CH_OBJECT dmaChannelObj[DMA_CHANNELS_NUMBER];
+volatile static DMA_CH_OBJECT dmaChannelObj[DMA_CHANNELS_NUMBER];
 
 // *****************************************************************************
 // *****************************************************************************
@@ -278,7 +278,7 @@ void DMA_ChannelPatternIgnoreValue ( DMA_CHANNEL channel, uint8_t ignoreValue )
     // CHCTRLBk is CHCTRLAk.ENABLE=1 write protected
     if (((DMA_REGS->CHANNEL[channel].DMA_CHCTRLA & DMA_CHCTRLA_ENABLE_Msk)) == 0U)
     {
-        DMA_REGS->CHANNEL[channel].DMA_CHPDAT = (DMA_REGS->CHANNEL[channel].DMA_CHPDAT & ~DMA_CHPDAT_PIGN_Msk) | (ignoreValue << DMA_CHPDAT_PIGN_Pos);
+        DMA_REGS->CHANNEL[channel].DMA_CHPDAT = (DMA_REGS->CHANNEL[channel].DMA_CHPDAT & ~DMA_CHPDAT_PIGN_Msk) | ((uint32_t)ignoreValue << DMA_CHPDAT_PIGN_Pos);
     }
 }
 
@@ -395,15 +395,15 @@ uint32_t DMA_ChannelCRCRead(DMA_CHANNEL channel)
 //*******************************************************************************
 //    Functions to handle DMA interrupt events.
 //*******************************************************************************
-static void DMA_interruptHandler(uint32_t channel)
+static void __attribute__((used)) DMA_interruptHandler(uint32_t channel)
 {
-    DMA_CH_OBJECT  *dmacChObj = NULL;
+    volatile DMA_CH_OBJECT  *dmacChObj;
     volatile uint32_t chIntFlagStatus = 0U;
     volatile uint32_t chIntFlagsEnabled = 0U;
 
     DMA_TRANSFER_EVENT event = 0U;
 
-    dmacChObj = (DMA_CH_OBJECT *)&dmaChannelObj[channel];
+    dmacChObj = &dmaChannelObj[channel];
 
     /* Get the DMA channel interrupt flag status */
     chIntFlagStatus = DMA_REGS->CHANNEL[channel].DMA_CHINTF;
@@ -464,11 +464,13 @@ static void DMA_interruptHandler(uint32_t channel)
     /* Execute the callback function */
     if ((dmacChObj->callback != NULL) && (event != 0U))
     {
-        dmacChObj->callback (event, dmacChObj->context);
+        uintptr_t context = dmacChObj->context;
+
+        dmacChObj->callback (event, context);
     }
 }
 
-void DMA_PRI0_InterruptHandler( void )
+void __attribute__((used)) DMA_PRI0_InterruptHandler( void )
 {
     volatile uint32_t dmaIntPriority1Status = 0U;
     uint32_t channel = 0U;
@@ -484,7 +486,7 @@ void DMA_PRI0_InterruptHandler( void )
         }
     }
 }
-void DMA_PRI1_InterruptHandler( void )
+void __attribute__((used)) DMA_PRI1_InterruptHandler( void )
 {
     volatile uint32_t dmaIntPriority2Status = 0U;
     uint32_t channel = 0U;
@@ -500,7 +502,7 @@ void DMA_PRI1_InterruptHandler( void )
         }
     }
 }
-void DMA_PRI2_InterruptHandler( void )
+void __attribute__((used)) DMA_PRI2_InterruptHandler( void )
 {
     volatile uint32_t dmaIntPriority3Status = 0U;
     uint32_t channel = 0U;
@@ -516,7 +518,7 @@ void DMA_PRI2_InterruptHandler( void )
         }
     }
 }
-void DMA_PRI3_InterruptHandler( void )
+void __attribute__((used)) DMA_PRI3_InterruptHandler( void )
 {
     volatile uint32_t dmaIntPriority4Status = 0U;
     uint32_t channel = 0U;
