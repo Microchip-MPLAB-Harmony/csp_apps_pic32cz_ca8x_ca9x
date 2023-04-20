@@ -56,7 +56,7 @@
 
 
 /* Object to hold callback function and context */
-static TCC_CALLBACK_OBJECT TCC7_CallbackObj;
+volatile static TCC_CALLBACK_OBJECT TCC7_CallbackObj;
 
 /* Initialize TCC module */
 void TCC7_PWMInitialize(void)
@@ -68,12 +68,14 @@ void TCC7_PWMInitialize(void)
         /* Wait for sync */
     }
     /* Clock prescaler */
-    TCC7_REGS->TCC_CTRLA = TCC_CTRLA_PRESCALER_DIV1 ;
+    TCC7_REGS->TCC_CTRLA = TCC_CTRLA_PRESCALER_DIV1 
+                            | TCC_CTRLA_PRESCSYNC_PRESC ;
     /* Dead time configurations */
     TCC7_REGS->TCC_WEXCTRL |= TCC_WEXCTRL_DTIEN0_Msk
  	 	 | TCC_WEXCTRL_DTLS(75UL) | TCC_WEXCTRL_DTHS(150UL);
 
     TCC7_REGS->TCC_WAVE = TCC_WAVE_WAVEGEN_DSBOTTOM;
+
 
     /* Configure duty cycle values */
     TCC7_REGS->TCC_CC[0] = 0U;
@@ -140,10 +142,31 @@ void TCC7_PWMDeadTimeSet (uint8_t deadtime_high, uint8_t deadtime_low)
 }
 
 
-/* Set the counter*/
-void TCC7_PWM32bitCounterSet (uint32_t count)
+
+/* Get the current counter value */
+uint32_t TCC7_PWM32bitCounterGet( void )
 {
-    TCC7_REGS->TCC_COUNT = count;
+    /* Write command to force COUNT register read synchronization */
+    TCC7_REGS->TCC_CTRLBSET |= (uint8_t)TCC_CTRLBSET_CMD_READSYNC;
+
+    while((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_CTRLB_Msk) == TCC_SYNCBUSY_CTRLB_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+
+    while((TCC7_REGS->TCC_CTRLBSET & TCC_CTRLBSET_CMD_Msk) != 0U)
+    {
+        /* Wait for CMD to become zero */
+    }
+
+    /* Read current count value */
+    return TCC7_REGS->TCC_COUNT;
+}
+
+/* Set the counter*/
+void TCC7_PWM32bitCounterSet (uint32_t countVal)
+{
+    TCC7_REGS->TCC_COUNT = countVal;
     while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_COUNT_Msk) != 0U)
     {
         /* Wait for sync */
@@ -180,16 +203,19 @@ void TCC7_PWMCallbackRegister(TCC_CALLBACK callback, uintptr_t context)
 }
 
 /* Interrupt Handler */
-void TCC7_OTHER_InterruptHandler(void)
+void __attribute__((used)) TCC7_OTHER_InterruptHandler(void)
 {
     uint32_t status;
+    /* Additional local variable to prevent MISRA C violations (Rule 13.x) */
+    uintptr_t context;
+    context = TCC7_CallbackObj.context;            
     status = (TCC7_REGS->TCC_INTFLAG & 0xFFFFU);
     /* Clear interrupt flags */
     TCC7_REGS->TCC_INTFLAG = 0xFFFFU;
     (void)TCC7_REGS->TCC_INTFLAG;
     if (TCC7_CallbackObj.callback_fn != NULL)
     {
-        TCC7_CallbackObj.callback_fn(status, TCC7_CallbackObj.context);
+        TCC7_CallbackObj.callback_fn(status, context);
     }
 
 }

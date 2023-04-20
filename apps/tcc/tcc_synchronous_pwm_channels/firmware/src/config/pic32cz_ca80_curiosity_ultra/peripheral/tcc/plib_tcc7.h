@@ -137,7 +137,9 @@ bool TCC7_PWM32bitPeriodSet(uint32_t period);
 
 uint32_t TCC7_PWM32bitPeriodGet(void);
 
-void TCC7_PWM32bitCounterSet(uint32_t count);
+void TCC7_PWM32bitCounterSet(uint32_t countVal);
+
+uint32_t TCC7_PWM32bitCounterGet(void);
 
 __STATIC_INLINE bool TCC7_PWM32bitDutySet(TCC7_CHANNEL_NUM channel, uint32_t duty)
 {
