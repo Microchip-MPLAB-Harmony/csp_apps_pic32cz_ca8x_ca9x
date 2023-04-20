@@ -157,8 +157,6 @@
 #pragma config FUSES_BOOTCFG1_BROM_BOOTCFGCRC2_BROM_BOOTCFGCRC = 0xffffffffU
 #pragma config FUSES_BOOTCFG1_BROM_BOOTCFGCRC3_BROM_BOOTCFGCRC = 0xffffffffU
 #pragma config FUSES_BOOTCFG1_BROM_PAGEEND_BROM_PAGEEND = 0xffffffffU
-#pragma config FUSES_DALCFG_DAL_CPU0 = 0xDB
-#pragma config FUSES_DALCFG_DAL_CPU1 = 0xDB
 #pragma config FUSES_USERCFG2_FSEQ_SEQNUM = 0x0U
 #pragma config FUSES_USERCFG2_FSEQ_SEQBAR = 0xffffU
 #pragma config FUSES_USERCFG2_AFSEQ_ASEQNUM = 0xffffU
@@ -312,6 +310,8 @@
  ********************************************************************************/
 static void STDIO_BufferModeSet(void)
 {
+    /* MISRAC 2012 deviation block start */
+    /* MISRA C-2012 Rule 21.6 deviated 2 times in this file.  Deviation record ID -  H3_MISRAC_2012_R_21_6_DR_3 */
 
     /* Make stdin unbuffered */
     setbuf(stdin, NULL);
@@ -349,9 +349,9 @@ void SYS_Initialize ( void* data )
 
 
 
-    CAN3_Initialize();
-
     SERCOM1_USART_Initialize();
+
+    CAN3_Initialize();
 
     EVSYS_Initialize();
 
