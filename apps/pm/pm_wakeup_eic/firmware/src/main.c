@@ -71,7 +71,7 @@ enum
 
 uint8_t cmd = 0;
 
-void timeout (uintptr_t context)
+static void timeout (uintptr_t context)
 {
     LED_Toggle();    
 }
@@ -95,20 +95,18 @@ void display_menu (void)
 
 int main ( void )
 {
-    RSTC_BKUPEXIT_CAUSE reset_cause_bkup;
     RSTC_RESET_CAUSE reset_cause;
     
     /* Initialize all modules */
     SYS_Initialize ( NULL );
 
-    reset_cause_bkup = RSTC_BackupExitCauseGet();
     reset_cause = RSTC_ResetCauseGet();
     
     printf("\n\n\r----------------------------------------------");
     printf("\n\r                 LOW power demo using EIC"               );
     printf("\n\r----------------------------------------------"); 
     
-    if(reset_cause_bkup == RSTC_BKUPEXIT_HIB_Msk)
+    if((reset_cause & RSTC_RCAUSE_EXT_Msk) == RSTC_RCAUSE_EXT_Msk)
         printf("\n\n\rDevice exited from Hibernate mode\n");
     else if(reset_cause == RSTC_RCAUSE_POR_Msk)
         printf("\n\n\rDevice exited from OFF mode\n");
