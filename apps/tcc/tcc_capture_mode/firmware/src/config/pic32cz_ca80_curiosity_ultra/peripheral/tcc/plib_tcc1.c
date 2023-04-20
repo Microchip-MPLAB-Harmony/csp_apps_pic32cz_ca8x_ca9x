@@ -61,7 +61,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-static TCC_CALLBACK_OBJECT TCC1_CallbackObject;
+volatile static TCC_CALLBACK_OBJECT TCC1_CallbackObject;
 // *****************************************************************************
 // *****************************************************************************
 // Section: TCC1 Implementation
@@ -80,8 +80,7 @@ void TCC1_CaptureInitialize( void )
 
     /* Configure prescaler, standby & capture mode */
     TCC1_REGS->TCC_CTRLA = TCC_CTRLA_PRESCALER_DIV4 | TCC_CTRLA_PRESCSYNC_PRESC
-                                  | TCC_CTRLA_CPTEN0_Msk | TCC_CTRLA_CPTEN1_Msk
-                                  ;
+                                  | TCC_CTRLA_CPTEN0_Msk | TCC_CTRLA_CPTEN1_Msk ;
 
 
     TCC1_REGS->TCC_EVCTRL = TCC_EVCTRL_TCEI1_Msk | TCC_EVCTRL_EVACT1_PWP | TCC_EVCTRL_MCEI0_Msk | TCC_EVCTRL_MCEI1_Msk;
@@ -127,12 +126,17 @@ void TCC1_CaptureCommandSet(TCC_COMMAND command)
     while((TCC1_REGS->TCC_SYNCBUSY) != 0U)
     {
         /* Wait for Write Synchronization */
-    }    
+    }
 }
 
 
 uint32_t TCC1_Capture32bitValueGet( TCC1_CHANNEL_NUM channel )
 {
+    while(((TCC1_REGS->TCC_SYNCBUSY) & (1UL << (TCC_SYNCBUSY_CC0_Pos + (uint32_t)channel))) != 0U)
+    {
+        /* Wait for Write Synchronization */
+    }
+
     return (TCC1_REGS->TCC_CC[channel]);
 }
 
@@ -171,30 +175,36 @@ void TCC1_CaptureCallbackRegister( TCC_CALLBACK callback, uintptr_t context )
 
 
 /* Interrupt Handler */
-void TCC1_MC0_InterruptHandler(void)
+void __attribute__((used)) TCC1_MC0_InterruptHandler(void)
 {
     uint32_t status;
+    /* Additional local variable to prevent MISRA C violations (Rule 13.x) */
+    uintptr_t context;
+    context = TCC1_CallbackObject.context;
     status = TCC_INTFLAG_MC0_Msk;
     /* Clear interrupt flags */
     TCC1_REGS->TCC_INTFLAG = TCC_INTFLAG_MC0_Msk;
     (void)TCC1_REGS->TCC_INTFLAG;
     if (TCC1_CallbackObject.callback_fn != NULL)
     {
-        TCC1_CallbackObject.callback_fn(status, TCC1_CallbackObject.context);
+        TCC1_CallbackObject.callback_fn(status, context);
     }
 
 }
 /* Interrupt Handler */
-void TCC1_MC1_InterruptHandler(void)
+void __attribute__((used)) TCC1_MC1_InterruptHandler(void)
 {
     uint32_t status;
+    /* Additional local variable to prevent MISRA C violations (Rule 13.x) */
+    uintptr_t context;
+    context = TCC1_CallbackObject.context;
     status = TCC_INTFLAG_MC1_Msk;
     /* Clear interrupt flags */
     TCC1_REGS->TCC_INTFLAG = TCC_INTFLAG_MC1_Msk;
     (void)TCC1_REGS->TCC_INTFLAG;
     if (TCC1_CallbackObject.callback_fn != NULL)
     {
-        TCC1_CallbackObject.callback_fn(status, TCC1_CallbackObject.context);
+        TCC1_CallbackObject.callback_fn(status, context);
     }
 
 }
