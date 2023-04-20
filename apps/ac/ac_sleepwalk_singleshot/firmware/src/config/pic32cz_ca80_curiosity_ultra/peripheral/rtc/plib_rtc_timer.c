@@ -44,7 +44,6 @@
 #include "interrupts.h"
 #include "plib_rtc.h"
 #include <stdlib.h>
-#include <limits.h>
 
 
 void RTC_Initialize(void)
