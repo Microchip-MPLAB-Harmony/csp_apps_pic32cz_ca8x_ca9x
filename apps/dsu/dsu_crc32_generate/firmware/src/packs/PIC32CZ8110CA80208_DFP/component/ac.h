@@ -1,7 +1,7 @@
 /*
  * Component description for AC
  *
- * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2023 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2022-07-07T22:59:24Z */
+/* file generated from device description version 2023-04-05T13:14:57Z */
 #ifndef _PIC32CZCA80_AC_COMPONENT_H_
 #define _PIC32CZCA80_AC_COMPONENT_H_
 
@@ -408,8 +408,25 @@
 /* -------- AC_WINCTRL : (AC Offset: 0x3C) (R/W 32) Window Monitor Control -------- */
 #define AC_WINCTRL_RESETVALUE                 _UINT32_(0x00)                                       /*  (AC_WINCTRL) Window Monitor Control  Reset Value */
 
-#define AC_WINCTRL_Msk                        _UINT32_(0x00000000)                                 /* (AC_WINCTRL) Register Mask  */
+#define AC_WINCTRL_WEN0_Pos                   _UINT32_(0)                                          /* (AC_WINCTRL) Window 0 Mode Enable Position */
+#define AC_WINCTRL_WEN0_Msk                   (_UINT32_(0x1) << AC_WINCTRL_WEN0_Pos)               /* (AC_WINCTRL) Window 0 Mode Enable Mask */
+#define AC_WINCTRL_WEN0(value)                (AC_WINCTRL_WEN0_Msk & (_UINT32_(value) << AC_WINCTRL_WEN0_Pos)) /* Assigment of value for WEN0 in the AC_WINCTRL register */
+#define AC_WINCTRL_WINTSEL0_Pos               _UINT32_(1)                                          /* (AC_WINCTRL) Window 0 Interrupt Selection Position */
+#define AC_WINCTRL_WINTSEL0_Msk               (_UINT32_(0x3) << AC_WINCTRL_WINTSEL0_Pos)           /* (AC_WINCTRL) Window 0 Interrupt Selection Mask */
+#define AC_WINCTRL_WINTSEL0(value)            (AC_WINCTRL_WINTSEL0_Msk & (_UINT32_(value) << AC_WINCTRL_WINTSEL0_Pos)) /* Assigment of value for WINTSEL0 in the AC_WINCTRL register */
+#define   AC_WINCTRL_WINTSEL0_ABOVE_Val       _UINT32_(0x0)                                        /* (AC_WINCTRL) Interrupt on signal above window  */
+#define   AC_WINCTRL_WINTSEL0_INSIDE_Val      _UINT32_(0x1)                                        /* (AC_WINCTRL) Interrupt on signal inside window  */
+#define   AC_WINCTRL_WINTSEL0_BELOW_Val       _UINT32_(0x2)                                        /* (AC_WINCTRL) Interrupt on signal below window  */
+#define   AC_WINCTRL_WINTSEL0_OUTSIDE_Val     _UINT32_(0x3)                                        /* (AC_WINCTRL) Interrupt on signal outside window  */
+#define AC_WINCTRL_WINTSEL0_ABOVE             (AC_WINCTRL_WINTSEL0_ABOVE_Val << AC_WINCTRL_WINTSEL0_Pos) /* (AC_WINCTRL) Interrupt on signal above window Position  */
+#define AC_WINCTRL_WINTSEL0_INSIDE            (AC_WINCTRL_WINTSEL0_INSIDE_Val << AC_WINCTRL_WINTSEL0_Pos) /* (AC_WINCTRL) Interrupt on signal inside window Position  */
+#define AC_WINCTRL_WINTSEL0_BELOW             (AC_WINCTRL_WINTSEL0_BELOW_Val << AC_WINCTRL_WINTSEL0_Pos) /* (AC_WINCTRL) Interrupt on signal below window Position  */
+#define AC_WINCTRL_WINTSEL0_OUTSIDE           (AC_WINCTRL_WINTSEL0_OUTSIDE_Val << AC_WINCTRL_WINTSEL0_Pos) /* (AC_WINCTRL) Interrupt on signal outside window Position  */
+#define AC_WINCTRL_Msk                        _UINT32_(0x00000007)                                 /* (AC_WINCTRL) Register Mask  */
 
+#define AC_WINCTRL_WEN_Pos                    _UINT32_(0)                                          /* (AC_WINCTRL Position) Window x Mode Enable */
+#define AC_WINCTRL_WEN_Msk                    (_UINT32_(0x1) << AC_WINCTRL_WEN_Pos)                /* (AC_WINCTRL Mask) WEN */
+#define AC_WINCTRL_WEN(value)                 (AC_WINCTRL_WEN_Msk & (_UINT32_(value) << AC_WINCTRL_WEN_Pos)) 
 
 /** \brief AC register offsets definitions */
 #define AC_CTRLA_REG_OFST              _UINT32_(0x00)      /* (AC_CTRLA) Control A Offset */
