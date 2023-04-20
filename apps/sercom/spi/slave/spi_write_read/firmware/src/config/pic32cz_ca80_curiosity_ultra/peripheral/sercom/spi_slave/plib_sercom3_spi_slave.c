@@ -58,12 +58,12 @@
 #define SERCOM3_SPI_READ_BUFFER_SIZE            256U
 #define SERCOM3_SPI_WRITE_BUFFER_SIZE           256U
 
-static uint8_t SERCOM3_SPI_ReadBuffer[SERCOM3_SPI_READ_BUFFER_SIZE];
-static uint8_t SERCOM3_SPI_WriteBuffer[SERCOM3_SPI_WRITE_BUFFER_SIZE];
+volatile static uint8_t SERCOM3_SPI_ReadBuffer[SERCOM3_SPI_READ_BUFFER_SIZE];
+volatile static uint8_t SERCOM3_SPI_WriteBuffer[SERCOM3_SPI_WRITE_BUFFER_SIZE];
 
 
 /* Global object to save SPI Exchange related data  */
-static SPI_SLAVE_OBJECT sercom3SPISObj;
+volatile static SPI_SLAVE_OBJECT sercom3SPISObj;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -71,6 +71,17 @@ static SPI_SLAVE_OBJECT sercom3SPISObj;
 // *****************************************************************************
 // *****************************************************************************
 // *****************************************************************************
+
+static void mem_copy(volatile void* pDst, volatile void* pSrc, uint32_t nBytes)
+{
+    volatile uint8_t* pSource = (volatile uint8_t*)pSrc;
+    volatile uint8_t* pDest = (volatile uint8_t*)pDst;
+
+    for (uint32_t i = 0U; i < nBytes; i++)
+    {
+        pDest[i] = pSource[i];
+    }
+}
 
 void SERCOM3_SPI_Initialize(void)
 {
@@ -131,7 +142,7 @@ size_t SERCOM3_SPI_Read(void* pRdBuffer, size_t size)
         rdSize = sercom3SPISObj.rdInIndex;
     }
 
-    (void) memcpy(pDstBuffer, SERCOM3_SPI_ReadBuffer, rdSize);
+    (void) mem_copy(pDstBuffer, SERCOM3_SPI_ReadBuffer, rdSize);
 
     SERCOM3_REGS->SPIS.SERCOM_INTENSET = intState;
 
@@ -144,6 +155,7 @@ size_t SERCOM3_SPI_Write(void* pWrBuffer, size_t size )
     uint8_t intState = SERCOM3_REGS->SPIS.SERCOM_INTENSET;
     size_t wrSize = size;
     bool writeReady = false;
+    uint32_t wrOutIndex = 0;
     uint8_t* pSrcBuffer = (uint8_t*)pWrBuffer;
 
     SERCOM3_REGS->SPIS.SERCOM_INTENCLR = intState;
@@ -153,20 +165,21 @@ size_t SERCOM3_SPI_Write(void* pWrBuffer, size_t size )
         wrSize = SERCOM3_SPI_WRITE_BUFFER_SIZE;
     }
 
-   (void) memcpy(SERCOM3_SPI_WriteBuffer, pSrcBuffer, wrSize);
+   (void) mem_copy(SERCOM3_SPI_WriteBuffer, pSrcBuffer, wrSize);
 
     sercom3SPISObj.nWrBytes = wrSize;
-    sercom3SPISObj.wrOutIndex = 0U;
 
-    writeReady = (sercom3SPISObj.wrOutIndex < sercom3SPISObj.nWrBytes);
+    writeReady = (wrOutIndex < sercom3SPISObj.nWrBytes);
     writeReady = ((SERCOM3_REGS->SPIS.SERCOM_INTFLAG & SERCOM_SPIS_INTFLAG_DRE_Msk) == SERCOM_SPIS_INTFLAG_DRE_Msk) && writeReady;
     while (writeReady)
     {
-        SERCOM3_REGS->SPIS.SERCOM_DATA = SERCOM3_SPI_WriteBuffer[sercom3SPISObj.wrOutIndex];
-		sercom3SPISObj.wrOutIndex++;
-        writeReady = (sercom3SPISObj.wrOutIndex < sercom3SPISObj.nWrBytes);
+        SERCOM3_REGS->SPIS.SERCOM_DATA = SERCOM3_SPI_WriteBuffer[wrOutIndex];
+        wrOutIndex++;
+        writeReady = (wrOutIndex < sercom3SPISObj.nWrBytes);
         writeReady = ((SERCOM3_REGS->SPIS.SERCOM_INTFLAG & SERCOM_SPIS_INTFLAG_DRE_Msk) == SERCOM_SPIS_INTFLAG_DRE_Msk) && writeReady;
     }
+
+    sercom3SPISObj.wrOutIndex = wrOutIndex;
 
     /* Restore interrupt enable state and also enable DRE interrupt to start pre-loading of DATA register */
     SERCOM3_REGS->SPIS.SERCOM_INTENSET = (intState | (uint8_t)SERCOM_SPIS_INTENSET_DRE_Msk);
@@ -220,7 +233,7 @@ SPI_SLAVE_ERROR SERCOM3_SPI_ErrorGet(void)
     return errorStatus;
 }
 
-void SERCOM3_SPI_InterruptHandler(void)
+void __attribute__((used)) SERCOM3_SPI_InterruptHandler(void)
 {
     uint8_t txRxData;
     uint8_t intFlag = SERCOM3_REGS->SPIS.SERCOM_INTFLAG;
@@ -261,17 +274,21 @@ void SERCOM3_SPI_InterruptHandler(void)
 
         if (sercom3SPISObj.rdInIndex < SERCOM3_SPI_READ_BUFFER_SIZE)
         {
-            SERCOM3_SPI_ReadBuffer[sercom3SPISObj.rdInIndex] = txRxData;
-			sercom3SPISObj.rdInIndex++;
+            uint32_t rdInIndex = sercom3SPISObj.rdInIndex;
+
+            SERCOM3_SPI_ReadBuffer[rdInIndex] = txRxData;
+            sercom3SPISObj.rdInIndex++;
         }
     }
 
     if((SERCOM3_REGS->SPIS.SERCOM_INTFLAG & SERCOM_SPIS_INTFLAG_DRE_Msk) == SERCOM_SPIS_INTFLAG_DRE_Msk)
     {
-        if (sercom3SPISObj.wrOutIndex < sercom3SPISObj.nWrBytes)
+        uint32_t wrOutIndex = sercom3SPISObj.wrOutIndex;
+
+        if (wrOutIndex < sercom3SPISObj.nWrBytes)
         {
-            txRxData = SERCOM3_SPI_WriteBuffer[sercom3SPISObj.wrOutIndex];
-			sercom3SPISObj.wrOutIndex++;
+            txRxData = SERCOM3_SPI_WriteBuffer[wrOutIndex];
+            wrOutIndex++;
 
             /* Before writing to DATA register (which clears TXC flag), check if TXC flag is set */
             if((SERCOM3_REGS->SPIS.SERCOM_INTFLAG & SERCOM_SPIS_INTFLAG_TXC_Msk) == SERCOM_SPIS_INTFLAG_TXC_Msk)
@@ -285,6 +302,8 @@ void SERCOM3_SPI_InterruptHandler(void)
             /* Disable DRE interrupt. The last byte sent by the master will be shifted out automatically */
             SERCOM3_REGS->SPIS.SERCOM_INTENCLR = (uint8_t)SERCOM_SPIS_INTENCLR_DRE_Msk;
         }
+
+        sercom3SPISObj.wrOutIndex = wrOutIndex;
     }
 
     if((intFlag & SERCOM_SPIS_INTFLAG_TXC_Msk) == SERCOM_SPIS_INTFLAG_TXC_Msk)
@@ -299,7 +318,9 @@ void SERCOM3_SPI_InterruptHandler(void)
 
         if(sercom3SPISObj.callback != NULL)
         {
-            sercom3SPISObj.callback(sercom3SPISObj.context);
+            uintptr_t context = sercom3SPISObj.context;
+
+            sercom3SPISObj.callback(context);
         }
     }
 }
