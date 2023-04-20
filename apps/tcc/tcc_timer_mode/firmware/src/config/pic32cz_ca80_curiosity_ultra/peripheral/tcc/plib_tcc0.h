@@ -102,6 +102,16 @@ void TCC0_TimerStop( void );
 uint32_t TCC0_TimerFrequencyGet( void );
 
 
+void TCC0_Timer32bitPeriodSet( uint32_t period );
+
+uint32_t TCC0_Timer32bitPeriodGet( void );
+
+uint32_t TCC0_Timer32bitCounterGet( void );
+
+void TCC0_Timer32bitCounterSet( uint32_t countVal );
+
+
+
 void TCC0_TimerCallbackRegister( TCC_CALLBACK callback, uintptr_t context );
 
 

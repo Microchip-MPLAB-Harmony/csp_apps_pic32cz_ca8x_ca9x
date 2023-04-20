@@ -62,7 +62,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-static TCC_CALLBACK_OBJECT TCC0_CallbackObject;
+volatile static TCC_CALLBACK_OBJECT TCC0_CallbackObject;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -85,10 +85,10 @@ void TCC0_TimerInitialize( void )
     /* Configure counter mode & prescaler */
     TCC0_REGS->TCC_CTRLA = TCC_CTRLA_PRESCALER_DIV1024 ;
     /* Configure in Match Frequency Mode */
-    TCC0_REGS->TCC_WAVE = TCC_WAVE_WAVEGEN_NPWM;
+    TCC0_REGS->TCC_WAVE = TCC_WAVE_WAVEGEN_NFRQ;
 
     /* Configure timer period */
-    TCC0_REGS->TCC_PER = 146484U;
+    TCC0_REGS->TCC_PER = 146483U;
 
     /* Clear all interrupt flags */
     TCC0_REGS->TCC_INTFLAG = TCC_INTFLAG_Msk;
@@ -138,6 +138,54 @@ void TCC0_TimerCommandSet(TCC_COMMAND command)
     }    
 }
 
+/* Configure timer period */
+void TCC0_Timer32bitPeriodSet( uint32_t period )
+{
+    TCC0_REGS->TCC_PER = period;
+    while((TCC0_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_PER_Msk) == TCC_SYNCBUSY_PER_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+}
+
+/* Read the timer period value */
+uint32_t TCC0_Timer32bitPeriodGet( void )
+{
+    return TCC0_REGS->TCC_PER;
+}
+
+/* Get the current timer counter value */
+uint32_t TCC0_Timer32bitCounterGet( void )
+{
+    /* Write command to force COUNT register read synchronization */
+    TCC0_REGS->TCC_CTRLBSET |= (uint8_t)TCC_CTRLBSET_CMD_READSYNC;
+
+    while((TCC0_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_CTRLB_Msk) == TCC_SYNCBUSY_CTRLB_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+
+    while((TCC0_REGS->TCC_CTRLBSET & TCC_CTRLBSET_CMD_Msk) != 0U)
+    {
+        /* Wait for CMD to become zero */
+    }
+    
+    /* Read current count value */
+    return TCC0_REGS->TCC_COUNT;
+}
+
+/* Configure timer counter value */
+void TCC0_Timer32bitCounterSet( uint32_t countVal )
+{
+    TCC0_REGS->TCC_COUNT = countVal;
+
+    while((TCC0_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_COUNT_Msk) == TCC_SYNCBUSY_COUNT_Msk)
+    {
+        /* Wait for Write Synchronization */
+    }
+}
+
+
 
 /* Register callback function */
 void TCC0_TimerCallbackRegister( TCC_CALLBACK callback, uintptr_t context )
@@ -147,16 +195,19 @@ void TCC0_TimerCallbackRegister( TCC_CALLBACK callback, uintptr_t context )
     TCC0_CallbackObject.context = context;
 }
 
-void TCC0_OTHER_InterruptHandler( void )
+void __attribute__((used)) TCC0_OTHER_InterruptHandler( void )
 {
     uint32_t status;
+    /* Additional local variable to prevent MISRA C violations (Rule 13.x) */
+    uintptr_t context;
+    context = TCC0_CallbackObject.context;    
     status = (TCC0_REGS->TCC_INTFLAG & 0xFFFFU);
     /* Clear interrupt flags */
     TCC0_REGS->TCC_INTFLAG = 0xFFFFU;
     (void)TCC0_REGS->TCC_INTFLAG;
     if( TCC0_CallbackObject.callback_fn != NULL)
     {
-        TCC0_CallbackObject.callback_fn(status, TCC0_CallbackObject.context);
+        TCC0_CallbackObject.callback_fn(status, context);
     }
 }
 
