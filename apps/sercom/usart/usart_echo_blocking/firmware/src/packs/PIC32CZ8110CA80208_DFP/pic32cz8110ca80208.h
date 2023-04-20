@@ -20,7 +20,7 @@
  *
  */
 
-/* File generated from device description version 2023-03-15T02:47:26Z */
+/* File generated from device description version 2023-04-05T13:14:57Z */
 #ifndef _PIC32CZ8110CA80208_H_
 #define _PIC32CZ8110CA80208_H_
 
