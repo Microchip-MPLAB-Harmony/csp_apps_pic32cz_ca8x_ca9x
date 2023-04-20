@@ -1,7 +1,7 @@
 /*
  * Component description for USBHS
  *
- * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2023 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2022-07-07T22:59:24Z */
+/* file generated from device description version 2023-04-05T13:14:57Z */
 #ifndef _PIC32CZCA80_USBHS_COMPONENT_H_
 #define _PIC32CZCA80_USBHS_COMPONENT_H_
 
@@ -1506,7 +1506,7 @@
 #define USBHS_PHY04_RESETVALUE                _UINT32_(0x8F)                                       /*  (USBHS_PHY04) USBHPHY Control Register.  Reset Value */
 
 #define USBHS_PHY04_TXPHSSEL_Pos              _UINT32_(0)                                          /* (USBHS_PHY04) set the Tx clock phase select Position */
-#define USBHS_PHY04_TXPHSSEL_Msk              (_UINT32_(0x3) << USBHS_PHY04_TXPHSSEL_Pos)          /* (USBHS_PHY04) set the Tx clock phase select Mask */
+#define USBHS_PHY04_TXPHSSEL_Msk              (_UINT32_(0x7) << USBHS_PHY04_TXPHSSEL_Pos)          /* (USBHS_PHY04) set the Tx clock phase select Mask */
 #define USBHS_PHY04_TXPHSSEL(value)           (USBHS_PHY04_TXPHSSEL_Msk & (_UINT32_(value) << USBHS_PHY04_TXPHSSEL_Pos)) /* Assigment of value for TXPHSSEL in the USBHS_PHY04 register */
 #define USBHS_PHY04_RSVD_Pos                  _UINT32_(3)                                          /* (USBHS_PHY04) Reserved Position */
 #define USBHS_PHY04_RSVD_Msk                  (_UINT32_(0x1) << USBHS_PHY04_RSVD_Pos)              /* (USBHS_PHY04) Reserved Mask */
@@ -1517,7 +1517,7 @@
 #define USBHS_PHY04_SQUELCH210_Pos            _UINT32_(5)                                          /* (USBHS_PHY04) Lower 3 bits of RX squelch trigger point configuration Position */
 #define USBHS_PHY04_SQUELCH210_Msk            (_UINT32_(0x7) << USBHS_PHY04_SQUELCH210_Pos)        /* (USBHS_PHY04) Lower 3 bits of RX squelch trigger point configuration Mask */
 #define USBHS_PHY04_SQUELCH210(value)         (USBHS_PHY04_SQUELCH210_Msk & (_UINT32_(value) << USBHS_PHY04_SQUELCH210_Pos)) /* Assigment of value for SQUELCH210 in the USBHS_PHY04 register */
-#define USBHS_PHY04_Msk                       _UINT32_(0x000000FB)                                 /* (USBHS_PHY04) Register Mask  */
+#define USBHS_PHY04_Msk                       _UINT32_(0x000000FF)                                 /* (USBHS_PHY04) Register Mask  */
 
 
 /* -------- USBHS_PHY08 : (USBHS Offset: 0x1508) (R/W 32) USBHPHY Control Register. -------- */
@@ -1538,10 +1538,13 @@
 /* -------- USBHS_PHY0C : (USBHS Offset: 0x150C) (R/W 32) USBHPHY Control Register. -------- */
 #define USBHS_PHY0C_RESETVALUE                _UINT32_(0xE0)                                       /*  (USBHS_PHY0C) USBHPHY Control Register.  Reset Value */
 
+#define USBHS_PHY0C_RSVD_Pos                  _UINT32_(0)                                          /* (USBHS_PHY0C) Reserved Position */
+#define USBHS_PHY0C_RSVD_Msk                  (_UINT32_(0x1F) << USBHS_PHY0C_RSVD_Pos)             /* (USBHS_PHY0C) Reserved Mask */
+#define USBHS_PHY0C_RSVD(value)               (USBHS_PHY0C_RSVD_Msk & (_UINT32_(value) << USBHS_PHY0C_RSVD_Pos)) /* Assigment of value for RSVD in the USBHS_PHY0C register */
 #define USBHS_PHY0C_TUNE210_Pos               _UINT32_(5)                                          /* (USBHS_PHY0C) Lower 3 bits for HS amplitude tuning Position */
-#define USBHS_PHY0C_TUNE210_Msk               (_UINT32_(0x7F) << USBHS_PHY0C_TUNE210_Pos)          /* (USBHS_PHY0C) Lower 3 bits for HS amplitude tuning Mask */
+#define USBHS_PHY0C_TUNE210_Msk               (_UINT32_(0x7) << USBHS_PHY0C_TUNE210_Pos)           /* (USBHS_PHY0C) Lower 3 bits for HS amplitude tuning Mask */
 #define USBHS_PHY0C_TUNE210(value)            (USBHS_PHY0C_TUNE210_Msk & (_UINT32_(value) << USBHS_PHY0C_TUNE210_Pos)) /* Assigment of value for TUNE210 in the USBHS_PHY0C register */
-#define USBHS_PHY0C_Msk                       _UINT32_(0x00000FE0)                                 /* (USBHS_PHY0C) Register Mask  */
+#define USBHS_PHY0C_Msk                       _UINT32_(0x000000FF)                                 /* (USBHS_PHY0C) Register Mask  */
 
 
 /* -------- USBHS_PHY10 : (USBHS Offset: 0x1510) (R/W 32) USBHPHY Control Register. -------- */
@@ -1592,25 +1595,28 @@
 /* -------- USBHS_PHY1C : (USBHS Offset: 0x151C) (R/W 32) USBHPHY Control Register. -------- */
 #define USBHS_PHY1C_RESETVALUE                _UINT32_(0x82)                                       /*  (USBHS_PHY1C) USBHPHY Control Register.  Reset Value */
 
+#define USBHS_PHY1C_RSVD_Pos                  _UINT32_(0)                                          /* (USBHS_PHY1C) reserved Position */
+#define USBHS_PHY1C_RSVD_Msk                  (_UINT32_(0x1) << USBHS_PHY1C_RSVD_Pos)              /* (USBHS_PHY1C) reserved Mask */
+#define USBHS_PHY1C_RSVD(value)               (USBHS_PHY1C_RSVD_Msk & (_UINT32_(value) << USBHS_PHY1C_RSVD_Pos)) /* Assigment of value for RSVD in the USBHS_PHY1C register */
 #define USBHS_PHY1C_ODTBYPASS_Pos             _UINT32_(1)                                          /* (USBHS_PHY1C) ODT auto-refresh bypass Position */
 #define USBHS_PHY1C_ODTBYPASS_Msk             (_UINT32_(0x1) << USBHS_PHY1C_ODTBYPASS_Pos)         /* (USBHS_PHY1C) ODT auto-refresh bypass Mask */
 #define USBHS_PHY1C_ODTBYPASS(value)          (USBHS_PHY1C_ODTBYPASS_Msk & (_UINT32_(value) << USBHS_PHY1C_ODTBYPASS_Pos)) /* Assigment of value for ODTBYPASS in the USBHS_PHY1C register */
 #define USBHS_PHY1C_FSLSDIFF_Pos              _UINT32_(7)                                          /* (USBHS_PHY1C) Turn off FS/LS differential receiver in suspend mode Position */
 #define USBHS_PHY1C_FSLSDIFF_Msk              (_UINT32_(0x1) << USBHS_PHY1C_FSLSDIFF_Pos)          /* (USBHS_PHY1C) Turn off FS/LS differential receiver in suspend mode Mask */
 #define USBHS_PHY1C_FSLSDIFF(value)           (USBHS_PHY1C_FSLSDIFF_Msk & (_UINT32_(value) << USBHS_PHY1C_FSLSDIFF_Pos)) /* Assigment of value for FSLSDIFF in the USBHS_PHY1C register */
-#define USBHS_PHY1C_Msk                       _UINT32_(0x00000082)                                 /* (USBHS_PHY1C) Register Mask  */
+#define USBHS_PHY1C_Msk                       _UINT32_(0x00000083)                                 /* (USBHS_PHY1C) Register Mask  */
 
 
 /* -------- USBHS_PHY20 : (USBHS Offset: 0x1520) (R/W 32) USBHPHY Control Register. -------- */
 #define USBHS_PHY20_RESETVALUE                _UINT32_(0x80)                                       /*  (USBHS_PHY20) USBHPHY Control Register.  Reset Value */
 
 #define USBHS_PHY20_RSVD_Pos                  _UINT32_(0)                                          /* (USBHS_PHY20) Reserved Position */
-#define USBHS_PHY20_RSVD_Msk                  (_UINT32_(0xF) << USBHS_PHY20_RSVD_Pos)              /* (USBHS_PHY20) Reserved Mask */
+#define USBHS_PHY20_RSVD_Msk                  (_UINT32_(0x3F) << USBHS_PHY20_RSVD_Pos)             /* (USBHS_PHY20) Reserved Mask */
 #define USBHS_PHY20_RSVD(value)               (USBHS_PHY20_RSVD_Msk & (_UINT32_(value) << USBHS_PHY20_RSVD_Pos)) /* Assigment of value for RSVD in the USBHS_PHY20 register */
 #define USBHS_PHY20_HSSLEW10_Pos              _UINT32_(6)                                          /* (USBHS_PHY20) Lower 2 bits for HS slew adjust rate Position */
 #define USBHS_PHY20_HSSLEW10_Msk              (_UINT32_(0x3) << USBHS_PHY20_HSSLEW10_Pos)          /* (USBHS_PHY20) Lower 2 bits for HS slew adjust rate Mask */
 #define USBHS_PHY20_HSSLEW10(value)           (USBHS_PHY20_HSSLEW10_Msk & (_UINT32_(value) << USBHS_PHY20_HSSLEW10_Pos)) /* Assigment of value for HSSLEW10 in the USBHS_PHY20 register */
-#define USBHS_PHY20_Msk                       _UINT32_(0x000000CF)                                 /* (USBHS_PHY20) Register Mask  */
+#define USBHS_PHY20_Msk                       _UINT32_(0x000000FF)                                 /* (USBHS_PHY20) Register Mask  */
 
 
 /* -------- USBHS_PHY24 : (USBHS Offset: 0x1524) (R/W 32) USBHPHY Control Register. -------- */
@@ -1655,6 +1661,9 @@
 /* -------- USBHS_PHY44 : (USBHS Offset: 0x1544) (R/W 32) USBHPHY Control Register. -------- */
 #define USBHS_PHY44_RESETVALUE                _UINT32_(0x40)                                       /*  (USBHS_PHY44) USBHPHY Control Register.  Reset Value */
 
+#define USBHS_PHY44_RSVD_Pos                  _UINT32_(0)                                          /* (USBHS_PHY44) reserved Position */
+#define USBHS_PHY44_RSVD_Msk                  (_UINT32_(0x1) << USBHS_PHY44_RSVD_Pos)              /* (USBHS_PHY44) reserved Mask */
+#define USBHS_PHY44_RSVD(value)               (USBHS_PHY44_RSVD_Msk & (_UINT32_(value) << USBHS_PHY44_RSVD_Pos)) /* Assigment of value for RSVD in the USBHS_PHY44 register */
 #define USBHS_PHY44_PLLDAMP_Pos               _UINT32_(1)                                          /* (USBHS_PHY44) PLL damping factor Position */
 #define USBHS_PHY44_PLLDAMP_Msk               (_UINT32_(0x1) << USBHS_PHY44_PLLDAMP_Pos)           /* (USBHS_PHY44) PLL damping factor Mask */
 #define USBHS_PHY44_PLLDAMP(value)            (USBHS_PHY44_PLLDAMP_Msk & (_UINT32_(value) << USBHS_PHY44_PLLDAMP_Pos)) /* Assigment of value for PLLDAMP in the USBHS_PHY44 register */
@@ -1664,13 +1673,10 @@
 #define USBHS_PHY44_FRCVBUSVAL_Pos            _UINT32_(3)                                          /* (USBHS_PHY44) Force output vbus_valid Position */
 #define USBHS_PHY44_FRCVBUSVAL_Msk            (_UINT32_(0x1) << USBHS_PHY44_FRCVBUSVAL_Pos)        /* (USBHS_PHY44) Force output vbus_valid Mask */
 #define USBHS_PHY44_FRCVBUSVAL(value)         (USBHS_PHY44_FRCVBUSVAL_Msk & (_UINT32_(value) << USBHS_PHY44_FRCVBUSVAL_Pos)) /* Assigment of value for FRCVBUSVAL in the USBHS_PHY44 register */
-#define USBHS_PHY44_RSVD_Pos                  _UINT32_(4)                                          /* (USBHS_PHY44) reserved Position */
-#define USBHS_PHY44_RSVD_Msk                  (_UINT32_(0x7) << USBHS_PHY44_RSVD_Pos)              /* (USBHS_PHY44) reserved Mask */
-#define USBHS_PHY44_RSVD(value)               (USBHS_PHY44_RSVD_Msk & (_UINT32_(value) << USBHS_PHY44_RSVD_Pos)) /* Assigment of value for RSVD in the USBHS_PHY44 register */
 #define USBHS_PHY44_FRCSESSEND_Pos            _UINT32_(7)                                          /* (USBHS_PHY44) force session end Position */
 #define USBHS_PHY44_FRCSESSEND_Msk            (_UINT32_(0x1) << USBHS_PHY44_FRCSESSEND_Pos)        /* (USBHS_PHY44) force session end Mask */
 #define USBHS_PHY44_FRCSESSEND(value)         (USBHS_PHY44_FRCSESSEND_Msk & (_UINT32_(value) << USBHS_PHY44_FRCSESSEND_Pos)) /* Assigment of value for FRCSESSEND in the USBHS_PHY44 register */
-#define USBHS_PHY44_Msk                       _UINT32_(0x000000FE)                                 /* (USBHS_PHY44) Register Mask  */
+#define USBHS_PHY44_Msk                       _UINT32_(0x0000008F)                                 /* (USBHS_PHY44) Register Mask  */
 
 
 /* -------- USBHS_PHY48 : (USBHS Offset: 0x1548) (R/W 32) USBHPHY Control Register. -------- */
@@ -1685,10 +1691,13 @@
 #define USBHS_PHY48_VBUSCHRGE_Pos             _UINT32_(2)                                          /* (USBHS_PHY48) VBus charging/discharging bypass Position */
 #define USBHS_PHY48_VBUSCHRGE_Msk             (_UINT32_(0x1) << USBHS_PHY48_VBUSCHRGE_Pos)         /* (USBHS_PHY48) VBus charging/discharging bypass Mask */
 #define USBHS_PHY48_VBUSCHRGE(value)          (USBHS_PHY48_VBUSCHRGE_Msk & (_UINT32_(value) << USBHS_PHY48_VBUSCHRGE_Pos)) /* Assigment of value for VBUSCHRGE in the USBHS_PHY48 register */
+#define USBHS_PHY48_RSVD_Pos                  _UINT32_(3)                                          /* (USBHS_PHY48) reserved Position */
+#define USBHS_PHY48_RSVD_Msk                  (_UINT32_(0x3) << USBHS_PHY48_RSVD_Pos)              /* (USBHS_PHY48) reserved Mask */
+#define USBHS_PHY48_RSVD(value)               (USBHS_PHY48_RSVD_Msk & (_UINT32_(value) << USBHS_PHY48_RSVD_Pos)) /* Assigment of value for RSVD in the USBHS_PHY48 register */
 #define USBHS_PHY48_SESSENDTUNE_Pos           _UINT32_(5)                                          /* (USBHS_PHY48) Session end reference tuning Position */
 #define USBHS_PHY48_SESSENDTUNE_Msk           (_UINT32_(0x7) << USBHS_PHY48_SESSENDTUNE_Pos)       /* (USBHS_PHY48) Session end reference tuning Mask */
 #define USBHS_PHY48_SESSENDTUNE(value)        (USBHS_PHY48_SESSENDTUNE_Msk & (_UINT32_(value) << USBHS_PHY48_SESSENDTUNE_Pos)) /* Assigment of value for SESSENDTUNE in the USBHS_PHY48 register */
-#define USBHS_PHY48_Msk                       _UINT32_(0x000000E7)                                 /* (USBHS_PHY48) Register Mask  */
+#define USBHS_PHY48_Msk                       _UINT32_(0x000000FF)                                 /* (USBHS_PHY48) Register Mask  */
 
 
 /* -------- USBHS_PHY4C : (USBHS Offset: 0x154C) (R/W 32) USBHPHY Control Register. -------- */
@@ -1697,10 +1706,13 @@
 #define USBHS_PHY4C_VBUSVALTUNE_Pos           _UINT32_(0)                                          /* (USBHS_PHY4C) VBus_valid reference tuning Position */
 #define USBHS_PHY4C_VBUSVALTUNE_Msk           (_UINT32_(0x7) << USBHS_PHY4C_VBUSVALTUNE_Pos)       /* (USBHS_PHY4C) VBus_valid reference tuning Mask */
 #define USBHS_PHY4C_VBUSVALTUNE(value)        (USBHS_PHY4C_VBUSVALTUNE_Msk & (_UINT32_(value) << USBHS_PHY4C_VBUSVALTUNE_Pos)) /* Assigment of value for VBUSVALTUNE in the USBHS_PHY4C register */
+#define USBHS_PHY4C_RSVD_Pos                  _UINT32_(3)                                          /* (USBHS_PHY4C) reserved Position */
+#define USBHS_PHY4C_RSVD_Msk                  (_UINT32_(0x7) << USBHS_PHY4C_RSVD_Pos)              /* (USBHS_PHY4C) reserved Mask */
+#define USBHS_PHY4C_RSVD(value)               (USBHS_PHY4C_RSVD_Msk & (_UINT32_(value) << USBHS_PHY4C_RSVD_Pos)) /* Assigment of value for RSVD in the USBHS_PHY4C register */
 #define USBHS_PHY4C_BSESSVALIDTUNE10_Pos      _UINT32_(6)                                          /* (USBHS_PHY4C) Lower 2 B_sessionvalid reference tune Position */
 #define USBHS_PHY4C_BSESSVALIDTUNE10_Msk      (_UINT32_(0x3) << USBHS_PHY4C_BSESSVALIDTUNE10_Pos)  /* (USBHS_PHY4C) Lower 2 B_sessionvalid reference tune Mask */
 #define USBHS_PHY4C_BSESSVALIDTUNE10(value)   (USBHS_PHY4C_BSESSVALIDTUNE10_Msk & (_UINT32_(value) << USBHS_PHY4C_BSESSVALIDTUNE10_Pos)) /* Assigment of value for BSESSVALIDTUNE10 in the USBHS_PHY4C register */
-#define USBHS_PHY4C_Msk                       _UINT32_(0x000000C7)                                 /* (USBHS_PHY4C) Register Mask  */
+#define USBHS_PHY4C_Msk                       _UINT32_(0x000000FF)                                 /* (USBHS_PHY4C) Register Mask  */
 
 
 /* -------- USBHS_PHY50 : (USBHS Offset: 0x1550) (R/W 32) USBHPHY Control Register. -------- */
@@ -1712,10 +1724,13 @@
 #define USBHS_PHY50_ASESSVALIDTUNE_Pos        _UINT32_(1)                                          /* (USBHS_PHY50) A_sessionvalid reference tune Position */
 #define USBHS_PHY50_ASESSVALIDTUNE_Msk        (_UINT32_(0x7) << USBHS_PHY50_ASESSVALIDTUNE_Pos)    /* (USBHS_PHY50) A_sessionvalid reference tune Mask */
 #define USBHS_PHY50_ASESSVALIDTUNE(value)     (USBHS_PHY50_ASESSVALIDTUNE_Msk & (_UINT32_(value) << USBHS_PHY50_ASESSVALIDTUNE_Pos)) /* Assigment of value for ASESSVALIDTUNE in the USBHS_PHY50 register */
+#define USBHS_PHY50_RSVD_Pos                  _UINT32_(4)                                          /* (USBHS_PHY50) reserved Position */
+#define USBHS_PHY50_RSVD_Msk                  (_UINT32_(0x1) << USBHS_PHY50_RSVD_Pos)              /* (USBHS_PHY50) reserved Mask */
+#define USBHS_PHY50_RSVD(value)               (USBHS_PHY50_RSVD_Msk & (_UINT32_(value) << USBHS_PHY50_RSVD_Pos)) /* Assigment of value for RSVD in the USBHS_PHY50 register */
 #define USBHS_PHY50_COMPCURREF_Pos            _UINT32_(5)                                          /* (USBHS_PHY50) Compensation current tuning reference Position */
 #define USBHS_PHY50_COMPCURREF_Msk            (_UINT32_(0x7) << USBHS_PHY50_COMPCURREF_Pos)        /* (USBHS_PHY50) Compensation current tuning reference Mask */
 #define USBHS_PHY50_COMPCURREF(value)         (USBHS_PHY50_COMPCURREF_Msk & (_UINT32_(value) << USBHS_PHY50_COMPCURREF_Pos)) /* Assigment of value for COMPCURREF in the USBHS_PHY50 register */
-#define USBHS_PHY50_Msk                       _UINT32_(0x000000EF)                                 /* (USBHS_PHY50) Register Mask  */
+#define USBHS_PHY50_Msk                       _UINT32_(0x000000FF)                                 /* (USBHS_PHY50) Register Mask  */
 
 #define USBHS_PHY50_BSESSVALIDTUNE_Pos        _UINT32_(0)                                          /* (USBHS_PHY50 Position) MSB of B_sessionvalid reference tune */
 #define USBHS_PHY50_BSESSVALIDTUNE_Msk        (_UINT32_(0x1) << USBHS_PHY50_BSESSVALIDTUNE_Pos)    /* (USBHS_PHY50 Mask) BSESSVALIDTUNE */
