@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2023-03-15T02:47:26Z */
+/* file generated from device description version 2023-04-05T13:14:57Z */
 #ifndef _PIC32CZCA80_ADC_INSTANCE_
 #define _PIC32CZCA80_ADC_INSTANCE_
 
@@ -28,8 +28,8 @@
 /* ========== Instance Parameter definitions for ADC peripheral ========== */
 #define ADC_APB_FIFO_DEPTH                       (16)       /* Number of Words in APB FIFO */
 #define ADC_CHNSAR_NMBR1                         (16)       /* Number of Channels on SARCORE number 1 */
-#define ADC_CHNSAR_NMBR2                         (8)        /* Number of Channels on SARCORE number 2 */
-#define ADC_CHNSAR_NMBR3                         (8)        /* Number of Channels on SARCORE number 3 */
+#define ADC_CHNSAR_NMBR2                         (7)        /* Number of Channels on SARCORE number 2 */
+#define ADC_CHNSAR_NMBR3                         (7)        /* Number of Channels on SARCORE number 3 */
 #define ADC_CHNSAR_NMBR4                         (7)        /* Number of Channels on SARCORE number 4 */
 #define ADC_DCMP_NMBR                            (4)        /* Number of Digital Comparators Max=4 */
 #define ADC_DMAC_ID_PFFRDY                       (75)       
