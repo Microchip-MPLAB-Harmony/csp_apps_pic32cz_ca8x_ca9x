@@ -171,9 +171,9 @@ uint32_t TCC1_Compare32bitCounterGet( void )
 }
 
 /* Configure counter value */
-void TCC1_Compare32bitCounterSet( uint32_t count )
+void TCC1_Compare32bitCounterSet( uint32_t countVal )
 {
-    TCC1_REGS->TCC_COUNT = count;
+    TCC1_REGS->TCC_COUNT = countVal;
 
     while((TCC1_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_COUNT_Msk) == TCC_SYNCBUSY_COUNT_Msk)
     {

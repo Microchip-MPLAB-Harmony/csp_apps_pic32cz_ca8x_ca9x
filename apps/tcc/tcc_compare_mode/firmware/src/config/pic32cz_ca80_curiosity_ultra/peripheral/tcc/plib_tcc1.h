@@ -140,7 +140,7 @@ uint32_t TCC1_Compare32bitPeriodGet( void );
 
 uint32_t TCC1_Compare32bitCounterGet( void );
 
-void TCC1_Compare32bitCounterSet( uint32_t count );
+void TCC1_Compare32bitCounterSet( uint32_t countVal );
 
 bool TCC1_Compare32bitMatchSet(TCC1_CHANNEL_NUM channel, uint32_t compareValue );
 
