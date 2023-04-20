@@ -113,11 +113,19 @@ void ADC_CompareDisable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
 void ADC_CompareWinThresholdSet(ADC_CORE_NUM core, uint16_t low_threshold, uint16_t high_threshold);
 void ADC_CompareWinModeSet(ADC_CORE_NUM core, ADC_CMPCTRL mode);
 
-ADC_GLOBAL_INT ADC_GlobalInterruptsStatusGet(void);
 void ADC_CoreInterruptsEnable(ADC_CORE_NUM core, ADC_CORE_INT interruptMask);
 void ADC_CoreInterruptsDisable(ADC_CORE_NUM core, ADC_CORE_INT interruptMask);
 ADC_CORE_INT ADC_CoreInterruptsStatusGet(ADC_CORE_NUM core);
 void ADC_CoreInterruptsStatusClear(ADC_CORE_NUM core, ADC_CORE_INT interruptMask);
+
+void ADC_SoftwareControlledConversionEnable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
+
+bool ADC_ChannelResultIsReady(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
+bool ADC_EOSStatusGet(ADC_CORE_NUM core);
+uint32_t ADC_ResultGet( ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
+
+
+ADC_GLOBAL_INT ADC_GlobalInterruptsStatusGet(void);
 
 void ADC_GlobalEdgeConversionStart(void);
 void ADC_GlobalLevelConversionStart(void);
@@ -127,14 +135,12 @@ void ADC_SyncTriggerEnable(void);
 void ADC_SyncTriggerDisable(void);
 void ADC_SyncTriggerCounterSet(uint16_t counterVal);
 
-void ADC_SoftwareControlledConversionEnable(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
+
 void ADC_ChannelSamplingStart(void);
 void ADC_ChannelSamplingStop(void);
 void ADC_ChannelConversionStart(void);
 
-bool ADC_ChannelResultIsReady(ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
-bool ADC_EOSStatusGet(ADC_CORE_NUM core);
-uint32_t ADC_ResultGet( ADC_CORE_NUM core, ADC_CHANNEL_NUM channel);
+
 
 uint32_t ADC_FIFORead( void );
 uint32_t ADC_FIFOBufferRead( uint32_t* pBuffer, uint32_t size );
