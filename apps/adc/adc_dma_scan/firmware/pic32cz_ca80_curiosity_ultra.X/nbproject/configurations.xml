@@ -261,7 +261,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32CZ-CA80_DFP" vendor="Microchip" version="1.0.17"/>
+        <pack name="PIC32CZ-CA80_DFP" vendor="Microchip" version="1.1.123"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
       </packs>
       <ScriptingSettings>

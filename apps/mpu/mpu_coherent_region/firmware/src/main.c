@@ -76,9 +76,9 @@ char CACHE_ALIGN __attribute__  ((space(data), section (".ram_buffer"))) echoBuf
 
 /* Application Status Data */
 char failureMessage[] = "\r\n**** Data transfer error ****\r\n";
-bool errorStatus = false;
-bool writeStatus = false;
-bool readStatus = false;
+static bool errorStatus = false;
+static bool writeStatus = false;
+static bool readStatus = false;
 
 void DMA_Callback(DMA_TRANSFER_EVENT status, uintptr_t context)
 {

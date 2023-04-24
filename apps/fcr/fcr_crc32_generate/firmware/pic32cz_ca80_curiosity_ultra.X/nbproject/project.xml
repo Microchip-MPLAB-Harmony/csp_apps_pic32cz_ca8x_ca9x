@@ -3,17 +3,15 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>pic32cz_ca80_curiosity_ultra</name>
-            <creation-uuid>9ceba45d-10f3-48b2-aae6-bfc24b353834</creation-uuid>
+            <name>fcr_crc32_generate_pic32cz_ca80_curiosity_ultra</name>
+            <creation-uuid>032772b4-228d-4345-9504-2d99e3f1e5f7</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
-            <sourceRootList>
-                <sourceRootElem>../src</sourceRootElem>
-            </sourceRootList>
+            <sourceRootList/>
             <confList>
                 <confElem>
-                    <name>pic32cz8110ca80208</name>
+                    <name>pic32cz_ca80_curiosity_ultra</name>
                     <type>2</type>
                 </confElem>
             </confList>

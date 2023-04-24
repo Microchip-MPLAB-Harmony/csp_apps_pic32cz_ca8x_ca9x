@@ -256,6 +256,10 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
+<<<<<<< HEAD
+=======
+        <pack name="PIC32CZ-CA80_DFP" vendor="Microchip" version="1.1.123"/>
+>>>>>>> bccc8ac ([Apps] fix misraC violations for pic32_cz_ca80_curiosity ultra)
         <pack name="CMSIS" vendor="ARM" version="5.8.0"/>
         <pack name="PIC32CZ-CA80_DFP" vendor="Microchip" version="1.1.123"/>
       </packs>
