@@ -73,6 +73,10 @@ void ADC_Initialize(void)
     ADC_REGS->ADC_CTRLD = 0x4000000;
 
 
+
+
+
+
     /* Configure ADC Core 2 Control Register
        ADCDIV = 2
        STRGLVL = Edge
@@ -80,23 +84,20 @@ void ADC_Initialize(void)
        EIRQOVR = false
        EIS = 0
        SELRES = 12_BITS
-       SAMC = 100
+       SAMC = 48
     */
     ADC_REGS->CONFIG[2].ADC_CORCTRL = 0x2000C30;
-    //ADC_REGS->CONFIG[2].ADC_CORCTRL = 0x2000C64;
 
 
-    /* Configure ADC Core 2 Channel Configuration Register 1 */
-    ADC_REGS->CONFIG[2].ADC_CHNCFG1 = 0x000000;
     
-    /* Configure ADC Core 2 Channel Configuration Register 2 */
-    ADC_REGS->CONFIG[2].ADC_CHNCFG2 = 0x000000;
-    
-    /* Configure ADC Core 2 Channel Configuration Register 3 */
-    ADC_REGS->CONFIG[2].ADC_CHNCFG3 = 0x000000;
     
     /* Configure ADC Core 2 Channel Configuration Register 4 */
-    ADC_REGS->CONFIG[2].ADC_CHNCFG4 = 0x01000000;
+    ADC_REGS->CONFIG[2].ADC_CHNCFG4 = 0x1000000;
+    
+
+
+
+
 
 
 
@@ -106,9 +107,6 @@ void ADC_Initialize(void)
     /* Enable the ADC Core n modules digital interface (CHNEN) */
     ADC_REGS->ADC_CTRLD |= 0x40000U;
     
-    /* Enable the ADC Core n clock divide by 1 */
-    //ADC_REGS->ADC_CTRLD |= 0x0000U;
-
     /*Enable ADC module */
     ADC_REGS->ADC_CTRLA |= ADC_CTRLA_ENABLE_Msk;
 

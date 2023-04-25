@@ -117,6 +117,16 @@ static void GCLK1_Initialize(void)
     }
 }
 
+static void GCLK2_Initialize(void)
+{
+    GCLK_REGS->GCLK_GENCTRL[2] = GCLK_GENCTRL_DIV(8U) | GCLK_GENCTRL_SRC(6U) | GCLK_GENCTRL_GENEN_Msk;
+
+    while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL2_Msk) == GCLK_SYNCBUSY_GENCTRL2_Msk)
+    {
+        /* Wait for the Generator 2 synchronization */
+    }
+}
+
 void CLOCK_Initialize (void)
 {
     /* Function to Initialize the Oscillators */
@@ -129,6 +139,7 @@ void CLOCK_Initialize (void)
     DFLL_Initialize();
     GCLK0_Initialize();
     GCLK1_Initialize();
+    GCLK2_Initialize();
 
 
 
@@ -140,7 +151,7 @@ void CLOCK_Initialize (void)
         /* Wait for synchronization */
     }
     /* Selection of the Generator and write Lock for ADC */
-    GCLK_REGS->GCLK_PCHCTRL[41] = GCLK_PCHCTRL_GEN(0x1)  | GCLK_PCHCTRL_CHEN_Msk;
+    GCLK_REGS->GCLK_PCHCTRL[41] = GCLK_PCHCTRL_GEN(0x2)  | GCLK_PCHCTRL_CHEN_Msk;
 
     while ((GCLK_REGS->GCLK_PCHCTRL[41] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
     {

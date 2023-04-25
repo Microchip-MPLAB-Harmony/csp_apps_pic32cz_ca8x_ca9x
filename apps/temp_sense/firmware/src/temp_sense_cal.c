@@ -67,10 +67,7 @@ float f_get_calibration_dv_dt();
 // get temperature calibration dV/dT
 float f_get_die_temperature(int i_adc_read_raw_bits)
 {
-    //FUSES_CALOTP_REGS
     // values
-    //uint32_t i_fccg70_value =  *((uint32_t*)FUSES_FCCFG70_LOCATION);
-    //uint32_t i_fccg71_value =  *((uint32_t*)FUSES_FCCFG71_LOCATION);
     uint32_t i_fccg70_value =  (uint32_t)FUSES_CALOTP_REGS->FUSES_FCCFG70;
     uint32_t i_fccg71_value =  (uint32_t)FUSES_CALOTP_REGS->FUSES_FCCFG71;
 
@@ -137,11 +134,6 @@ float f_get_die_temperature(int i_adc_read_raw_bits)
 float f_get_calibration_dv_dt()
 {
     //values
-//    uint32_t i_fccg69_value =  *((uint32_t*)FUSES_FCCFG69_LOCATION);
-//    uint32_t i_fccg70_value =  *((uint32_t*)FUSES_FCCFG70_LOCATION);
-//    uint32_t i_fccg71_value =  *((uint32_t*)FUSES_FCCFG71_LOCATION);
-    
-    
     uint32_t i_fccg69_value =  (uint32_t)FUSES_CALOTP_REGS->FUSES_FCCFG69;
     uint32_t i_fccg70_value =  (uint32_t)FUSES_CALOTP_REGS->FUSES_FCCFG70;
     uint32_t i_fccg71_value =  (uint32_t)FUSES_CALOTP_REGS->FUSES_FCCFG71;

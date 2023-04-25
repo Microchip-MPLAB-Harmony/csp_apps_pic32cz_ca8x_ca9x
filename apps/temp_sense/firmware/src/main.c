@@ -28,7 +28,7 @@
 #include "definitions.h"                // SYS function prototypes
 
 
-#define ADC_BUFFER_SIZE 24
+#define ADC_BUFFER_SIZE 16384
 
 
 float adc_inp_vol;
@@ -49,6 +49,9 @@ int main ( void )
 {
     /* Initialize all modules */
     SYS_Initialize ( NULL );
+    
+    /*  enable temp sensor */
+    SUPC_REGS->SUPC_VREFCTRL |= SUPC_VREFCTRL_TSEN_Msk; 
     
     while ( true )
     {
@@ -76,7 +79,7 @@ int main ( void )
             // calculate temperature
             f_temperature = f_get_die_temperature((uint32_t)(adc_data & 0x0000ffff));
             
-            printf("Bandgap Temperature Sensor = %d.%02d degC\r", 
+            printf("Bandgap Temperature Sensor = %d.%02d degC\r\n", 
               (int)f_temperature, (int)((f_temperature - (int)f_temperature)*100.0));
 
         }
