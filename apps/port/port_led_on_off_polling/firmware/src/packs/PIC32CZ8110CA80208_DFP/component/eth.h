@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2023-04-05T13:14:57Z */
+/* file generated from device description version 2023-05-18T19:14:05Z */
 #ifndef _PIC32CZCA80_ETH_COMPONENT_H_
 #define _PIC32CZCA80_ETH_COMPONENT_H_
 
@@ -1210,8 +1210,8 @@
 #define ETH_REVREG_MID_Pos                    _UINT32_(16)                                         /* (ETH_REVREG) Module Identification Position */
 #define ETH_REVREG_MID_Msk                    (_UINT32_(0xFFF) << ETH_REVREG_MID_Pos)              /* (ETH_REVREG) Module Identification Mask */
 #define ETH_REVREG_MID(value)                 (ETH_REVREG_MID_Msk & (_UINT32_(value) << ETH_REVREG_MID_Pos)) /* Assigment of value for MID in the ETH_REVREG register */
-#define ETH_REVREG_FN_Pos                     _UINT32_(16)                                         /* (ETH_REVREG) Fix Number Position */
-#define ETH_REVREG_FN_Msk                     (_UINT32_(0xFFFF) << ETH_REVREG_FN_Pos)              /* (ETH_REVREG) Fix Number Mask */
+#define ETH_REVREG_FN_Pos                     _UINT32_(28)                                         /* (ETH_REVREG) Fix Number Position */
+#define ETH_REVREG_FN_Msk                     (_UINT32_(0xF) << ETH_REVREG_FN_Pos)                 /* (ETH_REVREG) Fix Number Mask */
 #define ETH_REVREG_FN(value)                  (ETH_REVREG_FN_Msk & (_UINT32_(value) << ETH_REVREG_FN_Pos)) /* Assigment of value for FN in the ETH_REVREG register */
 #define ETH_REVREG_Msk                        _UINT32_(0xFFFFFFFF)                                 /* (ETH_REVREG) Register Mask  */
 
