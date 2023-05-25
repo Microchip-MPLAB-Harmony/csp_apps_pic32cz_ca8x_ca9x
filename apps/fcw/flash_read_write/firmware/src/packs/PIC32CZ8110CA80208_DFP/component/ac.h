@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2023-04-05T13:14:57Z */
+/* file generated from device description version 2023-05-18T19:14:05Z */
 #ifndef _PIC32CZCA80_AC_COMPONENT_H_
 #define _PIC32CZCA80_AC_COMPONENT_H_
 
@@ -204,7 +204,7 @@
 #define AC_STATUSA_STATE1_Msk                 (_UINT32_(0x1) << AC_STATUSA_STATE1_Pos)             /* (AC_STATUSA) Comparator 1 Current State Mask */
 #define AC_STATUSA_STATE1(value)              (AC_STATUSA_STATE1_Msk & (_UINT32_(value) << AC_STATUSA_STATE1_Pos)) /* Assigment of value for STATE1 in the AC_STATUSA register */
 #define AC_STATUSA_WSTATE0_Pos                _UINT32_(16)                                         /* (AC_STATUSA) Window 0 Current State Position */
-#define AC_STATUSA_WSTATE0_Msk                (_UINT32_(0x1) << AC_STATUSA_WSTATE0_Pos)            /* (AC_STATUSA) Window 0 Current State Mask */
+#define AC_STATUSA_WSTATE0_Msk                (_UINT32_(0x3) << AC_STATUSA_WSTATE0_Pos)            /* (AC_STATUSA) Window 0 Current State Mask */
 #define AC_STATUSA_WSTATE0(value)             (AC_STATUSA_WSTATE0_Msk & (_UINT32_(value) << AC_STATUSA_WSTATE0_Pos)) /* Assigment of value for WSTATE0 in the AC_STATUSA register */
 #define   AC_STATUSA_WSTATE0_ABOVE_Val        _UINT32_(0x0)                                        /* (AC_STATUSA) Signal is above window  */
 #define   AC_STATUSA_WSTATE0_INSIDE_Val       _UINT32_(0x1)                                        /* (AC_STATUSA) Signal is inside window  */
@@ -212,8 +212,8 @@
 #define AC_STATUSA_WSTATE0_ABOVE              (AC_STATUSA_WSTATE0_ABOVE_Val << AC_STATUSA_WSTATE0_Pos) /* (AC_STATUSA) Signal is above window Position  */
 #define AC_STATUSA_WSTATE0_INSIDE             (AC_STATUSA_WSTATE0_INSIDE_Val << AC_STATUSA_WSTATE0_Pos) /* (AC_STATUSA) Signal is inside window Position  */
 #define AC_STATUSA_WSTATE0_BELOW              (AC_STATUSA_WSTATE0_BELOW_Val << AC_STATUSA_WSTATE0_Pos) /* (AC_STATUSA) Signal is below window Position  */
-#define AC_STATUSA_WSTATE1_Pos                _UINT32_(17)                                         /* (AC_STATUSA) Window 1 Current State Position */
-#define AC_STATUSA_WSTATE1_Msk                (_UINT32_(0x1) << AC_STATUSA_WSTATE1_Pos)            /* (AC_STATUSA) Window 1 Current State Mask */
+#define AC_STATUSA_WSTATE1_Pos                _UINT32_(18)                                         /* (AC_STATUSA) Window 1 Current State Position */
+#define AC_STATUSA_WSTATE1_Msk                (_UINT32_(0x3) << AC_STATUSA_WSTATE1_Pos)            /* (AC_STATUSA) Window 1 Current State Mask */
 #define AC_STATUSA_WSTATE1(value)             (AC_STATUSA_WSTATE1_Msk & (_UINT32_(value) << AC_STATUSA_WSTATE1_Pos)) /* Assigment of value for WSTATE1 in the AC_STATUSA register */
 #define   AC_STATUSA_WSTATE1_ABOVE_Val        _UINT32_(0x0)                                        /* (AC_STATUSA) Signal is above window  */
 #define   AC_STATUSA_WSTATE1_INSIDE_Val       _UINT32_(0x1)                                        /* (AC_STATUSA) Signal is inside window  */
@@ -221,14 +221,11 @@
 #define AC_STATUSA_WSTATE1_ABOVE              (AC_STATUSA_WSTATE1_ABOVE_Val << AC_STATUSA_WSTATE1_Pos) /* (AC_STATUSA) Signal is above window Position  */
 #define AC_STATUSA_WSTATE1_INSIDE             (AC_STATUSA_WSTATE1_INSIDE_Val << AC_STATUSA_WSTATE1_Pos) /* (AC_STATUSA) Signal is inside window Position  */
 #define AC_STATUSA_WSTATE1_BELOW              (AC_STATUSA_WSTATE1_BELOW_Val << AC_STATUSA_WSTATE1_Pos) /* (AC_STATUSA) Signal is below window Position  */
-#define AC_STATUSA_Msk                        _UINT32_(0x00030003)                                 /* (AC_STATUSA) Register Mask  */
+#define AC_STATUSA_Msk                        _UINT32_(0x000F0003)                                 /* (AC_STATUSA) Register Mask  */
 
 #define AC_STATUSA_STATE_Pos                  _UINT32_(0)                                          /* (AC_STATUSA Position) Comparator x Current State */
 #define AC_STATUSA_STATE_Msk                  (_UINT32_(0x3) << AC_STATUSA_STATE_Pos)              /* (AC_STATUSA Mask) STATE */
 #define AC_STATUSA_STATE(value)               (AC_STATUSA_STATE_Msk & (_UINT32_(value) << AC_STATUSA_STATE_Pos)) 
-#define AC_STATUSA_WSTATE_Pos                 _UINT32_(16)                                         /* (AC_STATUSA Position) Window x Current State */
-#define AC_STATUSA_WSTATE_Msk                 (_UINT32_(0x3) << AC_STATUSA_WSTATE_Pos)             /* (AC_STATUSA Mask) WSTATE */
-#define AC_STATUSA_WSTATE(value)              (AC_STATUSA_WSTATE_Msk & (_UINT32_(value) << AC_STATUSA_WSTATE_Pos)) 
 
 /* -------- AC_STATUSB : (AC Offset: 0x20) ( R/ 32) Status B -------- */
 #define AC_STATUSB_RESETVALUE                 _UINT32_(0x00)                                       /*  (AC_STATUSB) Status B  Reset Value */
