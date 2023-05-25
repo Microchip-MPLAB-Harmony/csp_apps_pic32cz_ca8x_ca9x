@@ -26,7 +26,7 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
-
+#include "temp_sense_cal.h"
 
 #define ADC_BUFFER_SIZE 16384
 

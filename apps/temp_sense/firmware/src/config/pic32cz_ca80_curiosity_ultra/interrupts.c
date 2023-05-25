@@ -48,10 +48,10 @@
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-
 #include "device_vectors.h"
 #include "interrupts.h"
 #include "definitions.h"
+
 
 
 // *****************************************************************************
@@ -67,7 +67,7 @@ extern const H3DeviceVectors exception_table;
 extern void Dummy_Handler(void);
 
 /* Brief default interrupt handler for unused IRQs.*/
-void __attribute__((optimize("-O1"),section(".text.Dummy_Handler"),long_call, noreturn))Dummy_Handler(void)
+void __attribute__((optimize("-O1"), long_call, noreturn, used))Dummy_Handler(void)
 {
 #if defined(__DEBUG) || defined(__DEBUG_D) && defined(__XC32)
     __builtin_software_breakpoint();
@@ -78,7 +78,7 @@ void __attribute__((optimize("-O1"),section(".text.Dummy_Handler"),long_call, no
 }
 
 /* MISRAC 2012 deviation block start */
-/* MISRA C-2012 Rule 8.6 deviated 213 times.  Deviation record ID -  H3_MISRAC_2012_R_8_6_DR_1 */
+/* MISRA C-2012 Rule 8.6 deviated 220 times.  Deviation record ID -  H3_MISRAC_2012_R_8_6_DR_1 */
 /* Device vectors list dummy definition*/
 extern void SVCall_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void PendSV_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -145,6 +145,13 @@ extern void SERCOM0_1_Handler          ( void ) __attribute__((weak, alias("Dumm
 extern void SERCOM0_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM0_3_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM0_4_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM1_6_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM1_5_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM1_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM1_1_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM1_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM1_3_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM1_4_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM2_6_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM2_5_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM2_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -301,7 +308,7 @@ extern void CM7H_CTIIRQ_1_Handler      ( void ) __attribute__((weak, alias("Dumm
 
 
 
-__attribute__ ((section(".vectors")))
+__attribute__ ((section(".vectors"), used))
 const H3DeviceVectors exception_table=
 {
     /* Configure Initial Stack Pointer, using linker-generated symbols */
@@ -379,13 +386,13 @@ const H3DeviceVectors exception_table=
     .pfnSERCOM0_2_Handler          = SERCOM0_2_Handler,
     .pfnSERCOM0_3_Handler          = SERCOM0_3_Handler,
     .pfnSERCOM0_4_Handler          = SERCOM0_4_Handler,
-    .pfnSERCOM1_6_Handler          = SERCOM1_USART_InterruptHandler,
-    .pfnSERCOM1_5_Handler          = SERCOM1_USART_InterruptHandler,
-    .pfnSERCOM1_0_Handler          = SERCOM1_USART_InterruptHandler,
-    .pfnSERCOM1_1_Handler          = SERCOM1_USART_InterruptHandler,
-    .pfnSERCOM1_2_Handler          = SERCOM1_USART_InterruptHandler,
-    .pfnSERCOM1_3_Handler          = SERCOM1_USART_InterruptHandler,
-    .pfnSERCOM1_4_Handler          = SERCOM1_USART_InterruptHandler,
+    .pfnSERCOM1_6_Handler          = SERCOM1_6_Handler,
+    .pfnSERCOM1_5_Handler          = SERCOM1_5_Handler,
+    .pfnSERCOM1_0_Handler          = SERCOM1_0_Handler,
+    .pfnSERCOM1_1_Handler          = SERCOM1_1_Handler,
+    .pfnSERCOM1_2_Handler          = SERCOM1_2_Handler,
+    .pfnSERCOM1_3_Handler          = SERCOM1_3_Handler,
+    .pfnSERCOM1_4_Handler          = SERCOM1_4_Handler,
     .pfnSERCOM2_6_Handler          = SERCOM2_6_Handler,
     .pfnSERCOM2_5_Handler          = SERCOM2_5_Handler,
     .pfnSERCOM2_0_Handler          = SERCOM2_0_Handler,

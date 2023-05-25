@@ -79,57 +79,58 @@ typedef uint32_t ADC_CMPCTRL;
 typedef uint32_t ADC_CORE_INT;
 typedef uint32_t ADC_GLOBAL_INT;
 
-#define ADC_CORE_INT_CHRDY_0 				(1 << (ADC_INTFLAG_CHRDY_Pos + 0))
-#define ADC_CORE_INT_CHRDY_1 				(1 << (ADC_INTFLAG_CHRDY_Pos + 1))
-#define ADC_CORE_INT_CHRDY_2 				(1 << (ADC_INTFLAG_CHRDY_Pos + 2))
-#define ADC_CORE_INT_CHRDY_3 				(1 << (ADC_INTFLAG_CHRDY_Pos + 3))
-#define ADC_CORE_INT_CHRDY_4 				(1 << (ADC_INTFLAG_CHRDY_Pos + 4))
-#define ADC_CORE_INT_CHRDY_5 				(1 << (ADC_INTFLAG_CHRDY_Pos + 5))
-#define ADC_CORE_INT_CHRDY_6 				(1 << (ADC_INTFLAG_CHRDY_Pos + 6))
-#define ADC_CORE_INT_CHRDY_7 				(1 << (ADC_INTFLAG_CHRDY_Pos + 7))
-#define ADC_CORE_INT_EOSRDY					(ADC_INTFLAG_EOSRDY_Msk)
-#define ADC_CORE_INT_CHNERRC				(ADC_INTFLAG_CHNERRC_Msk)
-#define ADC_CORE_INT_FLTRDY					(ADC_INTFLAG_FLTRDY_Msk)
-#define ADC_CORE_INT_CHRDYC					(ADC_INTFLAG_CHRDYC_Msk)
-#define ADC_CORE_INT_SOVFL					(ADC_INTFLAG_SOVFL_Msk)
-#define ADC_CORE_INT_CMPHIT					(ADC_INTFLAG_CMPHIT_Msk)
+#define ADC_CORE_INT_CHRDY_0                (1 << (ADC_INTFLAG_CHRDY_Pos + 0))
+#define ADC_CORE_INT_CHRDY_1                (1 << (ADC_INTFLAG_CHRDY_Pos + 1))
+#define ADC_CORE_INT_CHRDY_2                (1 << (ADC_INTFLAG_CHRDY_Pos + 2))
+#define ADC_CORE_INT_CHRDY_3                (1 << (ADC_INTFLAG_CHRDY_Pos + 3))
+#define ADC_CORE_INT_CHRDY_4                (1 << (ADC_INTFLAG_CHRDY_Pos + 4))
+#define ADC_CORE_INT_CHRDY_5                (1 << (ADC_INTFLAG_CHRDY_Pos + 5))
+#define ADC_CORE_INT_CHRDY_6                (1 << (ADC_INTFLAG_CHRDY_Pos + 6))
 
-#define ADC_GLOBAL_INT_PFFHFUL				(ADC_CTLINTENSET_PFFHFUL_Msk)
-#define ADC_GLOBAL_INT_PFFRDY				(ADC_CTLINTENSET_PFFRDY_Msk)
-#define ADC_GLOBAL_INT_PFFOVF				(ADC_CTLINTENSET_PFFOVF_Msk)
-#define ADC_GLOBAL_INT_PFFUNF				(ADC_CTLINTENSET_PFFUNF_Msk)
-#define ADC_GLOBAL_INT_VREFRDY				(ADC_CTLINTENSET_VREFRDY_Msk)
-#define ADC_GLOBAL_INT_VREFUPD				(ADC_CTLINTENSET_VREFUPD_Msk)
-#define ADC_GLOBAL_INT_CRRDY2 				(1 << (ADC_CTLINTENSET_CRRDY_Pos+2))
+#define ADC_CORE_INT_EOSRDY                 (ADC_INTFLAG_EOSRDY_Msk)
+#define ADC_CORE_INT_CHNERRC                (ADC_INTFLAG_CHNERRC_Msk)
+#define ADC_CORE_INT_FLTRDY                 (ADC_INTFLAG_FLTRDY_Msk)
+#define ADC_CORE_INT_CHRDYC                 (ADC_INTFLAG_CHRDYC_Msk)
+#define ADC_CORE_INT_SOVFL                  (ADC_INTFLAG_SOVFL_Msk)
+#define ADC_CORE_INT_CMPHIT                 (ADC_INTFLAG_CMPHIT_Msk)
 
-#define ADC_CMP_MODE_IEHIHI					(ADC_CMPCTRL_IEHIHI_Msk)
-#define ADC_CMP_MODE_IEHILO					(ADC_CMPCTRL_IEHILO_Msk)
-#define ADC_CMP_MODE_IELOHI					(ADC_CMPCTRL_IELOHI_Msk)
-#define ADC_CMP_MODE_IELOLO					(ADC_CMPCTRL_IELOLO_Msk)
-#define ADC_CMP_MODE_IEBTWN					(ADC_CMPCTRL_IEBTWN_Msk)
+#define ADC_GLOBAL_INT_PFFHFUL              (ADC_CTLINTENSET_PFFHFUL_Msk)
+#define ADC_GLOBAL_INT_PFFRDY               (ADC_CTLINTENSET_PFFRDY_Msk)
+#define ADC_GLOBAL_INT_PFFOVF               (ADC_CTLINTENSET_PFFOVF_Msk)
+#define ADC_GLOBAL_INT_PFFUNF               (ADC_CTLINTENSET_PFFUNF_Msk)
+#define ADC_GLOBAL_INT_VREFRDY              (ADC_CTLINTENSET_VREFRDY_Msk)
+#define ADC_GLOBAL_INT_VREFUPD              (ADC_CTLINTENSET_VREFUPD_Msk)
+#define ADC_GLOBAL_INT_CRRDY2               (1 << (ADC_CTLINTENSET_CRRDY_Pos+2))
+
+#define ADC_CMP_MODE_IEHIHI                 (ADC_CMPCTRL_IEHIHI_Msk)
+#define ADC_CMP_MODE_IEHILO                 (ADC_CMPCTRL_IEHILO_Msk)
+#define ADC_CMP_MODE_IELOHI                 (ADC_CMPCTRL_IELOHI_Msk)
+#define ADC_CMP_MODE_IELOLO                 (ADC_CMPCTRL_IELOLO_Msk)
+#define ADC_CMP_MODE_IEBTWN                 (ADC_CMPCTRL_IEBTWN_Msk)
 
 /* Helper macros to extract channel id and core id from the ADC result read from the FIFO */
-#define ADC_FIFO_CHNID_GET(fifo_data)			((fifo_data & ADC_PFFDATA_PFFCHNID_Msk) >> ADC_PFFDATA_PFFCHNID_Pos)
-#define ADC_FIFO_CORID_GET(fifo_data)			((fifo_data & ADC_PFFDATA_PFFCORID_Msk) >> ADC_PFFDATA_PFFCORID_Pos)
-#define ADC_FIFO_CNT_GET(fifo_data)				((fifo_data & ADC_PFFDATA_PFFCNT_Msk) >> ADC_PFFDATA_PFFCNT_Pos)
-#define ADC_FIFO_DATA_GET(fifo_data)			((fifo_data & ADC_PFFDATA_PFFDATA_Msk) >> ADC_PFFDATA_PFFDATA_Pos)
+#define ADC_FIFO_CHNID_GET(fifo_data)           ((fifo_data & ADC_PFFDATA_PFFCHNID_Msk) >> ADC_PFFDATA_PFFCHNID_Pos)
+#define ADC_FIFO_CORID_GET(fifo_data)           ((fifo_data & ADC_PFFDATA_PFFCORID_Msk) >> ADC_PFFDATA_PFFCORID_Pos)
+#define ADC_FIFO_CNT_GET(fifo_data)             ((fifo_data & ADC_PFFDATA_PFFCNT_Msk) >> ADC_PFFDATA_PFFCNT_Pos)
+#define ADC_FIFO_DATA_GET(fifo_data)            ((fifo_data & ADC_PFFDATA_PFFDATA_Msk) >> ADC_PFFDATA_PFFDATA_Pos)
+
+
 
 typedef enum
 {
-	ADC_CORE_NUM2 = 2U,
+    ADC_CORE_NUM2 = 2U,
 }ADC_CORE_NUM;
 
 
 typedef enum
 {
-	ADC_CH0 = 0U,
-	ADC_CH1 = 1U,
-	ADC_CH2 = 2U,
-	ADC_CH3 = 3U,
-	ADC_CH4 = 4U,
-	ADC_CH5 = 5U,
-	ADC_CH6 = 6U,
-	ADC_CH7 = 7U,
+    ADC_CH0 = 0U,
+    ADC_CH1 = 1U,
+    ADC_CH2 = 2U,
+    ADC_CH3 = 3U,
+    ADC_CH4 = 4U,
+    ADC_CH5 = 5U,
+    ADC_CH6 = 6U,
 }ADC_CHANNEL_NUM;
 
 

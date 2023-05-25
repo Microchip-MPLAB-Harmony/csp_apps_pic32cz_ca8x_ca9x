@@ -1,5 +1,5 @@
 /*
- * Instance header file for PIC32CZ8110CA90208
+ * Instance header file for PIC32CZ8110CA80208
  *
  * Copyright (c) 2023 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,8 +20,8 @@
  *
  */
 
-/* file generated from device description version 2023-01-31T16:02:46Z */
-#ifndef _PIC32CZCA90_FUSES_INSTANCE_
-#define _PIC32CZCA90_FUSES_INSTANCE_
+/* file generated from device description version 2023-05-18T19:14:05Z */
+#ifndef _PIC32CZCA80_FUSES_INSTANCE_
+#define _PIC32CZCA80_FUSES_INSTANCE_
 
-#endif /* _PIC32CZCA90_FUSES_INSTANCE_ */
+#endif /* _PIC32CZCA80_FUSES_INSTANCE_ */

@@ -3,11 +3,11 @@
 	"category": "com.microchip.ide.project",
 	"content": {
 		"metaDataVersion": "1.1.0",
-		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_adc_blocking",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_temp_sense",
 		"version": "3.0.0",
-		"displayName": "ADC Blocking Example for PIC32CZ_CA Family",
-		"projectName": "adc_blocking_pic32cz_ca80_curiosity_ultra",
-		"shortDescription": "This example application shows how to use the ADC Peripheral library in blocking mode to convert analog input on a ADC channel",
+		"displayName": "Temp sense Example for PIC32CZ_CA Family",
+		"projectName": "temp_sense_pic32cz_ca80_curiosity_ultra",
+		"shortDescription": "This example application shows how to use the ADC Peripheral library in blocking mode to convert the internal bandgap temperature to a temperature value using the two-point factory calibration.",
 		"ide": {
 			"name": "MPLABX",
 			"semverRange": ">=6.05.0"

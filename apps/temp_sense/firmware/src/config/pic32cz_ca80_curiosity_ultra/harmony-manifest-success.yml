@@ -4,16 +4,16 @@
 
 
 project: temp_sense
-creation_date: 2023-04-25T08:31:28.976-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2023-05-25T14:42:16.286+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
-mcc_version: v5.3.1
-mcc_core_version: v5.5.1
-mplabx_version: v6.10        # if MPLAB X plugin only
-harmony_version: v1.2.0
-compiler: XC32 (v4.20) 
+mcc_version: v5.3.0
+mcc_core_version: v5.5.0
+mplabx_version: v6.05        # if MPLAB X plugin only
+harmony_version: v1.3.1
+compiler: XC32 (v4.21) 
 
 modules:
-    - {name: "csp", version: "unknown"}
-    - {name: "dev_packs", version: "v3.13.1"}
+    - {name: "csp", version: "v3.17.0-rc.1-88-g6b27c5f"}
+    - {name: "dev_packs", version: "v3.17.0-rc.1-8-g82f9aa5"}
 
