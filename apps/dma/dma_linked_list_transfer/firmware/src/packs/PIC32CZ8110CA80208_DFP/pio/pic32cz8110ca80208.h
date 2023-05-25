@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2023-04-05T13:14:57Z */
+/* file generated from device description version 2023-05-18T19:14:05Z */
 #ifndef _PIC32CZ8110CA80208_GPIO_H_
 #define _PIC32CZ8110CA80208_GPIO_H_
 
