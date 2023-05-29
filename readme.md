@@ -44,6 +44,7 @@ The following applications are provided to demonstrate the typical or interestin
 | [CAN FD interrupt](apps/can/can_fd_operation_interrupt_timestamp/readme.md) | This example application shows how to use the CAN module to transmit and receive CAN FD messages in interrupt mode |
 | [CAN blocking](apps/can/can_normal_operation_blocking/readme.md) | This example application shows how to use the CAN module to transmit and receive normal CAN messages in polling mode |
 | [Clock configuration](apps/clock/clock_config/readme.md) | This example application shows how to configure the clock system to run the device at maximum frequency. It also outputs a prescaled clock signal on a GPIO pin for measurement and verification |
+| [DMA CRC-32 Generation](apps/dma/dma_crc32_generate/readme.md) | This example application demonstrates how to use the DMA peripheral to compute 32-bit Cyclic Redundancy Checksum (CRC) |
 | [DMAC linked list transfer](apps/dma/dma_linked_list_transfer/readme.md) | This example application demonstrates how to use the DMA peripheral to copy multiple blocks of memory using DMA linked lists |
 | [DMAC memory transfer](apps/dma/dma_memory_transfer/readme.md) | This example application demonstrates how to use the DMAC peripheral to do a memory to memory transfer |
 | [DMAC USART echo](apps/dma/dma_usart_echo/readme.md) | This example application demonstrates USART transfer with DMA to receive 10 bytes and echo back the received bytes |
@@ -76,6 +77,7 @@ The following applications are provided to demonstrate the typical or interestin
 | [TCC compare mode](apps/tcc/tcc_compare_mode/readme.md) | This example shows how to use the TCC module in compare mode to generate different waveforms |
 | [TCC PWM generation](apps/tcc/tcc_synchronous_pwm_channels/readme.md) | This example application shows how to use the TCC to generate a 2 or 3 phase PWM signals for motor control with dead time |
 | [TCC timer mode](apps/tcc/tcc_timer_mode/readme.md) | This example shows how to use the TCC module in timer mode to generate periodic interrupt |
+| [Temperature Sensor Measurement Calibration](apps/temp_sense/readme.md) | This example application shows how to use the ADC Peripheral library in blocking mode to convert the internal bandgap temperature to a temperature |
 | [TRAM erase on tamper detect](apps/tram/tram_tamper_erase/readme.md) | This example application shows how to configure and use tamper detect feature of RTC and TrustRam |
 | [TRNG random number](apps/trng/random_number/readme.md) | This example shows how to use the TRNG Peripheral library to generate and read a random number |
 | [WDT timeout](apps/wdt/wdt_timeout/readme.md) | This example shows how to generate a Watchdog timer reset by emulating a deadlock |
