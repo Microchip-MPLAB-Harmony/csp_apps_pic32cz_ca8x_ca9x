@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ-CA80 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ CA80 family
 title: DMA CRC-32 Generation
 has_children: false
 has_toc: false

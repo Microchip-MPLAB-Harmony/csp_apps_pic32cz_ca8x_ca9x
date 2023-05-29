@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA80 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ CA80 family
 title: RSTC reset cause 
 has_children: false
 has_toc: false

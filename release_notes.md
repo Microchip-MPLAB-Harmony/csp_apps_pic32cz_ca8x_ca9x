@@ -8,7 +8,7 @@ nav_order: 99
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
-## Harmony 3 peripheral library application examples for PIC32CZ CA family  v3.0.0
+## Harmony 3 peripheral library application examples for PIC32CZ CA80 family  v3.0.0
 
 ### Development kit and demo application support
 
@@ -33,7 +33,7 @@ Following table provides number of peripheral library examples available for dif
   - MPLAB® Code Configurator (MCC) v5.3.0
 - [MPLAB® XC32 C/C++ Compiler v4.21](https://www.microchip.com/mplab/compilers)
 
-## Harmony 3 peripheral library application examples for PIC32CZ CA family  v3.0.0-E1
+## Harmony 3 peripheral library application examples for PIC32CZ-CA80 family  v3.0.0-E1
 
 ### Development kit and demo application support
 

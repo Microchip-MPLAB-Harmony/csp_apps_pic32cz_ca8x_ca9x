@@ -1,12 +1,12 @@
 ﻿---
-title: Harmony 3 peripheral library application examples for PIC32CZ CA family
+title: Harmony 3 peripheral library application examples for PIC32CZ CA80 family
 nav_order: 1
 has_children: true
 has_toc: false
 ---
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
-# Harmony 3 peripheral library application examples for PIC32CZ CA family 
+# Harmony 3 peripheral library application examples for PIC32CZ CA80 family
 
 MPLAB® Harmony 3 is an extension of the MPLAB® ecosystem for creating embedded firmware solutions for Microchip 32-bit SAM and PIC® microcontroller and microprocessor devices.  Refer to the following links for more information.
 
@@ -16,7 +16,7 @@ MPLAB® Harmony 3 is an extension of the MPLAB® ecosystem for creating embedded
 - [Microchip MPLAB® Harmony](https://www.microchip.com/mplab/mplab-harmony)
 - [Microchip MPLAB® Harmony Pages](https://microchip-mplab-harmony.github.io/)
 
-This repository contains the MPLAB® Harmony 3 peripheral library application examples for PIC32CZ CA family
+This repository contains the MPLAB® Harmony 3 peripheral library application examples for PIC32CZ-CA80 family
 
 - [Release Notes](release_notes.md)
 - [MPLAB® Harmony License](mplab_harmony_license.md)

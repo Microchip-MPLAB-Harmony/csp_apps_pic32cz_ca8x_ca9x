@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for PIC32CZ CA80/CA80 family
+parent: Harmony 3 peripheral library application examples for PIC32CZ CA80 family
 title: PM wakeup using RTC 
 has_children: false
 has_toc: false
