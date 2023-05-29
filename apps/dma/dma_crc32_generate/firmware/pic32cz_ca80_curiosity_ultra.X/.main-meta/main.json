@@ -3,11 +3,11 @@
 	"category": "com.microchip.ide.project",
 	"content": {
 		"metaDataVersion": "1.1.0",
-		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cz_ca_usart_echo_interrupt",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_PIC32CZ_CA_dma_crc32_generate",
 		"version": "3.0.0",
-		"displayName": "SERCOM USART interrupt Example for PIC32CZ_CA Family",
-		"projectName": "usart_echo_interrupt_pic32cz_ca80_curiosity_ultra",
-		"shortDescription": "This example application demonstrates how to use the SERCOM peripheral in USART mode to transfer data in a non-blocking manner.",
+		"displayName": "DMA CRC-32 Generation Example for PIC32CZ_CA Family",
+		"projectName": "dma_crc32_generate_pic32cz_ca80_curiosity_ultra",
+		"shortDescription": "This example application demonstrates how to use the DMA peripheral to compute 32-bit Cyclic Redundancy Checksum (CRC).",
 		"ide": {
 			"name": "MPLABX",
 			"semverRange": ">=6.5.0"
@@ -45,28 +45,26 @@
 			[
 				"Harmony",
 				"Peripherals",
-				"SERCOM"
+				"DMAC"
 			],
 			[
 				"Peripherals",
-				"SERCOM"
+				"DMAC"
 			]
 		],
 		"peripherals": [
-			"SERCOM"
+			"DMAC"
 		],
 		"keywords": [
 			"MHC",
 			"Harmony",
 			"PIC32CZ8110CA80208",
 			"PIC32CZ_CA Family",
-			"FLEXCOM",
-			"Serial Communication",
-			"I2C",
-			"SPI",
-			"UART",
-			"SERCOM",
-			"TWI"
+			"DMA",
+			"Direct Memory Access",
+			"DMA Transfer",
+			"DMA Controller",
+			"CRC"
 		],
 		"additionalData": {
 			"longDescription": {
