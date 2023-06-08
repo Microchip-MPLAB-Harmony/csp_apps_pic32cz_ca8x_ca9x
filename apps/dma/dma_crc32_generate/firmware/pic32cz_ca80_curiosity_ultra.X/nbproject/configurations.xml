@@ -215,6 +215,7 @@
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="false">
       <itemPath>Makefile</itemPath>
       <itemPath>dma_crc32_generate_pic32cz_ca80_curiosity_ultra.mc3</itemPath>
+      <itemPath>../src/config/pic32cz_ca80_curiosity_ultra/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
