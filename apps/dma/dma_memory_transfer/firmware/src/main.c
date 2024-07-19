@@ -55,16 +55,16 @@
 #include "definitions.h"                // SYS function prototypes
 
 /* Macro definitions */
-#define LED_On      LED0_Clear
-#define LED_Off     LED0_Set
 
-#define TRANSFER_SIZE 1024
+#define TRANSFER_SIZE 65536
 
 __attribute__ ((aligned (32))) uint8_t srcBuffer[TRANSFER_SIZE] = {0};
 __attribute__ ((aligned (32))) uint8_t dstBuffer[TRANSFER_SIZE] = {0};
 
 volatile bool dmaXferDone = false;
 volatile bool dmaXferError = false;
+volatile uint32_t start_time = 0;
+volatile uint32_t stop_time = 0;
 
 void DMA_EventHandler(DMA_TRANSFER_EVENT status, uintptr_t context)
 {
@@ -78,29 +78,49 @@ void DMA_EventHandler(DMA_TRANSFER_EVENT status, uintptr_t context)
     }
 }
 
+void DMA_ThroughputCalc(void)
+{
+    if(dmaXferDone == true)
+    {
+        dmaXferDone = false;
+
+        if(memcmp(srcBuffer, dstBuffer, TRANSFER_SIZE) == 0)
+        {
+            /* Successfully transferred the data using DMAC */
+            printf("DMA Memory Transfer Successful with Data Match\r\n");                                
+            float transfer_time = ((start_time - stop_time)*3.33e-9);
+            printf("Transfer time = %.3f msec\r\n", (transfer_time * 1000));             
+            float transfer_rate = (TRANSFER_SIZE/transfer_time) / 10e6;
+            printf("Transfer rate = %.3f MBytes/sec\r\n", transfer_rate);
+        }
+        else
+        {
+            printf("DMA Memory Transfer Successful with Data Mismatch !!!\r\n");            
+        }
+    }
+    else if(dmaXferError == true)
+    {
+        /* Error occurred during the transfers */
+        dmaXferError = false;
+        printf("DMA Memory Transfer Error !!!\r\n");
+    }
+    else
+    {
+        /* Nothing to do, loop */
+        ;
+    }  
+}
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
-
-int main ( void )
+void DMA_Channel0(void)
 {
-    uint32_t i = 0;
-
-    /* Initialize all modules */
-    SYS_Initialize ( NULL );
-    LED_Off();
-
-    /* Build the srcBuffer */
-    for (i = 0; i < TRANSFER_SIZE; i++)
-    {
-        srcBuffer[i] = i;
-    }
-    
-    printf("\n\r-------------------------------------------------------------");
-    printf("\n\r\t\t DMA Memory Transfer DEMO\t\t");
-    printf("\n\r-------------------------------------------------------------");
+    printf("\r\n-------------------------------------------------------------");
+    printf("\r\n DMA CH0 Mem to Mem transfer with Cell Transfer Size of 1 byte\r\n");
+    printf("-------------------------------------------------------------\r\n");
     
     /* Register a callback with DMA PLIB to get transfer complete and error events. */
     DMA_ChannelCallbackRegister(DMA_CHANNEL_0, DMA_EventHandler, 0);
@@ -112,40 +132,65 @@ int main ( void )
     
     /* Invalidate cache lines before submitting DMA request */
     DCACHE_INVALIDATE_BY_ADDR((uint32_t *)dstBuffer, TRANSFER_SIZE);
-
-    DMA_ChannelTransfer(DMA_CHANNEL_0, srcBuffer, dstBuffer, TRANSFER_SIZE);
     
+    SYSTICK_TimerStart(); 
+    start_time = SYSTICK_TimerCounterGet();
+    
+    DMA_ChannelTransfer(DMA_CHANNEL_0, srcBuffer, dstBuffer, TRANSFER_SIZE);
+     
     while (dmaXferDone == false && dmaXferError == false);
     
-    if(dmaXferDone == true)
-    {
-        dmaXferDone = false;
+    SYSTICK_TimerStop();
+    stop_time = SYSTICK_TimerCounterGet();        
+}
 
-        if(memcmp(srcBuffer, dstBuffer, TRANSFER_SIZE) == 0)
-        {
-            /* Successfully transferred the data using DMAC */
-            printf("\n\r DMA Memory Transfer Successful with Data Match\n\r");                    
-            LED_On();
-        }
-        else
-        {
-            /* Data transfers done, but data mismatch occurred */
-            printf("\n\r DMA Memory Transfer Successful with Data Mismatch !!!\n\r");                    
-            LED_Off();
-        }
-    }
-    else if(dmaXferError == true)
+void DMA_Channel1(void)
+{
+    printf("\r\n-------------------------------------------------------------");
+    printf("\r\n DMA CH1 Mem to Mem transfer with Cell Transfer Size of 64 bytes \r\n");
+    printf("-------------------------------------------------------------\r\n");
+    
+    /* Register a callback with DMA PLIB to get transfer complete and error events. */
+    DMA_ChannelCallbackRegister(DMA_CHANNEL_1, DMA_EventHandler, 0);
+    
+    /* Clean cache lines having source buffer before submitting a transfer
+     * request to DMA to load the latest data in the cache to the actual
+     * memory */
+    DCACHE_CLEAN_BY_ADDR((uint32_t *)srcBuffer, TRANSFER_SIZE);
+    
+    /* Invalidate cache lines before submitting DMA request */
+    DCACHE_INVALIDATE_BY_ADDR((uint32_t *)dstBuffer, TRANSFER_SIZE);
+    
+    SYSTICK_TimerStart(); 
+    
+    start_time = SYSTICK_TimerCounterGet();
+    
+    DMA_ChannelTransfer(DMA_CHANNEL_1, srcBuffer, dstBuffer, TRANSFER_SIZE);
+     
+    while (dmaXferDone == false && dmaXferError == false);
+    
+    SYSTICK_TimerStop();
+    
+    stop_time = SYSTICK_TimerCounterGet();        
+}
+
+int main ( void )
+{
+    uint32_t i = 0;
+
+    /* Initialize all modules */
+    SYS_Initialize ( NULL );
+
+    /* Build the srcBuffer */
+    for (i = 0; i < TRANSFER_SIZE; i++)
     {
-        /* Error occurred during the transfers */
-        dmaXferError = false;
-        printf("\n\r DMA Memory Transfer Error !!!\n\r");
-        LED_Off();
+        srcBuffer[i] = i;
     }
-    else
-    {
-        /* Nothing to do, loop */
-        ;
-    }
+    
+    DMA_Channel0(); 
+    DMA_ThroughputCalc();
+    DMA_Channel1();
+    DMA_ThroughputCalc();
 
     while (1)
     {

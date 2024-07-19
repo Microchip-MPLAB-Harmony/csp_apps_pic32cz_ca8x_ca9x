@@ -1,18 +1,17 @@
 /*******************************************************************************
-  NVIC PLIB Header
+  Interface definition of SYSTICK PLIB.
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_nvic.h
+    plib_systick.h
 
   Summary:
-    NVIC PLIB Header File
+    Interface definition of the System Timer Plib (SYSTICK).
 
   Description:
-    None
-
+    This file defines the interface for the SYSTICK Plib.
 *******************************************************************************/
 
 /*******************************************************************************
@@ -38,35 +37,42 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_NVIC_H
-#define PLIB_NVIC_H
+#ifndef PLIB_SYSTICK_H    // Guards against multiple inclusion
+#define PLIB_SYSTICK_H
 
-#include <stddef.h>
+#include <stdint.h>
 #include <stdbool.h>
+#include <stddef.h>
 
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus  // Provide C++ Compatibility
-
+#ifdef __cplusplus // Provide C++ Compatibility
     extern "C" {
+#endif
+
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Interface
+// *****************************************************************************
+// *****************************************************************************
+
+#define SYSTICK_FREQ   300000000U
+
+
+/***************************** SYSTICK API *******************************/
+void SYSTICK_TimerInitialize ( void );
+void SYSTICK_TimerRestart ( void );
+void SYSTICK_TimerStart ( void );
+void SYSTICK_TimerStop ( void );
+void SYSTICK_TimerPeriodSet ( uint32_t period );
+uint32_t SYSTICK_TimerPeriodGet ( void );
+uint32_t SYSTICK_TimerCounterGet ( void );
+uint32_t SYSTICK_TimerFrequencyGet ( void );
+void SYSTICK_DelayMs ( uint32_t delay_ms );
+void SYSTICK_DelayUs ( uint32_t delay_us );
+
+bool SYSTICK_TimerPeriodHasExpired(void);
+#ifdef __cplusplus // Provide C++ Compatibility
+ }
+#endif
 
 #endif
-// DOM-IGNORE-END
-
-
-/***************************** NVIC Inline *******************************/
-
-void NVIC_Initialize( void );
-void NVIC_INT_Enable( void );
-bool NVIC_INT_Disable( void );
-void NVIC_INT_Restore( bool state );
-bool NVIC_INT_SourceDisable( IRQn_Type source );
-void NVIC_INT_SourceRestore( IRQn_Type source, bool status );
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus  // Provide C++ Compatibility
-
-    }
-
-#endif
-// DOM-IGNORE-END
-#endif // PLIB_NVIC_H
