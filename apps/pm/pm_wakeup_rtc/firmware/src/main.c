@@ -114,9 +114,11 @@ int main ( void )
     printf("\n\n\r----------------------------------------------");
     printf("\n\r             Low power demo using RTC           ");
     printf("\n\r----------------------------------------------"); 
-          
-    if((reset_cause_bkup & RSTC_BKUPEXIT_HIB_Msk) == RSTC_BKUPEXIT_HIB_Msk)
+     
+    if (((reset_cause & RSTC_RCAUSE_BACKUP_Msk) == RSTC_RCAUSE_BACKUP_Msk) && ((reset_cause_bkup & RSTC_BKUPEXIT_Msk) == RSTC_BKUPEXIT_Msk))
         printf("\n\n\rDevice exited from Hibernate mode\n");
+    else if(((reset_cause & RSTC_RCAUSE_BACKUP_Msk) == RSTC_RCAUSE_BACKUP_Msk) && ((reset_cause_bkup & RSTC_BKUPEXIT_RTC_Msk) == RSTC_BKUPEXIT_RTC_Msk))
+        printf("\n\n\rDevice exited from Backup mode\n");
     else if(reset_cause == RSTC_RCAUSE_POR_Msk)
         printf("\n\n\rDevice exited from OFF mode\n");
 
