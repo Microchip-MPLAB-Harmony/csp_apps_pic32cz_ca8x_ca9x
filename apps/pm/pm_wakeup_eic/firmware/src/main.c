@@ -73,17 +73,17 @@ uint8_t cmd = 0;
 
 static void timeout (uintptr_t context)
 {
-    LED_Toggle();    
+    LED_Toggle();
 }
 
 void display_menu (void)
 {
     printf("\n\n\n\rSelect the low power mode to enter");
     printf("\n\ra) Idle Sleep Mode");
-    printf("\n\rb) Standby Sleep Mode"); 
+    printf("\n\rb) Standby Sleep Mode");
     printf("\n\rc) Hibernate Sleep Mode");
     printf("\n\rd) Off Sleep Mode");
-    printf("\n\rEnter your choice");    
+    printf("\n\rEnter your choice");
     scanf("%c", &cmd);
 }
 
@@ -96,26 +96,28 @@ void display_menu (void)
 int main ( void )
 {
     RSTC_RESET_CAUSE reset_cause;
-    
+    RSTC_BKUPEXIT_CAUSE reset_cause_bkup;
+
     /* Initialize all modules */
     SYS_Initialize ( NULL );
 
+    reset_cause_bkup = RSTC_BackupExitCauseGet();
     reset_cause = RSTC_ResetCauseGet();
-    
+
     printf("\n\n\r----------------------------------------------");
     printf("\n\r                 LOW power demo using EIC"               );
-    printf("\n\r----------------------------------------------"); 
-    
-    if((reset_cause & RSTC_RCAUSE_EXT_Msk) == RSTC_RCAUSE_EXT_Msk)
+    printf("\n\r----------------------------------------------");
+
+    if((reset_cause_bkup & RSTC_BKUPEXIT_HIB_Msk) == RSTC_BKUPEXIT_HIB_Msk)
         printf("\n\n\rDevice exited from Hibernate mode\n");
     else if(reset_cause == RSTC_RCAUSE_POR_Msk)
         printf("\n\n\rDevice exited from OFF mode\n");
-    
+
     SYSTICK_TimerCallbackSet(&timeout, (uintptr_t) NULL);
     SYSTICK_TimerStart();
-    
+
     display_menu();
-    
+
     while(1)
     {
         switch(cmd)
@@ -123,7 +125,7 @@ int main ( void )
             case IDLE_SLEEP_MODE:
             {
                 printf("\n\rEntering IDLE SLEEP Mode");
-                printf("\n\rPress SW0 to wakeup the device"); 
+                printf("\n\rPress SW0 to wakeup the device");
                 SYSTICK_TimerStop();
                 LED_OFF();
                 PM_IdleModeEnter();
@@ -135,7 +137,7 @@ int main ( void )
             case STANDBY_SLEEP_MODE:
             {
                 printf("\n\rEntering STANDBY SLEEP Mode");
-                printf("\n\rPress SW0 to wakeup the device");   
+                printf("\n\rPress SW0 to wakeup the device");
                 SYSTICK_TimerStop();
                 LED_OFF();
                 PM_StandbyModeEnter();
@@ -147,7 +149,7 @@ int main ( void )
             case HIBERNATE_SLEEP_MODE:
             {
                 printf("\n\rEntering HIBERNATE SLEEP Mode");
-                printf("\n\rPress Reset button to wakeup the device   ");   
+                printf("\n\rPress Reset button to wakeup the device   ");
                 SYSTICK_TimerStop();
                 LED_OFF();
                 PM_HibernateModeEnter();
@@ -156,7 +158,7 @@ int main ( void )
             case OFF_SLEEP_MODE:
             {
                 printf("\n\rEntering OFF SLEEP Mode");
-                printf("\n\rPress Reset button to wakeup the device  ");   
+                printf("\n\rPress Reset button to wakeup the device  ");
                 SYSTICK_TimerStop();
                 LED_OFF();
                 PM_OffModeEnter();
@@ -168,7 +170,7 @@ int main ( void )
                 display_menu();
                 break;
             }
-        } 
+        }
     }
 
     /* Execution should not come here during normal operation */
