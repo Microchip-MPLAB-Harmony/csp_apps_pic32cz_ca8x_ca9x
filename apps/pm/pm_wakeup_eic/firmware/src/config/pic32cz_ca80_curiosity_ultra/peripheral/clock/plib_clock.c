@@ -41,6 +41,18 @@
 #include "plib_clock.h"
 #include "device.h"
 
+static void OSCCTRL_Initialize(void)
+{
+    /****************** XOSC Initialization ********************************/
+
+    /* Configure External Oscillator */
+    OSCCTRL_REGS->OSCCTRL_XOSCCTRLA = OSCCTRL_XOSCCTRLA_STARTUP(14U) | OSCCTRL_XOSCCTRLA_ENABLE_Msk;
+    while((OSCCTRL_REGS->OSCCTRL_STATUS & OSCCTRL_STATUS_XOSCRDY_Msk) != OSCCTRL_STATUS_XOSCRDY_Msk)
+    {
+        /* Waiting for the XOSC Ready state */
+    }
+    
+}
 
 static void OSC32KCTRL_Initialize(void)
 {
@@ -101,7 +113,7 @@ static void GCLK0_Initialize(void)
 
 static void GCLK1_Initialize(void)
 {
-    GCLK_REGS->GCLK_GENCTRL[1] = GCLK_GENCTRL_DIV(2U) | GCLK_GENCTRL_SRC(6U) | GCLK_GENCTRL_GENEN_Msk;
+    GCLK_REGS->GCLK_GENCTRL[1] = GCLK_GENCTRL_DIV(2U) | GCLK_GENCTRL_SRC(0U) | GCLK_GENCTRL_GENEN_Msk;
 
     while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL1_Msk) == GCLK_SYNCBUSY_GENCTRL1_Msk)
     {
@@ -112,13 +124,15 @@ static void GCLK1_Initialize(void)
 
 void CLOCK_Initialize (void)
 {
+    /* Function to Initialize the Oscillators */
+    OSCCTRL_Initialize();
 
     /* Function to Initialize the 32KHz Oscillators */
     OSC32KCTRL_Initialize();
 
     PLL0_Initialize();
-    GCLK0_Initialize();
     GCLK1_Initialize();
+    GCLK0_Initialize();
 
 
 
