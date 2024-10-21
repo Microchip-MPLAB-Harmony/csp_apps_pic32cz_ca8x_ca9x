@@ -47,20 +47,15 @@
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-
 #include "interrupts.h"
 #include "plib_sercom1_usart.h"
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data
 // *****************************************************************************
 // *****************************************************************************
-
-
 /* SERCOM1 USART baud value for 115200 Hz baud rate */
 #define SERCOM1_USART_INT_BAUD_VALUE            (45403UL)
-
 
 
 
@@ -103,6 +98,7 @@ void SERCOM1_USART_Initialize( void )
      * Configures Sampling rate
      * Configures IBON
      */
+
     SERCOM1_REGS->USART_INT.SERCOM_CTRLA = SERCOM_USART_INT_CTRLA_MODE_USART_INT_CLK | SERCOM_USART_INT_CTRLA_RXPO(0x3UL) | SERCOM_USART_INT_CTRLA_TXPO(0x0UL) | SERCOM_USART_INT_CTRLA_DORD_Msk | SERCOM_USART_INT_CTRLA_IBON_Msk | SERCOM_USART_INT_CTRLA_FORM(0x0UL) | SERCOM_USART_INT_CTRLA_SAMPR(0UL) ;
 
     /* Configure Baud Rate */
@@ -134,6 +130,10 @@ void SERCOM1_USART_Initialize( void )
     }
 }
 
+
+
+
+
 uint32_t SERCOM1_USART_FrequencyGet( void )
 {
     return 6000000UL;
@@ -152,7 +152,7 @@ bool SERCOM1_USART_SerialSetup( USART_SERIAL_SETUP * serialSetup, uint32_t clkFr
         {
             clkFrequency = SERCOM1_USART_FrequencyGet();
         }
-        
+
         if(clkFrequency >= (16U * serialSetup->baudRate))
         {
             sampleRate = 0U;
@@ -447,4 +447,8 @@ int SERCOM1_USART_ReadByte( void )
 {
     return (int)SERCOM1_REGS->USART_INT.SERCOM_DATA;
 }
+
+
+
+
 
