@@ -52,7 +52,7 @@ static void PLL0_Initialize(void)
 {
     /* Enable Additional Voltage Regulator */
     SUPC_REGS->SUPC_VREGCTRL |= SUPC_VREGCTRL_AVREGEN(4U);
-    while ((SUPC_REGS->SUPC_STATUS & (4U << SUPC_STATUS_ADDVREGRDY_Pos)) != (4U << SUPC_STATUS_ADDVREGRDY_Pos))
+    while ((SUPC_REGS->SUPC_STATUS & ((uint32_t)4U << SUPC_STATUS_ADDVREGRDY_Pos)) != ((uint32_t)4U << SUPC_STATUS_ADDVREGRDY_Pos))
     {
         /* Do Nothing */
     }
@@ -91,7 +91,7 @@ static void GCLK0_Initialize(void)
     {
         /* Wait for the Main Clock to be Ready */
     }
-    GCLK_REGS->GCLK_GENCTRL[0] = GCLK_GENCTRL_DIV(1U) | GCLK_GENCTRL_SRC(6U) | GCLK_GENCTRL_GENEN_Msk;
+    GCLK_REGS->GCLK_GENCTRL[0] = GCLK_GENCTRL_DIV(1U) | GCLK_GENCTRL_SRC(5U) | GCLK_GENCTRL_GENEN_Msk;
 
     while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL0_Msk) == GCLK_SYNCBUSY_GENCTRL0_Msk)
     {
@@ -101,7 +101,7 @@ static void GCLK0_Initialize(void)
 
 static void GCLK1_Initialize(void)
 {
-    GCLK_REGS->GCLK_GENCTRL[1] = GCLK_GENCTRL_DIV(2U) | GCLK_GENCTRL_SRC(6U) | GCLK_GENCTRL_GENEN_Msk;
+    GCLK_REGS->GCLK_GENCTRL[1] = GCLK_GENCTRL_DIV(2U) | GCLK_GENCTRL_SRC(5U) | GCLK_GENCTRL_GENEN_Msk;
 
     while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL1_Msk) == GCLK_SYNCBUSY_GENCTRL1_Msk)
     {

@@ -9,11 +9,11 @@ has_toc: false
 
 # DMAC memory transfer
 
-This example application demonstrates how to use the DMAC peripheral to do a memory to memory transfer.
+This example application demonstrates how to use the DMAC peripheral to do a memory to memory transfer. Additionally, the application prints the throughput of the data transfer with cell transfer size configured to 1 byte and then with a cell transfer size of 64 bytes.
 
 ## Description
 
-The application uses a software trigger to initiate a memory-memory transfer from the source buffer to the destination buffer. After the transfer is complete the application verifies the data and prints the status on the serial console.
+The application uses a software trigger to initiate a memory-memory transfer from the source buffer to the destination buffer. After the transfer is complete the application verifies the data and prints the status on the serial console. It also calculates the throughput of the data transfer.
 
 ## Downloading and building the application
 

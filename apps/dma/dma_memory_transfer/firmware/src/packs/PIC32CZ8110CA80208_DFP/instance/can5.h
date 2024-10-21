@@ -17,7 +17,7 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2024-06-28T20:37:43Z */
+/* file generated from device description file (ATDF) version 2024-07-31T17:50:17Z */
 #ifndef _PIC32CZCA80_CAN5_INSTANCE_
 #define _PIC32CZCA80_CAN5_INSTANCE_
 
