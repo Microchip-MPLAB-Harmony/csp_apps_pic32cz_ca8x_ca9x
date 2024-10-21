@@ -123,7 +123,7 @@ void TCC1_CaptureStop( void )
 void TCC1_CaptureCommandSet(TCC_COMMAND command)
 {
     TCC1_REGS->TCC_CTRLBSET = (uint8_t)((uint32_t)command << TCC_CTRLBSET_CMD_Pos);
-    while((TCC1_REGS->TCC_SYNCBUSY) != 0U)
+    while((TCC1_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_CTRLB_Msk) == TCC_SYNCBUSY_CTRLB_Msk)
     {
         /* Wait for Write Synchronization */
     }
