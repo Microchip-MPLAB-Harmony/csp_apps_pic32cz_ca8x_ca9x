@@ -52,6 +52,7 @@
 
 
 
+
 typedef struct
 {
     uint8_t int_flags;
@@ -80,11 +81,14 @@ void AC_Initialize(void)
     }
 
 
+
+
     AC_REGS->AC_CTRLC = AC_CTRLC_PRESCALER_DIV1_Val | AC_CTRLC_PER(0) | AC_CTRLC_WIDTH(0) ;
 
-     /* Disable the module and configure COMPCTRL */
 
 
+
+    /* Disable the module and configure COMPCTRL */
     /**************** Comparator 0 Configurations ************************/
     AC_REGS->AC_COMPCTRL[0] = AC_COMPCTRL_MUXPOS_INTDAC | AC_COMPCTRL_MUXNEG_BANDGAP | AC_COMPCTRL_INTSEL_TOGGLE | AC_COMPCTRL_OUT_OFF | AC_COMPCTRL_SPEED(3) | AC_COMPCTRL_FLEN_OFF | AC_COMPCTRL_SINGLE_Msk | AC_COMPCTRL_RUNSTDBY_Msk | AC_COMPCTRL_SUT(31) ;
 
@@ -138,6 +142,8 @@ void AC_SetDACOutput( AC_CHANNEL channel_id , uint8_t value)
 
     AC_REGS->AC_COMPCTRL[channel_id] |= AC_COMPCTRL_ENABLE_Msk;
 
+
+
     while((AC_REGS->AC_SYNCBUSY & AC_SYNCBUSY_ENABLE_Msk) == AC_SYNCBUSY_ENABLE_Msk)
     {
         /* Wait for Synchronization */
@@ -155,14 +161,17 @@ void AC_SwapInputs( AC_CHANNEL channel_id )
 {
     /* Disable comparator before swapping */
     AC_REGS->AC_COMPCTRL[channel_id] &= ~AC_COMPCTRL_ENABLE_Msk;
+
+
     /* Check Synchronization to ensure that the comparator is disabled */
     while((AC_REGS->AC_SYNCBUSY != 0U))
     {
         /* Wait for Synchronization */
     }
     /* Swap inputs of the given comparator */
-    AC_REGS->AC_COMPCTRL[channel_id] = AC_COMPCTRL_SWAP_Msk;
+    AC_REGS->AC_COMPCTRL[channel_id] |= AC_COMPCTRL_SWAP_Msk;
     AC_REGS->AC_COMPCTRL[channel_id] |= AC_COMPCTRL_ENABLE_Msk;
+
     while((AC_REGS->AC_SYNCBUSY != 0U))
     {
         /* Wait for Synchronization */
@@ -173,6 +182,7 @@ void AC_ChannelSelect( AC_CHANNEL channel_id , AC_POSINPUT positiveInput, AC_NEG
 {
     /* Disable comparator before swapping */
     AC_REGS->AC_COMPCTRL[channel_id] &= ~AC_COMPCTRL_ENABLE_Msk;
+
     /* Check Synchronization to ensure that the comparator is disabled */
     while((AC_REGS->AC_SYNCBUSY != 0U))
     {
@@ -183,6 +193,8 @@ void AC_ChannelSelect( AC_CHANNEL channel_id , AC_POSINPUT positiveInput, AC_NEG
 
     /* Enable comparator channel */
     AC_REGS->AC_COMPCTRL[channel_id] |= AC_COMPCTRL_ENABLE_Msk;
+
+
     while((AC_REGS->AC_SYNCBUSY != 0U))
     {
         /* Wait for Synchronization */
