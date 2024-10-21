@@ -65,6 +65,15 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/*** Macros for EEPROM_CS pin ***/
+#define EEPROM_CS_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 14U))
+#define EEPROM_CS_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 14U))
+#define EEPROM_CS_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 14U))
+#define EEPROM_CS_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 14U))
+#define EEPROM_CS_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 14U))
+#define EEPROM_CS_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 14U)) & 0x01U)
+#define EEPROM_CS_PIN                  PORT_PIN_PC14
+
 /*** Macros for EEPROM_HOLD pin ***/
 #define EEPROM_HOLD_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 14U))
 #define EEPROM_HOLD_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 14U))
@@ -91,15 +100,6 @@
 #define EEPROM_WP_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 27U))
 #define EEPROM_WP_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 27U)) & 0x01U)
 #define EEPROM_WP_PIN                  PORT_PIN_PB27
-
-/*** Macros for EEPROM_CS pin ***/
-#define EEPROM_CS_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 14U))
-#define EEPROM_CS_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 14U))
-#define EEPROM_CS_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 14U))
-#define EEPROM_CS_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 14U))
-#define EEPROM_CS_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 14U))
-#define EEPROM_CS_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 14U)) & 0x01U)
-#define EEPROM_CS_PIN                  PORT_PIN_PC14
 
 // *****************************************************************************
 /* PORT Group
