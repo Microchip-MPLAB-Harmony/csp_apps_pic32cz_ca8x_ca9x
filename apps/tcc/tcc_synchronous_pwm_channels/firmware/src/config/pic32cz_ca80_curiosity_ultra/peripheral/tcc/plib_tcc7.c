@@ -63,7 +63,7 @@ void TCC7_PWMInitialize(void)
 {
     /* Reset TCC */
     TCC7_REGS->TCC_CTRLA = TCC_CTRLA_SWRST_Msk;
-    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_SWRST_Msk) != 0U)
+    while((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_SWRST_Msk) == TCC_SYNCBUSY_SWRST_Msk)
     {
         /* Wait for sync */
     }
@@ -96,7 +96,7 @@ void TCC7_PWMInitialize(void)
 void TCC7_PWMStart(void)
 {
     TCC7_REGS->TCC_CTRLA |= TCC_CTRLA_ENABLE_Msk;
-    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_ENABLE_Msk) != 0U)
+    while((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_ENABLE_Msk) == TCC_SYNCBUSY_ENABLE_Msk)
     {
         /* Wait for sync */
     }
@@ -106,7 +106,7 @@ void TCC7_PWMStart(void)
 void TCC7_PWMStop (void)
 {
     TCC7_REGS->TCC_CTRLA &= ~TCC_CTRLA_ENABLE_Msk;
-    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_ENABLE_Msk) != 0U)
+    while((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_ENABLE_Msk) == TCC_SYNCBUSY_ENABLE_Msk)
     {
         /* Wait for sync */
     }
@@ -127,7 +127,7 @@ bool TCC7_PWM32bitPeriodSet (uint32_t period)
 /* Read TCC period */
 uint32_t TCC7_PWM32bitPeriodGet (void)
 {
-    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_PER_Msk) != 0U)
+    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_PER_Msk) == TCC_SYNCBUSY_PER_Msk)
     {
         /* Wait for sync */
     }
@@ -167,7 +167,7 @@ uint32_t TCC7_PWM32bitCounterGet( void )
 void TCC7_PWM32bitCounterSet (uint32_t countVal)
 {
     TCC7_REGS->TCC_COUNT = countVal;
-    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_COUNT_Msk) != 0U)
+    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_COUNT_Msk) == TCC_SYNCBUSY_COUNT_Msk)
     {
         /* Wait for sync */
     }
@@ -177,7 +177,7 @@ void TCC7_PWM32bitCounterSet (uint32_t countVal)
 void TCC7_PWMForceUpdate(void)
 {
     TCC7_REGS->TCC_CTRLBSET |= (uint8_t)TCC_CTRLBCLR_CMD_UPDATE;
-    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_CTRLB_Msk) != 0U)
+    while ((TCC7_REGS->TCC_SYNCBUSY & TCC_SYNCBUSY_CTRLB_Msk) == TCC_SYNCBUSY_CTRLB_Msk)
     {
         /* Wait for sync */
     }
