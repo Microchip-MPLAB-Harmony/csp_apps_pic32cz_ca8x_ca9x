@@ -1,6 +1,6 @@
 package:
   format-version: "1.0.0"
-  name: "csp_apps_pic32cz_ca"
+  name: "csp_apps_pic32cz_ca80_ca90"
   version: "v3.1.0"
   type: "application"
   status: "production"
