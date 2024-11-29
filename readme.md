@@ -26,7 +26,7 @@ This content can also be downloaded using MCC content manager available as part 
 
 ## Code Examples
 
-Click [here](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=CSP_APPS_PIC32CZ_CA80_CA90_INTRODUCTION&redirect=true) to view the online documentation of code examples hosted in this repository.
+Click [here](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=CSP_APPS_PIC32CZ_CA8X_CA9X_INTRODUCTION&redirect=true) to view the online documentation of code examples hosted in this repository.
 
 To view the documentation offline, follow these steps:
  - Download the publication as a zip file from [here](https://onlinedocs.microchip.com/download/GUID-591467AF-76EF-4ED9-9252-10258EED5932?type=webhelp).
